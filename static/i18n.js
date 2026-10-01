@@ -1392,6 +1392,7 @@
                     why: 'Neden TraceMailer?',
                     how: 'Nasıl Çalışır?',
                     pricing: 'Planlar',
+                    faq: 'SSS',
                     contact: 'İletişim',
                     login: 'Giriş Yap',
                     start_now: 'Hemen Başlayın',
@@ -1401,7 +1402,7 @@
                     en: 'English'
                 },
                 hero: {
-                    headline: 'Yapay Zeka Destekli E-Posta Dağıtım & Telemetri Platformu.',
+                    headline: 'Yapay Zeka Destekli E-Posta Dağıtım & Telemetri Platformu',
                     desc: 'E-postalarınız spama değil, doğrudan gelen kutusuna düşsün. Gelişmiş görüntüleme ve IP doğrulama ile açılma/tıklama telemetrisi, yapay zeka destekli alıcı hijyeni ve STO (Kişiselleştirilmiş Gönderim Saati) ile maksimum dönüşüm sağlayın.',
                     cta_primary: 'Ücretsiz Başlayın',
                     cta_secondary: 'Nasıl Çalışır?',
@@ -1511,10 +1512,34 @@
                     success_btn: 'Yeni Talep Gönder',
                     error_msg: 'Mesaj gönderilirken bir hata oluştu. Lütfen bilgilerinizi kontrol edip tekrar deneyin veya doğrudan e-posta gönderin.'
                 },
+                faq: {
+                    badge: 'Sıkça Sorulan Sorular',
+                    title: 'Aklınıza Takılan Tüm Sorular ve Yanıtları',
+                    desc: 'Yapay zeka liste hijyeni, kesin coğrafi telemetri, STO gönderim optimizasyonu, SMTP entegrasyonu ve spam koruma mekanizmaları hakkında en çok merak edilen konuları derledik.',
+                    contact_note: 'Farklı bir sorunuz veya özel kurumsal altyapı talebiniz mi var?',
+                    contact_link: 'Bizimle iletişime geçin',
+                    q1: 'TraceMailer geleneksel toplu e-posta araçlarından nasıl ayrışır?',
+                    a1: 'Geleneksel araçlar tüm listenize aynı anda körlemesine gönderim yapar ve spam filtrelerine yakalanır. TraceMailer ise yapay zeka destekli alıcı hijyeni ile inaktif adresleri önceden eler, insan reflekslerini taklit eden dinamik jitter dağıtımı uygular ve her alıcının en aktif olduğu saatte (STO) teslimat yaparak inbox oranını %90 üzerine taşır.',
+                    q2: 'Kesin konum (Şehir / Ülke) tespiti nasıl çalışır, proxy ve gizlilik filtrelerini nasıl aşar?',
+                    a2: 'Apple Mail Privacy Protection (MPP) ve kurumsal e-posta güvenlik duvarları piksel açılmalarını veri merkezlerinden tetikleyerek sahte lokasyon üretir. TraceMailer, çift katmanlı telemetrisi sayesinde gerçek kullanıcı tıklamaları ve tarayıcı etkileşimlerini filtreleyerek sahte veri merkezi IP\'lerini eler; size %100 doğrulanmış gerçek coğrafi dağılım sunar.',
+                    q3: 'Send Time Optimization (STO) nedir ve açılma oranlarını nasıl artırır?',
+                    a3: 'STO (Kişiselleştirilmiş Gönderim Zamanı), her bir abonenizin geçmiş e-posta açılma ve tıklama alışkanlıklarını zaman serisi algoritmalarıyla modeller. Örneğin Alıcı A e-postalarını sabah 08:30\'da, Alıcı B ise akşam 21:15\'te okuyorsa; iletileriniz her iki aboneye de tam o saatte teslim edilir ve gelen kutusunun en üstünde yer alır.',
+                    q4: 'Kendi özel SMTP sunucumu veya Amazon SES altyapımı bağlayabilir miyim?',
+                    a4: 'Evet. TraceMailer esnek altyapısı sayesinde kendi özel kurumsal SMTP sunucularınızı, Amazon SES, Postmark, Mailgun veya Google/Zoho Workspace hesaplarınızı saniyeler içinde bağlayabilirsiniz. Birden fazla SMTP profili tanımlayabilir, kampanya bazlı geçiş yapabilirsiniz.',
+                    q5: 'Alıcı listemi nasıl yüklerim? Excel veya CSV formatları destekleniyor mu?',
+                    a5: 'Evet, gelişmiş Excel Kampanya Sihirbazı sayesinde .xlsx, .xls ve .csv dosyalarınızı sürükleyip bırakarak yükleyebilirsiniz. Sistem; Ad, Soyad, Şirket, E-Posta ve özel değişken sütunlarını otomatik olarak haritalandırır ve şablonlarınızda dinamik etiketler (örneğin {{name}}) olarak kullanmanıza imkan tanır.',
+                    q6: 'Yapay Zeka Liste Hijyeni ve Risk Taraması nasıl koruma sağlar?',
+                    a6: 'Gönderim öncesinde alıcı listeniz taranarak sözdizimi hatalı adresler, geçici (disposable) e-postalar, spam tuzakları (spam traps) ve uzun süredir sıfır etkileşim gösteren zombi adresler sınıflandırılır. Tek tıkla bu adresleri karantinaya alabilir, böylece alan adı ve IP itibarınızı kalıcı olarak korursunuz.',
+                    q7: 'Spam korumalı dağıtım hızı ve Jitter nedir?',
+                    a7: 'Aynı anda binlerce e-posta basmak spam filtrelerinin en büyük tetikleyicisidir. TraceMailer, dakikada 15 ile 60 arasında ayarlanabilir iletim hızı ve gönderimler arasına insan hareketini taklit eden 3-5 saniyelik rastgele bekleme aralıkları (jitter) ekleyerek spam algoritmalarını tamamen atlatır.',
+                    q8: 'Kampanya raporlarını dışa aktarabilir miyim?',
+                    a8: 'Kesinlikle. Kampanya performansınızı, coğrafi harita verilerini, reaksiyon sürelerini (TTR) ve alıcı bazlı açılma telemetrisini tek tıkla zengin Excel (.xlsx) tablosu veya tüm interaktif filtreleri içeren bağımsız HTML rapor dosyası olarak bilgisayarınıza indirebilirsiniz.'
+                },
                 footer: {
                     tagline: 'Yapay Zeka Destekli E-Posta Dağıtım & Telemetri Platformu',
                     why: 'Neden TraceMailer?',
                     how: 'Nasıl Çalışır?',
+                    faq: 'SSS',
                     pricing: 'Planlar',
                     login: 'Müşteri Girişi',
                     copyright: '© 2026 TraceMailer. Tüm hakları saklıdır.'
@@ -2889,6 +2914,7 @@
                     why: 'Why TraceMailer?',
                     how: 'How It Works',
                     pricing: 'Plans',
+                    faq: 'FAQ',
                     contact: 'Contact',
                     login: 'Sign In',
                     start_now: 'Get Started',
@@ -2898,7 +2924,7 @@
                     en: 'English'
                 },
                 hero: {
-                    headline: 'AI-Powered Email Delivery & Advanced Telemetry Platform.',
+                    headline: 'AI-Powered Email Delivery & Advanced Telemetry Platform',
                     desc: 'Ensure your emails hit the inbox, never spam. Achieve maximum conversions with advanced open/click telemetry, proxy-resistant geolocation, AI-powered list hygiene, and STO (Send Time Optimization).',
                     cta_primary: 'Start Free',
                     cta_secondary: 'How It Works',
@@ -3008,10 +3034,34 @@
                     success_btn: 'Send Another Request',
                     error_msg: 'An error occurred while submitting your message. Please check your information and try again or email us directly.'
                 },
+                faq: {
+                    badge: 'Frequently Asked Questions',
+                    title: 'Everything You Need to Know About TraceMailer',
+                    desc: 'Everything you need to know about AI list hygiene, proxy-resistant geolocation telemetry, Send Time Optimization (STO), SMTP integrations, and anti-spam deliverability.',
+                    contact_note: 'Have a specific question or custom enterprise requirement?',
+                    contact_link: 'Contact our team',
+                    q1: 'How does TraceMailer differ from traditional bulk email software?',
+                    a1: 'Traditional email tools blast your entire recipient list simultaneously, triggering spam filters. TraceMailer uses AI-powered list hygiene to filter dead/zombie addresses, utilizes human-like randomized jitter delays (15-60/min), and delivers emails at each recipient\'s historically peak open hour (STO) to achieve a 90%+ inbox placement rate.',
+                    q2: 'How does geolocation telemetry work and how does it bypass privacy proxies?',
+                    a2: 'Apple Mail Privacy Protection (MPP) and corporate secure email gateways pre-fetch open tracking pixels from cloud datacenters, reporting false locations. TraceMailer\'s dual-layer telemetry filters real user browser interactions and link clicks, isolating fake datacenter IPs to deliver 100% verified city-level geographic metrics.',
+                    q3: 'What is Send Time Optimization (STO) and how does it improve open rates?',
+                    a3: 'STO models the historical engagement and open times of every single subscriber. If Recipient A reads emails at 08:30 AM while Recipient B checks them at 09:15 PM, TraceMailer delivers to each recipient at their respective peak time, keeping your message at the very top of their inbox.',
+                    q4: 'Can I connect my own custom SMTP server or Amazon SES credentials?',
+                    a4: 'Yes! TraceMailer enables you to connect custom corporate SMTP servers, Amazon SES, Postmark, Mailgun, or Google/Zoho Workspace accounts in seconds. You can configure multiple sender profiles and switch between them per campaign.',
+                    q5: 'How do I import my contacts? Are Excel and CSV formats supported?',
+                    a5: 'Yes, with our smart Excel Campaign Wizard, you can simply drag & drop .xlsx, .xls, and .csv files. The system automatically detects and maps First Name, Last Name, Company, and custom tags so you can use dynamic merge tags (e.g. {{name}}) in templates.',
+                    q6: 'How does AI List Hygiene and Risk Scanning safeguard sender reputation?',
+                    a6: 'Before launching any campaign, TraceMailer scans your contacts for syntax anomalies, disposable emails, spam traps, and dormant zombie addresses. You can quarantine high-risk addresses with a single click, permanently shielding your domain and IP reputation.',
+                    q7: 'What is Anti-Spam Dispatch Speed and Jitter?',
+                    a7: 'Sending thousands of emails in a single second is the primary signal used by spam filters. TraceMailer throttles delivery between 15-60 emails/min and injects human-mimicking 3-5 second randomized delays (jitter) between transmissions to pass spam checks effortlessly.',
+                    q8: 'Can I export comprehensive campaign telemetry reports?',
+                    a8: 'Yes. You can export campaign metrics, interactive geographic maps, Time-to-React (TTR) heatmaps, and recipient-level telemetries with one click into a rich Excel (.xlsx) spreadsheet or a self-contained interactive HTML report.'
+                },
                 footer: {
                     tagline: 'AI-Powered Email Delivery & Advanced Telemetry Platform',
                     why: 'Why TraceMailer?',
                     how: 'How It Works',
+                    faq: 'FAQ',
                     pricing: 'Plans',
                     login: 'Customer Login',
                     copyright: '© 2026 TraceMailer. All rights reserved.'

@@ -10,6 +10,10 @@
     <meta name="publisher" content="TraceMailer">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://tracemailer.com/">
+    <link rel="alternate" hreflang="tr" href="https://tracemailer.com/">
+    <link rel="alternate" hreflang="en" href="https://tracemailer.com/">
+    <link rel="alternate" hreflang="x-default" href="https://tracemailer.com/">
+    <meta name="theme-color" content="#2563EB">
 
     <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
     <meta property="og:type" content="website">
@@ -22,6 +26,7 @@
     <meta property="og:image:alt" content="TraceMailer E-Posta Dağıtım & Telemetri Platformu">
     <meta property="og:site_name" content="TraceMailer">
     <meta property="og:locale" content="tr_TR">
+    <meta property="og:locale:alternate" content="en_US">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
@@ -67,6 +72,75 @@
             "contactType": "customer service",
             "availableLanguage": ["Turkish", "English"]
           }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "TraceMailer geleneksel toplu e-posta araçlarından nasıl ayrışır?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Geleneksel araçlar tüm listenize aynı anda körlemesine gönderim yapar ve spam filtrelerine yakalanır. TraceMailer ise yapay zeka destekli alıcı hijyeni ile inaktif adresleri önceden eler, insan reflekslerini taklit eden dinamik jitter dağıtımı uygular ve her alıcının en aktif olduğu saatte (STO) teslimat yaparak inbox oranını %90 üzerine taşır."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Kesin konum (Şehir / Ülke) tespiti nasıl çalışır, proxy ve gizlilik filtrelerini nasıl aşar?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Apple Mail Privacy Protection (MPP) ve kurumsal e-posta güvenlik duvarları piksel açılmalarını veri merkezlerinden tetikleyerek sahte lokasyon üretir. TraceMailer, çift katmanlı telemetrisi sayesinde gerçek kullanıcı tıklamaları ve tarayıcı etkileşimlerini filtreleyerek sahte veri merkezi IP'lerini eler; size %100 doğrulanmış gerçek coğrafi dağılım sunar."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Send Time Optimization (STO) nedir ve açılma oranlarını nasıl artırır?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "STO (Kişiselleştirilmiş Gönderim Zamanı), her bir abonenizin geçmiş e-posta açılma ve tıklama alışkanlıklarını zaman serisi algoritmalarıyla modeller. Örneğin Alıcı A e-postalarını sabah 08:30'da, Alıcı B ise akşam 21:15'te okuyorsa; iletileriniz her iki aboneye de tam o saatte teslim edilir ve gelen kutusunun en üstünde yer alır."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Kendi özel SMTP sunucumu veya Amazon SES altyapımı bağlayabilir miyim?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Evet. TraceMailer esnek altyapısı sayesinde kendi özel kurumsal SMTP sunucularınızı, Amazon SES, Postmark, Mailgun veya Google/Zoho Workspace hesaplarınızı saniyeler içinde bağlayabilirsiniz. Birden fazla SMTP profili tanımlayabilir, kampanya bazlı geçiş yapabilirsiniz."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Alıcı listemi nasıl yüklerim? Excel veya CSV formatları destekleniyor mu?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Evet, gelişmiş Excel Kampanya Sihirbazı sayesinde .xlsx, .xls ve .csv dosyalarınızı sürükleyip bırakarak yükleyebilirsiniz. Sistem; Ad, Soyad, Şirket, E-Posta ve özel değişken sütunlarını otomatik olarak haritalandırır ve şablonlarınızda dinamik etiketler olarak kullanmanıza imkan tanır."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Yapay Zeka Liste Hijyeni ve Risk Taraması nasıl koruma sağlar?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Gönderim öncesinde alıcı listeniz taranarak sözdizimi hatalı adresler, geçici e-postalar, spam tuzakları ve uzun süredir sıfır etkileşim gösteren zombi adresler sınıflandırılır. Tek tıkla bu adresleri karantinaya alabilir, böylece alan adı ve IP itibarınızı kalıcı olarak korursunuz."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Spam korumalı dağıtım hızı ve Jitter nedir?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Aynı anda binlerce e-posta basmak spam filtrelerinin en büyük tetikleyicisidir. TraceMailer, dakikada 15 ile 60 arasında ayarlanabilir iletim hızı ve gönderimler arasına insan hareketini taklit eden 3-5 saniyelik rastgele bekleme aralıkları (jitter) ekleyerek spam algoritmalarını tamamen atlatır."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Kampanya raporlarını dışa aktarabilir miyim?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Kesinlikle. Kampanya performansınızı, coğrafi harita verilerini, reaksiyon sürelerini (TTR) ve alıcı bazlı açılma telemetrisini tek tıkla zengin Excel (.xlsx) tablosu veya tüm interaktif filtreleri içeren bağımsız HTML rapor dosyası olarak bilgisayarınıza indirebilirsiniz."
+              }
+            }
+          ]
         }
       ]
     }
@@ -138,6 +212,7 @@
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
                 <a href="#features" class="hover:text-blue-600 transition-colors" x-text="t('landing.nav.why')">Neden TraceMailer?</a>
                 <a href="#how-it-works" class="hover:text-blue-600 transition-colors" x-text="t('landing.nav.how')">Nasıl Çalışır?</a>
+                <a href="#faq" class="hover:text-blue-600 transition-colors" x-text="t('landing.nav.faq')">SSS</a>
                 <template x-if="plans && plans.length > 0">
                     <a href="#pricing" class="hover:text-blue-600 transition-colors" x-text="t('landing.nav.pricing')">Planlar</a>
                 </template>
@@ -146,15 +221,9 @@
 
             <!-- Action Buttons & Language Switcher -->
             <div class="hidden sm:flex items-center gap-3">
-                
-                <a href="https://dash.tracemailer.com/login" class="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors" x-text="t('landing.nav.login')">
+                <a href="https://dash.tracemailer.com/login" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-sm shadow-blue-600/25 transition-all hover:shadow-md hover:shadow-blue-600/30 hover:-translate-y-0.5 cursor-pointer" x-text="t('landing.nav.login')">
                     Giriş Yap
                 </a>
-                <a href="https://dash.tracemailer.com/login" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-sm shadow-blue-600/25 transition-all hover:shadow-md hover:shadow-blue-600/30 hover:-translate-y-0.5 cursor-pointer">
-                    <span x-text="t('landing.nav.start_now')">Hemen Başlayın</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </a>
-                
 
                 <!-- Globe Language Switcher (Directly to the right of Action Button) -->
                 <div class="relative">
@@ -204,6 +273,7 @@
         <div x-show="mobileMenuOpen" x-cloak @click.away="mobileMenuOpen = false" class="md:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-3">
             <a href="#features" @click="mobileMenuOpen = false" class="block py-2 text-sm font-medium text-slate-700 hover:text-blue-600" x-text="t('landing.nav.why')">Neden TraceMailer?</a>
             <a href="#how-it-works" @click="mobileMenuOpen = false" class="block py-2 text-sm font-medium text-slate-700 hover:text-blue-600" x-text="t('landing.nav.how')">Nasıl Çalışır?</a>
+            <a href="#faq" @click="mobileMenuOpen = false" class="block py-2 text-sm font-medium text-slate-700 hover:text-blue-600" x-text="t('landing.nav.faq')">SSS</a>
             <template x-if="plans && plans.length > 0">
                 <a href="#pricing" @click="mobileMenuOpen = false" class="block py-2 text-sm font-medium text-slate-700 hover:text-blue-600" x-text="t('landing.nav.pricing')">Planlar</a>
             </template>
@@ -233,10 +303,7 @@
             </div>
 
             <div class="pt-2 flex flex-col gap-2">
-                
-                <a href="https://dash.tracemailer.com/login" class="text-center py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 rounded-lg" x-text="t('landing.nav.login')">Giriş Yap</a>
-                <a href="https://dash.tracemailer.com/login" class="text-center py-2.5 rounded-xl bg-blue-600 text-white text-sm font-semibold shadow-xs" x-text="t('landing.nav.start_now')">Hemen Başlayın</a>
-                
+                <a href="https://dash.tracemailer.com/login" class="text-center py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold shadow-xs transition-colors" x-text="t('landing.nav.login')">Giriş Yap</a>
             </div>
         </div>
     </header>
@@ -252,7 +319,7 @@
                 <div class="flex-1 text-center lg:text-left">
                     <!-- Main Dynamic Headline with Single-Run Typewriter -->
                     <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.14] mb-6 min-h-[140px] sm:min-h-[160px] md:min-h-[180px]">
-                        <span x-text="typewriterText">Yapay Zeka Destekli E-Posta Dağıtım & Telemetri Platformu.</span><span class="inline-block w-1.5 h-8 sm:h-11 md:h-14 bg-blue-600 ml-1.5 align-middle" :class="typingComplete ? 'opacity-0 transition-opacity duration-700' : 'animate-pulse'"></span>
+                        <span x-text="typewriterText">Yapay Zeka Destekli E-Posta Dağıtım & Telemetri Platformu</span><span class="inline-block w-1.5 h-8 sm:h-11 md:h-14 bg-blue-600 ml-1.5 align-middle" :class="typingComplete ? 'opacity-0 transition-opacity duration-700' : 'animate-pulse'"></span>
                     </h1>
 
                     <!-- Supporting Description -->
@@ -647,6 +714,151 @@
         </div>
     </section>
 
+    <!-- 8. FAQ / SSS (Sıkça Sorulan Sorular) Section -->
+    <section id="faq" class="py-20 md:py-28 px-6 bg-white border-b border-slate-100 relative">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-wider text-blue-600 mb-2 block" x-text="t('landing.faq.badge')">Sıkça Sorulan Sorular</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4" x-text="t('landing.faq.title')">
+                    Aklınıza Takılan Tüm Sorular ve Yanıtları
+                </h2>
+                <p class="text-base sm:text-lg text-slate-600 leading-relaxed" x-text="t('landing.faq.desc')">
+                    Yapay zeka liste hijyeni, kesin coğrafi telemetri, STO gönderim optimizasyonu, SMTP entegrasyonu ve spam koruma mekanizmaları hakkında en çok merak edilen konuları derledik.
+                </p>
+            </div>
+
+            <!-- FAQ 2-Column Grid (Masonry: Independent columns so expanding one question doesn't stretch neighbors) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto items-start">
+                <!-- Column 1 (Left: Questions 1, 2, 3, 4) -->
+                <div class="flex flex-col gap-5">
+                    <!-- Question 1 -->
+                    <details class="group rounded-2xl bg-slate-50/70 border border-slate-200/90 hover:border-blue-400/60 open:border-blue-500/50 open:bg-white open:shadow-md transition-all duration-300 overflow-hidden">
+                        <summary class="flex justify-between items-center p-5 sm:p-6 text-left cursor-pointer list-none select-none text-slate-900 font-bold text-sm sm:text-base gap-4">
+                            <span class="flex items-center gap-3.5">
+                                <span class="w-7 h-7 rounded-xl bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center text-xs font-black shrink-0 group-open:bg-blue-600 group-open:text-white transition-colors">1</span>
+                                <span x-text="t('landing.faq.q1')"></span>
+                            </span>
+                            <svg class="w-5 h-5 text-slate-400 group-open:text-blue-600 group-open:rotate-180 transition-transform duration-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </summary>
+                        <div class="px-5 sm:px-6 pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-4" x-text="t('landing.faq.a1')"></div>
+                    </details>
+
+                    <!-- Question 2 -->
+                    <details class="group rounded-2xl bg-slate-50/70 border border-slate-200/90 hover:border-blue-400/60 open:border-blue-500/50 open:bg-white open:shadow-md transition-all duration-300 overflow-hidden">
+                        <summary class="flex justify-between items-center p-5 sm:p-6 text-left cursor-pointer list-none select-none text-slate-900 font-bold text-sm sm:text-base gap-4">
+                            <span class="flex items-center gap-3.5">
+                                <span class="w-7 h-7 rounded-xl bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center text-xs font-black shrink-0 group-open:bg-blue-600 group-open:text-white transition-colors">2</span>
+                                <span x-text="t('landing.faq.q2')"></span>
+                            </span>
+                            <svg class="w-5 h-5 text-slate-400 group-open:text-blue-600 group-open:rotate-180 transition-transform duration-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </summary>
+                        <div class="px-5 sm:px-6 pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-4" x-text="t('landing.faq.a2')"></div>
+                    </details>
+
+                    <!-- Question 3 -->
+                    <details class="group rounded-2xl bg-slate-50/70 border border-slate-200/90 hover:border-blue-400/60 open:border-blue-500/50 open:bg-white open:shadow-md transition-all duration-300 overflow-hidden">
+                        <summary class="flex justify-between items-center p-5 sm:p-6 text-left cursor-pointer list-none select-none text-slate-900 font-bold text-sm sm:text-base gap-4">
+                            <span class="flex items-center gap-3.5">
+                                <span class="w-7 h-7 rounded-xl bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center text-xs font-black shrink-0 group-open:bg-blue-600 group-open:text-white transition-colors">3</span>
+                                <span x-text="t('landing.faq.q3')"></span>
+                            </span>
+                            <svg class="w-5 h-5 text-slate-400 group-open:text-blue-600 group-open:rotate-180 transition-transform duration-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </summary>
+                        <div class="px-5 sm:px-6 pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-4" x-text="t('landing.faq.a3')"></div>
+                    </details>
+
+                    <!-- Question 4 -->
+                    <details class="group rounded-2xl bg-slate-50/70 border border-slate-200/90 hover:border-blue-400/60 open:border-blue-500/50 open:bg-white open:shadow-md transition-all duration-300 overflow-hidden">
+                        <summary class="flex justify-between items-center p-5 sm:p-6 text-left cursor-pointer list-none select-none text-slate-900 font-bold text-sm sm:text-base gap-4">
+                            <span class="flex items-center gap-3.5">
+                                <span class="w-7 h-7 rounded-xl bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center text-xs font-black shrink-0 group-open:bg-blue-600 group-open:text-white transition-colors">4</span>
+                                <span x-text="t('landing.faq.q4')"></span>
+                            </span>
+                            <svg class="w-5 h-5 text-slate-400 group-open:text-blue-600 group-open:rotate-180 transition-transform duration-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </summary>
+                        <div class="px-5 sm:px-6 pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-4" x-text="t('landing.faq.a4')"></div>
+                    </details>
+                </div>
+
+                <!-- Column 2 (Right: Questions 5, 6, 7, 8) -->
+                <div class="flex flex-col gap-5">
+                    <!-- Question 5 -->
+                    <details class="group rounded-2xl bg-slate-50/70 border border-slate-200/90 hover:border-blue-400/60 open:border-blue-500/50 open:bg-white open:shadow-md transition-all duration-300 overflow-hidden">
+                        <summary class="flex justify-between items-center p-5 sm:p-6 text-left cursor-pointer list-none select-none text-slate-900 font-bold text-sm sm:text-base gap-4">
+                            <span class="flex items-center gap-3.5">
+                                <span class="w-7 h-7 rounded-xl bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center text-xs font-black shrink-0 group-open:bg-blue-600 group-open:text-white transition-colors">5</span>
+                                <span x-text="t('landing.faq.q5')"></span>
+                            </span>
+                            <svg class="w-5 h-5 text-slate-400 group-open:text-blue-600 group-open:rotate-180 transition-transform duration-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </summary>
+                        <div class="px-5 sm:px-6 pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-4" x-text="t('landing.faq.a5')"></div>
+                    </details>
+
+                    <!-- Question 6 -->
+                    <details class="group rounded-2xl bg-slate-50/70 border border-slate-200/90 hover:border-blue-400/60 open:border-blue-500/50 open:bg-white open:shadow-md transition-all duration-300 overflow-hidden">
+                        <summary class="flex justify-between items-center p-5 sm:p-6 text-left cursor-pointer list-none select-none text-slate-900 font-bold text-sm sm:text-base gap-4">
+                            <span class="flex items-center gap-3.5">
+                                <span class="w-7 h-7 rounded-xl bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center text-xs font-black shrink-0 group-open:bg-blue-600 group-open:text-white transition-colors">6</span>
+                                <span x-text="t('landing.faq.q6')"></span>
+                            </span>
+                            <svg class="w-5 h-5 text-slate-400 group-open:text-blue-600 group-open:rotate-180 transition-transform duration-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </summary>
+                        <div class="px-5 sm:px-6 pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-4" x-text="t('landing.faq.a6')"></div>
+                    </details>
+
+                    <!-- Question 7 -->
+                    <details class="group rounded-2xl bg-slate-50/70 border border-slate-200/90 hover:border-blue-400/60 open:border-blue-500/50 open:bg-white open:shadow-md transition-all duration-300 overflow-hidden">
+                        <summary class="flex justify-between items-center p-5 sm:p-6 text-left cursor-pointer list-none select-none text-slate-900 font-bold text-sm sm:text-base gap-4">
+                            <span class="flex items-center gap-3.5">
+                                <span class="w-7 h-7 rounded-xl bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center text-xs font-black shrink-0 group-open:bg-blue-600 group-open:text-white transition-colors">7</span>
+                                <span x-text="t('landing.faq.q7')"></span>
+                            </span>
+                            <svg class="w-5 h-5 text-slate-400 group-open:text-blue-600 group-open:rotate-180 transition-transform duration-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </summary>
+                        <div class="px-5 sm:px-6 pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-4" x-text="t('landing.faq.a7')"></div>
+                    </details>
+
+                    <!-- Question 8 -->
+                    <details class="group rounded-2xl bg-slate-50/70 border border-slate-200/90 hover:border-blue-400/60 open:border-blue-500/50 open:bg-white open:shadow-md transition-all duration-300 overflow-hidden">
+                        <summary class="flex justify-between items-center p-5 sm:p-6 text-left cursor-pointer list-none select-none text-slate-900 font-bold text-sm sm:text-base gap-4">
+                            <span class="flex items-center gap-3.5">
+                                <span class="w-7 h-7 rounded-xl bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center text-xs font-black shrink-0 group-open:bg-blue-600 group-open:text-white transition-colors">8</span>
+                                <span x-text="t('landing.faq.q8')"></span>
+                            </span>
+                            <svg class="w-5 h-5 text-slate-400 group-open:text-blue-600 group-open:rotate-180 transition-transform duration-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </summary>
+                        <div class="px-5 sm:px-6 pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-4" x-text="t('landing.faq.a8')"></div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Direct Contact Note -->
+            <div class="mt-12 text-center">
+                <p class="text-sm text-slate-500">
+                    <span x-text="t('landing.faq.contact_note')">Farklı bir sorunuz veya özel kurumsal altyapı talebiniz mi var?</span>
+                    <a href="#contact" class="font-bold text-blue-600 hover:text-blue-700 underline underline-offset-4 ml-1 transition-colors" x-text="t('landing.faq.contact_link')">Bizimle iletişime geçin</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Pricing / Plans Section -->
     <section id="pricing" x-show="plans && plans.length > 0" x-cloak class="py-20 md:py-28 px-6 bg-slate-50/50 border-b border-slate-100">
         <div class="max-w-7xl mx-auto">
@@ -846,6 +1058,7 @@
             <div class="flex items-center gap-6 text-slate-600 font-medium">
                 <a href="#features" class="hover:text-blue-600 transition-colors" x-text="t('landing.footer.why')">Neden TraceMailer?</a>
                 <a href="#how-it-works" class="hover:text-blue-600 transition-colors" x-text="t('landing.footer.how')">Nasıl Çalışır?</a>
+                <a href="#faq" class="hover:text-blue-600 transition-colors" x-text="t('landing.footer.faq')">SSS</a>
                 <template x-if="plans && plans.length > 0">
                     <a href="#pricing" class="hover:text-blue-600 transition-colors" x-text="t('landing.footer.pricing')">Planlar</a>
                 </template>
