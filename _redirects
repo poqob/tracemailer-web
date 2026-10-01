@@ -1,0 +1,5 @@
+# Cloudflare Pages Redirects
+# Canonical www to apex or vice versa can be configured in Cloudflare Dashboard
+/login https://dash.tracemailer.com/login 302
+/register https://dash.tracemailer.com/login 302
+/dashboard https://dash.tracemailer.com/dashboard 302

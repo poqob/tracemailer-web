@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <!-- Background Gradient (Midnight to Deep Royal) -->
+    <linearGradient id="tm-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080E21" />
+      <stop offset="30%" stop-color="#0F2154" />
+      <stop offset="70%" stop-color="#1E40AF" />
+      <stop offset="100%" stop-color="#1D4ED8" />
+    </linearGradient>
+
+    <!-- Squircle Border Highlight -->
+    <linearGradient id="tm-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.7" />
+      <stop offset="50%" stop-color="#2563EB" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0.8" />
+    </linearGradient>
+
+    <!-- Radar Pulse Wave Gradient -->
+    <linearGradient id="radar-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#0284C7" stop-opacity="0.05" />
+    </linearGradient>
+
+    <!-- Plane Wing Highlights -->
+    <linearGradient id="wing-left" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F0F7FF" />
+    </linearGradient>
+    <linearGradient id="wing-right" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0F2FE" />
+      <stop offset="100%" stop-color="#BFDBFE" />
+    </linearGradient>
+    <linearGradient id="wing-keel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#1D4ED8" />
+    </linearGradient>
+
+    <filter id="beacon-glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <clipPath id="squircle-clip">
+      <rect x="1.5" y="1.5" width="61" height="61" rx="15.5" />
+    </clipPath>
+  </defs>
+
+  <!-- Squircle Base Tile -->
+  <rect x="1.5" y="1.5" width="61" height="61" rx="15.5" fill="url(#tm-bg)" />
+
+  <!-- Clipped Inner Elements -->
+  <g clip-path="url(#squircle-clip)">
+    <!-- Concentric Radar Tracking Waves radiating from beacon at (47, 17) -->
+    <circle cx="47" cy="17" r="28" fill="none" stroke="url(#radar-grad)" stroke-width="1.2" opacity="0.4" />
+    <circle cx="47" cy="17" r="19" fill="none" stroke="url(#radar-grad)" stroke-width="1.4" opacity="0.55" />
+    <circle cx="47" cy="17" r="10" fill="none" stroke="#38BDF8" stroke-width="1.2" opacity="0.7" stroke-dasharray="2.5 2" />
+
+    <!-- Ambient Depth Shadow -->
+    <polygon points="17,32 47,17 37,46 25,41" fill="#020617" opacity="0.55" />
+
+    <!-- 3D Origami Paper Plane -->
+    <!-- 1. Center Fold Keel -->
+    <polygon points="27,38 18,31 23,43" fill="url(#wing-keel)" />
+
+    <!-- 2. Lower Wing (Shaded Facet) -->
+    <polygon points="47,17 27,38 37,46" fill="url(#wing-right)" />
+
+    <!-- 3. Upper Wing (Brilliant White Pure Facet) -->
+    <polygon points="47,17 18,31 27,38" fill="url(#wing-left)" />
+
+    <!-- Center Crease Ridge Highlight -->
+    <line x1="47" y1="17" x2="27" y2="38" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" opacity="0.95" />
+
+    <!-- Outer Wing Edge Highlights -->
+    <line x1="47" y1="17" x2="18" y2="31" stroke="#FFFFFF" stroke-width="0.75" opacity="0.6" />
+    <line x1="47" y1="17" x2="37" y2="46" stroke="#E2E8F0" stroke-width="0.75" opacity="0.6" />
+
+    <!-- Telemetry Beacon (The Trace Spark) at Nose (47, 17) -->
+    <circle cx="47" cy="17" r="8" fill="#22D3EE" opacity="0.2" />
+    <circle cx="47" cy="17" r="4.5" fill="#22D3EE" filter="url(#beacon-glow)" />
+    <circle cx="47" cy="17" r="2.2" fill="#FFFFFF" />
+  </g>
+
+  <!-- Outer Border (drawn on top of clip) -->
+  <rect x="1.5" y="1.5" width="61" height="61" rx="15.5" fill="none" stroke="url(#tm-border)" stroke-width="1.5" />
+</svg>
