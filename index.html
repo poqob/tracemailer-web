@@ -138,7 +138,9 @@
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
                 <a href="#features" class="hover:text-blue-600 transition-colors" x-text="t('landing.nav.why')">Neden TraceMailer?</a>
                 <a href="#how-it-works" class="hover:text-blue-600 transition-colors" x-text="t('landing.nav.how')">Nasıl Çalışır?</a>
-                <a href="#pricing" class="hover:text-blue-600 transition-colors" x-text="t('landing.nav.pricing')">Planlar</a>
+                <template x-if="plans && plans.length > 0">
+                    <a href="#pricing" class="hover:text-blue-600 transition-colors" x-text="t('landing.nav.pricing')">Planlar</a>
+                </template>
                 <a href="#contact" class="hover:text-blue-600 transition-colors" x-text="t('landing.nav.contact')">İletişim</a>
             </nav>
 
@@ -202,7 +204,9 @@
         <div x-show="mobileMenuOpen" x-cloak @click.away="mobileMenuOpen = false" class="md:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-3">
             <a href="#features" @click="mobileMenuOpen = false" class="block py-2 text-sm font-medium text-slate-700 hover:text-blue-600" x-text="t('landing.nav.why')">Neden TraceMailer?</a>
             <a href="#how-it-works" @click="mobileMenuOpen = false" class="block py-2 text-sm font-medium text-slate-700 hover:text-blue-600" x-text="t('landing.nav.how')">Nasıl Çalışır?</a>
-            <a href="#pricing" @click="mobileMenuOpen = false" class="block py-2 text-sm font-medium text-slate-700 hover:text-blue-600" x-text="t('landing.nav.pricing')">Planlar</a>
+            <template x-if="plans && plans.length > 0">
+                <a href="#pricing" @click="mobileMenuOpen = false" class="block py-2 text-sm font-medium text-slate-700 hover:text-blue-600" x-text="t('landing.nav.pricing')">Planlar</a>
+            </template>
             <a href="#contact" @click="mobileMenuOpen = false" class="block py-2 text-sm font-medium text-slate-700 hover:text-blue-600" x-text="t('landing.nav.contact')">İletişim</a>
             
             <!-- Mobile Language Switcher -->
@@ -644,7 +648,7 @@
     </section>
 
     <!-- Pricing / Plans Section -->
-    <section id="pricing" class="py-20 md:py-28 px-6 bg-slate-50/50 border-b border-slate-100">
+    <section id="pricing" x-show="plans && plans.length > 0" x-cloak class="py-20 md:py-28 px-6 bg-slate-50/50 border-b border-slate-100">
         <div class="max-w-7xl mx-auto">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-xs font-bold uppercase tracking-wider text-blue-600 mb-2 block" x-text="t('landing.pricing.badge')">Şeffaf Fiyatlandırma</span>
@@ -658,207 +662,65 @@
 
             <!-- Plans Cards Grid (Centered) -->
             <div class="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto">
-                <!-- Starter Plan -->
-                <div class="w-full max-w-sm bg-white rounded-3xl p-8 border border-slate-200/80 shadow-xs flex flex-col justify-between hover:-translate-y-1 transition-all duration-200">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono-code">STARTER</span>
-                        </div>
-                        <div class="mb-4">
-                            <div class="flex items-baseline gap-2">
-                                <span class="text-3xl font-black text-slate-900 tracking-tight" x-text="t('landing.pricing.free')">Ücretsiz</span>
-                                <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded" x-text="t('landing.pricing.forever')">Sonsuza Kadar</span>
+                <template x-for="p in plans" :key="p.id">
+                    <div class="w-full max-w-sm bg-white rounded-3xl p-8 border flex flex-col justify-between hover:-translate-y-1 transition-all duration-200"
+                         :class="p.is_default ? 'border-blue-500 ring-2 ring-blue-100 shadow-xl shadow-blue-500/10' : 'border-slate-200/80 shadow-xs'">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono-code" x-text="p.name"></span>
+                                <template x-if="p.is_default">
+                                    <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200" x-text="t('landing.pricing.popular')">
+                                        Popüler Seçim
+                                    </span>
+                                </template>
+                            </div>
+                            <div class="mb-4">
+                                <template x-if="p.price > 0">
+                                    <div class="flex items-baseline gap-1">
+                                        <span class="text-sm font-bold text-slate-400">€</span>
+                                        <span class="text-4xl font-extrabold text-slate-900 tracking-tight font-mono-code" x-text="Number(p.price).toFixed(2)"></span>
+                                        <span class="text-xs font-medium text-slate-500" x-text="t('landing.pricing.per_month')">/ ay</span>
+                                    </div>
+                                </template>
+                                <template x-if="!p.price || p.price <= 0">
+                                    <div class="flex items-baseline gap-2">
+                                        <span class="text-3xl font-black text-slate-900 tracking-tight" x-text="t('landing.pricing.free')">Ücretsiz</span>
+                                        <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded" x-text="t('landing.pricing.forever')">Sonsuza Kadar</span>
+                                    </div>
+                                </template>
+                            </div>
+                            <p class="text-xs text-slate-500 mb-6 leading-relaxed" x-text="p.description || t('landing.pricing.default_desc')"></p>
+                            <div class="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between text-xs mb-6">
+                                <span class="text-slate-600 font-medium" x-text="t('landing.pricing.monthly_limit')">Aylık Gönderim Limiti</span>
+                                <span class="font-bold text-slate-900 font-mono-code">
+                                    <span x-text="Number(p.monthly_email_limit).toLocaleString()"></span> 
+                                    <span x-text="t('landing.pricing.mail_unit')">Mail</span>
+                                </span>
+                            </div>
+                            <div class="space-y-3 pt-2 mb-8">
+                                <template x-for="mod in (p.modules || [])" :key="mod">
+                                    <div class="flex items-start gap-3 text-xs text-slate-700">
+                                        <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span x-text="mod"></span>
+                                    </div>
+                                </template>
+                                <div class="flex items-start gap-3 text-xs text-slate-700">
+                                    <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span x-text="t('landing.pricing.feat_geo')">Gerçek Zamanlı Coğrafi Tıklama Takibi</span>
+                                </div>
+                                <div class="flex items-start gap-3 text-xs text-slate-700">
+                                    <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span x-text="t('landing.pricing.feat_spam')">Spam Koruması & Dinamik Dağıtım Hızı</span>
+                                </div>
                             </div>
                         </div>
-                        <p class="text-xs text-slate-500 mb-6 leading-relaxed" x-text="t('landing.pricing.default_desc')">
-                            Başlangıç seviyesi bülten ve tekil gönderimler için ideal paket.
-                        </p>
-                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between text-xs mb-6">
-                            <span class="text-slate-600 font-medium" x-text="t('landing.pricing.monthly_limit')">Aylık Gönderim Limiti</span>
-                            <span class="font-bold text-slate-900 font-mono-code">1.000 <span x-text="t('landing.pricing.mail_unit')">Mail</span></span>
-                        </div>
-                        <div class="space-y-3 pt-2 mb-8">
-                            <div class="flex items-start gap-3 text-xs text-slate-700">
-                                <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Tekil Gönderim</span>
-                            </div>
-                            <div class="flex items-start gap-3 text-xs text-slate-700">
-                                <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Şablon Tasarımcısı</span>
-                            </div>
-                            <div class="flex items-start gap-3 text-xs text-slate-700">
-                                <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Temel Raporlama</span>
-                            </div>
-                            <div class="flex items-start gap-3 text-xs text-slate-700">
-                                <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span x-text="t('landing.pricing.feat_geo')">Gerçek Zamanlı Coğrafi Tıklama Takibi</span>
-                            </div>
-                            <div class="flex items-start gap-3 text-xs text-slate-700">
-                                <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span x-text="t('landing.pricing.feat_spam')">Spam Koruması & Dinamik Dağıtım Hızı</span>
-                            </div>
-                        </div>
+                        <a href="https://dash.tracemailer.com/login" 
+                           class="block w-full text-center py-3.5 px-4 rounded-xl text-xs transition-all cursor-pointer"
+                           :class="p.is_default ? 'bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-md shadow-blue-600/25' : 'bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold'">
+                            <span x-text="t('landing.pricing.cta')">Hemen Başlayın</span>
+                        </a>
                     </div>
-                    <a href="https://dash.tracemailer.com/login" class="block w-full text-center py-3.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs transition-all cursor-pointer">
-                        <span x-text="t('landing.pricing.cta')">Hemen Başlayın</span>
-                    </a>
-                </div>
-
-                <!-- Professional Plan (Popular) -->
-                <div class="w-full max-w-sm bg-white rounded-3xl p-8 border border-blue-500 ring-2 ring-blue-100 shadow-xl shadow-blue-500/10 flex flex-col justify-between hover:-translate-y-1 transition-all duration-200">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono-code">PROFESSIONAL</span>
-                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200" x-text="t('landing.pricing.popular')">
-                                Popüler Seçim
-                            </span>
-                        </div>
-                        <div class="mb-4">
-                            <div class="flex items-baseline gap-1">
-                                <span class="text-sm font-bold text-slate-400">€</span>
-                                <span class="text-4xl font-extrabold text-slate-900 tracking-tight font-mono-code">29.00</span>
-                                <span class="text-xs font-medium text-slate-500" x-text="t('landing.pricing.per_month')">/ ay</span>
-                            </div>
-                        </div>
-                        <p class="text-xs text-slate-500 mb-6 leading-relaxed">
-                            Büyüyen işletmeler için gelişmiş Excel ve şablon araçları.
-                        </p>
-                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between text-xs mb-6">
-                            <span class="text-slate-600 font-medium" x-text="t('landing.pricing.monthly_limit')">Aylık Gönderim Limiti</span>
-                            <span class="font-bold text-slate-900 font-mono-code">10.000 <span x-text="t('landing.pricing.mail_unit')">Mail</span></span>
-                        </div>
-                        <div class="space-y-3 pt-2 mb-8">
-                            <div class="flex items-start gap-3 text-xs text-slate-700">
-                                <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Tekil Gönderim</span>
-                            </div>
-                            <div class="flex items-start gap-3 text-xs text-slate-700">
-                                <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Excel ile Kampanya Sihirbazı</span>
-                            </div>
-                            <div class="flex items-start gap-3 text-xs text-slate-700">
-                                <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Şablon Tasarımcısı</span>
-                            </div>
-                            <div class="flex items-start gap-3 text-xs text-slate-700">
-                                <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Açılma & Tıklama Takibi</span>
-                            </div>
-                            <div class="flex items-start gap-3 text-xs text-slate-700">
-                                <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span x-text="t('landing.pricing.feat_geo')">Gerçek Zamanlı Coğrafi Tıklama Takibi</span>
-                            </div>
-                            <div class="flex items-start gap-3 text-xs text-slate-700">
-                                <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span x-text="t('landing.pricing.feat_spam')">Spam Koruması & Dinamik Dağıtım Hızı</span>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="https://dash.tracemailer.com/login" class="block w-full text-center py-3.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-md shadow-blue-600/25 text-xs transition-all cursor-pointer">
-                        <span x-text="t('landing.pricing.cta')">Hemen Başlayın</span>
-                    </a>
-                </div>
-
-                <!-- Enterprise Plan -->
-                <div class="w-full max-w-sm bg-white rounded-3xl p-8 border border-slate-200/80 shadow-xs flex flex-col justify-between hover:-translate-y-1 transition-all duration-200">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono-code">ENTERPRISE</span>
-                        </div>
-                        <div class="mb-4">
-                            <div class="flex items-baseline gap-1">
-                                <span class="text-sm font-bold text-slate-400">€</span>
-                                <span class="text-4xl font-extrabold text-slate-900 tracking-tight font-mono-code">79.00</span>
-                                <span class="text-xs font-medium text-slate-500" x-text="t('landing.pricing.per_month')">/ ay</span>
-                            </div>
-                        </div>
-                        <p class="text-xs text-slate-500 mb-6 leading-relaxed">
-                            Yüksek hacimli e-posta dağıtımı ve tam modül erişimi.
-                        </p>
-                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between text-xs mb-6">
-                            <span class="text-slate-600 font-medium" x-text="t('landing.pricing.monthly_limit')">Aylık Gönderim Limiti</span>
-                            <span class="font-bold text-slate-900 font-mono-code">50.000 <span x-text="t('landing.pricing.mail_unit')">Mail</span></span>
-                        </div>
-                        <div class="space-y-3 pt-2 mb-8">
-                            <div class="flex items-start gap-3 text-xs text-slate-700">
-                                <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Tekil Gönderim</span>
-                            </div>
-                            <div class="flex items-start gap-3 text-xs text-slate-700">
-                                <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Excel ile Kampanya Sihirbazı</span>
-                            </div>
-                            <div class="flex items-start gap-3 text-xs text-slate-700">
-                                <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Şablon Tasarımcısı</span>
-                            </div>
-                            <div class="flex items-start gap-3 text-xs text-slate-700">
-                                <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Açılma & Tıklama Takibi</span>
-                            </div>
-                            <div class="flex items-start gap-3 text-xs text-slate-700">
-                                <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Öncelikli Destek</span>
-                            </div>
-                            <div class="flex items-start gap-3 text-xs text-slate-700">
-                                <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span x-text="t('landing.pricing.feat_geo')">Gerçek Zamanlı Coğrafi Tıklama Takibi</span>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="https://dash.tracemailer.com/login" class="block w-full text-center py-3.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs transition-all cursor-pointer">
-                        <span x-text="t('landing.pricing.cta')">Hemen Başlayın</span>
-                    </a>
-                </div>
-
-                <!-- Custom Plan -->
-                <div class="w-full max-w-sm bg-white rounded-3xl p-8 border border-slate-200/80 shadow-xs flex flex-col justify-between hover:-translate-y-1 transition-all duration-200">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono-code">CUSTOM</span>
-                        </div>
-                        <div class="mb-4">
-                            <div class="flex items-baseline gap-1">
-                                <span class="text-sm font-bold text-slate-400">€</span>
-                                <span class="text-4xl font-extrabold text-slate-900 tracking-tight font-mono-code">199.00</span>
-                                <span class="text-xs font-medium text-slate-500" x-text="t('landing.pricing.per_month')">/ ay</span>
-                            </div>
-                        </div>
-                        <p class="text-xs text-slate-500 mb-6 leading-relaxed">
-                            İhtiyaca özel limit ve kurumsal dedicated altyapı.
-                        </p>
-                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between text-xs mb-6">
-                            <span class="text-slate-600 font-medium" x-text="t('landing.pricing.monthly_limit')">Aylık Gönderim Limiti</span>
-                            <span class="font-bold text-slate-900 font-mono-code">100.000+ <span x-text="t('landing.pricing.mail_unit')">Mail</span></span>
-                        </div>
-                        <div class="space-y-3 pt-2 mb-8">
-                            <div class="flex items-start gap-3 text-xs text-slate-700">
-                                <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Tekil Gönderim</span>
-                            </div>
-                            <div class="flex items-start gap-3 text-xs text-slate-700">
-                                <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Excel ile Kampanya Sihirbazı</span>
-                            </div>
-                            <div class="flex items-start gap-3 text-xs text-slate-700">
-                                <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Dedicated IP Altyapısı</span>
-                            </div>
-                            <div class="flex items-start gap-3 text-xs text-slate-700">
-                                <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Sınırsız Özel Şablon</span>
-                            </div>
-                            <div class="flex items-start gap-3 text-xs text-slate-700">
-                                <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span x-text="t('landing.pricing.feat_geo')">Gerçek Zamanlı Coğrafi Tıklama Takibi</span>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="https://dash.tracemailer.com/login" class="block w-full text-center py-3.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs transition-all cursor-pointer">
-                        <span x-text="t('landing.pricing.cta')">Hemen Başlayın</span>
-                    </a>
-                </div>
+                </template>
             </div>
         </div>
     </section>
@@ -984,7 +846,9 @@
             <div class="flex items-center gap-6 text-slate-600 font-medium">
                 <a href="#features" class="hover:text-blue-600 transition-colors" x-text="t('landing.footer.why')">Neden TraceMailer?</a>
                 <a href="#how-it-works" class="hover:text-blue-600 transition-colors" x-text="t('landing.footer.how')">Nasıl Çalışır?</a>
-                <a href="#pricing" class="hover:text-blue-600 transition-colors" x-text="t('landing.footer.pricing')">Planlar</a>
+                <template x-if="plans && plans.length > 0">
+                    <a href="#pricing" class="hover:text-blue-600 transition-colors" x-text="t('landing.footer.pricing')">Planlar</a>
+                </template>
                 <a href="https://dash.tracemailer.com/login" class="hover:text-blue-600 transition-colors" x-text="t('landing.footer.login')">Müşteri Girişi</a>
             </div>
 
@@ -1007,6 +871,7 @@
                 charIndex: 0,
                 typingComplete: false,
                 typingTimeout: null,
+                plans: [],
                 formStatus: 'idle',
                 formData: {
                     name: '',
@@ -1017,6 +882,9 @@
                 },
 
                 init() {
+                    // Fetch public plans if any are published by admin
+                    this.fetchPlans();
+
                     // Detect mobile orientation and screen width
                     this.checkMobile();
                     window.addEventListener('resize', () => {
@@ -1052,6 +920,31 @@
 
                     this.resetTypewriter();
                     this.initSliderObserver();
+                },
+
+                async fetchPlans() {
+                    try {
+                        const res = await fetch('/api/public/plans');
+                        if (res.ok) {
+                            const data = await res.json();
+                            this.plans = Array.isArray(data) ? data : [];
+                        } else {
+                            this.plans = [];
+                        }
+                    } catch (e) {
+                        // Fallback to direct dashboard URL if needed
+                        try {
+                            const res2 = await fetch('https://dash.tracemailer.com/api/public/plans');
+                            if (res2.ok) {
+                                const data2 = await res2.json();
+                                this.plans = Array.isArray(data2) ? data2 : [];
+                            } else {
+                                this.plans = [];
+                            }
+                        } catch (err) {
+                            this.plans = [];
+                        }
+                    }
                 },
 
                 checkMobile() {
