@@ -118,14 +118,17 @@ TraceMailer delivers real-time event notifications via signed HTTP POST webhooks
 - **Why Emails Go to Spam? 2026 Deliverability Guide:**
   - URL: https://tracemailer.com/blog/eposta-spama-dusmeden-inbox-rehberi/
   - Author: Mustafa BİÇER (Digital Solutions Specialist)
+  - Author Profiles: [LinkedIn](https://www.linkedin.com/in/mustafa-biçer-7164221b4), [GitHub](https://github.com/poqob), [DAG Solution](https://www.dagsolution.com/me)
   - Topics: B2B spam filters, SPF/DKIM alignment, 50,000 recipient test list case study, STO impact.
 - **DMARC, DKIM & BIMI Complete Guide:**
   - URL: https://tracemailer.com/blog/dmarc-dkim-bimi-rehberi/
   - Author: Mustafa BİÇER (Digital Solutions Specialist)
+  - Author Profiles: [LinkedIn](https://www.linkedin.com/in/mustafa-biçer-7164221b4), [GitHub](https://github.com/poqob), [DAG Solution](https://www.dagsolution.com/me)
   - Topics: DNS configuration, RFC 8058, BIMI SVG Tiny P/S conversion, VMC certification, anti-spoofing.
 - **Transactional Email Architecture at 10M+ Scale:**
   - URL: https://tracemailer.com/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/
-  - Author: Akın TERZİ (General Manager, Normsoft Inc. & Founder)
+  - Author: Akın TERZİ (Normsoft Bilgi Teknolojileri A.Ş. Genel Müdürü & Kurucu)
+  - Author Profiles: [LinkedIn](https://www.linkedin.com/in/akin-terzi/), [Normsoft](https://www.normsoft.com.tr/)
   - Topics: ERP integration, asynchronous queues, 12M e-invoice case study, 3-second SLA guarantee, KVKK/GDPR compliance.
 
 ---
