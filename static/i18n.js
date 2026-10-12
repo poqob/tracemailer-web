@@ -1391,6 +1391,7 @@
                 nav: {
                     why: 'Neden TraceMailer?',
                     how: 'Nasıl Çalışır?',
+                    blog: 'Rehber & Blog',
                     pricing: 'Planlar',
                     faq: 'SSS',
                     contact: 'İletişim',
@@ -1539,6 +1540,7 @@
                     tagline: 'Yapay Zeka Destekli E-Posta Dağıtım & Telemetri Platformu',
                     why: 'Neden TraceMailer?',
                     how: 'Nasıl Çalışır?',
+                    blog: 'Rehber & Blog',
                     faq: 'SSS',
                     pricing: 'Planlar',
                     login: 'Müşteri Girişi',
@@ -2913,6 +2915,7 @@
                 nav: {
                     why: 'Why TraceMailer?',
                     how: 'How It Works',
+                    blog: 'Guides & Blog',
                     pricing: 'Plans',
                     faq: 'FAQ',
                     contact: 'Contact',
@@ -3061,6 +3064,7 @@
                     tagline: 'AI-Powered Email Delivery & Advanced Telemetry Platform',
                     why: 'Why TraceMailer?',
                     how: 'How It Works',
+                    blog: 'Guides & Blog',
                     faq: 'FAQ',
                     pricing: 'Plans',
                     login: 'Customer Login',
