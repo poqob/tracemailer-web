@@ -64,13 +64,13 @@
           "@type": "Person",
           "@id": "https://tracemailer.com/#author-akin-terzi",
           "name": "Akın TERZİ",
-          "jobTitle": "Normsoft Bilgi Teknolojileri Anonim Şirketi Genel Müdürü",
-          "image": "https://tracemailer.com/static/avatar-placeholder.svg",
+          "jobTitle": "Normsoft Bilgi Teknolojileri Anonim Şirketi Genel Müdürü & Kurucu",
+          "image": "https://tracemailer.com/static/akin-terzi.jpg",
           "worksFor": {
             "@type": "Organization",
             "name": "Normsoft Bilgi Teknolojileri Anonim Şirketi"
           },
-          "description": "Büyük ölçekli kurumsal ERP, SaaS ve transaksiyonel yazılım mimarileri ile yüksek erişilebilirlikli mesaj kuyrukları uzmanı."
+          "description": "DİJİTAL PLATFORM Organizasyonu ve NORMSOFT A.Ş. kurucusu ve Genel Müdürü. CAD, BIM, AR&VR, TraceParts Türkiye ve 10M+ transaksiyonel e-posta mimarileri lideri."
         },
         {
           "@type": "BlogPosting",
@@ -194,6 +194,9 @@
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-blue-600 selection:text-white" x-data="blogArticleTransactionalApp()">
 
+    <!-- Reading Progress Bar (Top Fixed) -->
+    <div class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150" :style="'width: ' + readingProgress + '%'"></div>
+
     <!-- Header Navigation -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-all duration-200">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -258,11 +261,34 @@
         </div>
     </header>
 
+    <!-- Mobile Quick Table of Contents Bar -->
+    <div class="lg:hidden sticky top-20 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 px-4 py-2.5 shadow-2xs">
+        <div class="max-w-7xl mx-auto flex items-center justify-between text-xs">
+            <div class="flex items-center gap-2 text-slate-700 font-medium truncate max-w-[70%]">
+                <span class="w-2 h-2 rounded-full bg-blue-600 flex-shrink-0 animate-pulse"></span>
+                <span class="truncate font-semibold text-slate-800" x-text="getActiveSectionTitle()"></span>
+            </div>
+            <button type="button" @click="mobileTocOpen = !mobileTocOpen" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold flex items-center gap-1 cursor-pointer">
+                <span x-text="t('blog_article_transactional.toc.heading')">İçindekiler</span>
+                <svg class="w-3.5 h-3.5 transition-transform duration-150" :class="mobileTocOpen ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+        </div>
+        <div x-show="mobileTocOpen" x-cloak @click.away="mobileTocOpen = false" class="max-w-7xl mx-auto mt-2 pt-2 border-t border-slate-100 space-y-1 max-h-60 overflow-y-auto">
+            <template x-for="item in sections" :key="item.id">
+                <a :href="'#' + item.id" 
+                   @click="scrollTo(item.id); mobileTocOpen = false"
+                   class="block px-3 py-2 rounded-lg text-xs transition-colors"
+                   :class="activeSection === item.id ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-600 hover:bg-slate-50'"
+                   x-text="t('blog_article_transactional.toc.sections.' + item.key)"></a>
+            </template>
+        </div>
+    </div>
+
     <!-- Main Article Container -->
-    <main class="max-w-4xl mx-auto px-6 py-10 sm:py-14">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
 
         <!-- Breadcrumb Navigation -->
-        <nav class="flex items-center gap-2 text-xs text-slate-500 mb-8" aria-label="Breadcrumb">
+        <nav class="flex items-center gap-2 text-xs text-slate-500 mb-8 max-w-4xl lg:max-w-none" aria-label="Breadcrumb">
             <a href="/" class="hover:text-blue-600 transition-colors" x-text="t('blog_article_transactional.breadcrumbs.home')">Ana Sayfa</a>
             <span>/</span>
             <a href="/blog/" class="hover:text-blue-600 transition-colors" x-text="t('blog_article_transactional.breadcrumbs.blog')">Rehber & Blog</a>
@@ -270,44 +296,97 @@
             <span class="text-slate-800 font-medium truncate max-w-xs sm:max-w-md" x-text="t('blog_article_transactional.breadcrumbs.current')">Transaksiyonel E-Posta Mimarisi</span>
         </nav>
 
-        <!-- Article Header -->
-        <header class="mb-12">
-            <div class="flex flex-wrap items-center gap-3 text-xs text-slate-500 mb-4 font-medium">
-                <span class="px-3 py-1 rounded-md bg-blue-50 text-blue-700 font-semibold border border-blue-100" x-text="t('blog_article_transactional.meta_info.category')">
-                    Kurumsal Mimari & Transaksiyonel Dağıtım
-                </span>
-                <span class="text-slate-300">&bull;</span>
-                <span x-text="t('blog_article_transactional.meta_info.read_time')">9 Dk Okuma</span>
-                <span class="text-slate-300">&bull;</span>
-                <time datetime="2026-10-12" x-text="t('blog_article_transactional.meta_info.date')">12 Ekim 2026</time>
-                <span class="text-slate-300">&bull;</span>
-                <span class="text-slate-400 font-mono-code" x-text="t('blog_article_transactional.meta_info.updated')">Güncelleme: Ekim 2026</span>
-            </div>
+        <!-- Two-column Layout: Left TOC Sidebar + Article Content -->
+        <div class="lg:grid lg:grid-cols-12 lg:gap-8 xl:gap-12 items-start">
 
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6" x-text="t('blog_article_transactional.title')">
-                Transaksiyonel E-Posta Mimarisi: Kurumsal Sistemlerde 10M+ Dağıtım
-            </h1>
-
-            <p class="text-lg sm:text-xl text-slate-600 leading-relaxed font-normal mb-8" x-text="t('blog_article_transactional.subtitle')">
-                Normsoft ERP ve SaaS altyapılarında ayda 10 milyondan fazla e-fatura, OTP ve kritik bildirimi gecikmesiz, kuyruk kilitlenmesi olmadan ve spama düşmeden iletme rehberi.
-            </p>
-
-            <!-- Author Card (Akın TERZİ - Normsoft Bilgi Teknolojileri A.Ş. Genel Müdürü) -->
-            <div class="flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs">
-                <img src="/static/avatar-placeholder.svg" 
-                     alt="Akın TERZİ" 
-                     class="w-14 h-14 rounded-xl object-cover ring-1 ring-slate-200 bg-slate-100">
-                <div class="flex-1 min-w-0">
-                    <div class="flex items-center gap-2">
-                        <span class="font-bold text-slate-900 text-base" x-text="t('blog_article_transactional.author.name')">Akın TERZİ</span>
-                        <span class="text-xs px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 font-mono-code" x-text="t('blog_article_transactional.author.badge')">10M+ Kurumsal Vaka Analizi</span>
+            <!-- Sticky Table of Contents (Left Sidebar on Desktop) -->
+            <aside class="hidden lg:block lg:col-span-4 xl:col-span-3 sticky top-28 self-start space-y-5">
+                <div class="p-5 rounded-3xl bg-white border border-slate-200/80 shadow-xs">
+                    <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/>
+                            </svg>
+                            <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider font-mono-code" x-text="t('blog_article_transactional.toc.heading')">
+                                İçindekiler
+                            </h3>
+                        </div>
+                        <span class="text-2xs font-bold text-blue-600 font-mono-code" x-text="readingProgress + '%'"></span>
                     </div>
-                    <p class="text-xs text-slate-500 mt-0.5 truncate" x-text="t('blog_article_transactional.author.role')">
-                        Normsoft Bilgi Teknolojileri Anonim Şirketi Genel Müdürü
-                    </p>
+
+                    <!-- Progress bar line -->
+                    <div class="w-full bg-slate-100 h-1.5 rounded-full mb-4 overflow-hidden">
+                        <div class="bg-blue-600 h-full transition-all duration-150" :style="'width: ' + readingProgress + '%'"></div>
+                    </div>
+
+                    <!-- Section Navigation Links -->
+                    <nav class="space-y-1 relative" aria-label="Table of Contents">
+                        <template x-for="item in sections" :key="item.id">
+                            <a :href="'#' + item.id" 
+                               @click.prevent="scrollTo(item.id)"
+                               class="group flex items-start gap-2.5 px-3 py-2 rounded-xl text-xs transition-all cursor-pointer border-l-2"
+                               :class="activeSection === item.id 
+                                    ? 'border-blue-600 bg-blue-50/80 text-blue-700 font-bold' 
+                                    : 'border-transparent text-slate-500 hover:text-slate-900 hover:bg-slate-50 hover:border-slate-300 font-medium'">
+                                <span class="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 transition-colors"
+                                      :class="activeSection === item.id ? 'bg-blue-600 ring-4 ring-blue-100' : 'bg-slate-300 group-hover:bg-slate-400'"></span>
+                                <span class="leading-snug" x-text="t('blog_article_transactional.toc.sections.' + item.key)"></span>
+                            </a>
+                        </template>
+                    </nav>
                 </div>
-            </div>
-        </header>
+
+                <!-- Author Mini Card in Sidebar -->
+                <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex items-center gap-3">
+                    <img src="/static/akin-terzi.jpg" alt="Akın TERZİ" class="w-11 h-11 rounded-xl object-cover ring-1 ring-slate-200 bg-slate-100">
+                    <div class="min-w-0">
+                        <span class="font-bold text-slate-900 text-xs block truncate" x-text="t('blog_article_transactional.author.name')">Akın TERZİ</span>
+                        <span class="text-2xs text-slate-500 block truncate" x-text="t('blog_article_transactional.author.role')">Normsoft Bilgi Teknolojileri A.Ş. Genel Müdürü & Kurucu</span>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Article Content -->
+            <div class="lg:col-span-8 xl:col-span-9 min-w-0 max-w-3xl xl:max-w-4xl">
+
+                <!-- Article Header -->
+                <header class="mb-12">
+                    <div class="flex flex-wrap items-center gap-3 text-xs text-slate-500 mb-4 font-medium">
+                        <span class="px-3 py-1 rounded-md bg-blue-50 text-blue-700 font-semibold border border-blue-100" x-text="t('blog_article_transactional.meta_info.category')">
+                            Kurumsal Mimari & Transaksiyonel Dağıtım
+                        </span>
+                        <span class="text-slate-300">&bull;</span>
+                        <span x-text="t('blog_article_transactional.meta_info.read_time')">9 Dk Okuma</span>
+                        <span class="text-slate-300">&bull;</span>
+                        <time datetime="2026-10-12" x-text="t('blog_article_transactional.meta_info.date')">12 Ekim 2026</time>
+                        <span class="text-slate-300">&bull;</span>
+                        <span class="text-slate-400 font-mono-code" x-text="t('blog_article_transactional.meta_info.updated')">Güncelleme: Ekim 2026</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6" x-text="t('blog_article_transactional.title')">
+                        Transaksiyonel E-Posta Mimarisi: Kurumsal Sistemlerde 10M+ Dağıtım
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-slate-600 leading-relaxed font-normal mb-8" x-text="t('blog_article_transactional.subtitle')">
+                        Normsoft ERP ve SaaS altyapılarında ayda 10 milyondan fazla e-fatura, OTP ve kritik bildirimi gecikmesiz, kuyruk kilitlenmesi olmadan ve spama düşmeden iletme rehberi.
+                    </p>
+
+                    <!-- Author Card (Akın TERZİ - Normsoft Bilgi Teknolojileri A.Ş. Genel Müdürü & Kurucu) -->
+                    <div class="flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs">
+                        <img src="/static/akin-terzi.jpg" 
+                             alt="Akın TERZİ" 
+                             class="w-14 h-14 rounded-xl object-cover ring-1 ring-slate-200 bg-slate-100">
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-2">
+                                <span class="font-bold text-slate-900 text-base" x-text="t('blog_article_transactional.author.name')">Akın TERZİ</span>
+                                <span class="text-xs px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 font-mono-code" x-text="t('blog_article_transactional.author.badge')">10M+ Kurumsal Vaka Analizi</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-0.5 truncate" x-text="t('blog_article_transactional.author.role')">
+                                Normsoft Bilgi Teknolojileri Anonim Şirketi Genel Müdürü & Kurucu
+                            </p>
+                        </div>
+                    </div>
+                </header>
 
         <!-- TL;DR Executive Summary Box (GEO / AI Overview Optimization) -->
         <aside class="mb-12 p-6 sm:p-8 rounded-3xl bg-slate-900 text-slate-100 shadow-md border border-slate-800">
@@ -343,7 +422,7 @@
         <article class="prose prose-slate max-w-none space-y-12">
 
             <!-- Section 1 -->
-            <section class="space-y-4">
+            <section id="transaksiyonel-nedir" class="space-y-4 scroll-mt-28">
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight" x-text="t('blog_article_transactional.s1.h2')">
                     1. Transaksiyonel E-Posta Nedir? Neden Ayrı Bir Altyapı Gerektirir?
                 </h2>
@@ -364,7 +443,7 @@
             </section>
 
             <!-- Section 2 -->
-            <section class="space-y-4">
+            <section id="darbogazlar" class="space-y-4 scroll-mt-28">
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight" x-text="t('blog_article_transactional.s2.h2')">
                     2. Ayda 10 Milyon+ İletide Karşılaşılan 3 Kritik Kurumsal Darboğaz
                 </h2>
@@ -392,7 +471,7 @@
             </section>
 
             <!-- Section 3: Normsoft Case Study (Akın TERZİ - E-E-A-T) -->
-            <section class="space-y-4 p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-xs">
+            <section id="vaka-analizi" class="space-y-4 p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-xs scroll-mt-28">
                 <div class="flex items-center justify-between border-b border-slate-100 pb-3">
                     <span class="text-xs font-bold uppercase tracking-wider text-slate-500 font-mono-code" x-text="t('blog_article_transactional.s3.badge')">Kurumsal Vaka İncelemesi</span>
                     <span class="text-xs text-slate-400 font-medium" x-text="t('blog_article_transactional.s3.author')">Yazar: Akın TERZİ, Genel Müdür</span>
@@ -453,7 +532,7 @@
             </section>
 
             <!-- Section 4 -->
-            <section class="space-y-4">
+            <section id="mimari-katmanlar" class="space-y-4 scroll-mt-28">
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight" x-text="t('blog_article_transactional.s4.h2')">
                     4. 4 Katmanlı Kurumsal Transaksiyonel E-Posta Mimarisi
                 </h2>
@@ -501,7 +580,7 @@
             </section>
 
             <!-- Section 5: Integration & JSON Payload -->
-            <section class="space-y-4">
+            <section id="entegrasyon-kod" class="space-y-4 scroll-mt-28">
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight" x-text="t('blog_article_transactional.s5.h2')">
                     5. Üretim Seviyesinde Yapılandırma ve Entegrasyon Örneği
                 </h2>
@@ -537,7 +616,7 @@
             </section>
 
             <!-- Section 6: Security & KVKK -->
-            <section class="space-y-4">
+            <section id="guvenlik-kvkk" class="space-y-4 scroll-mt-28">
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight" x-text="t('blog_article_transactional.s6.h2')">
                     6. Kurumsal Güvenlik, KVKK ve Gizlilik Standartları
                 </h2>
@@ -571,7 +650,7 @@
             </section>
 
             <!-- Section 7: FAQ -->
-            <section class="space-y-4">
+            <section id="sikca-sorulan-sorular" class="space-y-4 scroll-mt-28">
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight" x-text="t('blog_article_transactional.s7.h2')">
                     7. Sıkça Sorulan Sorular
                 </h2>
@@ -606,16 +685,16 @@
 
         </article>
 
-        <!-- Author Bio Box (Akın TERZİ - Normsoft Bilgi Teknolojileri Anonim Şirketi Genel Müdürü) -->
+        <!-- Author Bio Box (Akın TERZİ - Normsoft Bilgi Teknolojileri Anonim Şirketi Genel Müdürü & Kurucu) -->
         <div class="my-14 p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-xs flex flex-col sm:flex-row items-center gap-6">
-            <img src="/static/avatar-placeholder.svg" 
+            <img src="/static/akin-terzi.jpg" 
                  alt="Akın TERZİ" 
                  class="w-20 h-20 rounded-2xl object-cover ring-1 ring-slate-200 bg-slate-100 flex-shrink-0">
             <div>
                 <h3 class="text-base font-bold text-slate-900" x-text="t('blog_article_transactional.author_bio.name')">Akın TERZİ</h3>
-                <p class="text-xs text-slate-500 font-medium mb-2" x-text="t('blog_article_transactional.author_bio.role')">Normsoft Bilgi Teknolojileri Anonim Şirketi Genel Müdürü</p>
+                <p class="text-xs text-slate-500 font-medium mb-2" x-text="t('blog_article_transactional.author_bio.role')">Normsoft Bilgi Teknolojileri Anonim Şirketi Genel Müdürü & Kurucu</p>
                 <p class="text-xs text-slate-600 leading-relaxed" x-text="t('blog_article_transactional.author_bio.desc')">
-                    Akın Terzi; Normsoft Bilgi Teknolojileri Anonim Şirketi Genel Müdürüdür. Büyük ölçekli kurumsal ERP, SaaS ve transaksiyonel yazılım mimarileri, yüksek erişilebilirlikli mesaj kuyrukları ve kritik sistem telemetrisi alanlarında 15 yılı aşkın liderlik deneyimine sahiptir.
+                    Akın Terzi; DİJİTAL PLATFORM Organizasyonu ve NORMSOFT A.Ş. şirketlerinin kurucusu ve Genel Müdürüdür. CAD çözümleri, üretim sektörü, BIM, AR&VR ve kurumsal dijitalleşme stratejileri üzerine uzmanlaşmış olup, TraceParts'ın Türkiye ve bölge ülkelerdeki etkinliğini yönetmektedir. 15 yılı aşkın teknoloji liderliği deneyimiyle; büyük ölçekli kurumsal ERP, yüksek erişilebilirlikli mesaj kuyrukları ve 10M+ transaksiyonel bildirim mimarilerinde operasyonel mükemmellik sağlamaktadır.
                 </p>
             </div>
         </div>
@@ -656,6 +735,9 @@
             </a>
         </div>
 
+            </div><!-- Close Right Column -->
+        </div><!-- Close Two-column Layout -->
+
     </main>
 
     <!-- Footer -->
@@ -688,6 +770,18 @@
             return {
                 currentLang: 'tr',
                 langMenuOpen: false,
+                mobileTocOpen: false,
+                activeSection: 'transaksiyonel-nedir',
+                readingProgress: 0,
+                sections: [
+                    { id: 'transaksiyonel-nedir', key: 's1' },
+                    { id: 'darbogazlar', key: 's2' },
+                    { id: 'vaka-analizi', key: 's3' },
+                    { id: 'mimari-katmanlar', key: 's4' },
+                    { id: 'entegrasyon-kod', key: 's5' },
+                    { id: 'guvenlik-kvkk', key: 's6' },
+                    { id: 'sikca-sorulan-sorular', key: 's7' }
+                ],
 
                 init() {
                     if (window.i18n && window.i18n.getLanguage) {
@@ -707,6 +801,7 @@
                         window.i18n.setLanguage(this.currentLang);
                     }
                     this.updateMeta();
+                    this.initScrollSpy();
 
                     window.addEventListener('language-changed', (e) => {
                         if (e.detail && e.detail.language && (e.detail.language === 'tr' || e.detail.language === 'en')) {
@@ -714,6 +809,54 @@
                             this.updateMeta();
                         }
                     });
+                },
+
+                initScrollSpy() {
+                    const updateProgress = () => {
+                        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                        if (docHeight > 0) {
+                            const scrolled = window.scrollY || window.pageYOffset;
+                            this.readingProgress = Math.min(100, Math.max(0, Math.round((scrolled / docHeight) * 100)));
+                        }
+                    };
+                    window.addEventListener('scroll', updateProgress, { passive: true });
+                    updateProgress();
+
+                    if ('IntersectionObserver' in window) {
+                        const observer = new IntersectionObserver((entries) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    this.activeSection = entry.target.id;
+                                }
+                            });
+                        }, {
+                            rootMargin: '-10% 0px -65% 0px',
+                            threshold: 0
+                        });
+
+                        this.$nextTick(() => {
+                            this.sections.forEach(sec => {
+                                const el = document.getElementById(sec.id);
+                                if (el) observer.observe(el);
+                            });
+                        });
+                    }
+                },
+
+                scrollTo(id) {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        el.scrollIntoView({ behavior: 'smooth' });
+                        this.activeSection = id;
+                    }
+                },
+
+                getActiveSectionTitle() {
+                    const current = this.sections.find(s => s.id === this.activeSection);
+                    if (current) {
+                        return this.t('blog_article_transactional.toc.sections.' + current.key);
+                    }
+                    return this.t('blog_article_transactional.toc.heading');
                 },
 
                 setLang(lang) {

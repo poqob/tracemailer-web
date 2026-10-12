@@ -1565,6 +1565,19 @@
                     title: 'TraceMailer Rehber & Blog',
                     desc: 'Spam filtrelerini aşma teknikleri, Google & Yahoo kuralları, STO zamanlaması ve e-posta telemetrisi üzerine derinlemesine mühendislik analizleri.'
                 },
+                authors: {
+                    heading: 'Yazarlarımız & Uzman Kadromuz',
+                    mustafa: {
+                        name: 'Mustafa BİÇER',
+                        role: 'Dijital Çözüm Uzmanı',
+                        bio: 'Yüksek hacimli e-posta dağıtımı, SMTP optimizasyonu ve telemetri analizleri.'
+                    },
+                    akin: {
+                        name: 'Akın TERZİ',
+                        role: 'Normsoft Bilgi Teknolojileri A.Ş. Genel Müdürü & Kurucu',
+                        bio: 'Dijital dönüşüm, CAD, BIM, AR&VR, TraceParts Türkiye ve kurumsal transaksiyonel mesaj mimarileri lideri.'
+                    }
+                },
                 author: {
                     name: 'Mustafa BİÇER',
                     role: 'Dijital Çözüm Uzmanı',
@@ -1644,6 +1657,21 @@
                     read_time: '7 Dk Okuma',
                     date: '12 Ekim 2026',
                     updated: 'Güncelleme: Ekim 2026'
+                },
+                toc: {
+                    heading: 'İçindekiler',
+                    progress: 'Okuma İlerlemesi',
+                    read: 'okundu',
+                    sections: {
+                        s1: '1. Deliverability Nedir?',
+                        s2: '2. Neden Spama Düşer?',
+                        s3: '3. 50K Vaka Analizi',
+                        s4: '4. STO (Zamanlama Zekası)',
+                        s5: '5. Apple MPP & Telemetri',
+                        s6: '6. İzinli Pazarlama & Hijyen',
+                        s7: '7. Adım Adım Eylem Planı',
+                        s8: '8. Sıkça Sorulan Sorular'
+                    }
                 },
                 title: 'E-Postalar Neden Spama Düşer? %90+ Inbox Başarısı İçin 2026 Rehberi',
                 subtitle: 'Google ve Yahoo’nun getirdiği katı zorunluluklar, Apple MPP’nin yanıltıcı açılma pikselleri ve yapay zeka spam filtreleri çağında gelen kutusunda kalmanın teknik matematiği.',
@@ -1767,6 +1795,20 @@
                                 "read_time": "8 Dk Okuma",
                                 "date": "12 Ekim 2026",
                                 "updated": "Güncelleme: Ekim 2026"
+                },
+                "toc": {
+                                "heading": "İçindekiler",
+                                "progress": "Okuma İlerlemesi",
+                                "read": "okundu",
+                                "sections": {
+                                                "s1": "1. DMARC, DKIM & SPF Nedir?",
+                                                "s2": "2. Google & Yahoo 2026 Kuralları",
+                                                "s3": "3. Vaka İncelemesi (+%22 Açılma)",
+                                                "s4": "4. BIMI ve Mavi Tik Şartı",
+                                                "s5": "5. Adım Adım DNS Kurulumu",
+                                                "s6": "6. En Sık Yapılan 5 Hata",
+                                                "s7": "7. Sıkça Sorulan Sorular"
+                                }
                 },
                 "title": "DMARC, DKIM ve BIMI Rehberi: E-Postada Doğrulanmış Marka Logosu",
                 "subtitle": "Google ve Yahoo’nun zorunlu kıldığı e-posta kimlik doğrulama standartları, phishing engelleme ve Gmail ile Apple Mail kutularında doğrulanmış mavi tikli marka logosu gösterme rehberi.",
@@ -1936,11 +1978,25 @@
                                 "date": "12 Ekim 2026",
                                 "updated": "Güncelleme: Ekim 2026"
                 },
+                "toc": {
+                                "heading": "İçindekiler",
+                                "progress": "Okuma İlerlemesi",
+                                "read": "okundu",
+                                "sections": {
+                                                "s1": "1. Transaksiyonel E-Posta Nedir?",
+                                                "s2": "2. 10M+ Dağıtımda 3 Darboğaz",
+                                                "s3": "3. Vaka Analizi: 12M E-Fatura",
+                                                "s4": "4. 4 Katmanlı Dağıtım Mimarisi",
+                                                "s5": "5. Webhook & JSON Entegrasyonu",
+                                                "s6": "6. Kurumsal Güvenlik & KVKK",
+                                                "s7": "7. Sıkça Sorulan Sorular"
+                                }
+                },
                 "title": "Transaksiyonel E-Posta Mimarisi: Kurumsal Sistemlerde 10M+ Dağıtım",
                 "subtitle": "Normsoft ERP ve SaaS altyapılarında ayda 10 milyondan fazla e-fatura, OTP ve kritik bildirimi gecikmesiz, kuyruk kilitlenmesi olmadan ve spama düşmeden iletme rehberi.",
                 "author": {
                                 "name": "Akın TERZİ",
-                                "role": "Normsoft Bilgi Teknolojileri Anonim Şirketi Genel Müdürü",
+                                "role": "Normsoft Bilgi Teknolojileri A.Ş. Genel Müdürü & Kurucu",
                                 "badge": "10M+ Kurumsal Vaka Analizi"
                 },
                 "tldr": {
@@ -2040,8 +2096,8 @@
                 },
                 "author_bio": {
                                 "name": "Akın TERZİ",
-                                "role": "Normsoft Bilgi Teknolojileri Anonim Şirketi Genel Müdürü",
-                                "desc": "Akın Terzi; Normsoft Bilgi Teknolojileri Anonim Şirketi Genel Müdürüdür. Büyük ölçekli kurumsal ERP, SaaS ve transaksiyonel yazılım mimarileri, yüksek erişilebilirlikli mesaj kuyrukları ve kritik sistem telemetrisi alanlarında 15 yılı aşkın liderlik deneyimine sahiptir."
+                                "role": "Normsoft Bilgi Teknolojileri Anonim Şirketi Genel Müdürü & Kurucu",
+                                "desc": "Akın Terzi; DİJİTAL PLATFORM Organizasyonu ve NORMSOFT A.Ş. şirketlerinin kurucusu ve Genel Müdürüdür. CAD çözümleri, üretim sektörü, BIM, AR&VR ve kurumsal dijitalleşme stratejileri üzerine uzmanlaşmış olup, TraceParts'ın Türkiye ve bölge ülkelerdeki etkinliğini yönetmektedir. 15 yılı aşkın teknoloji liderliği deneyimiyle; büyük ölçekli kurumsal ERP, yüksek erişilebilirlikli mesaj kuyrukları ve 10M+ transaksiyonel bildirim mimarilerinde operasyonel mükemmellik sağlamaktadır."
                 },
                 "related": {
                                 "heading": "İlgili Rehberler",
@@ -3596,6 +3652,19 @@
                     title: 'TraceMailer Guides & Blog',
                     desc: 'Engineering deep-dives on bypassing spam filters, Google & Yahoo bulk requirements, STO timing, and email telemetry.'
                 },
+                authors: {
+                    heading: 'Our Authors & Expert Contributors',
+                    mustafa: {
+                        name: 'Mustafa BİÇER',
+                        role: 'Digital Solutions Specialist',
+                        bio: 'High-volume email delivery, SMTP server tuning, and telemetry analytics.'
+                    },
+                    akin: {
+                        name: 'Akın TERZİ',
+                        role: 'General Manager, Normsoft Inc. & Founder',
+                        bio: 'Leader in digital transformation, CAD, BIM, AR&VR, TraceParts Türkiye, and enterprise transactional architectures.'
+                    }
+                },
                 author: {
                     name: 'Mustafa BİÇER',
                     role: 'Digital Solutions Specialist',
@@ -3675,6 +3744,21 @@
                     read_time: '7 Min Read',
                     date: 'October 12, 2026',
                     updated: 'Updated: October 2026'
+                },
+                toc: {
+                    heading: 'Table of Contents',
+                    progress: 'Reading Progress',
+                    read: 'read',
+                    sections: {
+                        s1: '1. What is Deliverability?',
+                        s2: '2. Why Emails Go to Spam',
+                        s3: '3. 50K Case Study',
+                        s4: '4. STO Timing Intelligence',
+                        s5: '5. Apple MPP & Telemetry',
+                        s6: '6. Permission & List Hygiene',
+                        s7: '7. Step-by-Step Action Plan',
+                        s8: '8. Frequently Asked Questions'
+                    }
                 },
                 title: 'Why Do Emails Go to Spam? 2026 Guide for 90%+ Inbox Placement',
                 subtitle: 'The technical mechanics of staying in the primary inbox amidst strict Google & Yahoo requirements, Apple MPP pixel masking, and AI spam filters.',
@@ -3798,6 +3882,20 @@
                                 "read_time": "8 Min Read",
                                 "date": "October 12, 2026",
                                 "updated": "Updated: October 2026"
+                },
+                "toc": {
+                                "heading": "Table of Contents",
+                                "progress": "Reading Progress",
+                                "read": "read",
+                                "sections": {
+                                                "s1": "1. What is DMARC, DKIM & SPF?",
+                                                "s2": "2. 2026 Google & Yahoo Rules",
+                                                "s3": "3. Case Study (+22% Open Lift)",
+                                                "s4": "4. BIMI & Verified Blue Badge",
+                                                "s5": "5. Step-by-Step DNS Setup",
+                                                "s6": "6. Top 5 Common Setup Errors",
+                                                "s7": "7. Frequently Asked Questions"
+                                }
                 },
                 "title": "DMARC, DKIM & BIMI Guide: Verified Brand Logos & Email Security",
                 "subtitle": "Master Google & Yahoo bulk sender authentication rules, eliminate phishing spoofing, and display verified brand checkmark logos in Gmail and Apple Mail.",
@@ -3967,11 +4065,25 @@
                                 "date": "October 12, 2026",
                                 "updated": "Updated: October 2026"
                 },
+                "toc": {
+                                "heading": "Table of Contents",
+                                "progress": "Reading Progress",
+                                "read": "read",
+                                "sections": {
+                                                "s1": "1. What is Transactional Email?",
+                                                "s2": "2. 3 Bottlenecks at 10M+ Scale",
+                                                "s3": "3. Case Study: 12M E-Invoices",
+                                                "s4": "4. 4-Layer Delivery Architecture",
+                                                "s5": "5. Webhook & JSON Integration",
+                                                "s6": "6. Enterprise Security & GDPR",
+                                                "s7": "7. Frequently Asked Questions"
+                                }
+                },
                 "title": "Transactional Email Architecture: Scaling 10M+ Enterprise Mail",
                 "subtitle": "A practical engineering guide to delivering 10M+ monthly invoices, OTPs, and mission-critical alerts without latency, queue blockages, or spam filtering.",
                 "author": {
                                 "name": "Akın TERZİ",
-                                "role": "General Manager, Normsoft Information Technologies Inc.",
+                                "role": "General Manager, Normsoft Inc. & Founder",
                                 "badge": "10M+ Enterprise Case Study"
                 },
                 "tldr": {
@@ -4071,8 +4183,8 @@
                 },
                 "author_bio": {
                                 "name": "Akın TERZİ",
-                                "role": "General Manager, Normsoft Information Technologies Inc.",
-                                "desc": "Akin Terzi is the General Manager of Normsoft Information Technologies Inc. He brings over 15 years of executive engineering leadership in high-scale enterprise ERP, SaaS transactional messaging, fault-tolerant queues, and mission-critical system telemetry."
+                                "role": "General Manager, Normsoft Information Technologies Inc. & Founder",
+                                "desc": "Akin Terzi is the founder and General Manager of DIJITAL PLATFORM and NORMSOFT Inc. With over 15 years of executive engineering experience spanning CAD solutions, manufacturing, BIM, AR&VR, and digital transformation, he directs TraceParts operations in Türkiye and engineers resilient high-volume ERP transactional messaging ecosystems at scale."
                 },
                 "related": {
                                 "heading": "Related Guides",

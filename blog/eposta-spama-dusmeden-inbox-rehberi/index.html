@@ -223,6 +223,9 @@
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-blue-600 selection:text-white" x-data="blogArticleApp()">
 
+    <!-- Reading Progress Bar (Top Fixed) -->
+    <div class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150" :style="'width: ' + readingProgress + '%'"></div>
+
     <!-- Navigation Header -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-all duration-200">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -287,20 +290,94 @@
         </div>
     </header>
 
-    <!-- Breadcrumbs -->
-    <div class="bg-white border-b border-slate-100">
-        <div class="max-w-4xl mx-auto px-6 py-3.5 text-xs text-slate-500 flex items-center gap-2 overflow-x-auto whitespace-nowrap">
-            <a href="/" class="hover:text-blue-600 transition-colors" x-text="t('blog_article.breadcrumbs.home')">Ana Sayfa</a>
-            <svg class="w-3.5 h-3.5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            <a href="/blog/" class="hover:text-blue-600 transition-colors" x-text="t('blog_article.breadcrumbs.blog')">Rehber & Blog</a>
-            <svg class="w-3.5 h-3.5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            <span class="text-slate-800 font-medium" x-text="t('blog_article.breadcrumbs.current')">E-Postalar Neden Spama Düşer?</span>
+    <!-- Mobile Quick Table of Contents Bar -->
+    <div class="lg:hidden sticky top-20 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 px-4 py-2.5 shadow-2xs">
+        <div class="max-w-7xl mx-auto flex items-center justify-between text-xs">
+            <div class="flex items-center gap-2 text-slate-700 font-medium truncate max-w-[70%]">
+                <span class="w-2 h-2 rounded-full bg-blue-600 flex-shrink-0 animate-pulse"></span>
+                <span class="truncate font-semibold text-slate-800" x-text="getActiveSectionTitle()"></span>
+            </div>
+            <button type="button" @click="mobileTocOpen = !mobileTocOpen" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold flex items-center gap-1 cursor-pointer">
+                <span x-text="t('blog_article.toc.heading')">İçindekiler</span>
+                <svg class="w-3.5 h-3.5 transition-transform duration-150" :class="mobileTocOpen ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+        </div>
+        <div x-show="mobileTocOpen" x-cloak @click.away="mobileTocOpen = false" class="max-w-7xl mx-auto mt-2 pt-2 border-t border-slate-100 space-y-1 max-h-60 overflow-y-auto">
+            <template x-for="item in sections" :key="item.id">
+                <a :href="'#' + item.id" 
+                   @click="scrollTo(item.id); mobileTocOpen = false"
+                   class="block px-3 py-2 rounded-lg text-xs transition-colors"
+                   :class="activeSection === item.id ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-600 hover:bg-slate-50'"
+                   x-text="t('blog_article.toc.sections.' + item.key)"></a>
+            </template>
         </div>
     </div>
 
     <!-- Main Content Container -->
-    <main class="max-w-4xl mx-auto px-6 py-10 md:py-14">
-        <article class="bg-white rounded-3xl border border-slate-200/80 shadow-xs p-6 sm:p-10 md:p-14">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+
+        <!-- Breadcrumbs -->
+        <nav class="flex items-center gap-2 text-xs text-slate-500 mb-8 max-w-4xl lg:max-w-none" aria-label="Breadcrumb">
+            <a href="/" class="hover:text-blue-600 transition-colors" x-text="t('blog_article.breadcrumbs.home')">Ana Sayfa</a>
+            <span>/</span>
+            <a href="/blog/" class="hover:text-blue-600 transition-colors" x-text="t('blog_article.breadcrumbs.blog')">Rehber & Blog</a>
+            <span>/</span>
+            <span class="text-slate-800 font-medium truncate max-w-xs sm:max-w-md" x-text="t('blog_article.breadcrumbs.current')">E-Postalar Neden Spama Düşer?</span>
+        </nav>
+
+        <!-- Two-column Layout: Left TOC Sidebar + Article Content -->
+        <div class="lg:grid lg:grid-cols-12 lg:gap-8 xl:gap-12 items-start">
+
+            <!-- Sticky Table of Contents (Desktop Sidebar) -->
+            <aside class="hidden lg:block lg:col-span-4 xl:col-span-3 sticky top-28 self-start space-y-5">
+                <div class="p-5 rounded-3xl bg-white border border-slate-200/80 shadow-xs">
+                    <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/>
+                            </svg>
+                            <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider font-mono-code" x-text="t('blog_article.toc.heading')">
+                                İçindekiler
+                            </h3>
+                        </div>
+                        <span class="text-2xs font-bold text-blue-600 font-mono-code" x-text="readingProgress + '%'"></span>
+                    </div>
+
+                    <!-- Progress bar line -->
+                    <div class="w-full bg-slate-100 h-1.5 rounded-full mb-4 overflow-hidden">
+                        <div class="bg-blue-600 h-full transition-all duration-150" :style="'width: ' + readingProgress + '%'"></div>
+                    </div>
+
+                    <!-- Section Navigation Links -->
+                    <nav class="space-y-1 relative" aria-label="Table of Contents">
+                        <template x-for="item in sections" :key="item.id">
+                            <a :href="'#' + item.id" 
+                               @click.prevent="scrollTo(item.id)"
+                               class="group flex items-start gap-2.5 px-3 py-2 rounded-xl text-xs transition-all cursor-pointer border-l-2"
+                               :class="activeSection === item.id 
+                                    ? 'border-blue-600 bg-blue-50/80 text-blue-700 font-bold' 
+                                    : 'border-transparent text-slate-500 hover:text-slate-900 hover:bg-slate-50 hover:border-slate-300 font-medium'">
+                                <span class="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 transition-colors"
+                                      :class="activeSection === item.id ? 'bg-blue-600 ring-4 ring-blue-100' : 'bg-slate-300 group-hover:bg-slate-400'"></span>
+                                <span class="leading-snug" x-text="t('blog_article.toc.sections.' + item.key)"></span>
+                            </a>
+                        </template>
+                    </nav>
+                </div>
+
+                <!-- Author Mini Card in Sidebar -->
+                <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex items-center gap-3">
+                    <img src="https://www.gravatar.com/avatar/522c480ffa943deea2beecdcf801a4d8?s=400&d=mp" alt="Mustafa BİÇER" class="w-11 h-11 rounded-xl object-cover ring-1 ring-slate-200">
+                    <div class="min-w-0">
+                        <span class="font-bold text-slate-900 text-xs block truncate" x-text="t('blog_article.author.name')">Mustafa BİÇER</span>
+                        <span class="text-2xs text-slate-500 block truncate" x-text="t('blog_article.author.role')">Dijital Çözüm Uzmanı</span>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Article Content -->
+            <div class="lg:col-span-8 xl:col-span-9 min-w-0 max-w-3xl xl:max-w-4xl">
+                <article class="bg-white rounded-3xl border border-slate-200/80 shadow-xs p-6 sm:p-10 md:p-14">
 
             <!-- Category & Metadata Header -->
             <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500 mb-6 font-medium">
@@ -355,7 +432,7 @@
             <div class="prose-content space-y-10 text-slate-700 text-base sm:text-lg leading-relaxed">
 
                 <!-- Section 1: Definition -->
-                <section id="deliverability-nedir">
+                <section id="deliverability-nedir" class="scroll-mt-28">
                     <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4 tracking-tight" x-text="t('blog_article.s1.h2')">
                         1. E-Posta Teslim Edilebilirliği (Deliverability) Nedir?
                     </h2>
@@ -372,7 +449,7 @@
                 </section>
 
                 <!-- Section 2: Why do emails go to spam? -->
-                <section id="neden-spama-duser">
+                <section id="neden-spama-duser" class="scroll-mt-28">
                     <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4 tracking-tight" x-text="t('blog_article.s2.h2')">
                         2. E-Postalar Neden Spama Düşer? 2026’da Değişen Kurallar
                     </h2>
@@ -405,7 +482,7 @@
                 </section>
 
                 <!-- Section 3: Case Study -->
-                <section id="vaka-analizi" class="p-6 sm:p-8 rounded-3xl bg-slate-900 text-white">
+                <section id="vaka-analizi" class="scroll-mt-28 p-6 sm:p-8 rounded-3xl bg-slate-900 text-white">
                     <div class="flex items-center gap-3 mb-4">
                         <span class="text-xs text-slate-400 font-mono-code uppercase tracking-wider" x-text="t('blog_article.s3.badge')">Vaka İncelemesi</span>
                         <span class="text-slate-600">&bull;</span>
@@ -452,7 +529,7 @@
                 </section>
 
                 <!-- Section 4: STO (Send Time Optimization) -->
-                <section id="sto-nedir">
+                <section id="sto-nedir" class="scroll-mt-28">
                     <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4 tracking-tight" x-text="t('blog_article.s4.h2')">
                         4. Send Time Optimization (STO) Nedir ve Neden Hayatidir?
                     </h2>
@@ -469,7 +546,7 @@
                 </section>
 
                 <!-- Section 5: Apple MPP & Geolocation Reality -->
-                <section id="apple-mpp-telemetri">
+                <section id="apple-mpp-telemetri" class="scroll-mt-28">
                     <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4 tracking-tight" x-text="t('blog_article.s5.h2')">
                         5. Apple Mail Privacy Protection (MPP) ve Gerçek Telemetri İhtiyacı
                     </h2>
@@ -486,7 +563,7 @@
                 </section>
 
                 <!-- Section 6: Quotations and Philosophy -->
-                <section id="izinli-pazarlama" class="my-10">
+                <section id="izinli-pazarlama" class="scroll-mt-28 my-10">
                     <blockquote class="p-6 sm:p-8 rounded-2xl bg-slate-100 border-l-4 border-slate-900 text-slate-800 italic text-lg leading-relaxed mb-6">
                         <span x-text="t('blog_article.quote.text')">"İzinli pazarlama (Permission Marketing), yabancıları arkadaşa, arkadaşları ise müşteriye dönüştürme sanatıdır. İstenmeyen bir e-posta, en zarif şablona sahip olsa bile kullanıcı gözünde dijital gürültüdür."</span>
                         <span class="block mt-3 text-sm font-bold not-italic text-slate-900" x-text="'— ' + t('blog_article.quote.author')">— Seth Godin, Yazar & Pazarlama Vizyoneri</span>
@@ -499,7 +576,7 @@
                 </section>
 
                 <!-- Section 7: Step-by-Step Action Plan (HowTo) -->
-                <section id="adim-adim-eylem-plani">
+                <section id="adim-adim-eylem-plani" class="scroll-mt-28">
                     <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-6 tracking-tight" x-text="t('blog_article.s6.h2')">
                         6. 5 Adımlı Kontrol Listesi: Inbox Başarısını %90+ Seviyesine Çıkarın
                     </h2>
@@ -548,7 +625,7 @@
                 </section>
 
                 <!-- Section 8: FAQ Section -->
-                <section id="sikca-sorulan-sorular">
+                <section id="sikca-sorulan-sorular" class="scroll-mt-28">
                     <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-6 tracking-tight" x-text="t('blog_article.s7.h2')">
                         7. Sıkça Sorulan Sorular
                     </h2>
@@ -632,6 +709,8 @@
             </div>
 
         </article>
+            </div><!-- Close Right Column -->
+        </div><!-- Close Two-column Layout -->
     </main>
 
     <!-- Footer -->
@@ -664,6 +743,19 @@
             return {
                 currentLang: 'tr',
                 langMenuOpen: false,
+                mobileTocOpen: false,
+                activeSection: 'deliverability-nedir',
+                readingProgress: 0,
+                sections: [
+                    { id: 'deliverability-nedir', key: 's1' },
+                    { id: 'neden-spama-duser', key: 's2' },
+                    { id: 'vaka-analizi', key: 's3' },
+                    { id: 'sto-nedir', key: 's4' },
+                    { id: 'apple-mpp-telemetri', key: 's5' },
+                    { id: 'izinli-pazarlama', key: 's6' },
+                    { id: 'adim-adim-eylem-plani', key: 's7' },
+                    { id: 'sikca-sorulan-sorular', key: 's8' }
+                ],
 
                 init() {
                     if (window.i18n && window.i18n.getLanguage) {
@@ -683,6 +775,7 @@
                         window.i18n.setLanguage(this.currentLang);
                     }
                     this.updateMeta();
+                    this.initScrollSpy();
 
                     window.addEventListener('language-changed', (e) => {
                         if (e.detail && e.detail.language && (e.detail.language === 'tr' || e.detail.language === 'en')) {
@@ -690,6 +783,54 @@
                             this.updateMeta();
                         }
                     });
+                },
+
+                initScrollSpy() {
+                    const updateProgress = () => {
+                        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                        if (docHeight > 0) {
+                            const scrolled = window.scrollY || window.pageYOffset;
+                            this.readingProgress = Math.min(100, Math.max(0, Math.round((scrolled / docHeight) * 100)));
+                        }
+                    };
+                    window.addEventListener('scroll', updateProgress, { passive: true });
+                    updateProgress();
+
+                    if ('IntersectionObserver' in window) {
+                        const observer = new IntersectionObserver((entries) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    this.activeSection = entry.target.id;
+                                }
+                            });
+                        }, {
+                            rootMargin: '-10% 0px -65% 0px',
+                            threshold: 0
+                        });
+
+                        this.$nextTick(() => {
+                            this.sections.forEach(sec => {
+                                const el = document.getElementById(sec.id);
+                                if (el) observer.observe(el);
+                            });
+                        });
+                    }
+                },
+
+                scrollTo(id) {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        el.scrollIntoView({ behavior: 'smooth' });
+                        this.activeSection = id;
+                    }
+                },
+
+                getActiveSectionTitle() {
+                    const current = this.sections.find(s => s.id === this.activeSection);
+                    if (current) {
+                        return this.t('blog_article.toc.sections.' + current.key);
+                    }
+                    return this.t('blog_article.toc.heading');
                 },
 
                 setLang(lang) {
