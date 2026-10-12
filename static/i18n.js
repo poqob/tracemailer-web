@@ -1631,7 +1631,7 @@
                         read_time: "12 Dk Okuma",
                         date: "6 Ekim 2026",
                         title: "2026 Kurumsal E-Posta Teslimat ve Güvenlik Raporu: 3.200+ Domain Analizi",
-                        desc: "TraceMailer Telemetri Laboratuvarı’ndan 4.862 e-posta ve 3.240 alan adı üzerinde 1 aylık canlı veriyle gerçekleştirilen kapsamlı araştırma. Apple MPP’nin %51.4’lük sahte piksel gerçeği, DMARC p=reject’in %94.6 inbox başarısı ve STO etkileşim kazanımları.",
+                        desc: "TraceMailer Telemetri Laboratuvarı’ndan 4.862 e-posta ve 3.240 alan adı üzerinde 1 aylık veri setiyle gerçekleştirilen kapsamlı araştırma. Apple MPP’nin %51.4’lük sahte piksel gerçeği, DMARC p=reject’in %94.6 inbox başarısı ve STO etkileşim kazanımları.",
                         read_btn: "Raporu İncele",
                         url: "/blog/2026-eposta-teslimat-ve-guvenlik-istatistikleri/"
                     }
@@ -2158,10 +2158,19 @@
           "hero": {
                 "badge": "TRACE MAILER TELEMETRİ LABORATUVARI // BİRİNCİL SEKTÖR ARAŞTIRMASI",
                 "title": "2026 Kurumsal E-Posta Teslimat ve Güvenlik Raporu",
-                "subtitle": "124.6 milyon e-posta gönderimi ve 4.850 kurumsal alan adının canlı telemetri analizi: Apple MPP yanılsamaları, DMARC p=reject’in gerçek inbox etkisi ve alıcı odaklı STO kazanımları."
+                "subtitle": "4.862 e-posta gönderimi ve 3.240 kurumsal alan adının 1 aylık telemetri analizi: Apple MPP yanılsamaları, DMARC p=reject’in gerçek inbox etkisi ve alıcı odaklı STO kazanımları."
+          },
+          "sidebar_dataset": {
+                "badge": "TELEMETRİ VERİ SETİ // 2026",
+                "total_label": "Toplam İleti:",
+                "total_val": "4.862",
+                "domains_label": "Kurumsal Domain:",
+                "domains_val": "3.240 Alan Adı",
+                "scope_label": "Kapsam:",
+                "scope_val": "1 Aylık Veri Seti"
           },
           "stat_cards": {
-                "c1_val": "124.6M+",
+                "c1_val": "4.862",
                 "c1_label": "Analiz Edilen E-Posta İletisi",
                 "c2_val": "%51.4",
                 "c2_label": "Apple MPP Sahte Ön-Bellek Açılma Oranı",
@@ -2184,10 +2193,10 @@
           },
           "sec2": {
                 "title": "2. Araştırma Metodolojisi ve Veri Seti Analizi",
-                "lead": "Bu çalışma, 1 Ocak 2026 ile 30 Eylül 2026 tarihleri arasında TraceMailer Dağıtık Telemetri Ağı üzerinden iletilen gerçek üretim (production) verilerine dayanmaktadır.",
+                "lead": "Bu çalışma, 1 Eylül 2026 ile 30 Eylül 2026 tarihleri arasında TraceMailer Dağıtık Telemetri Ağı üzerinden iletilen gerçek üretim (production) verilerine dayanmaktadır.",
                 "data_points_title": "Veri Seti Kapsamı ve Örneklem Büyüklüğü:",
-                "d1": "Toplam İşlenen İleti Hacmi: 124.621.840 tekil SMTP iletimi.",
-                "d2": "İncelenen Kurumsal Alan Adı: 4.850 aktif domain (B2B SaaS, E-Ticaret, Finans & Bankacılık, İmalat & ERP).",
+                "d1": "Toplam İşlenen İleti Hacmi: 4.862 tekil SMTP iletimi.",
+                "d2": "İncelenen Kurumsal Alan Adı: 3.240 aktif domain (B2B SaaS, E-Ticaret, Finans & Bankacılık, İmalat & ERP).",
                 "d3": "Hedef ISP Dağılımı: Microsoft 365 (%44.2), Google Workspace & Gmail (%39.8), Özel Kurumsal Sunucular & On-Premise Exchange (%16.0).",
                 "d4": "Gizlilik ve KVKK/GDPR Uyumu: Tüm alıcı verileri ve alan adı isimleri tek yönlü SHA-256 ile anonimleştirilmiş, yalnızca mimari ve itibar sinyalleri işlenmiştir."
           },
@@ -4896,7 +4905,16 @@
           "hero": {
                 "badge": "TRACEMAILER TELEMETRY LAB // PRIMARY INDUSTRY RESEARCH",
                 "title": "2026 Enterprise Email Deliverability and Security Benchmark Report",
-                "subtitle": "Live telemetry analysis across 4,862 dispatches and 3,240 enterprise domains: Apple MPP distortions, real-world DMARC p=reject inbox gains, and AI recipient timing."
+                "subtitle": "Telemetry analysis across 4,862 dispatches and 3,240 enterprise domains over 1 month: Apple MPP distortions, real-world DMARC p=reject inbox gains, and AI recipient timing."
+          },
+          "sidebar_dataset": {
+                "badge": "TELEMETRY DATASET // 2026",
+                "total_label": "Total Dispatches:",
+                "total_val": "4,862",
+                "domains_label": "Enterprise Domains:",
+                "domains_val": "3,240 Domains",
+                "scope_label": "Scope:",
+                "scope_val": "1-Month Dataset"
           },
           "stat_cards": {
                 "c1_val": "4,862",
