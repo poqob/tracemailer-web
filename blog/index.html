@@ -56,6 +56,18 @@
           "url": "https://tracemailer.com/blog/",
           "name": "TraceMailer Rehber & Blog",
           "description": "E-posta teslim edilebilirliği, inbox başarısı, alıcı hijyeni ve telemetri teknolojileri hakkında derinlemesine rehberler.",
+          "hasPart": [
+            {
+              "@type": "BlogPosting",
+              "headline": "DMARC, DKIM ve BIMI Rehberi: E-Postada Doğrulanmış Marka Logosu",
+              "url": "https://tracemailer.com/blog/dmarc-dkim-bimi-rehberi/"
+            },
+            {
+              "@type": "BlogPosting",
+              "headline": "E-Postalar Neden Spama Düşer? %90+ Inbox Başarısı İçin 2026 Rehberi",
+              "url": "https://tracemailer.com/blog/eposta-spama-dusmeden-inbox-rehberi/"
+            }
+          ],
           "publisher": {
             "@type": "Organization",
             "name": "TraceMailer",
@@ -107,7 +119,7 @@
     </script>
     
     <!-- Internationalization (i18n) -->
-    <script src="/static/i18n.js?v=20261012c"></script>
+    <script src="/static/i18n.js?v=20261012d"></script>
 
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -217,49 +229,92 @@
         <!-- Section Title -->
         <div class="flex items-center justify-between mb-8">
             <h2 class="text-2xl font-bold text-slate-900 tracking-tight" x-text="t('blog_hub.featured.heading')">Öne Çıkan Rehberler</h2>
-            <span class="text-xs text-slate-400 font-mono-code" x-text="t('blog_hub.featured.count')">1 Yayın</span>
+            <span class="text-xs text-slate-400 font-mono-code" x-text="t('blog_hub.featured.count')">2 Yayın</span>
         </div>
 
-        <!-- Featured Guide Card -->
-        <article class="bg-white rounded-3xl border border-slate-200/80 shadow-xs overflow-hidden hover:shadow-md hover:border-slate-300 transition-all duration-200 group">
-            <div class="p-6 sm:p-10">
-                <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500 mb-3 font-medium">
-                    <span class="text-blue-600 font-semibold" x-text="t('blog_hub.featured.category')">E-Posta Teslim Edilebilirliği</span>
-                    <span class="text-slate-300">&bull;</span>
-                    <span x-text="t('blog_hub.featured.read_time')">7 Dk Okuma</span>
-                    <span class="text-slate-300">&bull;</span>
-                    <time datetime="2026-10-12" x-text="t('blog_hub.featured.date')">12 Ekim 2026</time>
-                </div>
-
-                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors mb-4 leading-tight">
-                    <a href="/blog/eposta-spama-dusmeden-inbox-rehberi/" x-text="t('blog_hub.featured.title')">
-                        E-Postalar Neden Spama Düşer? %90+ Inbox Başarısı İçin 2026 Rehberi
-                    </a>
-                </h3>
-
-                <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6" x-text="t('blog_hub.featured.desc')">
-                    Google ve Yahoo’nun getirdiği katı zorunluluklar, Apple MPP’nin yanıltıcı açılma pikselleri ve yapay zeka spam filtreleri çağında gelen kutusunda kalmanın teknik matematiği. 50.000 kişilik B2B test listesindeki vaka analizi ve adım adım eylem planı.
-                </p>
-
-                <div class="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-slate-100">
-                    <div class="flex items-center gap-3">
-                        <img src="https://www.gravatar.com/avatar/522c480ffa943deea2beecdcf801a4d8?s=400&d=mp" 
-                             alt="Mustafa BİÇER" 
-                             class="w-10 h-10 rounded-xl object-cover ring-1 ring-slate-200">
-                        <div>
-                            <span class="font-bold text-slate-900 text-sm block" x-text="t('blog_hub.author.name')">Mustafa BİÇER</span>
-                            <span class="text-xs text-slate-500 font-medium" x-text="t('blog_hub.author.role')">Dijital Çözüm Uzmanı</span>
-                        </div>
+        <div class="space-y-8">
+            <!-- Guide Card 2: DMARC, DKIM & BIMI (Newest) -->
+            <article class="bg-white rounded-3xl border border-slate-200/80 shadow-xs overflow-hidden hover:shadow-md hover:border-slate-300 transition-all duration-200 group">
+                <div class="p-6 sm:p-10">
+                    <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500 mb-3 font-medium">
+                        <span class="text-blue-600 font-semibold" x-text="t('blog_hub.guides.g2.category')">E-Posta Güvenliği & Kimlik Doğrulama</span>
+                        <span class="text-slate-300">&bull;</span>
+                        <span x-text="t('blog_hub.guides.g2.read_time')">8 Dk Okuma</span>
+                        <span class="text-slate-300">&bull;</span>
+                        <time datetime="2026-10-12" x-text="t('blog_hub.guides.g2.date')">12 Ekim 2026</time>
                     </div>
 
-                    <a href="/blog/eposta-spama-dusmeden-inbox-rehberi/" 
-                       class="inline-flex items-center gap-2 font-semibold text-sm text-blue-600 group-hover:text-blue-700 group-hover:translate-x-1 transition-all">
-                        <span x-text="t('blog_hub.featured.read_btn')">Rehberi Oku</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                    </a>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors mb-4 leading-tight">
+                        <a href="/blog/dmarc-dkim-bimi-rehberi/" x-text="t('blog_hub.guides.g2.title')">
+                            DMARC, DKIM ve BIMI Rehberi: E-Postada Doğrulanmış Marka Logosu
+                        </a>
+                    </h3>
+
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6" x-text="t('blog_hub.guides.g2.desc')">
+                        Google ve Yahoo’nun 2026 zorunlu gönderici kuralları, SPF/DKIM hizalaması ve Gmail ile Apple Mail kutularında doğrulanmış mavi tikli marka logosu gösterme rehberi. Phishing engelleme ve %22 açılma artışı vaka analizi.
+                    </p>
+
+                    <div class="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-slate-100">
+                        <div class="flex items-center gap-3">
+                            <img src="https://www.gravatar.com/avatar/522c480ffa943deea2beecdcf801a4d8?s=400&d=mp" 
+                                 alt="Mustafa BİÇER" 
+                                 class="w-10 h-10 rounded-xl object-cover ring-1 ring-slate-200">
+                            <div>
+                                <span class="font-bold text-slate-900 text-sm block" x-text="t('blog_hub.author.name')">Mustafa BİÇER</span>
+                                <span class="text-xs text-slate-500 font-medium" x-text="t('blog_hub.author.role')">Dijital Çözüm Uzmanı</span>
+                            </div>
+                        </div>
+
+                        <a href="/blog/dmarc-dkim-bimi-rehberi/" 
+                           class="inline-flex items-center gap-2 font-semibold text-sm text-blue-600 group-hover:text-blue-700 group-hover:translate-x-1 transition-all">
+                            <span x-text="t('blog_hub.guides.g2.read_btn')">Rehberi Oku</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </article>
+            </article>
+
+            <!-- Guide Card 1: E-Postalar Neden Spama Düşer? -->
+            <article class="bg-white rounded-3xl border border-slate-200/80 shadow-xs overflow-hidden hover:shadow-md hover:border-slate-300 transition-all duration-200 group">
+                <div class="p-6 sm:p-10">
+                    <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500 mb-3 font-medium">
+                        <span class="text-blue-600 font-semibold" x-text="t('blog_hub.guides.g1.category')">E-Posta Teslim Edilebilirliği</span>
+                        <span class="text-slate-300">&bull;</span>
+                        <span x-text="t('blog_hub.guides.g1.read_time')">7 Dk Okuma</span>
+                        <span class="text-slate-300">&bull;</span>
+                        <time datetime="2026-10-12" x-text="t('blog_hub.guides.g1.date')">12 Ekim 2026</time>
+                    </div>
+
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors mb-4 leading-tight">
+                        <a href="/blog/eposta-spama-dusmeden-inbox-rehberi/" x-text="t('blog_hub.guides.g1.title')">
+                            E-Postalar Neden Spama Düşer? %90+ Inbox Başarısı İçin 2026 Rehberi
+                        </a>
+                    </h3>
+
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6" x-text="t('blog_hub.guides.g1.desc')">
+                        Google ve Yahoo’nun getirdiği katı zorunluluklar, Apple MPP’nin yanıltıcı açılma pikselleri ve yapay zeka spam filtreleri çağında gelen kutusunda kalmanın teknik matematiği. 50.000 kişilik B2B test listesindeki vaka analizi ve adım adım eylem planı.
+                    </p>
+
+                    <div class="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-slate-100">
+                        <div class="flex items-center gap-3">
+                            <img src="https://www.gravatar.com/avatar/522c480ffa943deea2beecdcf801a4d8?s=400&d=mp" 
+                                 alt="Mustafa BİÇER" 
+                                 class="w-10 h-10 rounded-xl object-cover ring-1 ring-slate-200">
+                            <div>
+                                <span class="font-bold text-slate-900 text-sm block" x-text="t('blog_hub.author.name')">Mustafa BİÇER</span>
+                                <span class="text-xs text-slate-500 font-medium" x-text="t('blog_hub.author.role')">Dijital Çözüm Uzmanı</span>
+                            </div>
+                        </div>
+
+                        <a href="/blog/eposta-spama-dusmeden-inbox-rehberi/" 
+                           class="inline-flex items-center gap-2 font-semibold text-sm text-blue-600 group-hover:text-blue-700 group-hover:translate-x-1 transition-all">
+                            <span x-text="t('blog_hub.guides.g1.read_btn')">Rehberi Oku</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
 
         <!-- Topic Tags -->
         <div class="mt-12 p-8 rounded-3xl bg-white border border-slate-200/80">

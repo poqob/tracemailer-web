@@ -210,7 +210,7 @@
     </script>
 
     <!-- Internationalization (i18n) -->
-    <script src="/static/i18n.js?v=20261012c"></script>
+    <script src="/static/i18n.js?v=20261012d"></script>
 
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -596,6 +596,26 @@
                         </p>
                     </div>
                 </div>
+            </div>
+
+            <!-- Related Guide Crosslink Box -->
+            <div class="mt-12 p-6 sm:p-8 rounded-3xl bg-slate-100/70 border border-slate-200/80">
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="text-xs px-2.5 py-1 rounded-md bg-white text-slate-700 font-semibold border border-slate-200" x-text="t('blog_hub.guides.g2.category')">E-Posta Güvenliği & Kimlik Doğrulama</span>
+                    <span class="text-xs font-bold text-slate-500" x-text="currentLang === 'tr' ? 'İlgili Rehber' : 'Related Guide'">İlgili Rehber</span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">
+                    <a href="/blog/dmarc-dkim-bimi-rehberi/" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.guides.g2.title')">
+                        DMARC, DKIM ve BIMI Rehberi: E-Postada Doğrulanmış Marka Logosu
+                    </a>
+                </h3>
+                <p class="text-xs text-slate-600 leading-relaxed mb-4" x-text="t('blog_hub.guides.g2.desc')">
+                    Google ve Yahoo’nun 2026 zorunlu gönderici kuralları, SPF/DKIM hizalaması ve Gmail ile Apple Mail kutularında doğrulanmış mavi tikli marka logosu gösterme rehberi.
+                </p>
+                <a href="/blog/dmarc-dkim-bimi-rehberi/" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-700">
+                    <span x-text="t('blog_hub.guides.g2.read_btn')">Rehberi İncele</span>
+                    <span>&rarr;</span>
+                </a>
             </div>
 
             <!-- In-Article Product CTA -->

@@ -1572,13 +1572,33 @@
                 },
                 featured: {
                     heading: 'Öne Çıkan Rehberler',
-                    count: '1 Yayın',
+                    count: '2 Yayın',
                     category: 'E-Posta Teslim Edilebilirliği',
                     read_time: '7 Dk Okuma',
                     date: '12 Ekim 2026',
                     title: 'E-Postalar Neden Spama Düşer? %90+ Inbox Başarısı İçin 2026 Rehberi',
                     desc: 'Google ve Yahoo’nun getirdiği katı zorunluluklar, Apple MPP’nin yanıltıcı açılma pikselleri ve yapay zeka spam filtreleri çağında gelen kutusunda kalmanın teknik matematiği. 50.000 kişilik B2B test listesindeki vaka analizi ve adım adım eylem planı.',
                     read_btn: 'Rehberi Oku'
+                },
+                guides: {
+                    g1: {
+                        category: 'E-Posta Teslim Edilebilirliği',
+                        read_time: '7 Dk Okuma',
+                        date: '12 Ekim 2026',
+                        title: 'E-Postalar Neden Spama Düşer? %90+ Inbox Başarısı İçin 2026 Rehberi',
+                        desc: 'Google ve Yahoo’nun getirdiği katı zorunluluklar, Apple MPP’nin yanıltıcı açılma pikselleri ve yapay zeka spam filtreleri çağında gelen kutusunda kalmanın teknik matematiği. 50.000 kişilik B2B test listesindeki vaka analizi ve adım adım eylem planı.',
+                        read_btn: 'Rehberi Oku',
+                        url: '/blog/eposta-spama-dusmeden-inbox-rehberi/'
+                    },
+                    g2: {
+                        category: 'E-Posta Güvenliği & Kimlik Doğrulama',
+                        read_time: '8 Dk Okuma',
+                        date: '12 Ekim 2026',
+                        title: 'DMARC, DKIM ve BIMI Rehberi: E-Postada Doğrulanmış Marka Logosu',
+                        desc: 'Google ve Yahoo’nun 2026 zorunlu gönderici kuralları, SPF/DKIM hizalaması ve Gmail ile Apple Mail kutularında doğrulanmış mavi tikli marka logosu gösterme rehberi. Phishing engelleme ve %22 açılma artışı vaka analizi.',
+                        read_btn: 'Rehberi Oku',
+                        url: '/blog/dmarc-dkim-bimi-rehberi/'
+                    }
                 },
                 topics: {
                     heading: 'Rehber Konuları',
@@ -1722,7 +1742,175 @@
                     desc: 'TraceMailer\'ın alıcı hijyeni ve STO teknolojisi ile listenizi hemen test edin, %90+ inbox başarısına ulaşın.',
                     button: 'Hemen Ücretsiz Deneyin'
                 }
-            }
+            },
+            blog_article_dmarc: {
+                "meta": {
+                                "title": "DMARC, DKIM ve BIMI Rehberi: E-Postada Doğrulanmış Marka Logosu",
+                                "desc": "2026 DMARC, DKIM, SPF ve BIMI kurulumu ile maillerinizi kimlik avından koruyun, Gmail ve Apple Mail'de doğrulanmış marka logosu ve mavi tik kazanın."
+                },
+                "breadcrumbs": {
+                                "home": "Ana Sayfa",
+                                "blog": "Rehber & Blog",
+                                "current": "DMARC, DKIM ve BIMI Rehberi"
+                },
+                "meta_info": {
+                                "category": "E-Posta Güvenliği & Kimlik Doğrulama",
+                                "read_time": "8 Dk Okuma",
+                                "date": "12 Ekim 2026",
+                                "updated": "Güncelleme: Ekim 2026"
+                },
+                "title": "DMARC, DKIM ve BIMI Rehberi: E-Postada Doğrulanmış Marka Logosu",
+                "subtitle": "Google ve Yahoo’nun zorunlu kıldığı e-posta kimlik doğrulama standartları, phishing engelleme ve Gmail ile Apple Mail kutularında doğrulanmış mavi tikli marka logosu gösterme rehberi.",
+                "author": {
+                                "name": "Mustafa BİÇER",
+                                "role": "Dijital Çözüm Uzmanı",
+                                "case_badge": "Vaka Analizi & DNS Mimarisi"
+                },
+                "tldr": {
+                                "heading": "Özet — 2026 DMARC ve BIMI Uygulamasının 4 Altın Kuralı",
+                                "i1_bold": "Zorunlu Üçlü Mimari:",
+                                "i1_text": "DMARC (RFC 7489); SPF ve DKIM olmadan çalışamaz. p=reject politikasına doğrudan değil, p=none üzerinden kademeli geçilmelidir.",
+                                "i2_bold": "BIMI ve Mavi Tik Şartı:",
+                                "i2_text": "Gmail ve Apple Mail'de logonuzun ve mavi tik rozetinin görünmesi için DMARC politikanız en az p=quarantine (%100) veya p=reject olmalı ve tescilli ticari markaya ait VMC sertifikası barındırmalıdır.",
+                                "i3_bold": "Hizalama (Alignment) Uyumu:",
+                                "i3_text": "SPF veya DKIM doğrulaması yetmez; Zarf Göndereni (Return-Path) ile Başlık Göndereni (Header From) alan adlarının birbiriyle tam hizalanması şarttır.",
+                                "i4_bold": "%22 Açılma Artışı:",
+                                "i4_text": "Gelen kutusunda resmi logosu ve mavi tiki görünen e-postalar güven sağladığı için açılma ve tıklanma oranlarını ölçülebilir biçimde yükseltir."
+                },
+                "s1": {
+                                "h2": "1. DMARC, DKIM ve SPF Nedir? E-Posta Kimlik Doğrulamasının Temelleri",
+                                "def_bold": "DMARC (Domain-based Message Authentication, Reporting, and Conformance);",
+                                "def_text": "alan adınız adına gönderilen e-postaların SPF ve DKIM standartlarına uygunluğunu denetleyen ve doğrulanamayan sahte iletilerin alıcı sunucuları tarafından engellenmesini sağlayan açık bir DNS güvenlik protokolüdür. Gönderici kimliğini doğrulayarak alan adınızın kimlik avı (phishing) ve sahtecilik (spoofing) saldırılarında kullanılmasını önler.",
+                                "p1": "Geleneksel e-posta mimarisi (SMTP), gönderen adresin doğruluğunu sorgulamaz. Kötü niyetli bir saldırgan alan adınızı \"ceo@sirketiniz.com\" gibi göstererek çalışanlarınıza veya müşterilerinize sahte fatura gönderebilir. İşte bu zaafı gidermek için üç katmanlı bir savunma kalkanı kullanılır:",
+                                "proto1_badge": "Katman 1",
+                                "proto1_title": "SPF (RFC 7208) — Yetkili Sunucu Listesi",
+                                "proto1_desc": "Alan adınızın DNS kaydına hangi sunucu ve IP adreslerinin sizin adınıza posta göndermeye yetkili olduğunu tanımlar.",
+                                "proto2_badge": "Katman 2",
+                                "proto2_title": "DKIM (RFC 6376) — Kriptografik İmza",
+                                "proto2_desc": "E-postanın sunucudan çıkarken özel anahtarla imzalanmasını ve iletinin yolda değiştirilmediğini alıcıya kanıtlar.",
+                                "proto3_badge": "Katman 3",
+                                "proto3_title": "DMARC (RFC 7489) — Karar ve Politika Motoru",
+                                "proto3_desc": "SPF ve DKIM testlerini geçemeyen maillere ne uygulanacağını (none, quarantine, reject) alıcı sunucuya bildirir ve ayrıntılı XML raporları toplar."
+                },
+                "s2": {
+                                "h2": "2. Google ve Yahoo 2024-2026 Zorunlulukları: Neler Değişti?",
+                                "p1": "Google ve Yahoo tarafından yürürlüğe konan Toplu Gönderici Kuralları (Bulk Sender Guidelines), günde 5.000 veya daha fazla e-posta gönderen tüm alan adları için DMARC kaydını mecburi hale getirdi. Bu kurala uymayan alan adları artık doğrudan geçici hata (421) veya kalıcı ret (550) ile karşılaşmaktadır.",
+                                "stat1_num": "%100",
+                                "stat1_label": "DMARC Zorunluluğu",
+                                "stat1_desc": "Google & Yahoo bulk sender kriteri",
+                                "stat2_num": "< %0.3",
+                                "stat2_label": "Azami Spam Şikayeti",
+                                "stat2_desc": "Postmaster Tools kritik eşik değeri",
+                                "stat3_num": "1 Tık",
+                                "stat3_label": "RFC 8058 Çıkış Butonu",
+                                "stat3_desc": "Tek tıkla abonelik iptali mecburiyeti",
+                                "p2": "Önemli kural: DMARC kaydınızda bir raporlama adresi (rua=mailto:...) belirtilmemişse, Google DMARC kaydınızı geçersiz sayabilir. Doğrulama raporlarının düzenli analiz edilmesi sistem sağlığı açısından mecburidir."
+                },
+                "s3": {
+                                "badge": "Vaka İncelemesi",
+                                "author": "Yazar: Mustafa BİÇER",
+                                "h2": "3. Vaka Analizi: Bir Fintech Alan Adında Phishing Krizini Çözüp Açılma Oranını %26.8’e Nasıl Çıkardık?",
+                                "p1": "Danışmanlığını yürüttüğüm bir fintech müşterimizin alan adı, taklit edilerek sahte IBAN ve fatura e-postaları yayılması nedeniyle uluslararası kara listelere (Spamhaus, Barracuda) girmişti. Şirketin meşru bültenleri dahi doğrudan spam klasörüne düşüyordu. Uyguladığımız 6 haftalık aşamalı eylem planı ve sonuçları:",
+                                "th_phase": "Aşama & DMARC Seviyesi",
+                                "th_policy": "Uygulanan Politika",
+                                "th_spoof": "Sahte Gönderim Engeli",
+                                "th_badge": "Gelen Kutusu Görünümü",
+                                "th_open": "Benzersiz Açılma",
+                                "row1_name": "Aşama 1: Gözlem",
+                                "row1_policy": "v=DMARC1; p=none; rua=...",
+                                "row1_spoof": "%0 (Yalnızca Raporlama)",
+                                "row1_badge": "Varsayılan Gri Avatar",
+                                "row1_open": "%16.4",
+                                "row2_name": "Aşama 2: Karantina",
+                                "row2_policy": "v=DMARC1; p=quarantine; pct=50",
+                                "row2_spoof": "%88 Karantinaya Alındı",
+                                "row2_badge": "Varsayılan Gri Avatar",
+                                "row2_open": "%21.1",
+                                "row3_name": "Aşama 3: Katı Ret & BIMI",
+                                "row3_policy": "v=DMARC1; p=reject; pct=100 + BIMI",
+                                "row3_spoof": "%100 Tam Engelleme",
+                                "row3_badge": "Resmi Logo + Mavi Tik",
+                                "row3_open": "%26.8",
+                                "conclusion_bold": "Temel Çıkarım:",
+                                "conclusion_text": "p=none politikasından kademeli olarak p=reject seviyesine çıkıp BIMI ile resmi logoyu entegre ettiğimizde, müşterilerimizin markaya duyduğu güven somutlaştı. Kimlik avı sıfıra indi ve açılma oranları %16.4'ten %26.8'e yükseldi."
+                },
+                "s4": {
+                                "h2": "4. BIMI Nedir ve Gelen Kutusunda Doğrulanmış Mavi Tik Nasıl Alınır?",
+                                "def_bold": "BIMI (Brand Indicators for Message Identification);",
+                                "def_text": "DMARC doğrulaması tam olan alan adlarının, Gmail, Apple Mail ve Yahoo gibi e-posta istemcilerinde gönderici adının yanında resmi marka logosunu ve mavi tik rozetini görüntülemesini sağlayan uluslararası açık e-posta standardıdır. Sahte mailler ile kurumsal mailleri görsel olarak anında ayrıştırır.",
+                                "p1": "BIMI yalnızca görsel bir pazarlama süsü değildir. Kullanıcının gelen kutusunda tescilli bir logoyla karşılaşması, tıklama korkusunu ortadan kaldırır. Ancak BIMI kaydı oluşturmadan önce karşılanması gereken 4 katı şart vardır:",
+                                "req1_title": "1. DMARC Koruması (En Az p=quarantine veya p=reject)",
+                                "req1_desc": "Alan adınızda DMARC politikası p=none iken BIMI logoları asla gösterilmez. pct parametresi %100 olmalıdır.",
+                                "req2_title": "2. SVG Tiny 1.2 Formatında Logo",
+                                "req2_desc": "Vektörel logonuz SVG Tiny P/S standartlarına göre hazırlanmalı, kare oranında ve şeffaf değil düz zeminli olmalıdır.",
+                                "req3_title": "3. Tescilli Ticari Marka ve VMC / CMC Sertifikası",
+                                "req3_desc": "Gmail ve Apple Mail mavi tik için logonuzun resmi patent ofisinde tescilli olmasını ve DigiCert veya Entrust gibi onaylı sertifika otoritelerinden alınan VMC (Verified Mark Certificate) ile mühürlenmesini ister.",
+                                "req4_title": "4. DNS BIMI TXT Kaydı Tanımı",
+                                "req4_desc": "default._bimi.alanadiniz.com adresi altına logo ve sertifika URL'lerini içeren DNS kaydı eklenmelidir."
+                },
+                "s5": {
+                                "h2": "5. Adım Adım DMARC ve BIMI Kurulumu: Örnek DNS Kayıtları",
+                                "p1": "Alan adınızı doğrulamak ve koruma altına almak için DNS yönetim panelinizde (Cloudflare, Route53, GoDaddy vb.) oluşturmanız gereken örnek kayıtlar:",
+                                "step1_title": "Adım 1: SPF Kaydınızı Tanımlayın",
+                                "step1_code": "TXT  @  \"v=spf1 include:_spf.tracemailer.com ~all\"",
+                                "step1_note": "Not: Asla aynı alan adında birden fazla SPF TXT kaydı oluşturmayın; tüm sağlayıcıları tek bir v=spf1 kaydı içinde toplayın.",
+                                "step2_title": "Adım 2: DKIM Anahtarını Ekleyin",
+                                "step2_code": "TXT  tm._domainkey  \"v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC3...\"",
+                                "step2_note": "Not: TraceMailer yönetim panelinizden aldığınız seçici (selector) adını ve 2048-bit açık anahtarı girin.",
+                                "step3_title": "Adım 3: DMARC Politikasını Kademeli Olarak Yayına Alın",
+                                "step3_code": "TXT  _dmarc  \"v=DMARC1; p=reject; sp=reject; rua=mailto:dmarc-rua@tracemailer.com; pct=100; aspf=r; adkim=r\"",
+                                "step3_note": "Not: Başlangıçta p=none ile başlayıp raporları analiz edin. Doğrulama başarısızlıkları çözüldükten sonra p=quarantine ve nihayetinde p=reject moduna geçin.",
+                                "step4_title": "Adım 4: BIMI DNS Kaydını Yayınlayın",
+                                "step4_code": "TXT  default._bimi  \"v=BIMI1; l=https://cdn.alanadiniz.com/bimi/logo.svg; a=https://cdn.alanadiniz.com/bimi/cert.pem\"",
+                                "step4_note": "Not: l parametresi logonuzun SVG Tiny 1.2 adresini, a parametresi ise VMC PEM sertifikanızın genel bağlantısını içerir."
+                },
+                "quote": {
+                                "text": "\"E-postada kimlik doğrulama artık bir IT lüksü değil, ticari varoluş şartıdır. Gönderici itibarını inşa etmeyen markalar, gelen kutusunda sessizce yok olmaya mahkumdur.\"",
+                                "author": "RFC 7489 E-Posta Güvenlik Çalışma Grubu",
+                                "neil_lead": "Pazarlama gurusu Neil Patel’in vurguladığı gibi:",
+                                "neil_quote": "\"Tüketici gelen kutusuna baktığında milisaniyeler içinde güven testi yapar. Doğrulanmış bir marka logosu görmek, tıklama tereddütünü anında ortadan kaldırır.\"",
+                                "neil_tail": "Red Sift ve Entrust araştırmaları, BIMI logosuna ve mavi tike sahip e-postaların açılma oranlarında ortalama %21 ile %39 arasında bir artış sağladığını ve marka bilinirliğini güçlendirdiğini ortaya koymaktadır."
+                },
+                "s6": {
+                                "h2": "6. DMARC ve BIMI Kurulumunda En Sık Yapılan 5 Kritik Hata",
+                                "e1_title": "Birden Fazla SPF Kaydı Bulunması (PermError)",
+                                "e1_desc": "DNS'te iki ayrı SPF kaydı tanımlandığında ISP'ler SPF PermError hatası verir ve DMARC doğrulaması tamamen çöker.",
+                                "e2_title": "Zarf Kimliği (Return-Path) ile Başlık Göndereni Uyuşmazlığı",
+                                "e2_desc": "Mail gönderen arayüzün Header From adresi ile SMTP Mail From adresi hizalanmadığında (Alignment mismatch) DMARC geçersiz sayılır.",
+                                "e3_title": "Raporları (RUA) İncelemeden Doğrudan p=reject Uygulamak",
+                                "e3_desc": "Şirket içindeki CRM veya muhasebe yazılımlarını DKIM ile imzalamadan p=reject'e geçerseniz, meşru şirket e-postalarınız da engellenecektir.",
+                                "e4_title": "BIMI için Standart SVG Kullanmak",
+                                "e4_desc": "BIMI; standart SVG 1.1 formatını reddeder. Mutlaka SVG Tiny 1.2 profiline ve baseProfile=\"tiny-ps\" parametresine uygun olmalıdır.",
+                                "e5_title": "Spam Şikayetlerini Takip Etmemek",
+                                "e5_desc": "DMARC ve BIMI mükemmel olsa bile, kullanıcı spam şikayet oranınız %0.3'ü aştığında Google gelen kutusu ayrıcalıklarınızı iptal eder."
+                },
+                "s7": {
+                                "h2": "7. Sıkça Sorulan Sorular",
+                                "q1": "DMARC politikam p=none iken BIMI logosu ve mavi tik alabilir miyim?",
+                                "a1": "Kesinlikle hayır. Google, Yahoo ve Apple, BIMI standartları gereğince alan adının en az p=quarantine (%100 kapsama) veya p=reject politikasında olmasını zorunlu tutar. p=none yalnızca gözlem modudur ve güven kanıtı sayılmaz.",
+                                "q2": "VMC sertifikası olmadan BIMI kullanılabilir mi?",
+                                "a2": "Yahoo ve bazı bölgesel servisler VMC sertifikası olmadan (a parametresi boş bırakılarak) logo gösterebilir. Ancak Gmail ve Apple Mail'de logo ve mavi tik rozetinin görünmesi için DigiCert veya Entrust tarafından verilen resmi bir VMC şarttır.",
+                                "q3": "DMARC RUA raporlarını nasıl okuyabilirim?",
+                                "a3": "RUA raporları her gün binlerce satırdan oluşan ham XML dosyaları şeklinde e-posta adresinize gönderilir. Bu ham veriyi manuel okumak imkansızdır. TraceMailer gibi telemetri platformları XML raporlarını otomatik ayrıştırarak anlaşılır güvenlik panolarına dönüştürür."
+                },
+                "author_bio": {
+                                "name": "Mustafa BİÇER",
+                                "role": "Dijital Çözüm Uzmanı",
+                                "desc": "Mustafa Biçer; yüksek hacimli e-posta dağıtımı, SMTP sunucu optimizasyonu, IP itibarı koruma ve modern e-posta telemetrisi üzerine çalışan bir Dijital Çözüm Uzmanıdır. B2B e-posta teslimat stratejileri ve yapay zeka destekli optimizasyon süreçleri geliştirmektedir."
+                },
+                "related": {
+                                "heading": "İlgili Rehber",
+                                "badge": "Rehber 1",
+                                "title": "E-Postalar Neden Spama Düşer? %90+ Inbox Başarısı İçin 2026 Rehberi",
+                                "desc": "Spam filtrelerinin arkasındaki matematik, liste hijyeni ve STO ile gelen kutusu oranlarınızı zirveye taşıyın.",
+                                "read_btn": "Rehberi İncele"
+                },
+                "cta": {
+                                "title": "DMARC ve DNS Kayıtlarınızı Şimdi Güvenceye Alın",
+                                "desc": "TraceMailer telemetrisi ile alan adı itibarınızı canlı izleyin, DMARC raporlarınızı görselleştirin ve sahte e-postaları engelleyin.",
+                                "button": "Ücretsiz Test Edin"
+                }
+}
         },
         en: {
             common: {
@@ -3272,13 +3460,33 @@
                 },
                 featured: {
                     heading: 'Featured Guides',
-                    count: '1 Article',
+                    count: '2 Articles',
                     category: 'Email Deliverability',
                     read_time: '7 Min Read',
                     date: 'October 12, 2026',
                     title: 'Why Do Emails Go to Spam? 2026 Guide for 90%+ Inbox Placement',
                     desc: 'The technical mechanics of staying in the primary inbox amidst strict Google & Yahoo requirements, Apple MPP pixel masking, and AI spam filters. A 50k B2B case study and step-by-step action plan.',
                     read_btn: 'Read Guide'
+                },
+                guides: {
+                    g1: {
+                        category: 'Email Deliverability',
+                        read_time: '7 Min Read',
+                        date: 'October 12, 2026',
+                        title: 'Why Do Emails Go to Spam? 2026 Guide for 90%+ Inbox Placement',
+                        desc: 'The technical mechanics of staying in the primary inbox amidst strict Google & Yahoo requirements, Apple MPP pixel masking, and AI spam filters. A 50k B2B case study and step-by-step action plan.',
+                        read_btn: 'Read Guide',
+                        url: '/blog/eposta-spama-dusmeden-inbox-rehberi/'
+                    },
+                    g2: {
+                        category: 'Email Security & Authentication',
+                        read_time: '8 Min Read',
+                        date: 'October 12, 2026',
+                        title: 'DMARC, DKIM & BIMI Guide: Verified Brand Logos & Email Security',
+                        desc: 'Master Google & Yahoo bulk sender authentication rules, eliminate phishing spoofing, and display verified brand checkmark logos in Gmail and Apple Mail. A fintech case study with +22% open rate lift.',
+                        read_btn: 'Read Guide',
+                        url: '/blog/dmarc-dkim-bimi-rehberi/'
+                    }
                 },
                 topics: {
                     heading: 'Guide Topics',
@@ -3422,7 +3630,175 @@
                     desc: 'Test your audience list with TraceMailer\'s list hygiene and STO technology to achieve 90%+ inbox placement from day one.',
                     button: 'Start Free Trial'
                 }
-            }
+            },
+            blog_article_dmarc: {
+                "meta": {
+                                "title": "DMARC, DKIM & BIMI Guide: Verified Brand Logos & Email Security",
+                                "desc": "Master DMARC, DKIM, SPF and BIMI DNS records. Prevent spoofing, comply with Google and Yahoo sender rules, and display verified brand logos in inboxes."
+                },
+                "breadcrumbs": {
+                                "home": "Home",
+                                "blog": "Guides & Blog",
+                                "current": "DMARC, DKIM & BIMI Guide"
+                },
+                "meta_info": {
+                                "category": "Email Security & Authentication",
+                                "read_time": "8 Min Read",
+                                "date": "October 12, 2026",
+                                "updated": "Updated: October 2026"
+                },
+                "title": "DMARC, DKIM & BIMI Guide: Verified Brand Logos & Email Security",
+                "subtitle": "Master Google & Yahoo bulk sender authentication rules, eliminate phishing spoofing, and display verified brand checkmark logos in Gmail and Apple Mail.",
+                "author": {
+                                "name": "Mustafa BİÇER",
+                                "role": "Digital Solutions Specialist",
+                                "case_badge": "Case Study & DNS Architecture"
+                },
+                "tldr": {
+                                "heading": "Key Takeaways — 4 Pillars of DMARC & BIMI Implementation in 2026",
+                                "i1_bold": "Mandatory Triad Architecture:",
+                                "i1_text": "DMARC (RFC 7489) requires SPF and DKIM foundations. Transition gradually to p=reject via p=none monitoring to avoid dropping legitimate mail.",
+                                "i2_bold": "BIMI & Checkmark Prerequisite:",
+                                "i2_text": "Displaying verified brand logos and blue checkmarks in Gmail and Apple Mail requires DMARC at p=quarantine (100%) or p=reject plus a registered trademark VMC certificate.",
+                                "i3_bold": "Alignment Compliance:",
+                                "i3_text": "Passing SPF or DKIM is not enough; the Envelope From (Return-Path) and Header From domain identities must align in relaxed or strict mode.",
+                                "i4_bold": "+22% Open Rate Lift:",
+                                "i4_text": "Displaying authentic brand logos directly in subscriber inboxes fosters instant trust, producing measurable increases in engagement."
+                },
+                "s1": {
+                                "h2": "1. What are DMARC, DKIM, and SPF? Email Authentication Fundamentals",
+                                "def_bold": "DMARC (Domain-based Message Authentication, Reporting, and Conformance);",
+                                "def_text": "is an open DNS security protocol that validates whether emails claiming to come from your domain comply with SPF and DKIM standards, instructing receiving servers to reject fraudulent impostors. It secures sender identity and prevents spoofing and phishing attacks completely.",
+                                "p1": "Legacy SMTP architecture does not verify sender legitimacy. Malicious actors can spoof \"ceo@yourcompany.com\" to distribute fraudulent invoices to your clients or staff. A three-tier authentication shield solves this fundamental vulnerability:",
+                                "proto1_badge": "Layer 1",
+                                "proto1_title": "SPF (RFC 7208) — Authorized Sender IP List",
+                                "proto1_desc": "Declares via DNS which mail servers and IP addresses are legally authorized to transmit mail on behalf of your domain.",
+                                "proto2_badge": "Layer 2",
+                                "proto2_title": "DKIM (RFC 6376) — Cryptographic Signature",
+                                "proto2_desc": "Attaches an asymmetric digital signature to each outbound message, guaranteeing to receivers that content has not been tampered with in transit.",
+                                "proto3_badge": "Layer 3",
+                                "proto3_title": "DMARC (RFC 7489) — Enforcement & Policy Engine",
+                                "proto3_desc": "Commands receiving mailboxes what to do with messages failing SPF and DKIM (none, quarantine, reject) while delivering aggregate XML telemetry."
+                },
+                "s2": {
+                                "h2": "2. Google & Yahoo 2024–2026 Requirements: What Changed?",
+                                "p1": "Google and Yahoo enforce strict Bulk Sender Guidelines, mandating DMARC records for any domain dispatching 5,000+ daily emails. Non-compliant domains experience temporary deferrals (421) followed by permanent blocks (550).",
+                                "stat1_num": "100%",
+                                "stat1_label": "DMARC Mandatory",
+                                "stat1_desc": "Google & Yahoo bulk sender rule",
+                                "stat2_num": "< 0.3%",
+                                "stat2_label": "Max Spam Complaint",
+                                "stat2_desc": "Postmaster Tools hard threshold",
+                                "stat3_num": "1-Click",
+                                "stat3_label": "RFC 8058 Unsubscribe",
+                                "stat3_desc": "Mandatory single-click opt out",
+                                "p2": "Critical note: DMARC records lacking a reporting tag (rua=mailto:...) are considered non-compliant by Google. Regularly collecting and parsing XML reports is vital to maintaining delivery health."
+                },
+                "s3": {
+                                "badge": "Case Study",
+                                "author": "Author: Mustafa BİÇER",
+                                "h2": "3. Case Study: Eradicating Phishing and Raising Open Rates to 26.8% on a Fintech Domain",
+                                "p1": "While advising a fintech client, attackers spoofed our domain with counterfeit payment requests, landing our domain on major blacklists (Spamhaus, Barracuda). Even legitimate client newsletters were routed to spam. Here is our 6-week phased rollout and its measured results:",
+                                "th_phase": "Phase & DMARC Level",
+                                "th_policy": "Applied Policy",
+                                "th_spoof": "Spoofed Mail Blocked",
+                                "th_badge": "Inbox Appearance",
+                                "th_open": "Unique Open Rate",
+                                "row1_name": "Phase 1: Monitoring",
+                                "row1_policy": "v=DMARC1; p=none; rua=...",
+                                "row1_spoof": "0% (Telemetry Only)",
+                                "row1_badge": "Default Generic Icon",
+                                "row1_open": "16.4%",
+                                "row2_name": "Phase 2: Quarantine",
+                                "row2_policy": "v=DMARC1; p=quarantine; pct=50",
+                                "row2_spoof": "88% Quarantined",
+                                "row2_badge": "Default Generic Icon",
+                                "row2_open": "21.1%",
+                                "row3_name": "Phase 3: Reject & BIMI",
+                                "row3_policy": "v=DMARC1; p=reject; pct=100 + BIMI",
+                                "row3_spoof": "100% Intercepted",
+                                "row3_badge": "Verified Logo + Blue Tick",
+                                "row3_open": "26.8%",
+                                "conclusion_bold": "Core Takeaway:",
+                                "conclusion_text": "Transitioning from p=none to full p=reject and activating BIMI visual credentials reinforced brand authority. Spoofing vanished completely, and open rates surged from 16.4% to 26.8%."
+                },
+                "s4": {
+                                "h2": "4. What is BIMI and How to Display Verified Checkmark Logos in Inboxes?",
+                                "def_bold": "BIMI (Brand Indicators for Message Identification);",
+                                "def_text": "is an open email specification that allows DMARC-authenticated domains to display their official trademarked logo and verification badges (blue checkmarks) beside the sender name in Gmail, Apple Mail, and Yahoo inboxes. It visually distinguishes authentic communications from impostors.",
+                                "p1": "BIMI is far more than a decorative visual badge. Seeing a verified logo in the inbox relieves user suspicion, encouraging interaction. However, four rigorous requirements must be satisfied first:",
+                                "req1_title": "1. Strict DMARC Policy (p=quarantine or p=reject)",
+                                "req1_desc": "BIMI is never rendered under p=none. The quarantine policy must cover 100% of outbound traffic (pct=100).",
+                                "req2_title": "2. Standardized SVG Tiny 1.2 Format",
+                                "req2_desc": "Your logo must adhere strictly to SVG Tiny P/S standards, square aspect ratio, solid non-transparent background.",
+                                "req3_title": "3. Registered Trademark & VMC / CMC Certificate",
+                                "req3_desc": "Gmail and Apple Mail require logos to be registered with recognized patent authorities and certified with a Verified Mark Certificate (VMC) from DigiCert or Entrust.",
+                                "req4_title": "4. Public DNS BIMI TXT Record",
+                                "req4_desc": "Add a TXT entry under default._bimi.yourdomain.com pointing to your SVG artwork and PEM certificate."
+                },
+                "s5": {
+                                "h2": "5. Step-by-Step DMARC & BIMI Setup: Production DNS Configurations",
+                                "p1": "Production DNS records to implement within your DNS provider (Cloudflare, Route53, GoDaddy, etc.) to establish bulletproof authentication:",
+                                "step1_title": "Step 1: Declare Your SPF Record",
+                                "step1_code": "TXT  @  \"v=spf1 include:_spf.tracemailer.com ~all\"",
+                                "step1_note": "Note: Never publish multiple SPF records on one domain; merge all sending providers into a single v=spf1 definition.",
+                                "step2_title": "Step 2: Install DKIM Public Key",
+                                "step2_code": "TXT  tm._domainkey  \"v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC3...\"",
+                                "step2_note": "Note: Use the 2048-bit selector and key generated inside your TraceMailer console.",
+                                "step3_title": "Step 3: Roll Out DMARC Enforcement",
+                                "step3_code": "TXT  _dmarc  \"v=DMARC1; p=reject; sp=reject; rua=mailto:dmarc-rua@tracemailer.com; pct=100; aspf=r; adkim=r\"",
+                                "step3_note": "Note: Begin in p=none to evaluate XML feeds. Once unexpected senders are resolved, advance to p=quarantine and ultimately p=reject.",
+                                "step4_title": "Step 4: Publish BIMI Record",
+                                "step4_code": "TXT  default._bimi  \"v=BIMI1; l=https://cdn.yourdomain.com/bimi/logo.svg; a=https://cdn.yourdomain.com/bimi/cert.pem\"",
+                                "step4_note": "Note: The l tag references your SVG Tiny 1.2 artwork; the a tag links your public VMC PEM credential."
+                },
+                "quote": {
+                                "text": "\"Email authentication is no longer an IT luxury; it is the fundamental baseline of commercial viability. Brands that neglect sender identity are destined to vanish into spam obscurity.\"",
+                                "author": "IETF RFC 7489 Working Group",
+                                "neil_lead": "As digital strategist Neil Patel highlights:",
+                                "neil_quote": "\"Subscribers perform a micro trust-test within milliseconds of glancing at their inbox. A verified brand logo instantly dissolves hesitation.\"",
+                                "neil_tail": "Research by Red Sift and Entrust confirms that verified BIMI logos and blue badges generate a 21% to 39% increase in open rates while bolstering consumer trust."
+                },
+                "s6": {
+                                "h2": "6. Top 5 Costly Mistakes in DMARC and BIMI Implementations",
+                                "e1_title": "Multiple SPF Records (PermError)",
+                                "e1_desc": "Publishing duplicate SPF TXT records breaks validation immediately with SPF PermError, causing DMARC to fail.",
+                                "e2_title": "Return-Path vs Header From Alignment Misalignment",
+                                "e2_desc": "If the SMTP Mail From domain and the visible From domain do not match in domain alignment, DMARC evaluation rejects the transmission.",
+                                "e3_title": "Jumping to p=reject Without Reviewing Aggregate RUA Data",
+                                "e3_desc": "Enforcing reject immediately will block internal CRM, billing, and transactional notifications that lack proper DKIM keys.",
+                                "e4_title": "Using Standard SVG Instead of SVG Tiny 1.2",
+                                "e4_desc": "BIMI parsers will discard standard SVG 1.1 graphics. Artwork must adhere strictly to SVG Tiny Portable/Secure profiles.",
+                                "e5_title": "Neglecting User Spam Complaint Metrics",
+                                "e5_desc": "Flawless DMARC and BIMI cannot save a sender whose complaint rate exceeds 0.3% in Google Postmaster Tools."
+                },
+                "s7": {
+                                "h2": "7. Frequently Asked Questions",
+                                "q1": "Can I display BIMI logos and checkmarks while on p=none policy?",
+                                "a1": "No. Google, Yahoo, and Apple require a minimum enforcement policy of p=quarantine at pct=100 or p=reject. The p=none setting is strictly for passive observation.",
+                                "q2": "Can BIMI be used without purchasing a VMC certificate?",
+                                "a2": "Yahoo and certain regional providers support BIMI logos without a VMC. However, Gmail and Apple Mail strictly require an authorized VMC from DigiCert or Entrust to display logos and blue verification badges.",
+                                "q3": "How can I make sense of raw DMARC XML reports?",
+                                "a3": "Aggregate RUA reports arrive daily as hundreds of dense XML files. TraceMailer automatically ingests, decrypts, and transforms these feeds into actionable visual reputation dashboards."
+                },
+                "author_bio": {
+                                "name": "Mustafa BİÇER",
+                                "role": "Digital Solutions Specialist",
+                                "desc": "Mustafa Bicer is a Digital Solutions Specialist dedicated to high-volume email deliverability, SMTP optimization, IP reputation defense, and modern telemetry analytics. He engineers B2B inbox delivery architectures and AI-assisted deliverability systems."
+                },
+                "related": {
+                                "heading": "Related Guide",
+                                "badge": "Guide 1",
+                                "title": "Why Do Emails Go to Spam? 2026 Guide for 90%+ Inbox Placement",
+                                "desc": "The technical mechanics of spam filters, list hygiene, and STO to maximize your inbox delivery.",
+                                "read_btn": "Read Guide"
+                },
+                "cta": {
+                                "title": "Secure Your DMARC and DNS Records Today",
+                                "desc": "Monitor sender reputation in real time, visualize aggregate DMARC telemetry, and eliminate spoofed emails with TraceMailer.",
+                                "button": "Start Free Trial"
+                }
+}
         }
     };
 
