@@ -3154,6 +3154,9 @@
         }
 
         if (typeof val !== 'string') {
+            if (key === 'landing.nav.blog' || key === 'landing.footer.blog') {
+                return (currentLanguage === 'en') ? 'Guides & Blog' : 'Rehber & Blog';
+            }
             return key; // return key as fallback
         }
 
