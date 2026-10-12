@@ -59,6 +59,11 @@
           "hasPart": [
             {
               "@type": "BlogPosting",
+              "headline": "Transaksiyonel E-Posta Mimarisi: Kurumsal Sistemlerde 10M+ Dağıtım",
+              "url": "https://tracemailer.com/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/"
+            },
+            {
+              "@type": "BlogPosting",
               "headline": "DMARC, DKIM ve BIMI Rehberi: E-Postada Doğrulanmış Marka Logosu",
               "url": "https://tracemailer.com/blog/dmarc-dkim-bimi-rehberi/"
             },
@@ -209,31 +214,90 @@
     <!-- Main Content -->
     <main class="max-w-5xl mx-auto px-6 py-12">
 
-        <!-- Author Spotlight Card -->
-        <div class="mb-12 p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-xs flex flex-col md:flex-row items-center gap-6">
-            <img src="https://www.gravatar.com/avatar/522c480ffa943deea2beecdcf801a4d8?s=400&d=mp" 
-                 alt="Mustafa BİÇER" 
-                 class="w-16 h-16 rounded-2xl object-cover shadow-xs ring-1 ring-slate-200 flex-shrink-0">
-            <div class="text-center md:text-left flex-1">
-                <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 mb-1">
-                    <h2 class="text-lg font-bold text-slate-900" x-text="t('blog_hub.author.name')">Mustafa BİÇER</h2>
-                    <span class="text-slate-400">&bull;</span>
-                    <span class="text-sm text-slate-600 font-medium" x-text="t('blog_hub.author.role')">Dijital Çözüm Uzmanı</span>
+        <!-- Authors Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+            <!-- Author 1: Mustafa BİÇER -->
+            <div class="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-xs flex items-center gap-4">
+                <img src="https://www.gravatar.com/avatar/522c480ffa943deea2beecdcf801a4d8?s=400&d=mp" 
+                     alt="Mustafa BİÇER" 
+                     class="w-14 h-14 rounded-2xl object-cover shadow-xs ring-1 ring-slate-200 flex-shrink-0">
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-0.5">
+                        <h2 class="text-base font-bold text-slate-900 truncate">Mustafa BİÇER</h2>
+                    </div>
+                    <span class="text-xs text-slate-600 font-medium block mb-1">Dijital Çözüm Uzmanı</span>
+                    <p class="text-2xs text-slate-500 leading-relaxed line-clamp-2">
+                        Yüksek hacimli e-posta dağıtımı, SMTP optimizasyonu ve telemetri analizleri.
+                    </p>
                 </div>
-                <p class="text-sm text-slate-600 leading-relaxed" x-text="t('blog_hub.author.bio')">
-                    Yüksek hacimli e-posta dağıtımı, SMTP sunucu optimizasyonu, IP itibarı koruma ve modern e-posta telemetrisi üzerine vaka analizleri ve teknik rehberler hazırlamaktadır.
-                </p>
+            </div>
+
+            <!-- Author 2: Akın TERZİ -->
+            <div class="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-xs flex items-center gap-4">
+                <img src="/static/avatar-placeholder.svg" 
+                     alt="Akın TERZİ" 
+                     class="w-14 h-14 rounded-2xl object-cover shadow-xs ring-1 ring-slate-200 flex-shrink-0 bg-slate-100">
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-0.5">
+                        <h2 class="text-base font-bold text-slate-900 truncate">Akın TERZİ</h2>
+                    </div>
+                    <span class="text-xs text-slate-600 font-medium block mb-1 truncate">Normsoft Bilgi Teknolojileri A.Ş. Genel Müdürü</span>
+                    <p class="text-2xs text-slate-500 leading-relaxed line-clamp-2">
+                        Büyük ölçekli kurumsal ERP, mesaj kuyrukları ve transaksiyonel mimariler.
+                    </p>
+                </div>
             </div>
         </div>
 
         <!-- Section Title -->
         <div class="flex items-center justify-between mb-8">
             <h2 class="text-2xl font-bold text-slate-900 tracking-tight" x-text="t('blog_hub.featured.heading')">Öne Çıkan Rehberler</h2>
-            <span class="text-xs text-slate-400 font-mono-code" x-text="t('blog_hub.featured.count')">2 Yayın</span>
+            <span class="text-xs text-slate-400 font-mono-code" x-text="t('blog_hub.featured.count')">3 Yayın</span>
         </div>
 
         <div class="space-y-8">
-            <!-- Guide Card 2: DMARC, DKIM & BIMI (Newest) -->
+            <!-- Guide Card 3: Transaksiyonel E-Posta Mimarisi (Newest) -->
+            <article class="bg-white rounded-3xl border border-slate-200/80 shadow-xs overflow-hidden hover:shadow-md hover:border-slate-300 transition-all duration-200 group">
+                <div class="p-6 sm:p-10">
+                    <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500 mb-3 font-medium">
+                        <span class="text-blue-600 font-semibold" x-text="t('blog_hub.guides.g3.category')">Kurumsal Mimari & Transaksiyonel Dağıtım</span>
+                        <span class="text-slate-300">&bull;</span>
+                        <span x-text="t('blog_hub.guides.g3.read_time')">9 Dk Okuma</span>
+                        <span class="text-slate-300">&bull;</span>
+                        <time datetime="2026-10-12" x-text="t('blog_hub.guides.g3.date')">12 Ekim 2026</time>
+                    </div>
+
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors mb-4 leading-tight">
+                        <a href="/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/" x-text="t('blog_hub.guides.g3.title')">
+                            Transaksiyonel E-Posta Mimarisi: Kurumsal Sistemlerde 10M+ Dağıtım
+                        </a>
+                    </h3>
+
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6" x-text="t('blog_hub.guides.g3.desc')">
+                        Normsoft ERP ve SaaS altyapılarında ayda 10 milyondan fazla e-fatura, OTP ve kritik bildirimi gecikmesiz, kuyruk kilitlenmesi olmadan ve spama düşmeden iletme rehberi. Akın Terzi’den vaka analizi ve mimari ilkeler.
+                    </p>
+
+                    <div class="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-slate-100">
+                        <div class="flex items-center gap-3">
+                            <img src="/static/avatar-placeholder.svg" 
+                                 alt="Akın TERZİ" 
+                                 class="w-10 h-10 rounded-xl object-cover ring-1 ring-slate-200 bg-slate-100">
+                            <div>
+                                <span class="font-bold text-slate-900 text-sm block">Akın TERZİ</span>
+                                <span class="text-xs text-slate-500 font-medium">Normsoft Bilgi Teknolojileri A.Ş. Genel Müdürü</span>
+                            </div>
+                        </div>
+
+                        <a href="/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/" 
+                           class="inline-flex items-center gap-2 font-semibold text-sm text-blue-600 group-hover:text-blue-700 group-hover:translate-x-1 transition-all">
+                            <span x-text="t('blog_hub.guides.g3.read_btn')">Rehberi Oku</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Guide Card 2: DMARC, DKIM & BIMI -->
             <article class="bg-white rounded-3xl border border-slate-200/80 shadow-xs overflow-hidden hover:shadow-md hover:border-slate-300 transition-all duration-200 group">
                 <div class="p-6 sm:p-10">
                     <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500 mb-3 font-medium">
