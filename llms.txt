@@ -18,5 +18,8 @@ TraceMailer provides high-volume transactional and marketing email delivery infr
 ## Knowledge & Engineering Hub
 - [TraceMailer Guides & Blog Hub](https://tracemailer.com/blog/): In-depth articles on email deliverability, DNS security, and distributed mail infrastructure.
 
+## Comparisons & Alternatives
+- [TraceMailer vs SendGrid, Resend & Mailgun](https://tracemailer.com/karsilastirma/): Engineering benchmark comparing deliverability rates, Apple MPP filtering, STO timing, and webhook latency.
+
 ## Extended Context
 - [TraceMailer Full LLM Technical Documentation](https://tracemailer.com/llms-full.txt): Complete architectural overview, configuration templates, webhook JSON schemas, and technical FAQ for LLM crawlers.

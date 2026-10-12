@@ -1556,6 +1556,7 @@
                     why: 'Neden TraceMailer?',
                     how: 'Nasıl Çalışır?',
                     blog: 'Rehber & Blog',
+                    compare: 'Karşılaştırma',
                     faq: 'SSS',
                     contact: 'İletişim',
                     login: 'Giriş Yap',
@@ -2108,11 +2109,116 @@
                                 "g2_title": "DMARC, DKIM ve BIMI Rehberi: E-Postada Doğrulanmış Marka Logosu"
                 },
                 "cta": {
-                                "title": "Kurumsal Transaksiyonel E-Posta Mimarinizi Güçlendirin",
-                                "desc": "TraceMailer ile gecikmesiz mesaj kuyrukları kurun, 10M+ gönderim kapasitesine ulaşın ve teslimat telemetrinizi canlı izleyin.",
-                                "button": "Ücretsiz Entegrasyona Başlayın"
+                    "title": "Kurumsal Transaksiyonel E-Posta Mimarinizi Güçlendirin",
+                    "desc": "TraceMailer ile gecikmesiz mesaj kuyrukları kurun, 10M+ gönderim kapasitesine ulaşın ve teslimat telemetrinizi canlı izleyin.",
+                    "button": "Ücretsiz Entegrasyona Başlayın"
                 }
-}
+            },
+            comparison: {
+                meta: {
+                    title: 'TraceMailer vs SendGrid & Resend | 2026 E-Posta Karşılaştırması',
+                    desc: 'SendGrid, Resend ve Mailgun yerine TraceMailer: %92+ inbox başarısı, Apple MPP filtreleme ve STO zamanlaması ile 2026 teknik karşılaştırma tablosu.'
+                },
+                breadcrumbs: {
+                    home: 'Ana Sayfa',
+                    compare: 'Karşılaştırma'
+                },
+                hero: {
+                    badge: '2026 Teknik E-Posta Altyapı Karşılaştırması',
+                    title: 'TraceMailer vs SendGrid, Resend ve Mailgun',
+                    desc: 'Google & Yahoo’nun %0.10 katı spam kuralları, Apple MPP’nin yanıltıcı açılma pikselleri ve modern transaksiyonel dağıtım çağında e-posta platformlarının teknik kıyaslaması.',
+                    cards: {
+                        c1_title: 'SendGrid Alternatifi',
+                        c1_desc: 'Karmaşık kurumsal fiyatlandırma ve reaktif liste kontrolleri yerine yapay zeka ile otomatik spam önleme.',
+                        c2_title: 'Resend Alternatifi',
+                        c2_desc: 'Geliştirici dostu sade API yapısına ek olarak yerleşik Apple MPP ayrıştırma ve kişiselleştirilmiş STO zekası.',
+                        c3_title: 'Mailgun Alternatifi',
+                        c3_desc: 'Ek ücretli eklentiler yerine tek çatı altında gelişmiş telemetri ve milisaniyelik kuyruk yönetimi.'
+                    }
+                },
+                matrix: {
+                    heading: 'Ayrıntılı Teknik Karşılaştırma Matrisi',
+                    subheading: 'Altyapı mühendisleri ve büyüme ekipleri için 8 kritik kriterde doğrudan kıyaslama.',
+                    feature_col: 'Özellik / Yetenek',
+                    tracemailer_col: 'TraceMailer',
+                    sendgrid_col: 'SendGrid (Twilio)',
+                    resend_col: 'Resend',
+                    mailgun_col: 'Mailgun (Sinch)',
+                    f1_name: 'Ortalama Inbox Başarısı (Deliverability)',
+                    f1_tm: '%92 - %98 (Yüksek)',
+                    f1_sg: '%82 - %88 (Standart)',
+                    f1_rs: '%85 - %90 (Orta)',
+                    f1_mg: '%84 - %89 (Orta)',
+                    f2_name: 'Apple Mail Privacy Protection (MPP) Filtreleme',
+                    f2_tm: 'Yerleşik & Otomatik (17.0.0.0/8 İzolasyonu)',
+                    f2_sg: 'Desteklenmiyor (Yapay %100 Açılma)',
+                    f2_rs: 'Kısıtlı / Ham Telemetri',
+                    f2_mg: 'Desteklenmiyor (Karma Veri)',
+                    f3_name: 'Kişiselleştirilmiş Gönderim Zamanı (STO)',
+                    f3_tm: 'Yerleşik AI STO Algoritması',
+                    f3_sg: 'Sadece Enterprise / Pahalı Planlar',
+                    f3_rs: 'Mevcut Değil',
+                    f3_mg: 'Ekstra Ücretli Eklenti',
+                    f4_name: 'Gönderim Öncesi Alıcı Hijyeni (Pre-send)',
+                    f4_tm: '45K+ Tek Kullanımlık & Spamtrap Filtresi',
+                    f4_sg: 'Reaktif (Gönderim Sonrası Bounce)',
+                    f4_rs: 'Reaktif Webhook',
+                    f4_mg: 'Ayrı Ücretli Validasyon API\'si',
+                    f5_name: 'ISP Jitter Kuyruk Yönetimi (Throttling)',
+                    f5_tm: 'Dinamik Jitter (Google/Yahoo 421 Önleme)',
+                    f5_sg: 'Standart Kuyruk',
+                    f5_rs: 'Standart Kuyruk',
+                    f5_mg: 'Manuel Hız Ayarları',
+                    f6_name: 'Pazarlama & Transaksiyonel Trafik İzolasyonu',
+                    f6_tm: 'Milisaniyelik Öncelikli Kuyruk & IP Ayrımı',
+                    f6_sg: 'Karmaşık Çoklu Hesap Yönetimi',
+                    f6_rs: 'Tekil API Anahtarı Havuzu',
+                    f6_mg: 'Domain Bazlı Yönetim',
+                    f7_name: 'DMARC, DKIM 2048-bit & BIMI Rehberliği',
+                    f7_tm: 'Uçtan Uca Telemetri & Canlı Doğrulama',
+                    f7_sg: 'Temel DNS Kayıtları',
+                    f7_rs: 'Temel DNS Kayıtları',
+                    f7_mg: 'Temel DNS Kayıtları',
+                    f8_name: 'Webhook Olay Gecikmesi (Event Latency)',
+                    f8_tm: '< 250 ms (Milisaniyelik SLA)',
+                    f8_sg: '2 - 15 saniye',
+                    f8_rs: '1 - 3 saniye',
+                    f8_mg: '2 - 10 saniye'
+                },
+                diffs: {
+                    heading: 'Neden Geliştiriciler ve İşletmeler TraceMailer’ı Seçiyor?',
+                    d1_title: '1. Google ve Yahoo’nun 2026 %0.10 Kuralını Önceden Savunur',
+                    d1_desc: 'Geleneksel servisler geçersiz e-postaları doğrudan gönderip bounce almanıza neden olurken, TraceMailer alıcı listesini SMTP el sıkışması öncesinde doğrular. Spam şikayet oranınızı %0.10 sınırının altında tutarak domain itibarınızı kalıcı korur.',
+                    d2_title: '2. Apple MPP’nin Sahte Metriklerini Temizler',
+                    d2_desc: 'iOS kullanıcılarının mailleri Apple proxy sunucuları tarafından önceden açılır. Diğer servisler bu açılmaları gerçek kullanıcı etkileşimi gibi gösterip A/B testlerinizi yanıltırken, TraceMailer sentetik pikselleri izole ederek gerçek açılma ve tıklama analitiği sunar.',
+                    d3_title: '3. Kurumsal 10M+ Dağıtım ve Milisaniyelik SLA',
+                    d3_desc: 'Fatura ve OTP bildirimleri gibi kritik transaksiyonel iletileri bağımsız yüksek öncelikli kuyruklarda tutar. Pazarlama kampanyalarınız ne kadar yoğun olursa olsun şifre ve faturalarınız 3 saniyenin altında gelen kutusuna ulaşır.'
+                },
+                migration: {
+                    heading: 'SendGrid veya Resend\'den TraceMailer\'a Geçiş: Sadece 3 Satır',
+                    desc: 'Mevcut kod tabanınızı baştan yazmanıza gerek yok. TraceMailer\'ın standart JSON REST API\'si ve SMTP rölesi ile dakikalar içinde canlıya geçin.',
+                    tab_curl: 'cURL',
+                    tab_node: 'Node.js',
+                    tab_python: 'Python'
+                },
+                faq: {
+                    heading: 'Sıkça Sorulan Sorular',
+                    q1: 'SendGrid\'den TraceMailer\'a geçiş süreci ne kadar sürer?',
+                    a1: 'DNS kayıtlarınızı (SPF, DKIM, CNAME) yönlendirdikten sonra mevcut API anahtarınızı TraceMailer anahtarıyla değiştirmeniz yeterlidir. Çoğu geliştirici ekibi geçişi 15 dakikadan kısa sürede tamamlamaktadır.',
+                    q2: 'Resend yerine TraceMailer tercih etmenin başlıca avantajı nedir?',
+                    a2: 'Resend modern ve geliştirici dostu bir arayüz sunsa da, yüksek hacimli kurumsal dağıtımda hayati önem taşıyan Apple MPP sentetik açılma filtrelemesi, alıcı bazlı STO zamanlaması ve gönderim öncesi tek kullanımlık adres temizliği TraceMailer\'da yerleşik olarak bulunur.',
+                    q3: 'Mailgun ile karşılaştırıldığında maliyet avantajı nasıl sağlanır?',
+                    a3: 'Mailgun\'da e-posta doğrulama, gelişmiş analitik ve STO gibi özellikler için ek ücretli modüller satın almanız gerekir. TraceMailer bu yetenekleri tek bir entegre platformda sunarak toplam altyapı maliyetini %40-60 oranında düşürür.',
+                    q4: 'TraceMailer ile pazarlama bültenleri de gönderebilir miyim?',
+                    a4: 'Evet. TraceMailer hem yüksek hacimli pazarlama bültenlerini hem de kritik transaksiyonel mesajları destekler. Sistem otomatik olarak iki trafiğin IP ve alt alan adı itibarını birbirinden izole eder.'
+                },
+                cta: {
+                    title: 'Daha Yüksek Inbox Oranı İçin Hazır mısınız?',
+                    desc: 'TraceMailer ile e-postalarınız spama düşmesin, metrikleriniz Apple MPP yanılsamasından kurtulsun.',
+                    button: 'Ücretsiz Başlayın',
+                    contact: 'Satış Ekibiyle Görüşün'
+                }
+            }
         },
         en: {
             common: {
@@ -3646,6 +3752,7 @@
                     why: 'Why TraceMailer?',
                     how: 'How It Works',
                     blog: 'Guides & Blog',
+                    compare: 'Compare',
                     faq: 'FAQ',
                     contact: 'Contact',
                     login: 'Sign In',
@@ -4198,11 +4305,116 @@
                                 "g2_title": "DMARC, DKIM & BIMI Guide: Verified Brand Logos & Email Security"
                 },
                 "cta": {
-                                "title": "Supercharge Your Enterprise Transactional Email Stack",
-                                "desc": "Deploy zero-latency queues, scale to 10M+ monthly capacity, and monitor delivery telemetry in real time with TraceMailer.",
-                                "button": "Start Free Integration"
+                    "title": "Supercharge Your Enterprise Transactional Email Stack",
+                    "desc": "Deploy zero-latency queues, scale to 10M+ monthly capacity, and monitor delivery telemetry in real time with TraceMailer.",
+                    "button": "Start Free Integration"
                 }
-}
+            },
+            comparison: {
+                meta: {
+                    title: 'TraceMailer vs SendGrid & Resend | 2026 Email Comparison',
+                    desc: 'Compare TraceMailer vs SendGrid, Resend & Mailgun: 92%+ inbox placement, Apple MPP filtering, and STO delivery timing in 2026 benchmark.'
+                },
+                breadcrumbs: {
+                    home: 'Home',
+                    compare: 'Comparison'
+                },
+                hero: {
+                    badge: '2026 Technical Email Infrastructure Benchmark',
+                    title: 'TraceMailer vs SendGrid, Resend & Mailgun',
+                    desc: 'An engineering comparison of modern email delivery platforms in the era of Google & Yahoo 0.10% spam thresholds, Apple MPP pixel masking, and high-volume distribution.',
+                    cards: {
+                        c1_title: 'SendGrid Alternative',
+                        c1_desc: 'Replace legacy enterprise pricing and reactive bounce handling with proactive AI reputation defense.',
+                        c2_title: 'Resend Alternative',
+                        c2_desc: 'Get modern developer DX plus native Apple MPP telemetry filtering and recipient-level STO timing.',
+                        c3_title: 'Mailgun Alternative',
+                        c3_desc: 'Eliminate expensive add-ons with all-inclusive sub-second deliverability telemetry and queue throttling.'
+                    }
+                },
+                matrix: {
+                    heading: 'Technical Architecture & Feature Matrix',
+                    subheading: 'Direct comparison across 8 core infrastructure criteria for engineering and growth teams.',
+                    feature_col: 'Feature / Capability',
+                    tracemailer_col: 'TraceMailer',
+                    sendgrid_col: 'SendGrid (Twilio)',
+                    resend_col: 'Resend',
+                    mailgun_col: 'Mailgun (Sinch)',
+                    f1_name: 'Average Inbox Placement (Deliverability)',
+                    f1_tm: '92% - 98% (High)',
+                    f1_sg: '82% - 88% (Standard)',
+                    f1_rs: '85% - 90% (Moderate)',
+                    f1_mg: '84% - 89% (Moderate)',
+                    f2_name: 'Apple Mail Privacy Protection (MPP) Filtering',
+                    f2_tm: 'Native & Automated (17.0.0.0/8 Isolation)',
+                    f2_sg: 'Not Supported (False 100% Opens)',
+                    f2_rs: 'Limited / Raw Telemetry',
+                    f2_mg: 'Not Supported (Blended Data)',
+                    f3_name: 'Send Time Optimization (STO)',
+                    f3_tm: 'Native Recipient-Level AI STO',
+                    f3_sg: 'Enterprise Add-On Only',
+                    f3_rs: 'Not Available',
+                    f3_mg: 'Expensive Add-On Required',
+                    f4_name: 'Pre-Send Audience Hygiene',
+                    f4_tm: '45K+ Disposable & Spam-Trap Filters',
+                    f4_sg: 'Reactive (Post-Send Bounces)',
+                    f4_rs: 'Reactive Webhooks',
+                    f4_mg: 'Paid Validation API per Check',
+                    f5_name: 'ISP Jitter Queue Throttling',
+                    f5_tm: 'Dynamic Jitter (Gmail/Yahoo 421 Defense)',
+                    f5_sg: 'Standard Queueing',
+                    f5_rs: 'Standard Queueing',
+                    f5_mg: 'Manual Rate Limit Config',
+                    f6_name: 'Marketing vs Transactional Isolation',
+                    f6_tm: 'Sub-Second Priority Queue & Pool Split',
+                    f6_sg: 'Complex Sub-Account Silos',
+                    f6_rs: 'Single API Key Pool',
+                    f6_mg: 'Domain-Level Management',
+                    f7_name: 'DMARC, DKIM 2048-bit & BIMI Verification',
+                    f7_tm: 'End-to-End Live DNS & Telemetry Checks',
+                    f7_sg: 'Basic DNS Records',
+                    f7_rs: 'Basic DNS Records',
+                    f7_mg: 'Basic DNS Records',
+                    f8_name: 'Webhook Event Latency',
+                    f8_tm: '< 250 ms (Sub-Second SLA)',
+                    f8_sg: '2 - 15 seconds',
+                    f8_rs: '1 - 3 seconds',
+                    f8_mg: '2 - 10 seconds'
+                },
+                diffs: {
+                    heading: 'Why Engineering Teams Switch to TraceMailer',
+                    d1_title: '1. Proactive Compliance with Google & Yahoo 2026 Rules',
+                    d1_desc: 'Legacy relays transmit invalid mail and register hard bounces. TraceMailer validates recipients before the SMTP handshake, enforcing the strict 0.10% spam threshold and protecting domain sender reputation permanently.',
+                    d2_title: '2. Eliminates Apple MPP False Telemetry',
+                    d2_desc: 'iOS pre-fetches images via proxy servers, generating inflated 100% open rates. TraceMailer neutralizes synthetic cache hits, providing real user engagement insights for accurate A/B testing.',
+                    d3_title: '3. 10M+ Enterprise Scale & Sub-Second Latency',
+                    d3_desc: 'Critical transactional emails (OTPs, invoices, password resets) are routed through dedicated priority queues. Even amidst high-volume marketing blasts, mission-critical messages deliver in under 3 seconds.'
+                },
+                migration: {
+                    heading: 'Migrating from SendGrid or Resend: Just 3 Lines of Code',
+                    desc: 'No need to rewrite your application stack. TraceMailer provides drop-in REST APIs and standard SMTP relay credentials to get you running in minutes.',
+                    tab_curl: 'cURL',
+                    tab_node: 'Node.js',
+                    tab_python: 'Python'
+                },
+                faq: {
+                    heading: 'Frequently Asked Questions',
+                    q1: 'How long does it take to migrate from SendGrid to TraceMailer?',
+                    a1: 'After pointing your DNS records (SPF, DKIM, CNAME), simply update your API token or SMTP credentials. Most engineering teams complete the cutover in under 15 minutes.',
+                    q2: 'Why choose TraceMailer over Resend for enterprise applications?',
+                    a2: 'While Resend offers great developer ergonomics, TraceMailer adds crucial enterprise delivery primitives: native Apple MPP filtering, recipient-level STO timing, and pre-send disposable address pruning.',
+                    q3: 'What is the cost advantage compared to Mailgun?',
+                    a3: 'Mailgun charges extra for email validations, advanced telemetry, and send time optimization. TraceMailer bundles these capabilities into one unified platform, reducing overall infrastructure overhead by 40-60%.',
+                    q4: 'Can I send both marketing and transactional emails with TraceMailer?',
+                    a4: 'Yes. TraceMailer natively supports both high-volume marketing newsletters and mission-critical transactional streams, automatically segregating IP pools and reputation boundaries.',
+                },
+                cta: {
+                    title: 'Ready for Higher Inbox Placement and True Telemetry?',
+                    desc: 'Keep your emails out of spam folders and eliminate Apple MPP false metrics with TraceMailer.',
+                    button: 'Start Free Integration',
+                    contact: 'Contact Enterprise Sales'
+                }
+            }
         }
     };
 
