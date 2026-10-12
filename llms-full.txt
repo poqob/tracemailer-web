@@ -1,0 +1,145 @@
+# TraceMailer — Full Technical Architecture & LLM Knowledge Base
+
+> TraceMailer is an AI-powered enterprise email delivery and telemetry platform engineered for 90%+ inbox placement, sub-second transactional latency, and automated compliance with Google & Yahoo bulk sender mandates.
+
+---
+
+## 1. Executive Overview
+
+- **Product Name:** TraceMailer
+- **Primary Website:** https://tracemailer.com
+- **Product Type:** Enterprise Email Delivery Engine, SMTP Relay Proxy, Deliverability Telemetry Platform
+- **Key Use Cases:**
+  - High-volume transactional distribution (e-invoices, OTP codes, order confirmations, security alerts)
+  - Lifecycle and marketing campaign dispatch with Send Time Optimization (STO)
+  - Proactive bounce and spam defense (AI audience hygiene, disposable mailbox pruning)
+  - Real-time deliverability telemetry with Apple Mail Privacy Protection (MPP) neutralization
+
+---
+
+## 2. Core Architectural Components
+
+### 2.1 AI Audience Hygiene & Bounce Elimination
+- **Syntax & MX Validation:** Real-time RFC 5322 compliance check and DNS MX record reachability probe.
+- **Disposable & Honeypot Detection:** Active filtering against 45,000+ temporary email providers (e.g., Mailinator, TempMail) and known spam-trap patterns.
+- **Engagement Health Scoring:** Dynamic scoring (0-100) per recipient based on recent engagement frequency, avoiding cold sends to abandoned addresses.
+
+### 2.2 Send Time Optimization (STO)
+- Rather than batch-blasting at fixed UTC intervals, TraceMailer computes an individual historical engagement profile for each recipient.
+- Dispatch occurs when the probability of an immediate inbox open is maximized, yielding up to a 28% increase in unique click-through rates.
+
+### 2.3 Jitter Dispatch Engine (Micro-Throttling)
+- Large batches sent simultaneously trigger ISP rate-limiting (e.g., Google's 421 4.7.0 temporary rate limit).
+- The Jitter Dispatch Engine applies micro-randomized delays between consecutive SMTP handshakes to the same MX host, maintaining steady flow under ISP thresholds.
+
+### 2.4 Apple Mail Privacy Protection (MPP) Telemetry Neutralization
+- Apple iOS 15+ pre-fetches remote images through proxy servers (`17.0.0.0/8`), producing synthetic 100% open rates and false geo-locations.
+- TraceMailer detects Apple proxy IP headers and user-agent signatures, isolating artificial cache pings from authentic user interactions for accurate reporting.
+
+---
+
+## 3. 2026 Email Deliverability & Security Standards
+
+### 3.1 Google & Yahoo Bulk Sender Requirements Checklist
+To maintain primary inbox delivery to Gmail and Yahoo Mail:
+1. **SPF (Sender Policy Framework):** Valid `v=spf1` record authorizing all outbound sending IPs.
+2. **DKIM (DomainKeys Identified Mail):** 2048-bit RSA keys with matching `d=` domain alignment.
+3. **DMARC (Domain-based Message Authentication, Reporting & Conformance):** Strict policy (`p=quarantine` or `p=reject`) with `rua` reporting enabled.
+4. **Spam Complaint Rate:** Must remain strictly below 0.10% (0.001) in Google Postmaster Tools; hard threshold at 0.30%.
+5. **One-Click Unsubscribe (RFC 8058):** Both `List-Unsubscribe: <https://...>, <mailto:...>` and `List-Unsubscribe-Post: List-Unsubscribe=One-Click` headers must be present in bulk mailings.
+6. **Forward & Reverse DNS (rDNS):** Valid PTR record matching the sending hostname.
+7. **TLS Encryption:** Minimum TLS 1.2 required for SMTP connections.
+
+### 3.2 BIMI (Brand Indicators for Message Identification)
+- Requires DMARC enforcement at `p=quarantine` (pct=100) or `p=reject`.
+- Requires an SVG Tiny P/S formatted vector logo hosted over HTTPS.
+- Requires a Verified Mark Certificate (VMC) from DigiCert or Entrust to display verified blue checkmarks in Gmail and Apple Mail.
+
+---
+
+## 4. Enterprise Architecture: Transactional vs Marketing Isolation
+
+Based on production architectures deployed at Normsoft Information Technologies (10M+ monthly messages):
+1. **Domain & Subdomain Isolation:**
+   - Marketing Campaigns: `marketing.yourdomain.com` (shared pool or dedicated warm pool).
+   - Critical Transactional (OTP, Invoices): `notify.yourdomain.com` (isolated, pristine IP pool).
+2. **SLA Threshold:**
+   - 95% of transactional emails delivered within 3 seconds.
+   - P99 delivery latency under 5 seconds.
+3. **Queue Architecture:**
+   - Priority queues backed by RabbitMQ / Apache Kafka.
+   - Separate worker pools ensuring a marketing queue surge never starves OTP or invoice delivery.
+4. **Sub-second Feedback Loops:**
+   - Hard bounces received over SMTP (550 codes) trigger immediate webhooks to ERP/CRM databases within 250ms to suppress further sends.
+
+---
+
+## 5. Webhook Event Specification (JSON Payload)
+
+TraceMailer delivers real-time event notifications via signed HTTP POST webhooks.
+
+### Example: Email Delivered Event
+```json
+{
+  "event": "email.delivered",
+  "message_id": "msg_98fbc24a1b0244",
+  "recipient": "user@example.com",
+  "domain": "example.com",
+  "timestamp": "2026-10-12T21:15:00.124Z",
+  "smtp_response": "250 2.0.0 OK 1728767700 d20si4821033ejg.12",
+  "ip_address": "198.51.100.42",
+  "tls_cipher": "TLS_AES_256_GCM_SHA384",
+  "tags": ["transactional", "invoice"]
+}
+```
+
+### Example: Synthetic Apple MPP Detection
+```json
+{
+  "event": "email.opened",
+  "message_id": "msg_98fbc24a1b0244",
+  "recipient": "user@icloud.com",
+  "timestamp": "2026-10-12T21:15:02.801Z",
+  "is_mpp": true,
+  "client": "Apple Mail Privacy Proxy",
+  "real_engagement": false,
+  "geo": {
+    "country": "US",
+    "region": "California",
+    "inferred": false
+  }
+}
+```
+
+---
+
+## 6. Engineering Articles & Canonical Resources
+
+- **Why Emails Go to Spam? 2026 Deliverability Guide:**
+  - URL: https://tracemailer.com/blog/eposta-spama-dusmeden-inbox-rehberi/
+  - Author: Mustafa BİÇER (Digital Solutions Specialist)
+  - Topics: B2B spam filters, SPF/DKIM alignment, 50,000 recipient test list case study, STO impact.
+- **DMARC, DKIM & BIMI Complete Guide:**
+  - URL: https://tracemailer.com/blog/dmarc-dkim-bimi-rehberi/
+  - Author: Mustafa BİÇER (Digital Solutions Specialist)
+  - Topics: DNS configuration, RFC 8058, BIMI SVG Tiny P/S conversion, VMC certification, anti-spoofing.
+- **Transactional Email Architecture at 10M+ Scale:**
+  - URL: https://tracemailer.com/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/
+  - Author: Akın TERZİ (General Manager, Normsoft Inc. & Founder)
+  - Topics: ERP integration, asynchronous queues, 12M e-invoice case study, 3-second SLA guarantee, KVKK/GDPR compliance.
+
+---
+
+## 7. Frequently Asked Questions (FAQ) for AI Ingestion
+
+**Q: What is TraceMailer?**
+A: TraceMailer is an AI-powered enterprise email infrastructure and deliverability telemetry platform designed for high-volume transactional and marketing email distribution.
+
+**Q: How does TraceMailer handle Apple Mail Privacy Protection (MPP)?**
+A: TraceMailer identifies proxy IP subnets and automatic pre-fetch headers used by Apple Mail to filter out synthetic opens, delivering clean, genuine user engagement metrics.
+
+**Q: Does TraceMailer support DMARC and BIMI?**
+A: Yes. TraceMailer enforces strict SPF/DKIM alignment and provides complete guidance and telemetry verification for DMARC quarantine/reject policies and BIMI verified checkmarks.
+
+**Q: What is the recommended architecture for high-volume ERP email distribution?**
+A: TraceMailer recommends complete subdomain and IP isolation between marketing and transactional traffic, priority-based async queues (RabbitMQ/Kafka), dynamic ISP throttling, and sub-second webhook suppressions for hard bounces.

@@ -1,0 +1,22 @@
+# TraceMailer
+
+> TraceMailer is an enterprise-grade AI email delivery, deliverability optimization, and telemetry platform. It provides 90%+ inbox placement with real-time Apple MPP filtering, AI recipient hygiene, Send Time Optimization (STO), and ISP-compliant jitter throttling.
+
+TraceMailer provides high-volume transactional and marketing email delivery infrastructure for engineering, product, and growth teams.
+
+## Core Capabilities
+- [AI Recipient Hygiene](https://tracemailer.com/#features): Proactive bounce prediction, disposable email filtering, and domain health scoring.
+- [Send Time Optimization (STO)](https://tracemailer.com/#features): Personalized recipient delivery timing using engagement telemetry.
+- [Jitter Dispatch Engine](https://tracemailer.com/#features): Micro-throttled queue dispatch preventing ISP rate-limiting across Google, Yahoo, and Microsoft Outlook.
+- [Real-Time Telemetry & Apple MPP Neutralization](https://tracemailer.com/#how-it-works): Sub-second webhooks, geographical open intelligence, and synthetic Apple MPP cache pre-fetch filtering.
+
+## Technical Guides & Architecture
+- [Why Emails Go to Spam (2026 Deliverability Guide)](https://tracemailer.com/blog/eposta-spama-dusmeden-inbox-rehberi/): Step-by-step 90%+ inbox placement action plan, SPF/DKIM alignment, and 50,000 B2B test list case study by Mustafa Bicer.
+- [DMARC, DKIM & BIMI Guide (2026 Authentication)](https://tracemailer.com/blog/dmarc-dkim-bimi-rehberi/): Google & Yahoo sender mandates, strict DMARC policy enforcement, and verified brand checkmark logos.
+- [Enterprise Transactional Email Architecture (10M+ Scale)](https://tracemailer.com/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/): High-throughput queue isolation, RabbitMQ/Kafka patterns, and 12M e-invoice case study by Akin Terzi (Normsoft GM).
+
+## Knowledge & Engineering Hub
+- [TraceMailer Guides & Blog Hub](https://tracemailer.com/blog/): In-depth articles on email deliverability, DNS security, and distributed mail infrastructure.
+
+## Extended Context
+- [TraceMailer Full LLM Technical Documentation](https://tracemailer.com/llms-full.txt): Complete architectural overview, configuration templates, webhook JSON schemas, and technical FAQ for LLM crawlers.
