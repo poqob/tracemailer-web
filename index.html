@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TraceMailer | Yapay Zeka Destekli E-Posta Dağıtım & Telemetri Platformu</title>
-    <meta name="description" content="TraceMailer; %92 ortalama inbox başarısı, yapay zeka destekli alıcı hijyeni, STO kişiselleştirilmiş gönderim saati optimizasyonu, kesin coğrafi konum tespiti ve gelişmiş telemetri sunan yeni nesil kurumsal e-posta dağıtım platformudur.">
+    <title>TraceMailer | Yapay Zeka Destekli E-Posta Dağıtım & Telemetri</title>
+    <meta name="description" content="TraceMailer; yapay zeka alıcı hijyeni, STO zamanlaması ve kesin coğrafi telemetri ile %92 inbox başarısı sunan kurumsal e-posta dağıtım platformudur.">
     <meta name="keywords" content="eposta dağıtım platformu, toplu mail gönderme, e-posta pazarlama, inbox optimizasyonu, e-posta telemetrisi, sto gönderim optimizasyonu, e-posta açılma takibi, liste hijyeni, e-posta spama düşmeme, excel kampanya sihirbazı">
     <meta name="author" content="TraceMailer">
     <meta name="publisher" content="TraceMailer">
@@ -18,7 +18,7 @@
     <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tracemailer.com/">
-    <meta property="og:title" content="TraceMailer | Yapay Zeka Destekli E-Posta Dağıtım & Telemetri Platformu">
+    <meta property="og:title" content="TraceMailer | Yapay Zeka Destekli E-Posta Dağıtım & Telemetri">
     <meta property="og:description" content="E-postalarınız spama değil, doğrudan gelen kutusuna ulaşsın. Yapay zeka alıcı hijyeni, STO zamanlaması ve kesin coğrafi telemetri.">
     <meta property="og:image" content="https://tracemailer.com/static/og-image.jpg?v=20260921">
     <meta property="og:image:width" content="1200">
@@ -31,7 +31,7 @@
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://tracemailer.com/">
-    <meta name="twitter:title" content="TraceMailer | Yapay Zeka Destekli E-Posta Dağıtım & Telemetri Platformu">
+    <meta name="twitter:title" content="TraceMailer | Yapay Zeka Destekli E-Posta Dağıtım & Telemetri">
     <meta name="twitter:description" content="E-postalarınız doğrudan gelen kutusuna ulaşsın. Yapay zeka alıcı hijyeni, STO zamanlaması ve kesin coğrafi telemetri.">
     <meta name="twitter:image" content="https://tracemailer.com/static/og-image.jpg?v=20260921">
 
@@ -1187,6 +1187,10 @@
                     if (document) {
                         document.documentElement.lang = lang;
                         document.title = this.t('landing.meta.title');
+                        const metaDesc = document.querySelector('meta[name="description"]');
+                        if (metaDesc) {
+                            metaDesc.setAttribute('content', this.t('landing.meta.desc'));
+                        }
                     }
                     this.resetTypewriter();
                 },

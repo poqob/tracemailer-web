@@ -1385,8 +1385,8 @@
             },
             landing: {
                 meta: {
-                    title: 'TraceMailer | Yapay Zeka Destekli E-Posta Dağıtım & Telemetri Platformu',
-                    desc: 'TraceMailer; %92 ortalama inbox başarısı, yapay zeka destekli alıcı hijyeni, STO kişiselleştirilmiş gönderim saati optimizasyonu, kesin coğrafi konum tespiti ve gelişmiş telemetri sunan yeni nesil kurumsal e-posta dağıtım platformudur.'
+                    title: 'TraceMailer | Yapay Zeka Destekli E-Posta Dağıtım & Telemetri',
+                    desc: 'TraceMailer; yapay zeka alıcı hijyeni, STO zamanlaması ve kesin coğrafi telemetri ile %92 inbox başarısı sunan kurumsal e-posta dağıtım platformudur.'
                 },
                 nav: {
                     why: 'Neden TraceMailer?',
@@ -2907,8 +2907,8 @@
             },
             landing: {
                 meta: {
-                    title: 'TraceMailer | AI-Powered Email Delivery & Advanced Telemetry Platform',
-                    desc: 'TraceMailer is a next-generation enterprise email distribution platform featuring 92% average inbox delivery, AI-powered list hygiene, STO send time optimization, pinpoint geolocation, and real-time telemetry.'
+                    title: 'TraceMailer | AI-Powered Email Delivery & Telemetry Platform',
+                    desc: 'TraceMailer is an enterprise email delivery platform with 92% inbox success, AI list hygiene, STO send-time optimization, and pinpoint geolocation telemetry.'
                 },
                 nav: {
                     why: 'Why TraceMailer?',
