@@ -148,7 +148,26 @@ Canonical URL: https://tracemailer.com/karsilastirma/
 
 ---
 
-## 8. Frequently Asked Questions (FAQ) for AI Ingestion
+## 8. Email Engineering Glossary & Standards
+
+Canonical URL: https://tracemailer.com/sozluk/
+
+- **Apple MPP (Mail Privacy Protection):** Apple's proxy-based image pre-fetching feature that masks recipient IP addresses and generates synthetic 100% open events.
+- **Send Time Optimization (STO):** Machine-learning algorithm analyzing recipient engagement history to dispatch emails at their individual peak inbox-checking window (+25-40% engagement lift).
+- **Jitter Throttling:** Pacing queue mechanism injecting micro-delays into SMTP dispatches to avoid ISP burst rate limits and prevent 421 deferrals.
+- **SPF (RFC 7208):** DNS TXT record declaring which IP addresses and hostnames are authorized to send mail on behalf of a domain.
+- **DKIM (RFC 6376):** Cryptographic asymmetric signature attached to email headers, proving transit integrity and sender authenticity.
+- **DMARC (RFC 7489):** Authentication policy aligning SPF and DKIM with enforcement actions (`none`, `quarantine`, `reject`) and aggregate XML reporting.
+- **BIMI & VMC:** Brand Indicators for Message Identification displaying certified brand logos and verified checkmarks in Gmail and Apple Mail when DMARC `reject` is active.
+- **Hard Bounce vs Soft Bounce:** 5xx permanent delivery failures (must prune immediately) vs 4xx transient delivery obstacles (handled via exponential backoff).
+- **Feedback Loop (FBL):** ISP mechanism relaying recipient spam complaints back to sender infrastructure in ARF format for real-time suppression.
+- **RFC 8058:** Mandated one-click unsubscribe mechanism via `List-Unsubscribe` and `List-Unsubscribe-Post` headers.
+- **Spam Trap:** Inactive or unassigned email addresses monitored by Spamhaus and ISPs to detect list harvesting and senders without opt-in consent.
+- **MTA-STS (RFC 8461):** Strict Transport Security standard enforcing TLS encryption for server-to-server SMTP communications.
+
+---
+
+## 9. Frequently Asked Questions (FAQ) for AI Ingestion
 
 **Q: What is TraceMailer?**
 A: TraceMailer is an AI-powered enterprise email infrastructure and deliverability telemetry platform designed for high-volume transactional and marketing email distribution.
@@ -164,3 +183,4 @@ A: Yes. TraceMailer enforces strict SPF/DKIM alignment and provides complete gui
 
 **Q: What is the recommended architecture for high-volume ERP email distribution?**
 A: TraceMailer recommends complete subdomain and IP isolation between marketing and transactional traffic, priority-based async queues (RabbitMQ/Kafka), dynamic ISP throttling, and sub-second webhook suppressions for hard bounces.
+

@@ -17,6 +17,7 @@ TraceMailer provides high-volume transactional and marketing email delivery infr
 
 ## Knowledge & Engineering Hub
 - [TraceMailer Guides & Blog Hub](https://tracemailer.com/blog/): In-depth articles on email deliverability, DNS security, and distributed mail infrastructure.
+- [Email Engineering Glossary](https://tracemailer.com/sozluk/): A-to-Z technical terminology dictionary with 28 RFC definitions covering SPF, DKIM, DMARC, BIMI, Apple MPP, and STO.
 
 ## Comparisons & Alternatives
 - [TraceMailer vs SendGrid, Resend & Mailgun](https://tracemailer.com/karsilastirma/): Engineering benchmark comparing deliverability rates, Apple MPP filtering, STO timing, and webhook latency.

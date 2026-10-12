@@ -1557,6 +1557,7 @@
                     how: 'Nasıl Çalışır?',
                     blog: 'Rehber & Blog',
                     compare: 'Karşılaştırma',
+                    glossary: 'Sözlük',
                     faq: 'SSS',
                     contact: 'İletişim',
                     login: 'Giriş Yap',
@@ -2218,7 +2219,394 @@
                     button: 'Ücretsiz Başlayın',
                     contact: 'Satış Ekibiyle Görüşün'
                 }
-            }
+            },
+            glossary: {
+          "meta": {
+                "title": "E-Posta Terimleri Sözlüğü | TraceMailer Teknik Kılavuz",
+                "desc": "SPF, DKIM, DMARC, BIMI, Apple MPP, STO ve bounce terimlerini içeren kapsamlı e-posta teslim edilebilirliği ve mühendislik terimleri sözlüğü."
+          },
+          "breadcrumbs": {
+                "home": "Ana Sayfa",
+                "glossary": "Sözlük"
+          },
+          "hero": {
+                "badge": "A'dan Z'ye E-Posta Mühendisliği & Teslim Edilebilirlik",
+                "title": "E-Posta Terimleri Sözlüğü",
+                "desc": "SPF, DKIM, DMARC, BIMI, Apple MPP ve STO dahil olmak üzere modern e-posta altyapısının tüm teknik kavramları, RFC standartları ve en iyi uygulama tanımları.",
+                "search_placeholder": "Terim veya kavram ara... (örn: Apple MPP, DMARC, STO, Bounce)",
+                "terms_count": "28 Teknik Terim Tanımı"
+          },
+          "categories": {
+                "all": "Tümü (28)",
+                "auth": "Kimlik Doğrulama & Protokoller",
+                "deliverability": "Teslim Edilebilirlik & İtibar",
+                "metrics": "Metrikler & Telemetri",
+                "optimization": "Dağıtım & Optimizasyon"
+          },
+          "labels": {
+                "category": "Kategori",
+                "definition": "Teknik Tanım",
+                "why_it_matters": "Neden Önemli? (Teslimat Etkisi)",
+                "related_guide": "İlgili Rehber & Analiz",
+                "no_results": "Aramanızla eşleşen bir terim bulunamadı.",
+                "clear_search": "Aramayı Temizle",
+                "copy_anchor": "Bağlantıyı Kopyala",
+                "copied": "Kopyalandı!"
+          },
+          "terms": {
+                "apple_mpp": {
+                          "id": "apple-mpp",
+                          "name": "Apple MPP (Mail Privacy Protection)",
+                          "category": "metrics",
+                          "category_label": "Metrikler & Gizlilik",
+                          "rfc": "Apple Privacy 2021",
+                          "letter": "A",
+                          "definition": "Apple Mail istemcilerinde açılma takip piksellerini önceden sunucuya önbelleğe alarak kullanıcı IP adresini gizleyen ve sahte %100 açılma sinyalleri üreten gizlilik protokolüdür.",
+                          "why_it_matters": "Geleneksel açılma oranlarını (Open Rate) geçersiz kılar. TraceMailer gibi modern platformlar, gerçek kullanıcı etkileşimi ile MPP bot önbellek açılmalarını ayrıştırır.",
+                          "link": "/blog/eposta-spama-dusmeden-inbox-rehberi/",
+                          "link_text": "Apple MPP Etki Analizi Rehberi"
+                },
+                "sto": {
+                          "id": "sto",
+                          "name": "Send Time Optimization (STO)",
+                          "category": "optimization",
+                          "category_label": "Dağıtım & Optimizasyon",
+                          "rfc": "AI Telemetry Engine",
+                          "letter": "S",
+                          "definition": "Her alıcının geçmiş e-posta açma ve tıklama saatlerini makine öğrenimiyle analiz ederek, mesajın alıcının gelen kutusunu kontrol ettiği en muhtemel anda teslim edilmesini sağlayan akıllı zamanlama algoritmasıdır.",
+                          "why_it_matters": "Gelen kutusu yığınının en üstünde yer almayı sağlayarak açılma ve tıklama oranlarını %25-40 oranında artırır.",
+                          "link": "/karsilastirma/",
+                          "link_text": "TraceMailer vs Rakip STO Kıyaslaması"
+                },
+                "jitter_throttling": {
+                          "id": "jitter-throttling",
+                          "name": "Jitter Throttling",
+                          "category": "optimization",
+                          "category_label": "Dağıtım & Altyapı",
+                          "rfc": "RFC 5321 Flow Control",
+                          "letter": "J",
+                          "definition": "E-posta gönderim aralıklarına deterministik ve rastgele mikrosaniyelik zaman gecikmeleri (jitter) ekleyerek ISP hız sınırlamalarını (rate limits) ve ani tepe dalgalanmalarını engelleyen kuyruk düzenleme mekanizmasıdır.",
+                          "why_it_matters": "Gmail ve Microsoft gibi sağlayıcıların ani trafik artışlarını şüpheli saldırı olarak algılayıp 421 greylisting uygulamasını ve teslimat gecikmelerini önler.",
+                          "link": "/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/",
+                          "link_text": "Kurumsal Kuyruk Mimarisi Rehberi"
+                },
+                "spf": {
+                          "id": "spf",
+                          "name": "SPF (Sender Policy Framework)",
+                          "category": "auth",
+                          "category_label": "Kimlik Doğrulama",
+                          "rfc": "RFC 7208",
+                          "letter": "S",
+                          "definition": "Bir alan adı sahibinin DNS TXT kayıtları aracılığıyla kendi adına e-posta göndermeye yetkili IP adreslerini ve sunucuları ilan etmesini sağlayan temel e-posta kimlik doğrulama standardıdır.",
+                          "why_it_matters": "Sahte gönderici (spoofing) saldırılarını engeller. 10 DNS lookup sınırını aşmamak kesintisiz teslimat başarısı için kritiktir.",
+                          "link": "/blog/dmarc-dkim-bimi-rehberi/",
+                          "link_text": "SPF, DKIM & DMARC Kurulum Kılavuzu"
+                },
+                "dkim": {
+                          "id": "dkim",
+                          "name": "DKIM (DomainKeys Identified Mail)",
+                          "category": "auth",
+                          "category_label": "Kimlik Doğrulama",
+                          "rfc": "RFC 6376",
+                          "letter": "D",
+                          "definition": "Gönderilen e-postanın başlığına asimetrik kriptografik imza ekleyerek, mesajın iletim sırasında değiştirilmediğini ve gerçekten belirtilen alan adından çıktığını doğrulayan protokoldür.",
+                          "why_it_matters": "Gönderici alan adının kriptografik itibarını oluşturur ve mesaj bütünlüğünü garanti eder (2048-bit RSA veya Ed25519 önerilir).",
+                          "link": "/blog/dmarc-dkim-bimi-rehberi/",
+                          "link_text": "DKIM Yapılandırma ve İmzalama"
+                },
+                "dmarc": {
+                          "id": "dmarc",
+                          "name": "DMARC (Domain-based Message Authentication)",
+                          "category": "auth",
+                          "category_label": "Kimlik Doğrulama & Politika",
+                          "rfc": "RFC 7489",
+                          "letter": "D",
+                          "definition": "SPF ve DKIM doğrulamalarını hizalayan (alignment), kimlik doğrulama başarısız olduğunda alıcı ISP'ye ne yapacağını (none, quarantine, reject) bildiren ve XML raporlama sağlayan güvenlik protokolüdür.",
+                          "why_it_matters": "p=reject politikası, alan adının kimlik avı (phishing) için kullanılmasını %100 engeller ve BIMI logosu için zorunludur.",
+                          "link": "/blog/dmarc-dkim-bimi-rehberi/",
+                          "link_text": "DMARC p=reject Geçiş Stratejisi"
+                },
+                "bimi": {
+                          "id": "bimi",
+                          "name": "BIMI (Brand Indicators for Message Identification)",
+                          "category": "auth",
+                          "category_label": "Görsel Kimlik & Güven",
+                          "rfc": "BIMI Group Spec",
+                          "letter": "B",
+                          "definition": "DMARC politikası reject seviyesinde olan alan adlarının, Gmail ve Apple Mail gibi destekleyen gelen kutularında doğrulanmış resmi marka logosunu ve mavi onay rozetini göstermesini sağlayan açık standarttır.",
+                          "why_it_matters": "E-postaların güvenilirliğini görsel olarak kanıtlar, açılma oranlarını %10-25 artırır ve marka itibarını güçlendirir.",
+                          "link": "/blog/dmarc-dkim-bimi-rehberi/",
+                          "link_text": "BIMI ve VMC Sertifika Süreci"
+                },
+                "vmc": {
+                          "id": "vmc",
+                          "name": "VMC (Verified Mark Certificate)",
+                          "category": "auth",
+                          "category_label": "Sertifika & Güvenlik",
+                          "rfc": "CA/B Forum Guidelines",
+                          "letter": "V",
+                          "definition": "BIMI logosunun tescilli bir ticari markaya ait olduğunu doğrulayan ve yetkili sertifika otoriteleri (DigiCert, Entrust) tarafından düzenlenen dijital güvenlik sertifikasıdır.",
+                          "why_it_matters": "Google Workspace, Gmail ve Apple Mail üzerinde resmi logonun ve mavi onay tikinin görüntülenmesi için zorunlu gereksinimdir.",
+                          "link": "/blog/dmarc-dkim-bimi-rehberi/",
+                          "link_text": "VMC Sertifikası Alma Adımları"
+                },
+                "hard_bounce": {
+                          "id": "hard-bounce",
+                          "name": "Hard Bounce (Kalıcı Red)",
+                          "category": "deliverability",
+                          "category_label": "Teslim Edilebilirlik",
+                          "rfc": "RFC 3463 (5.X.X Code)",
+                          "letter": "H",
+                          "definition": "Geçersiz e-posta adresi, silinmiş posta kutusu veya mevcut olmayan alan adı gibi nedenlerle e-postanın kalıcı olarak teslim edilememesi durumunu belirten 5xx SMTP hata yanıtıdır.",
+                          "why_it_matters": "Yüksek hard bounce oranı gönderici itibarını anında düşürür. Bu adresler derhal gönderim listelerinden ayıklanmalıdır.",
+                          "link": "/blog/eposta-spama-dusmeden-inbox-rehberi/",
+                          "link_text": "Bounce Yönetimi ve Alıcı Hijyeni"
+                },
+                "soft_bounce": {
+                          "id": "soft-bounce",
+                          "name": "Soft Bounce (Geçici Red)",
+                          "category": "deliverability",
+                          "category_label": "Teslim Edilebilirlik",
+                          "rfc": "RFC 3463 (4.X.X Code)",
+                          "letter": "S",
+                          "definition": "Alıcının gelen kutusunun dolu olması, sunucunun geçici olarak yanıt vermemesi veya mesaj boyutunun sınırı aşması nedeniyle oluşan geçici teslimat engelidir (4xx SMTP yanıtı).",
+                          "why_it_matters": "Akıllı e-posta sistemleri geçici hataları belirli aralıklarla yeniden dener; ardışık tekrarlarda adresi kalıcı olarak işaretler.",
+                          "link": "/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/",
+                          "link_text": "Yeniden Deneme (Backoff) Stratejileri"
+                },
+                "feedback_loop": {
+                          "id": "feedback-loop",
+                          "name": "Feedback Loop (FBL / Geri Bildirim Döngüsü)",
+                          "category": "deliverability",
+                          "category_label": "Teslim Edilebilirlik & İtibar",
+                          "rfc": "RFC 5965 (ARF)",
+                          "letter": "F",
+                          "definition": "Alıcı ISP'lerin (Microsoft Outlook, Yahoo Mail vb.), kullanıcıların \"Spam Olarak İşaretle\" butonuna bastığı bildirimleri gönderici ESP altyapısına otomatik formatta (ARF) ilettiği sistemdir.",
+                          "why_it_matters": "Şikayetçi alıcıların listelerden anında çıkarılmasını sağlayarak IP ve alan adı itibarının korunmasına doğrudan yardımcı olur.",
+                          "link": "/karsilastirma/",
+                          "link_text": "FBL Entegrasyonu ve TraceMailer"
+                },
+                "rdns_ptr": {
+                          "id": "rdns-ptr",
+                          "name": "rDNS & PTR Kaydı (Ters DNS)",
+                          "category": "auth",
+                          "category_label": "Altyapı & Ağ",
+                          "rfc": "RFC 1035 / RFC 1912",
+                          "letter": "R",
+                          "definition": "E-posta gönderen sunucunun IP adresinin alan adı sunucuları tarafından geçerli bir alan adına (FQDN) çözümlendiğini doğrulayan ters DNS işaretçi (Pointer) kaydıdır.",
+                          "why_it_matters": "rDNS kaydı eksik veya eşleşmeyen (Forward-Confirmed reverse DNS) sunuculardan gelen e-postalar Gmail ve Yahoo tarafından doğrudan reddedilir.",
+                          "link": "/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/",
+                          "link_text": "MTA Sunucu Kurulum Gereksinimleri"
+                },
+                "rfc_8058": {
+                          "id": "rfc-8058",
+                          "name": "RFC 8058 (Tek Tıkla Abonelikten Çıkma)",
+                          "category": "auth",
+                          "category_label": "Standartlar & Yasal Uyum",
+                          "rfc": "RFC 8058 / RFC 2369",
+                          "letter": "R",
+                          "definition": "E-posta başlıklarına List-Unsubscribe ve List-Unsubscribe-Post parametreleri eklenerek, alıcıların tek tıkla ve sayfaya yönlendirilmeden abonelikten çıkmasını sağlayan IETF standardıdır.",
+                          "why_it_matters": "2024 yılından itibaren Google ve Yahoo tarafından toplu göndericiler için zorunlu kılınmıştır; eksikliği spam cezası doğurur.",
+                          "link": "/blog/eposta-spama-dusmeden-inbox-rehberi/",
+                          "link_text": "2024+ Zorunlu Gönderici Kuralları"
+                },
+                "spam_trap": {
+                          "id": "spam-trap",
+                          "name": "Spam Trap (Bal Küpü / Honeypot)",
+                          "category": "deliverability",
+                          "category_label": "İtibar & Güvenlik",
+                          "rfc": "Spamhaus Defense Spec",
+                          "letter": "S",
+                          "definition": "Asla gerçek kullanıcılara tahsis edilmemiş veya uzun süre terk edildikten sonra ISP'ler ve anti-spam organizasyonları (Spamhaus) tarafından tuzak olarak dönüştürülen e-posta adresleridir.",
+                          "why_it_matters": "Bir spam trap'e gönderim yapmak, listenizin satın alma veya kazıma (scraping) olduğunu ele verir ve IP'nizin anında karalisteye (DNSBL) alınmasına yol açar.",
+                          "link": "/blog/eposta-spama-dusmeden-inbox-rehberi/",
+                          "link_text": "Spam Tuzaklarından Kaçınma Yolları"
+                },
+                "ip_warmup": {
+                          "id": "ip-warmup",
+                          "name": "IP Warm-up (IP Isınma Süreci)",
+                          "category": "deliverability",
+                          "category_label": "Altyapı & Gönderim",
+                          "rfc": "Reputation Building",
+                          "letter": "I",
+                          "definition": "Yeni tahsis edilen bir IP adresinin gönderim hacmini gün be gün, kontrollü ve kademeli olarak artırarak ISP spam filtrelerinde pozitif gönderici itibarı inşa etme sürecidir.",
+                          "why_it_matters": "Ani yüksek hacimli gönderimler ISP filtreleri tarafından saldırı olarak algılanır; planlı ısınma 3-4 haftada güvenli dağıtım kapasitesi kurar.",
+                          "link": "/karsilastirma/",
+                          "link_text": "Otomatik IP Isıtma Özellikleri"
+                },
+                "dedicated_ip": {
+                          "id": "dedicated-ip",
+                          "name": "Dedicated IP (Ayrılmış Özel IP)",
+                          "category": "deliverability",
+                          "category_label": "Altyapı",
+                          "rfc": "Dedicated Infrastructure",
+                          "letter": "D",
+                          "definition": "Yalnızca tek bir kuruma veya göndericiye tahsis edilen, gönderim hacmi ve itibarının tamamen o kurumun gönderim pratiklerine bağlı olduğu IP adresi modelidir.",
+                          "why_it_matters": "Başka firmaların spam gönderimlerinden etkilenme riskini sıfırlar; aylık 100.000+ gönderim yapan yapılar için tavsiye edilir.",
+                          "link": "/karsilastirma/",
+                          "link_text": "Özel IP ve Paylaşımlı IP Farkları"
+                },
+                "shared_ip": {
+                          "id": "shared-ip",
+                          "name": "Shared IP (Paylaşımlı IP Havuzu)",
+                          "category": "deliverability",
+                          "category_label": "Altyapı",
+                          "rfc": "Pooled Infrastructure",
+                          "letter": "S",
+                          "definition": "Birden fazla şirketin e-postalarının aynı IP adresi havuzundan gönderildiği, düşük hacimli göndericiler için maliyet avantajı sağlayan altyapı modelidir.",
+                          "why_it_matters": "Havuzdaki tek bir kötü niyetli veya dikkatsiz göndericinin spam göndermesi havuzdaki tüm diğer müşterilerin teslimatını olumsuz etkileyebilir.",
+                          "link": "/karsilastirma/",
+                          "link_text": "TraceMailer IP İzolasyon Mimarisi"
+                },
+                "deliverability_vs_delivery": {
+                          "id": "deliverability-vs-delivery",
+                          "name": "Deliverability vs Delivery Rate",
+                          "category": "deliverability",
+                          "category_label": "Temel Kavramlar",
+                          "rfc": "Inbox Placement Metric",
+                          "letter": "D",
+                          "definition": "Delivery Rate, e-postanın alıcı sunucu tarafından kabul edilip edilmediğini (bounce etmeme); Deliverability ise mesajın doğrudan birincil gelen kutusuna (Inbox) ulaşıp ulaşmadığını ifade eder.",
+                          "why_it_matters": "%99 teslimat oranı olan bir e-posta bütünüyle spam klasörüne düşmüş olabilir; gerçek başarı teslim edilebilirlik (Inbox Placement) ile ölçülür.",
+                          "link": "/blog/eposta-spama-dusmeden-inbox-rehberi/",
+                          "link_text": "Inbox Placement Nasıl Ölçülür?"
+                },
+                "greylisting": {
+                          "id": "greylisting",
+                          "name": "Greylisting (Gri Listeleme)",
+                          "category": "deliverability",
+                          "category_label": "Güvenlik & ISP",
+                          "rfc": "RFC 6647",
+                          "letter": "G",
+                          "definition": "Alıcı posta sunucusunun, tanımadığı bir göndericiden gelen ilk teslimat girişimini geçici bir hata koduyla (451) reddedip meşru sunucuların tekrar denemesini bekleme anti-spam yöntemidir.",
+                          "why_it_matters": "Spam botları genellikle ikinci denemeyi yapmaz; standartlara uygun MTA sunucuları ise birkaç dakika sonra kuyruktan başarıyla teslimatı tamamlar.",
+                          "link": "/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/",
+                          "link_text": "Greylisting Gecikmelerini Yönetme"
+                },
+                "mta": {
+                          "id": "mta",
+                          "name": "MTA (Mail Transfer Agent)",
+                          "category": "optimization",
+                          "category_label": "Altyapı & Protokoller",
+                          "rfc": "RFC 5598",
+                          "letter": "M",
+                          "definition": "SMTP protokolünü kullanarak e-postaları gönderici sunucudan alıcı sunucunun posta kutusuna yönlendiren ve teslim eden sunucu yazılımıdır (TraceMailer MTA, Postfix, Haraka vb.).",
+                          "why_it_matters": "Yüksek performanslı dağıtık MTA mimarisi, milyonlarca iletinin milisaniyeler mertebesinde kuyruk gecikmesi olmadan işlenmesini sağlar.",
+                          "link": "/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/",
+                          "link_text": "TraceMailer Dağıtık MTA Mimarisi"
+                },
+                "smtp": {
+                          "id": "smtp",
+                          "name": "SMTP (Simple Mail Transfer Protocol)",
+                          "category": "auth",
+                          "category_label": "Protokoller",
+                          "rfc": "RFC 5321",
+                          "letter": "S",
+                          "definition": "İnternet üzerinden e-posta göndermek ve sunucular arasında mesaj iletmek için kullanılan temel TCP/IP ağ protokolüdür.",
+                          "why_it_matters": "Genellikle 587 (STARTTLS) veya 465 (SMTPS) portları üzerinden şifreli olarak kullanılır; modern API'ler arka planda optimize edilmiş SMTP oturum havuzları çalıştırır.",
+                          "link": "/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/",
+                          "link_text": "SMTP vs HTTP API Karşılaştırması"
+                },
+                "open_rate": {
+                          "id": "open-rate",
+                          "name": "Open Rate (Açılma Oranı)",
+                          "category": "metrics",
+                          "category_label": "Metrikler",
+                          "rfc": "Tracking Pixel Spec",
+                          "letter": "O",
+                          "definition": "Teslim edilen e-postalar içinde, içerikteki görünmez 1x1 piksellik takip görselini yükleyen alıcıların yüzdesini ifade eden geleneksel başarı metriğidir.",
+                          "why_it_matters": "Apple MPP ve kurumsal güvenlik güvenlik duvarlarının pikselleri yapay olarak tetiklemesi nedeniyle artık tek başına güvenilir bir KPI kabul edilmez.",
+                          "link": "/blog/eposta-spama-dusmeden-inbox-rehberi/",
+                          "link_text": "Gerçek ve Sahte Açılmaları Ayırma"
+                },
+                "ctr": {
+                          "id": "ctr",
+                          "name": "CTR (Click-Through Rate / Tıklama Oranı)",
+                          "category": "metrics",
+                          "category_label": "Metrikler",
+                          "rfc": "Engagement Telemetry",
+                          "letter": "C",
+                          "definition": "Gönderilen veya teslim edilen e-postalar içindeki herhangi bir köprü bağlantıya (link) tıklayan tekil alıcıların yüzdesini gösteren temel etkileşim metriğidir.",
+                          "why_it_matters": "Bot piksellerinden bağımsız olarak gerçek insan ilgisini ve e-postanın amaca ulaşıp ulaşmadığını kanıtlayan en güvenilir performans göstergesidir.",
+                          "link": "/blog/eposta-spama-dusmeden-inbox-rehberi/",
+                          "link_text": "CTR ve Dönüşüm Optimizasyonu"
+                },
+                "ctor": {
+                          "id": "ctor",
+                          "name": "CTOR (Click-to-Open Rate)",
+                          "category": "metrics",
+                          "category_label": "Metrikler",
+                          "rfc": "Content Relevance Metric",
+                          "letter": "C",
+                          "definition": "E-postayı açan alıcılar arasından içerikteki bağlantılara tıklayanların oranını ölçen, doğrudan e-posta metninin ve çağrısının (CTA) kalitesini değerlendiren metriktir.",
+                          "why_it_matters": "Konu satırı başarısından ziyade içerik kurgusu ve teklifin ilgililiğini ölçmek için kullanılır; Apple MPP filtrelemesi yapıldığında doğruluğu artar.",
+                          "link": "/karsilastirma/",
+                          "link_text": "Analitik ve Raporlama Yetenekleri"
+                },
+                "sender_score": {
+                          "id": "sender-score",
+                          "name": "Sender Score & IP İtibarı",
+                          "category": "deliverability",
+                          "category_label": "İtibar & Puanlama",
+                          "rfc": "Reputation Telemetry",
+                          "letter": "S",
+                          "definition": "ISP'lerin ve itibar sağlayıcıların (Validity, Cisco Talos, Google Postmaster) bir gönderici IP ve alan adına 0 ile 100 arasında verdiği genel güvenilirlik skorudur.",
+                          "why_it_matters": "80 puanın altındaki IP adresleri doğrudan spam klasörüne veya hız sınırlamasına maruz kalırken, 90+ puan birincil gelen kutusu geçişi sağlar.",
+                          "link": "/blog/eposta-spama-dusmeden-inbox-rehberi/",
+                          "link_text": "Gönderici Puanını 90+ Seviyesine Çıkarma"
+                },
+                "spam_complaint_rate": {
+                          "id": "spam-complaint-rate",
+                          "name": "Spam Şikayet Oranı (Spam Rate)",
+                          "category": "metrics",
+                          "category_label": "Metrikler & Kurallar",
+                          "rfc": "Google/Yahoo 2024 Rule",
+                          "letter": "S",
+                          "definition": "Gönderilen e-postaların alıcılar tarafından \"Spam Bildir\" olarak işaretlenme yüzdesidir (Google Postmaster Tools verileri baz alınır).",
+                          "why_it_matters": "2024 Google & Yahoo zorunluluğu uyarınca bu oran %0.10'un altında tutulmalıdır; %0.30'a ulaşan göndericilerin e-postaları doğrudan engellenir.",
+                          "link": "/blog/eposta-spama-dusmeden-inbox-rehberi/",
+                          "link_text": "%0.10 Spam Sınırında Kalma Rehberi"
+                },
+                "list_hygiene": {
+                          "id": "list-hygiene",
+                          "name": "Liste Hijyeni (Email List Hygiene)",
+                          "category": "optimization",
+                          "category_label": "Veri Kalitesi & Hijyen",
+                          "rfc": "Database Hygiene",
+                          "letter": "L",
+                          "definition": "E-posta listesindeki yazım hatalı adreslerin, tek kullanımlık (disposable) e-postaların, etkin olmayan abonelerin ve spam tuzaklarının düzenli temizlenme sürecidir.",
+                          "why_it_matters": "Bounce oranını düşürür, spam şikayetlerini engeller ve ISP'ler nezdinde gönderici itibarını en üst düzeyde korur.",
+                          "link": "/karsilastirma/",
+                          "link_text": "Otomatik Alıcı Hijyeni Modülü"
+                },
+                "mta_sts": {
+                          "id": "mta-sts",
+                          "name": "MTA-STS (Strict Transport Security)",
+                          "category": "auth",
+                          "category_label": "Güvenlik Standartları",
+                          "rfc": "RFC 8461",
+                          "letter": "M",
+                          "definition": "Posta sunucuları arasındaki SMTP iletişiminde TLS şifrelemesinin zorunlu kılınmasını sağlayan ve ortadaki adam (MITM) dinleme saldırılarını önleyen güvenlik standardıdır.",
+                          "why_it_matters": "E-postaların güvenli şifreli kanallar üzerinden iletildiğini doğrular ve kurumsal e-posta itibar puanına olumlu katkı sağlar.",
+                          "link": "/blog/dmarc-dkim-bimi-rehberi/",
+                          "link_text": "MTA-STS ve TLS Raporlama Kurulumu"
+                }
+          },
+          "faq": {
+                "title": "E-Posta Altyapısı ve Sözlük Hakkında Sıkça Sorulan Sorular",
+                "q1": "E-posta teslim edilebilirliği için en kritik 3 terim ve protokol hangisidir?",
+                "a1": "DMARC (SPF ve DKIM hizalaması ile birlikte), Send Time Optimization (STO) ve liste hijyenidir. Doğrulama protokolleri gelen kutusu kapısını aralarken, STO ve hijyen spama düşüşü engeller.",
+                "q2": "Apple MPP açılma oranlarını nasıl etkiler?",
+                "a2": "Apple MPP, Apple Mail kullanıcılarının görsellerini önceden proxy sunucularına indirerek açılma piksellerini tetikler. Bu durum sahte %100 açılma sinyali yaratır ve ham açılma oranını yanıltıcı hale getirir.",
+                "q3": "Google ve Yahoo'nun 2024 zorunlu gönderici kuralları neleri kapsar?",
+                "a3": "Günlük 5.000+ ileti gönderenler için geçerli SPF ve DKIM kimlik doğrulaması, DMARC politikası, tek tıkla abonelikten çıkma (RFC 8058) ve Google Postmaster Tools üzerinde %0.10 altında spam şikayet oranı zorunludur."
+          },
+          "cta": {
+                "title": "E-Posta Altyapınızı Modern Standartlara Taşıyın",
+                "desc": "TraceMailer ile SPF, DKIM, DMARC ve Apple MPP telemetrisini dakikalar içinde devreye alın.",
+                "button": "Hemen Ücretsiz Başlayın",
+                "contact": "Satış Ekibiyle İletişime Geçin"
+          }
+}
         },
         en: {
             common: {
@@ -3753,6 +4141,7 @@
                     how: 'How It Works',
                     blog: 'Guides & Blog',
                     compare: 'Compare',
+                    glossary: 'Glossary',
                     faq: 'FAQ',
                     contact: 'Contact',
                     login: 'Sign In',
@@ -4414,7 +4803,394 @@
                     button: 'Start Free Integration',
                     contact: 'Contact Enterprise Sales'
                 }
-            }
+            },
+            glossary: {
+          "meta": {
+                "title": "Email Engineering Glossary | TraceMailer Technical Terms",
+                "desc": "Comprehensive email deliverability glossary covering SPF, DKIM, DMARC, BIMI, Apple MPP, STO, bounces, and RFC standards for developers."
+          },
+          "breadcrumbs": {
+                "home": "Home",
+                "glossary": "Glossary"
+          },
+          "hero": {
+                "badge": "A to Z Email Engineering & Deliverability Glossary",
+                "title": "Email Engineering Glossary",
+                "desc": "Authoritative definitions, RFC specifications, and best practices covering modern email infrastructure, authentication standards, and ISP delivery metrics.",
+                "search_placeholder": "Search technical terms... (e.g. Apple MPP, DMARC, STO, Bounce)",
+                "terms_count": "28 Technical Term Definitions"
+          },
+          "categories": {
+                "all": "All Terms (28)",
+                "auth": "Authentication & Protocols",
+                "deliverability": "Deliverability & Reputation",
+                "metrics": "Metrics & Telemetry",
+                "optimization": "Delivery & Optimization"
+          },
+          "labels": {
+                "category": "Category",
+                "definition": "Technical Definition",
+                "why_it_matters": "Why It Matters (Deliverability Impact)",
+                "related_guide": "Related Guide & Deep Dive",
+                "no_results": "No terms matched your search query.",
+                "clear_search": "Clear Search",
+                "copy_anchor": "Copy Direct Link",
+                "copied": "Copied!"
+          },
+          "terms": {
+                "apple_mpp": {
+                          "id": "apple-mpp",
+                          "name": "Apple MPP (Mail Privacy Protection)",
+                          "category": "metrics",
+                          "category_label": "Metrics & Privacy",
+                          "rfc": "Apple Privacy 2021",
+                          "letter": "A",
+                          "definition": "A privacy feature by Apple that pre-fetches email images and tracking pixels via proxy servers, masking user IP addresses and generating false 100% open events.",
+                          "why_it_matters": "Invalidates raw open rate metrics. Modern delivery platforms like TraceMailer isolate automated MPP bot caching from genuine human engagement.",
+                          "link": "/blog/eposta-spama-dusmeden-inbox-rehberi/",
+                          "link_text": "Apple MPP Impact Deep Dive"
+                },
+                "sto": {
+                          "id": "sto",
+                          "name": "Send Time Optimization (STO)",
+                          "category": "optimization",
+                          "category_label": "Delivery & Optimization",
+                          "rfc": "AI Telemetry Engine",
+                          "letter": "S",
+                          "definition": "A machine-learning algorithm that analyzes each recipient's historical interaction patterns to dispatch messages at their peak likelihood of inbox review.",
+                          "why_it_matters": "Ensures top-of-inbox placement when recipients check email, lifting open and conversion rates by 25-40%.",
+                          "link": "/karsilastirma/",
+                          "link_text": "TraceMailer vs Competitor STO Matrix"
+                },
+                "jitter_throttling": {
+                          "id": "jitter-throttling",
+                          "name": "Jitter Throttling",
+                          "category": "optimization",
+                          "category_label": "Delivery & Infrastructure",
+                          "rfc": "RFC 5321 Flow Control",
+                          "letter": "J",
+                          "definition": "A queue pacing mechanism that injects deterministic, randomized micro-delays into email dispatch intervals to prevent ISP rate limit spikes.",
+                          "why_it_matters": "Prevents major mailbox providers from flagging burst traffic as spam attacks and applying 421 deferrals or greylisting.",
+                          "link": "/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/",
+                          "link_text": "Enterprise Queue Architecture Guide"
+                },
+                "spf": {
+                          "id": "spf",
+                          "name": "SPF (Sender Policy Framework)",
+                          "category": "auth",
+                          "category_label": "Authentication",
+                          "rfc": "RFC 7208",
+                          "letter": "S",
+                          "definition": "An email authentication standard enabling domain owners to publish authorized sending IP addresses and mail servers via DNS TXT records.",
+                          "why_it_matters": "Blocks domain spoofing. Staying under the 10 DNS lookup limit is vital for uninterrupted deliverability.",
+                          "link": "/blog/dmarc-dkim-bimi-rehberi/",
+                          "link_text": "SPF, DKIM & DMARC Setup Guide"
+                },
+                "dkim": {
+                          "id": "dkim",
+                          "name": "DKIM (DomainKeys Identified Mail)",
+                          "category": "auth",
+                          "category_label": "Authentication",
+                          "rfc": "RFC 6376",
+                          "letter": "D",
+                          "definition": "An authentication protocol that attaches an asymmetric cryptographic signature to email headers, proving message integrity and origin authenticity.",
+                          "why_it_matters": "Establishes domain cryptographic reputation and guarantees tampering-free transit (2048-bit RSA or Ed25519 recommended).",
+                          "link": "/blog/dmarc-dkim-bimi-rehberi/",
+                          "link_text": "DKIM Configuration & Signing"
+                },
+                "dmarc": {
+                          "id": "dmarc",
+                          "name": "DMARC (Domain-based Message Authentication)",
+                          "category": "auth",
+                          "category_label": "Authentication & Policy",
+                          "rfc": "RFC 7489",
+                          "letter": "D",
+                          "definition": "An authentication policy protocol that aligns SPF and DKIM, instructs mailbox providers on failure enforcement (none, quarantine, reject), and generates aggregate XML reports.",
+                          "why_it_matters": "A p=reject enforcement completely protects domains from phishing abuse and is mandatory for BIMI logo certification.",
+                          "link": "/blog/dmarc-dkim-bimi-rehberi/",
+                          "link_text": "Transitioning to DMARC p=reject"
+                },
+                "bimi": {
+                          "id": "bimi",
+                          "name": "BIMI (Brand Indicators for Message Identification)",
+                          "category": "auth",
+                          "category_label": "Visual Identity & Trust",
+                          "rfc": "BIMI Group Spec",
+                          "letter": "B",
+                          "definition": "An open specification allowing DMARC-enforced domains to display verified brand logos and verified checkmarks alongside emails in supporting inbox clients.",
+                          "why_it_matters": "Visually validates brand authenticity, boosting open rates by 10-25% and insulating sender trust.",
+                          "link": "/blog/dmarc-dkim-bimi-rehberi/",
+                          "link_text": "BIMI and VMC Certification Guide"
+                },
+                "vmc": {
+                          "id": "vmc",
+                          "name": "VMC (Verified Mark Certificate)",
+                          "category": "auth",
+                          "category_label": "Security & Certificate",
+                          "rfc": "CA/B Forum Guidelines",
+                          "letter": "V",
+                          "definition": "A digital certificate issued by accredited Certificate Authorities validating that an organization owns the trademarked logo displayed via BIMI.",
+                          "why_it_matters": "Required by Google Workspace, Gmail, and Apple Mail to render official brand avatars and verified checkmarks.",
+                          "link": "/blog/dmarc-dkim-bimi-rehberi/",
+                          "link_text": "How to Acquire a VMC"
+                },
+                "hard_bounce": {
+                          "id": "hard-bounce",
+                          "name": "Hard Bounce (Permanent Failure)",
+                          "category": "deliverability",
+                          "category_label": "Deliverability",
+                          "rfc": "RFC 3463 (5.X.X Code)",
+                          "letter": "H",
+                          "definition": "A permanent delivery failure (5xx SMTP error code) caused by non-existent email addresses, deleted mailboxes, or invalid recipient domains.",
+                          "why_it_matters": "Elevated hard bounce rates degrade sender score immediately; failed recipients must be pruned instantly.",
+                          "link": "/blog/eposta-spama-dusmeden-inbox-rehberi/",
+                          "link_text": "Bounce Management Best Practices"
+                },
+                "soft_bounce": {
+                          "id": "soft-bounce",
+                          "name": "Soft Bounce (Transient Failure)",
+                          "category": "deliverability",
+                          "category_label": "Deliverability",
+                          "rfc": "RFC 3463 (4.X.X Code)",
+                          "letter": "S",
+                          "definition": "A temporary delivery obstacle (4xx SMTP status code) resulting from a full mailbox, transient server outage, or message size limits.",
+                          "why_it_matters": "Modern delivery engines automatically retry transient deferrals with backoff and flag recipients after consecutive failures.",
+                          "link": "/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/",
+                          "link_text": "Exponential Backoff Retry Strategy"
+                },
+                "feedback_loop": {
+                          "id": "feedback-loop",
+                          "name": "Feedback Loop (FBL)",
+                          "category": "deliverability",
+                          "category_label": "Deliverability & Reputation",
+                          "rfc": "RFC 5965 (ARF)",
+                          "letter": "F",
+                          "definition": "A service provided by mailbox operators to forward spam complaints made by recipients back to the sender's infrastructure in ARF format.",
+                          "why_it_matters": "Enables immediate suppression of complaining recipients to safeguard domain and IP sender reputation.",
+                          "link": "/karsilastirma/",
+                          "link_text": "Automated FBL Processing"
+                },
+                "rdns_ptr": {
+                          "id": "rdns-ptr",
+                          "name": "rDNS & PTR Record (Reverse DNS)",
+                          "category": "auth",
+                          "category_label": "Infrastructure & Network",
+                          "rfc": "RFC 1035 / RFC 1912",
+                          "letter": "R",
+                          "definition": "A Pointer (PTR) DNS record that resolves a sending server's IP address back to its fully qualified domain name (FQDN).",
+                          "why_it_matters": "Messages originating from IPs lacking valid Forward-Confirmed reverse DNS (FCrDNS) are rejected outright by modern ISPs.",
+                          "link": "/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/",
+                          "link_text": "MTA Host & PTR Requirements"
+                },
+                "rfc_8058": {
+                          "id": "rfc-8058",
+                          "name": "RFC 8058 (One-Click Unsubscribe)",
+                          "category": "auth",
+                          "category_label": "Standards & Compliance",
+                          "rfc": "RFC 8058 / RFC 2369",
+                          "letter": "R",
+                          "definition": "An IETF specification establishing one-click unsubscribe functionality via List-Unsubscribe and List-Unsubscribe-Post message headers.",
+                          "why_it_matters": "Mandated by Google and Yahoo for commercial bulk senders; omitting headers triggers spam filtering and ISP penalties.",
+                          "link": "/blog/eposta-spama-dusmeden-inbox-rehberi/",
+                          "link_text": "2024+ Bulk Sender Rules"
+                },
+                "spam_trap": {
+                          "id": "spam-trap",
+                          "name": "Spam Trap (Honeypot)",
+                          "category": "deliverability",
+                          "category_label": "Reputation & Security",
+                          "rfc": "Spamhaus Defense Spec",
+                          "letter": "S",
+                          "definition": "Fraud-monitoring email addresses maintained by anti-spam organizations and ISPs that never opted in to receive communications.",
+                          "why_it_matters": "Hitting a spam trap exposes scraped or unverified list hygiene, triggering instantaneous DNSBL blacklisting by Spamhaus.",
+                          "link": "/blog/eposta-spama-dusmeden-inbox-rehberi/",
+                          "link_text": "How to Avoid Spam Traps"
+                },
+                "ip_warmup": {
+                          "id": "ip-warmup",
+                          "name": "IP Warm-up Process",
+                          "category": "deliverability",
+                          "category_label": "Infrastructure & Volume",
+                          "rfc": "Reputation Building",
+                          "letter": "I",
+                          "definition": "The scheduled practice of gradually scaling sending volume on a new dedicated IP over weeks to establish trust with mailbox providers.",
+                          "why_it_matters": "Avoids sudden traffic surges that trigger heuristic spam filters; builds sustainable sender reputation over 3 to 4 weeks.",
+                          "link": "/karsilastirma/",
+                          "link_text": "Automated IP Ramp-up Plans"
+                },
+                "dedicated_ip": {
+                          "id": "dedicated-ip",
+                          "name": "Dedicated IP Address",
+                          "category": "deliverability",
+                          "category_label": "Infrastructure",
+                          "rfc": "Dedicated Infrastructure",
+                          "letter": "D",
+                          "definition": "A distinct IP address allocated exclusively to a single sender, isolating reputation solely to their own sending practices.",
+                          "why_it_matters": "Shields your deliverability from negative spillover caused by rogue senders; ideal for organizations sending 100K+ emails monthly.",
+                          "link": "/karsilastirma/",
+                          "link_text": "Dedicated vs Shared IP Matrix"
+                },
+                "shared_ip": {
+                          "id": "shared-ip",
+                          "name": "Shared IP Pool",
+                          "category": "deliverability",
+                          "category_label": "Infrastructure",
+                          "rfc": "Pooled Infrastructure",
+                          "letter": "S",
+                          "definition": "An infrastructure model where multiple customers route outgoing emails through a common pool of IP addresses.",
+                          "why_it_matters": "Cost-effective for low-volume senders, but exposes deliverability to reputation degradation caused by bad actors in the pool.",
+                          "link": "/karsilastirma/",
+                          "link_text": "TraceMailer IP Isolation Engine"
+                },
+                "deliverability_vs_delivery": {
+                          "id": "deliverability-vs-delivery",
+                          "name": "Deliverability vs Delivery Rate",
+                          "category": "deliverability",
+                          "category_label": "Core Concepts",
+                          "rfc": "Inbox Placement Metric",
+                          "letter": "D",
+                          "definition": "Delivery Rate indicates whether an ISP accepted the message without bouncing; Deliverability measures whether it landed in the primary inbox or the spam folder.",
+                          "why_it_matters": "A 99% delivery rate can still mean 100% spam folder placement; inbox placement is the true commercial metric.",
+                          "link": "/blog/eposta-spama-dusmeden-inbox-rehberi/",
+                          "link_text": "Measuring True Inbox Placement"
+                },
+                "greylisting": {
+                          "id": "greylisting",
+                          "name": "Greylisting",
+                          "category": "deliverability",
+                          "category_label": "Security & ISP",
+                          "rfc": "RFC 6647",
+                          "letter": "G",
+                          "definition": "An anti-spam defense where receiving mail servers temporarily reject unknown senders with a 451 code, expecting legitimate MTAs to retry.",
+                          "why_it_matters": "Spam scripts rarely retry failed dispatches, whereas standard-compliant MTAs retry cleanly from their queue after several minutes.",
+                          "link": "/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/",
+                          "link_text": "Handling Greylisting Delays"
+                },
+                "mta": {
+                          "id": "mta",
+                          "name": "MTA (Mail Transfer Agent)",
+                          "category": "optimization",
+                          "category_label": "Infrastructure & Protocols",
+                          "rfc": "RFC 5598",
+                          "letter": "M",
+                          "definition": "Software that routes and transfers emails between mail servers using SMTP (e.g., TraceMailer Core MTA, Postfix, Haraka).",
+                          "why_it_matters": "A high-throughput distributed MTA architecture processes millions of dispatches with sub-millisecond queuing latency.",
+                          "link": "/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/",
+                          "link_text": "TraceMailer Distributed MTA Engine"
+                },
+                "smtp": {
+                          "id": "smtp",
+                          "name": "SMTP (Simple Mail Transfer Protocol)",
+                          "category": "auth",
+                          "category_label": "Protocols",
+                          "rfc": "RFC 5321",
+                          "letter": "S",
+                          "definition": "The core TCP/IP protocol used across the internet to transmit electronic mail between servers and mail user agents.",
+                          "why_it_matters": "Typically secured over port 587 (STARTTLS) or port 465 (SMTPS); high-performance APIs leverage persistent SMTP connection pooling.",
+                          "link": "/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/",
+                          "link_text": "SMTP vs REST API Benchmarks"
+                },
+                "open_rate": {
+                          "id": "open-rate",
+                          "name": "Open Rate",
+                          "category": "metrics",
+                          "category_label": "Metrics",
+                          "rfc": "Tracking Pixel Spec",
+                          "letter": "O",
+                          "definition": "The percentage of successfully delivered emails whose hidden 1x1 tracking pixel was downloaded by recipient clients.",
+                          "why_it_matters": "Rendered unreliable as a standalone KPI due to automated prefetching by Apple Mail Privacy Protection and corporate enterprise firewalls.",
+                          "link": "/blog/eposta-spama-dusmeden-inbox-rehberi/",
+                          "link_text": "Separating Bot vs Human Opens"
+                },
+                "ctr": {
+                          "id": "ctr",
+                          "name": "CTR (Click-Through Rate)",
+                          "category": "metrics",
+                          "category_label": "Metrics",
+                          "rfc": "Engagement Telemetry",
+                          "letter": "C",
+                          "definition": "The ratio of unique recipients who clicked on at least one link inside a delivered email message relative to total recipients.",
+                          "why_it_matters": "Unaffected by bot pixel loading, making it the most authoritative metric for assessing genuine subscriber intent and engagement.",
+                          "link": "/blog/eposta-spama-dusmeden-inbox-rehberi/",
+                          "link_text": "CTR and Conversion Optimization"
+                },
+                "ctor": {
+                          "id": "ctor",
+                          "name": "CTOR (Click-to-Open Rate)",
+                          "category": "metrics",
+                          "category_label": "Metrics",
+                          "rfc": "Content Relevance Metric",
+                          "letter": "C",
+                          "definition": "The percentage of recipients who clicked a link out of those who opened the message, directly benchmarking content and CTA efficacy.",
+                          "why_it_matters": "Isolates creative copy and proposition appeal from subject line impact; accuracy is preserved when bot opens are stripped out.",
+                          "link": "/karsilastirma/",
+                          "link_text": "Advanced Telemetry Reporting"
+                },
+                "sender_score": {
+                          "id": "sender-score",
+                          "name": "Sender Score & IP Reputation",
+                          "category": "deliverability",
+                          "category_label": "Reputation & Scoring",
+                          "rfc": "Reputation Telemetry",
+                          "letter": "S",
+                          "definition": "A numerical score between 0 and 100 assigned to sending IPs and domains by mailbox providers and reputation networks to reflect trustworthiness.",
+                          "why_it_matters": "Scores below 80 face aggressive spam filtering and throttling, whereas ratings of 90+ enjoy priority primary inbox placement.",
+                          "link": "/blog/eposta-spama-dusmeden-inbox-rehberi/",
+                          "link_text": "Reaching a 90+ Sender Score"
+                },
+                "spam_complaint_rate": {
+                          "id": "spam-complaint-rate",
+                          "name": "Spam Complaint Rate",
+                          "category": "metrics",
+                          "category_label": "Compliance & Metrics",
+                          "rfc": "Google/Yahoo 2024 Rule",
+                          "letter": "S",
+                          "definition": "The percentage of delivered messages marked as spam by recipients, monitored closely via Google Postmaster Tools and ISP telemetry.",
+                          "why_it_matters": "Mandated to remain strictly below 0.10% by Google and Yahoo; reaching 0.30% triggers immediate domain-level throttling and spam penalties.",
+                          "link": "/blog/eposta-spama-dusmeden-inbox-rehberi/",
+                          "link_text": "Keeping Spam Rate Under 0.10%"
+                },
+                "list_hygiene": {
+                          "id": "list-hygiene",
+                          "name": "List Hygiene",
+                          "category": "optimization",
+                          "category_label": "Data Quality & Hygiene",
+                          "rfc": "Database Hygiene",
+                          "letter": "L",
+                          "definition": "The continuous process of scrubbing mailing lists to remove disposable emails, syntax typos, invalid domains, and unengaged subscribers.",
+                          "why_it_matters": "Drastically lowers bounce rates, eliminates spam traps, and preserves pristine sender reputation across all mailbox providers.",
+                          "link": "/karsilastirma/",
+                          "link_text": "Automated List Scrubbing API"
+                },
+                "mta_sts": {
+                          "id": "mta-sts",
+                          "name": "MTA-STS (Strict Transport Security)",
+                          "category": "auth",
+                          "category_label": "Security Standards",
+                          "rfc": "RFC 8461",
+                          "letter": "M",
+                          "definition": "A security standard enforcing mandatory TLS encryption for server-to-server SMTP transit, mitigating man-in-the-middle eavesdropping.",
+                          "why_it_matters": "Guarantees end-to-end cryptographic transit security and earns trust points with security-conscious corporate receivers.",
+                          "link": "/blog/dmarc-dkim-bimi-rehberi/",
+                          "link_text": "MTA-STS and TLS-RPT Deployment"
+                }
+          },
+          "faq": {
+                "title": "Frequently Asked Questions on Email Engineering & Glossary",
+                "q1": "What are the top 3 most critical protocols for email deliverability?",
+                "a1": "DMARC (aligned with SPF and DKIM), Send Time Optimization (STO), and continuous list hygiene. Authentication opens the inbox door, while STO and clean lists maintain reputation.",
+                "q2": "How does Apple MPP distort email open rates?",
+                "a2": "Apple MPP caches remote images and tracking pixels through proxy servers prior to user opening, triggering synthetic 100% open counts and rendering raw open rate metrics uncalibrated.",
+                "q3": "What are Google and Yahoo's 2024 mandatory bulk sender requirements?",
+                "a3": "Senders dispatching 5,000+ daily messages must have valid SPF and DKIM, publish a DMARC policy, support one-click unsubscribe (RFC 8058), and maintain spam rates below 0.10% on Google Postmaster Tools."
+          },
+          "cta": {
+                "title": "Upgrade Your Email Infrastructure to 2026 Standards",
+                "desc": "Deploy SPF, DKIM, DMARC, and Apple MPP telemetry in minutes with TraceMailer.",
+                "button": "Get Started Free",
+                "contact": "Contact Enterprise Sales"
+          }
+}
         }
     };
 

@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Posta Terimleri Sözlüğü | TraceMailer Teknik Kılavuz</title>
+    <meta name="description" content="SPF, DKIM, DMARC, BIMI, Apple MPP, STO ve bounce terimlerini içeren kapsamlı e-posta teslim edilebilirliği ve mühendislik terimleri sözlüğü.">
+    <meta name="keywords" content="e-posta terimleri sözlüğü, apple mpp nedir, dmarc p reject, send time optimization sto, hard bounce soft bounce farkı, spf dkim bimi, rfc 8058, spam trap, deliverability">
+    <link rel="canonical" href="https://tracemailer.com/sozluk/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://tracemailer.com/sozluk/">
+    <meta property="og:title" content="E-Posta Terimleri Sözlüğü | TraceMailer Teknik Kılavuz">
+    <meta property="og:description" content="SPF, DKIM, DMARC, BIMI, Apple MPP, STO ve bounce terimlerini içeren kapsamlı e-posta teslim edilebilirliği ve mühendislik terimleri sözlüğü.">
+    <meta property="og:image" content="https://tracemailer.com/static/og-image.jpg?v=20260921">
+    <meta property="og:site_name" content="TraceMailer">
+    <meta property="og:locale" content="tr_TR">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://tracemailer.com/sozluk/">
+    <meta name="twitter:title" content="E-Posta Terimleri Sözlüğü | TraceMailer Teknik Kılavuz">
+    <meta name="twitter:description" content="SPF, DKIM, DMARC, BIMI, Apple MPP, STO ve bounce terimlerini içeren kapsamlı e-posta teslim edilebilirliği ve mühendislik terimleri sözlüğü.">
+    <meta name="twitter:image" content="https://tracemailer.com/static/og-image.jpg?v=20260921">
+
+    <!-- Structured Data (JSON-LD) for DefinedTermSet, FAQPage, BreadcrumbList -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana Sayfa",
+          "item": "https://tracemailer.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "E-Posta Terimleri Sözlüğü",
+          "item": "https://tracemailer.com/sozluk/"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://tracemailer.com/sozluk/#webpage",
+      "url": "https://tracemailer.com/sozluk/",
+      "name": "E-Posta Terimleri Sözlüğü | TraceMailer Teknik Kılavuz",
+      "description": "SPF, DKIM, DMARC, BIMI, Apple MPP, STO ve bounce terimlerini içeren kapsamlı e-posta teslim edilebilirliği ve mühendislik terimleri sözlüğü.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TraceMailer",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tracemailer.com/static/favicon.svg"
+        }
+      }
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://tracemailer.com/sozluk/#terms",
+      "name": "E-Posta Teslim Edilebilirliği ve Altyapı Terimleri Sözlüğü",
+      "description": "Modern e-posta altyapısı, ISP itibar yönetimi ve telemetri standartları için A'dan Z'ye terimler sözlüğü.",
+      "hasDefinedTerm": [
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#apple-mpp",
+          "name": "Apple MPP (Mail Privacy Protection)",
+          "description": "Apple Mail istemcilerinde açılma takip piksellerini önceden sunucuya önbelleğe alarak kullanıcı IP adresini gizleyen ve sahte %100 açılma sinyalleri üreten gizlilik protokolüdür.",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#apple-mpp"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#sto",
+          "name": "Send Time Optimization (STO)",
+          "description": "Her alıcının geçmiş e-posta açma ve tıklama saatlerini makine öğrenimiyle analiz ederek, mesajın alıcının gelen kutusunu kontrol ettiği en muhtemel anda teslim edilmesini sağlayan akıllı zamanlama algoritmasıdır.",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#sto"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#jitter-throttling",
+          "name": "Jitter Throttling",
+          "description": "E-posta gönderim aralıklarına deterministik ve rastgele mikrosaniyelik zaman gecikmeleri (jitter) ekleyerek ISP hız sınırlamalarını (rate limits) ve ani tepe dalgalanmalarını engelleyen kuyruk düzenleme mekanizmasıdır.",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#jitter-throttling"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#spf",
+          "name": "SPF (Sender Policy Framework)",
+          "description": "Bir alan adı sahibinin DNS TXT kayıtları aracılığıyla kendi adına e-posta göndermeye yetkili IP adreslerini ve sunucuları ilan etmesini sağlayan temel e-posta kimlik doğrulama standardıdır.",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#spf"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#dkim",
+          "name": "DKIM (DomainKeys Identified Mail)",
+          "description": "Gönderilen e-postanın başlığına asimetrik kriptografik imza ekleyerek, mesajın iletim sırasında değiştirilmediğini ve gerçekten belirtilen alan adından çıktığını doğrulayan protokoldür.",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#dkim"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#dmarc",
+          "name": "DMARC (Domain-based Message Authentication)",
+          "description": "SPF ve DKIM doğrulamalarını hizalayan (alignment), kimlik doğrulama başarısız olduğunda alıcı ISP'ye ne yapacağını (none, quarantine, reject) bildiren ve XML raporlama sağlayan güvenlik protokolüdür.",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#dmarc"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#bimi",
+          "name": "BIMI (Brand Indicators for Message Identification)",
+          "description": "DMARC politikası reject seviyesinde olan alan adlarının, Gmail ve Apple Mail gibi destekleyen gelen kutularında doğrulanmış resmi marka logosunu ve mavi onay rozetini göstermesini sağlayan açık standarttır.",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#bimi"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#vmc",
+          "name": "VMC (Verified Mark Certificate)",
+          "description": "BIMI logosunun tescilli bir ticari markaya ait olduğunu doğrulayan ve yetkili sertifika otoriteleri (DigiCert, Entrust) tarafından düzenlenen dijital güvenlik sertifikasıdır.",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#vmc"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#hard-bounce",
+          "name": "Hard Bounce (Kalıcı Red)",
+          "description": "Geçersiz e-posta adresi, silinmiş posta kutusu veya mevcut olmayan alan adı gibi nedenlerle e-postanın kalıcı olarak teslim edilememesi durumunu belirten 5xx SMTP hata yanıtıdır.",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#hard-bounce"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#soft-bounce",
+          "name": "Soft Bounce (Geçici Red)",
+          "description": "Alıcının gelen kutusunun dolu olması, sunucunun geçici olarak yanıt vermemesi veya mesaj boyutunun sınırı aşması nedeniyle oluşan geçici teslimat engelidir (4xx SMTP yanıtı).",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#soft-bounce"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#feedback-loop",
+          "name": "Feedback Loop (FBL / Geri Bildirim Döngüsü)",
+          "description": "Alıcı ISP'lerin (Microsoft Outlook, Yahoo Mail vb.), kullanıcıların \"Spam Olarak İşaretle\" butonuna bastığı bildirimleri gönderici ESP altyapısına otomatik formatta (ARF) ilettiği sistemdir.",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#feedback-loop"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#rdns-ptr",
+          "name": "rDNS & PTR Kaydı (Ters DNS)",
+          "description": "E-posta gönderen sunucunun IP adresinin alan adı sunucuları tarafından geçerli bir alan adına (FQDN) çözümlendiğini doğrulayan ters DNS işaretçi (Pointer) kaydıdır.",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#rdns-ptr"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#rfc-8058",
+          "name": "RFC 8058 (Tek Tıkla Abonelikten Çıkma)",
+          "description": "E-posta başlıklarına List-Unsubscribe ve List-Unsubscribe-Post parametreleri eklenerek, alıcıların tek tıkla ve sayfaya yönlendirilmeden abonelikten çıkmasını sağlayan IETF standardıdır.",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#rfc-8058"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#spam-trap",
+          "name": "Spam Trap (Bal Küpü / Honeypot)",
+          "description": "Asla gerçek kullanıcılara tahsis edilmemiş veya uzun süre terk edildikten sonra ISP'ler ve anti-spam organizasyonları (Spamhaus) tarafından tuzak olarak dönüştürülen e-posta adresleridir.",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#spam-trap"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#ip-warmup",
+          "name": "IP Warm-up (IP Isınma Süreci)",
+          "description": "Yeni tahsis edilen bir IP adresinin gönderim hacmini gün be gün, kontrollü ve kademeli olarak artırarak ISP spam filtrelerinde pozitif gönderici itibarı inşa etme sürecidir.",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#ip-warmup"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#dedicated-ip",
+          "name": "Dedicated IP (Ayrılmış Özel IP)",
+          "description": "Yalnızca tek bir kuruma veya göndericiye tahsis edilen, gönderim hacmi ve itibarının tamamen o kurumun gönderim pratiklerine bağlı olduğu IP adresi modelidir.",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#dedicated-ip"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#shared-ip",
+          "name": "Shared IP (Paylaşımlı IP Havuzu)",
+          "description": "Birden fazla şirketin e-postalarının aynı IP adresi havuzundan gönderildiği, düşük hacimli göndericiler için maliyet avantajı sağlayan altyapı modelidir.",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#shared-ip"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#deliverability-vs-delivery",
+          "name": "Deliverability vs Delivery Rate",
+          "description": "Delivery Rate, e-postanın alıcı sunucu tarafından kabul edilip edilmediğini (bounce etmeme); Deliverability ise mesajın doğrudan birincil gelen kutusuna (Inbox) ulaşıp ulaşmadığını ifade eder.",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#deliverability-vs-delivery"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#greylisting",
+          "name": "Greylisting (Gri Listeleme)",
+          "description": "Alıcı posta sunucusunun, tanımadığı bir göndericiden gelen ilk teslimat girişimini geçici bir hata koduyla (451) reddedip meşru sunucuların tekrar denemesini bekleme anti-spam yöntemidir.",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#greylisting"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#mta",
+          "name": "MTA (Mail Transfer Agent)",
+          "description": "SMTP protokolünü kullanarak e-postaları gönderici sunucudan alıcı sunucunun posta kutusuna yönlendiren ve teslim eden sunucu yazılımıdır (TraceMailer MTA, Postfix, Haraka vb.).",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#mta"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#smtp",
+          "name": "SMTP (Simple Mail Transfer Protocol)",
+          "description": "İnternet üzerinden e-posta göndermek ve sunucular arasında mesaj iletmek için kullanılan temel TCP/IP ağ protokolüdür.",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#smtp"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#open-rate",
+          "name": "Open Rate (Açılma Oranı)",
+          "description": "Teslim edilen e-postalar içinde, içerikteki görünmez 1x1 piksellik takip görselini yükleyen alıcıların yüzdesini ifade eden geleneksel başarı metriğidir.",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#open-rate"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#ctr",
+          "name": "CTR (Click-Through Rate / Tıklama Oranı)",
+          "description": "Gönderilen veya teslim edilen e-postalar içindeki herhangi bir köprü bağlantıya (link) tıklayan tekil alıcıların yüzdesini gösteren temel etkileşim metriğidir.",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#ctr"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#ctor",
+          "name": "CTOR (Click-to-Open Rate)",
+          "description": "E-postayı açan alıcılar arasından içerikteki bağlantılara tıklayanların oranını ölçen, doğrudan e-posta metninin ve çağrısının (CTA) kalitesini değerlendiren metriktir.",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#ctor"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#sender-score",
+          "name": "Sender Score & IP İtibarı",
+          "description": "ISP'lerin ve itibar sağlayıcıların (Validity, Cisco Talos, Google Postmaster) bir gönderici IP ve alan adına 0 ile 100 arasında verdiği genel güvenilirlik skorudur.",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#sender-score"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#spam-complaint-rate",
+          "name": "Spam Şikayet Oranı (Spam Rate)",
+          "description": "Gönderilen e-postaların alıcılar tarafından \"Spam Bildir\" olarak işaretlenme yüzdesidir (Google Postmaster Tools verileri baz alınır).",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#spam-complaint-rate"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#list-hygiene",
+          "name": "Liste Hijyeni (Email List Hygiene)",
+          "description": "E-posta listesindeki yazım hatalı adreslerin, tek kullanımlık (disposable) e-postaların, etkin olmayan abonelerin ve spam tuzaklarının düzenli temizlenme sürecidir.",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#list-hygiene"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://tracemailer.com/sozluk/#mta-sts",
+          "name": "MTA-STS (Strict Transport Security)",
+          "description": "Posta sunucuları arasındaki SMTP iletişiminde TLS şifrelemesinin zorunlu kılınmasını sağlayan ve ortadaki adam (MITM) dinleme saldırılarını önleyen güvenlik standardıdır.",
+          "inDefinedTermSet": "https://tracemailer.com/sozluk/#terms",
+          "url": "https://tracemailer.com/sozluk/#mta-sts"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "E-posta teslim edilebilirliği için en kritik 3 terim ve protokol hangisidir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "DMARC (SPF ve DKIM hizalaması ile birlikte), Send Time Optimization (STO) ve liste hijyenidir. Doğrulama protokolleri gelen kutusu kapısını aralarken, STO ve hijyen spama düşüşü engeller."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apple MPP açılma oranlarını nasıl etkiler?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Apple MPP, Apple Mail kullanıcılarının görsellerini önceden proxy sunucularına indirerek açılma piksellerini tetikler. Bu durum sahte %100 açılma sinyali yaratır ve ham açılma oranını yanıltıcı hale getirir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Google ve Yahoo'nun 2024 zorunlu gönderici kuralları neleri kapsar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Günlük 5.000+ ileti gönderenler için geçerli SPF ve DKIM kimlik doğrulaması, DMARC politikası, tek tıkla abonelikten çıkma (RFC 8058) ve Google Postmaster Tools üzerinde %0.10 altında spam şikayet oranı zorunludur."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+    <link rel="alternate icon" href="/static/favicon.ico">
+    <link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#EFF6FF',
+                            100: '#DBEAFE',
+                            200: '#BFDBFE',
+                            500: '#3B82F6',
+                            600: '#2563EB',
+                            700: '#1D4ED8',
+                            800: '#1E40AF',
+                            900: '#1E3A8A',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Internationalization (i18n) -->
+    <script src="/static/i18n.js?v=20261012f"></script>
+
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+        .font-mono-code { font-family: 'JetBrains Mono', monospace; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-blue-600 selection:text-white" x-data="glossaryApp()">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-all duration-200">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="/" class="flex items-center gap-3 group">
+                <img src="/static/favicon.svg" alt="TraceMailer Logo" class="w-9 h-9 rounded-xl shadow-xs group-hover:scale-105 transition-transform duration-200">
+                <span class="font-bold text-2xl tracking-tight text-slate-900">Trace<span class="text-blue-600">Mailer</span></span>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
+                <a href="/#features" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.nav.why')">Neden TraceMailer?</a>
+                <a href="/#how-it-works" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.nav.how')">Nasıl Çalışır?</a>
+                <a href="/blog/" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.nav.blog')">Rehber & Blog</a>
+                <a href="/karsilastirma/" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.nav.compare')">Karşılaştırma</a>
+                <a href="/sozluk/" class="text-blue-600 font-semibold transition-colors" x-text="t('blog_hub.nav.glossary')">Sözlük</a>
+                <a href="/#faq" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.nav.faq')">SSS</a>
+                <a href="/#contact" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.nav.contact')">İletişim</a>
+            </nav>
+
+            <!-- Action Buttons & Language Switcher -->
+            <div class="flex items-center gap-3">
+                <a href="https://dash.tracemailer.com/login" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-sm shadow-blue-600/25 transition-all hover:shadow-md hover:shadow-blue-600/30 hover:-translate-y-0.5 cursor-pointer" x-text="t('blog_hub.nav.login')">
+                    Giriş Yap
+                </a>
+
+                <!-- Globe Language Switcher -->
+                <div class="relative">
+                    <button type="button" @click="langMenuOpen = !langMenuOpen" 
+                            class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-slate-700 hover:text-blue-600 hover:bg-slate-100 transition-all font-semibold text-xs border border-slate-200/80 cursor-pointer shadow-2xs group"
+                            :title="currentLang === 'tr' ? 'Dili Değiştir' : 'Switch Language'"
+                            aria-label="Language selector">
+                        <svg class="w-4 h-4 text-slate-500 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" stroke-width="1.8"/>
+                            <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" stroke-width="1.8"/>
+                        </svg>
+                        <span class="uppercase tracking-wider font-bold" x-text="currentLang">tr</span>
+                        <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-600 transition-transform duration-200" :class="{'rotate-180': langMenuOpen}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+
+                    <!-- Dropdown Menu -->
+                    <div x-show="langMenuOpen" @click.away="langMenuOpen = false" x-cloak
+                         class="absolute right-0 mt-2 w-44 rounded-2xl bg-white shadow-xl border border-slate-200/80 py-2 z-50 transition-all duration-150">
+                        <button type="button" @click="setLang('tr')" 
+                                class="w-full text-left px-4 py-2 text-xs font-semibold flex items-center justify-between hover:bg-blue-50 transition-colors"
+                                :class="currentLang === 'tr' ? 'text-blue-600 bg-blue-50/50' : 'text-slate-700'">
+                            <span class="flex items-center gap-2">
+                                <span class="text-base">🇹🇷</span>
+                                <span>Türkçe</span>
+                            </span>
+                            <span x-show="currentLang === 'tr'" class="text-blue-600">✓</span>
+                        </button>
+                        <button type="button" @click="setLang('en')" 
+                                class="w-full text-left px-4 py-2 text-xs font-semibold flex items-center justify-between hover:bg-blue-50 transition-colors"
+                                :class="currentLang === 'en' ? 'text-blue-600 bg-blue-50/50' : 'text-slate-700'">
+                            <span class="flex items-center gap-2">
+                                <span class="text-base">🇬🇧</span>
+                                <span>English</span>
+                            </span>
+                            <span x-show="currentLang === 'en'" class="text-blue-600">✓</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-6 py-12">
+
+        <!-- Breadcrumbs -->
+        <nav class="flex items-center gap-2 text-xs text-slate-500 mb-8" aria-label="Breadcrumb">
+            <a href="/" class="hover:text-blue-600 transition-colors flex items-center gap-1">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                </svg>
+                <span x-text="t('glossary.breadcrumbs.home')">Ana Sayfa</span>
+            </a>
+            <span>/</span>
+            <span class="text-slate-800 font-semibold" x-text="t('glossary.breadcrumbs.glossary')">Sözlük</span>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="text-center max-w-4xl mx-auto mb-14">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/70 text-blue-700 text-xs font-semibold mb-6 shadow-2xs">
+                <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+                <span x-text="t('glossary.hero.badge')">A'dan Z'ye E-Posta Mühendisliği & Teslim Edilebilirlik</span>
+                <span class="text-blue-400">•</span>
+                <span class="font-mono text-[11px]" x-text="t('glossary.hero.terms_count')">28 Teknik Terim</span>
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-6" x-text="t('glossary.hero.title')">
+                E-Posta Terimleri Sözlüğü
+            </h1>
+            <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto mb-10" x-text="t('glossary.hero.desc')">
+                SPF, DKIM, DMARC, BIMI, Apple MPP ve STO dahil olmak üzere modern e-posta altyapısının tüm teknik kavramları, RFC standartları ve en iyi uygulama tanımları.
+            </p>
+
+            <!-- Search Bar with Live Reactive Filter -->
+            <div class="relative max-w-2xl mx-auto">
+                <div class="relative flex items-center">
+                    <svg class="absolute left-4 w-5 h-5 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                    <input type="text" 
+                           x-model="searchQuery" 
+                           :placeholder="t('glossary.hero.search_placeholder')"
+                           class="w-full pl-12 pr-12 py-4 bg-white border border-slate-200 rounded-2xl text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent shadow-xs transition-all"
+                           aria-label="Search technical terms">
+                    <button type="button" 
+                            x-show="searchQuery.length > 0" 
+                            @click="searchQuery = ''" 
+                            class="absolute right-4 p-1 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-100 transition-colors"
+                            aria-label="Clear search">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Category Pills -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mt-6">
+                <button type="button" @click="selectedCategory = 'all'"
+                        class="px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer shadow-2xs"
+                        :class="selectedCategory === 'all' ? 'bg-blue-600 text-white shadow-blue-600/20' : 'bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50'"
+                        x-text="t('glossary.categories.all')">
+                    Tümü (28)
+                </button>
+                <button type="button" @click="selectedCategory = 'auth'"
+                        class="px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer shadow-2xs"
+                        :class="selectedCategory === 'auth' ? 'bg-blue-600 text-white shadow-blue-600/20' : 'bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50'"
+                        x-text="t('glossary.categories.auth')">
+                    Kimlik Doğrulama & Protokoller
+                </button>
+                <button type="button" @click="selectedCategory = 'deliverability'"
+                        class="px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer shadow-2xs"
+                        :class="selectedCategory === 'deliverability' ? 'bg-blue-600 text-white shadow-blue-600/20' : 'bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50'"
+                        x-text="t('glossary.categories.deliverability')">
+                    Teslim Edilebilirlik & İtibar
+                </button>
+                <button type="button" @click="selectedCategory = 'metrics'"
+                        class="px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer shadow-2xs"
+                        :class="selectedCategory === 'metrics' ? 'bg-blue-600 text-white shadow-blue-600/20' : 'bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50'"
+                        x-text="t('glossary.categories.metrics')">
+                    Metrikler & Telemetri
+                </button>
+                <button type="button" @click="selectedCategory = 'optimization'"
+                        class="px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer shadow-2xs"
+                        :class="selectedCategory === 'optimization' ? 'bg-blue-600 text-white shadow-blue-600/20' : 'bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50'"
+                        x-text="t('glossary.categories.optimization')">
+                    Dağıtım & Optimizasyon
+                </button>
+            </div>
+
+            <!-- Alphabetical Jump Row -->
+            <div class="flex flex-wrap items-center justify-center gap-1.5 mt-5">
+                <button type="button" @click="selectedLetter = 'all'"
+                        class="w-8 h-8 rounded-lg text-xs font-bold transition-all cursor-pointer"
+                        :class="selectedLetter === 'all' ? 'bg-slate-900 text-white' : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-400'">
+                    #
+                </button>
+                <button type="button" @click="selectedLetter = 'A'"
+                        class="w-8 h-8 rounded-lg text-xs font-bold transition-all cursor-pointer"
+                        :class="selectedLetter === 'A' ? 'bg-blue-600 text-white' : 'bg-white border border-slate-200 text-slate-600 hover:border-blue-300 hover:text-blue-600'">
+                    A
+                </button>
+                <button type="button" @click="selectedLetter = 'B'"
+                        class="w-8 h-8 rounded-lg text-xs font-bold transition-all cursor-pointer"
+                        :class="selectedLetter === 'B' ? 'bg-blue-600 text-white' : 'bg-white border border-slate-200 text-slate-600 hover:border-blue-300 hover:text-blue-600'">
+                    B
+                </button>
+                <button type="button" @click="selectedLetter = 'C'"
+                        class="w-8 h-8 rounded-lg text-xs font-bold transition-all cursor-pointer"
+                        :class="selectedLetter === 'C' ? 'bg-blue-600 text-white' : 'bg-white border border-slate-200 text-slate-600 hover:border-blue-300 hover:text-blue-600'">
+                    C
+                </button>
+                <button type="button" @click="selectedLetter = 'D'"
+                        class="w-8 h-8 rounded-lg text-xs font-bold transition-all cursor-pointer"
+                        :class="selectedLetter === 'D' ? 'bg-blue-600 text-white' : 'bg-white border border-slate-200 text-slate-600 hover:border-blue-300 hover:text-blue-600'">
+                    D
+                </button>
+                <button type="button" @click="selectedLetter = 'F'"
+                        class="w-8 h-8 rounded-lg text-xs font-bold transition-all cursor-pointer"
+                        :class="selectedLetter === 'F' ? 'bg-blue-600 text-white' : 'bg-white border border-slate-200 text-slate-600 hover:border-blue-300 hover:text-blue-600'">
+                    F
+                </button>
+                <button type="button" @click="selectedLetter = 'G'"
+                        class="w-8 h-8 rounded-lg text-xs font-bold transition-all cursor-pointer"
+                        :class="selectedLetter === 'G' ? 'bg-blue-600 text-white' : 'bg-white border border-slate-200 text-slate-600 hover:border-blue-300 hover:text-blue-600'">
+                    G
+                </button>
+                <button type="button" @click="selectedLetter = 'H'"
+                        class="w-8 h-8 rounded-lg text-xs font-bold transition-all cursor-pointer"
+                        :class="selectedLetter === 'H' ? 'bg-blue-600 text-white' : 'bg-white border border-slate-200 text-slate-600 hover:border-blue-300 hover:text-blue-600'">
+                    H
+                </button>
+                <button type="button" @click="selectedLetter = 'I'"
+                        class="w-8 h-8 rounded-lg text-xs font-bold transition-all cursor-pointer"
+                        :class="selectedLetter === 'I' ? 'bg-blue-600 text-white' : 'bg-white border border-slate-200 text-slate-600 hover:border-blue-300 hover:text-blue-600'">
+                    I
+                </button>
+                <button type="button" @click="selectedLetter = 'J'"
+                        class="w-8 h-8 rounded-lg text-xs font-bold transition-all cursor-pointer"
+                        :class="selectedLetter === 'J' ? 'bg-blue-600 text-white' : 'bg-white border border-slate-200 text-slate-600 hover:border-blue-300 hover:text-blue-600'">
+                    J
+                </button>
+                <button type="button" @click="selectedLetter = 'L'"
+                        class="w-8 h-8 rounded-lg text-xs font-bold transition-all cursor-pointer"
+                        :class="selectedLetter === 'L' ? 'bg-blue-600 text-white' : 'bg-white border border-slate-200 text-slate-600 hover:border-blue-300 hover:text-blue-600'">
+                    L
+                </button>
+                <button type="button" @click="selectedLetter = 'M'"
+                        class="w-8 h-8 rounded-lg text-xs font-bold transition-all cursor-pointer"
+                        :class="selectedLetter === 'M' ? 'bg-blue-600 text-white' : 'bg-white border border-slate-200 text-slate-600 hover:border-blue-300 hover:text-blue-600'">
+                    M
+                </button>
+                <button type="button" @click="selectedLetter = 'O'"
+                        class="w-8 h-8 rounded-lg text-xs font-bold transition-all cursor-pointer"
+                        :class="selectedLetter === 'O' ? 'bg-blue-600 text-white' : 'bg-white border border-slate-200 text-slate-600 hover:border-blue-300 hover:text-blue-600'">
+                    O
+                </button>
+                <button type="button" @click="selectedLetter = 'R'"
+                        class="w-8 h-8 rounded-lg text-xs font-bold transition-all cursor-pointer"
+                        :class="selectedLetter === 'R' ? 'bg-blue-600 text-white' : 'bg-white border border-slate-200 text-slate-600 hover:border-blue-300 hover:text-blue-600'">
+                    R
+                </button>
+                <button type="button" @click="selectedLetter = 'S'"
+                        class="w-8 h-8 rounded-lg text-xs font-bold transition-all cursor-pointer"
+                        :class="selectedLetter === 'S' ? 'bg-blue-600 text-white' : 'bg-white border border-slate-200 text-slate-600 hover:border-blue-300 hover:text-blue-600'">
+                    S
+                </button>
+                <button type="button" @click="selectedLetter = 'V'"
+                        class="w-8 h-8 rounded-lg text-xs font-bold transition-all cursor-pointer"
+                        :class="selectedLetter === 'V' ? 'bg-blue-600 text-white' : 'bg-white border border-slate-200 text-slate-600 hover:border-blue-300 hover:text-blue-600'">
+                    V
+                </button>
+            </div>
+        </section>
+
+        <!-- Terms Grid Section -->
+        <section class="mb-20">
+            <!-- Results Counter when filtered -->
+            <div class="flex items-center justify-between mb-6 px-1">
+                <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                    <span x-text="filteredTerms.length">28</span> <span x-text="currentLang === 'tr' ? 'Terim Listeleniyor' : 'Terms Displayed'">Terim Listeleniyor</span>
+                </div>
+                <div x-show="searchQuery || selectedCategory !== 'all' || selectedLetter !== 'all'" class="text-xs">
+                    <button type="button" @click="resetFilters()" class="text-blue-600 hover:text-blue-700 font-semibold underline cursor-pointer" x-text="t('glossary.labels.clear_search')">
+                        Filtreleri Temizle
+                    </button>
+                </div>
+            </div>
+
+            <!-- Empty state when no matches -->
+            <div x-show="filteredTerms.length === 0" x-cloak class="text-center py-16 bg-white rounded-3xl border border-dashed border-slate-200">
+                <div class="w-12 h-12 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <h3 class="text-slate-900 font-bold text-base mb-2" x-text="t('glossary.labels.no_results')">Aramanızla eşleşen bir terim bulunamadı.</h3>
+                <button type="button" @click="resetFilters()" class="px-4 py-2 rounded-xl bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700 transition-colors" x-text="t('glossary.labels.clear_search')">
+                    Aramayı Temizle
+                </button>
+            </div>
+
+            <!-- Dynamic Term Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" x-show="filteredTerms.length > 0">
+                <template x-for="item in filteredTerms" :key="item.id">
+                    <article :id="item.id" 
+                             class="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-7 shadow-xs hover:shadow-md hover:border-blue-200 transition-all flex flex-col justify-between group scroll-mt-28">
+                        <div>
+                            <!-- Header: Badges & Copy Anchor -->
+                            <div class="flex items-start justify-between gap-3 mb-4">
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <span class="px-2.5 py-1 rounded-lg text-[11px] font-bold tracking-wide uppercase"
+                                          :class="{
+                                              'bg-blue-50 text-blue-700 border border-blue-200/70': item.category === 'auth',
+                                              'bg-amber-50 text-amber-700 border border-amber-200/70': item.category === 'deliverability',
+                                              'bg-purple-50 text-purple-700 border border-purple-200/70': item.category === 'metrics',
+                                              'bg-emerald-50 text-emerald-700 border border-emerald-200/70': item.category === 'optimization'
+                                          }"
+                                          x-text="item.category_label">
+                                    </span>
+                                    <span class="px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 text-[11px] font-mono font-medium border border-slate-200/70"
+                                          x-text="item.rfc">
+                                    </span>
+                                </div>
+
+                                <button type="button" 
+                                        @click="copyAnchor(item.id)" 
+                                        class="p-1.5 rounded-lg text-slate-400 hover:text-blue-600 hover:bg-blue-50 transition-colors"
+                                        :title="copiedId === item.id ? t('glossary.labels.copied') : t('glossary.labels.copy_anchor')"
+                                        :aria-label="'Copy link to ' + item.name">
+                                    <svg x-show="copiedId !== item.id" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                                    </svg>
+                                    <svg x-show="copiedId === item.id" x-cloak class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!-- Term Title -->
+                            <h2 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-3 tracking-tight">
+                                <a :href="'#' + item.id" class="hover:underline" x-text="item.name"></a>
+                            </h2>
+
+                            <!-- Definition (LLM-friendly snippet) -->
+                            <div class="mb-4">
+                                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1" x-text="t('glossary.labels.definition')">Teknik Tanım</span>
+                                <p class="text-sm text-slate-700 leading-relaxed" x-text="item.definition"></p>
+                            </div>
+
+                            <!-- Why It Matters Callout -->
+                            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 mb-5">
+                                <span class="text-[11px] font-bold text-slate-900 uppercase tracking-wider block mb-1 flex items-center gap-1.5">
+                                    <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    <span x-text="t('glossary.labels.why_it_matters')">Neden Önemli? (Teslimat Etkisi)</span>
+                                </span>
+                                <p class="text-xs text-slate-600 leading-relaxed" x-text="item.why_it_matters"></p>
+                            </div>
+                        </div>
+
+                        <!-- Footer: Deep Dive Cross-link -->
+                        <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                            <span class="text-[11px] text-slate-400 font-medium" x-text="t('glossary.labels.related_guide')">İlgili Rehber & Analiz</span>
+                            <a :href="item.link" 
+                               class="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 hover:underline">
+                                <span x-text="item.link_text">Detaylı İncele</span>
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+                </template>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="max-w-4xl mx-auto mb-20 bg-white rounded-3xl border border-slate-200/80 p-8 sm:p-12 shadow-xs">
+            <div class="text-center mb-10">
+                <span class="text-xs font-bold text-blue-600 uppercase tracking-widest block mb-2 font-mono">FAQ // MÜHENDİSLİK SSS</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight" x-text="t('glossary.faq.title')">
+                    E-Posta Altyapısı ve Sözlük Hakkında Sıkça Sorulan Sorular
+                </h2>
+            </div>
+
+            <div class="space-y-6">
+                <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
+                    <h3 class="font-bold text-slate-900 text-base mb-2" x-text="t('glossary.faq.q1')">
+                        E-posta teslim edilebilirliği için en kritik 3 terim ve protokol hangisidir?
+                    </h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" x-text="t('glossary.faq.a1')">
+                        DMARC (SPF ve DKIM hizalaması ile birlikte), Send Time Optimization (STO) ve liste hijyenidir. Doğrulama protokolleri gelen kutusu kapısını aralarken, STO ve hijyen spama düşüşü engeller.
+                    </p>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
+                    <h3 class="font-bold text-slate-900 text-base mb-2" x-text="t('glossary.faq.q2')">
+                        Apple MPP açılma oranlarını nasıl etkiler?
+                    </h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" x-text="t('glossary.faq.a2')">
+                        Apple MPP, Apple Mail kullanıcılarının görsellerini önceden proxy sunucularına indirerek açılma piksellerini tetikler. Bu durum sahte %100 açılma sinyali yaratır ve ham açılma oranını yanıltıcı hale getirir.
+                    </p>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
+                    <h3 class="font-bold text-slate-900 text-base mb-2" x-text="t('glossary.faq.q3')">
+                        Google ve Yahoo'nun 2024 zorunlu gönderici kuralları neleri kapsar?
+                    </h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" x-text="t('glossary.faq.a3')">
+                        Günlük 5.000+ ileti gönderenler için geçerli SPF ve DKIM kimlik doğrulaması, DMARC politikası, tek tıkla abonelikten çıkma (RFC 8058) ve Google Postmaster Tools üzerinde %0.10 altında spam şikayet oranı zorunludur.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom CTA -->
+        <section class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-3xl p-10 sm:p-14 text-white text-center shadow-xl shadow-blue-500/10">
+            <h2 class="text-2xl sm:text-4xl font-black tracking-tight mb-4" x-text="t('glossary.cta.title')">
+                E-Posta Altyapınızı Modern Standartlara Taşıyın
+            </h2>
+            <p class="text-sm sm:text-base text-blue-100 max-w-xl mx-auto mb-8 leading-relaxed" x-text="t('glossary.cta.desc')">
+                TraceMailer ile SPF, DKIM, DMARC ve Apple MPP telemetrisini dakikalar içinde devreye alın.
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <a href="https://dash.tracemailer.com/register" class="px-7 py-3.5 rounded-xl bg-white text-blue-600 font-bold text-sm shadow-md hover:bg-blue-50 transition-all cursor-pointer" x-text="t('glossary.cta.button')">
+                    Hemen Ücretsiz Başlayın
+                </a>
+                <a href="/#contact" class="px-7 py-3.5 rounded-xl bg-blue-700/80 hover:bg-blue-700 text-white font-semibold text-sm border border-blue-400/40 transition-all cursor-pointer" x-text="t('glossary.cta.contact')">
+                    Satış Ekibiyle İletişime Geçin
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200/80 py-12 px-6 mt-16">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-slate-500">
+            <div class="flex items-center gap-3">
+                <img src="/static/favicon.svg" alt="TraceMailer" class="w-6 h-6 rounded-lg">
+                <span class="font-bold text-slate-900 text-sm">Trace<span class="text-blue-600">Mailer</span></span>
+                <span class="text-slate-300">&bull;</span>
+                <span x-text="t('blog_hub.footer.tagline')">Yapay Zeka Destekli E-Posta Dağıtım & Telemetri Platformu</span>
+            </div>
+
+            <div class="flex items-center gap-6 text-slate-600 font-medium">
+                <a href="/#features" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.footer.why')">Neden TraceMailer?</a>
+                <a href="/#how-it-works" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.footer.how')">Nasıl Çalışır?</a>
+                <a href="/blog/" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.footer.blog')">Rehber & Blog</a>
+                <a href="/karsilastirma/" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.nav.compare')">Karşılaştırma</a>
+                <a href="/sozluk/" class="hover:text-blue-600 transition-colors font-semibold text-blue-600" x-text="t('blog_hub.nav.glossary')">Sözlük</a>
+                <a href="/#faq" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.footer.faq')">SSS</a>
+                <a href="/#contact" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.footer.contact')">İletişim</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Alpine.js Application Script -->
+    <script>
+        function glossaryApp() {
+            return {
+                langMenuOpen: false,
+                currentLang: (typeof window.i18n !== 'undefined' && window.i18n.currentLang) ? window.i18n.currentLang : 'tr',
+                searchQuery: '',
+                selectedCategory: 'all',
+                selectedLetter: 'all',
+                copiedId: null,
+
+                init() {
+                    var self = this;
+                    window.addEventListener('language-changed', function(e) {
+                        self.currentLang = e.detail.language;
+                    });
+                },
+
+                setLang(lang) {
+                    if (window.setLanguage) {
+                        window.setLanguage(lang);
+                    }
+                    this.langMenuOpen = false;
+                },
+
+                get terms() {
+                    var tObj = window.t('glossary.terms');
+                    if (!tObj || typeof tObj !== 'object') return [];
+                    return Object.values(tObj);
+                },
+
+                get filteredTerms() {
+                    var query = (this.searchQuery || '').trim().toLowerCase();
+                    var cat = this.selectedCategory;
+                    var letter = this.selectedLetter;
+
+                    return this.terms.filter(function(item) {
+                        if (!item) return false;
+
+                        // Category filter
+                        if (cat !== 'all' && item.category !== cat) {
+                            return false;
+                        }
+
+                        // Letter filter
+                        if (letter !== 'all' && item.letter !== letter) {
+                            return false;
+                        }
+
+                        // Search query
+                        if (query) {
+                            var matchName = (item.name || '').toLowerCase().indexOf(query) !== -1;
+                            var matchDef = (item.definition || '').toLowerCase().indexOf(query) !== -1;
+                            var matchWhy = (item.why_it_matters || '').toLowerCase().indexOf(query) !== -1;
+                            var matchRfc = (item.rfc || '').toLowerCase().indexOf(query) !== -1;
+                            var matchCat = (item.category_label || '').toLowerCase().indexOf(query) !== -1;
+                            return matchName || matchDef || matchWhy || matchRfc || matchCat;
+                        }
+
+                        return true;
+                    });
+                },
+
+                resetFilters() {
+                    this.searchQuery = '';
+                    this.selectedCategory = 'all';
+                    this.selectedLetter = 'all';
+                },
+
+                copyAnchor(id) {
+                    var url = window.location.origin + window.location.pathname + '#' + id;
+                    var self = this;
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(url).then(function() {
+                            self.copiedId = id;
+                            setTimeout(function() { self.copiedId = null; }, 2000);
+                        });
+                    } else {
+                        self.copiedId = id;
+                        setTimeout(function() { self.copiedId = null; }, 2000);
+                    }
+                }
+            };
+        }
+    </script>
+</body>
+</html>
