@@ -1570,34 +1570,37 @@
                     mustafa: {
                         name: 'Mustafa BİÇER',
                         role: 'Dijital Çözüm Uzmanı',
+                        desc: 'Yüksek hacimli e-posta dağıtımı, SMTP optimizasyonu ve telemetri analizleri.',
                         bio: 'Yüksek hacimli e-posta dağıtımı, SMTP optimizasyonu ve telemetri analizleri.'
                     },
                     akin: {
                         name: 'Akın TERZİ',
                         role: 'Normsoft Bilgi Teknolojileri A.Ş. Genel Müdürü & Kurucu',
+                        desc: 'Dijital dönüşüm, CAD, BIM, AR&VR, TraceParts Türkiye ve kurumsal transaksiyonel mesaj mimarileri lideri.',
                         bio: 'Dijital dönüşüm, CAD, BIM, AR&VR, TraceParts Türkiye ve kurumsal transaksiyonel mesaj mimarileri lideri.'
                     }
                 },
                 author: {
                     name: 'Mustafa BİÇER',
                     role: 'Dijital Çözüm Uzmanı',
+                    desc: 'Yüksek hacimli e-posta dağıtımı, SMTP sunucu optimizasyonu, IP itibarı koruma ve modern e-posta telemetrisi üzerine vaka analizleri ve teknik rehberler hazırlamaktadır.',
                     bio: 'Yüksek hacimli e-posta dağıtımı, SMTP sunucu optimizasyonu, IP itibarı koruma ve modern e-posta telemetrisi üzerine vaka analizleri ve teknik rehberler hazırlamaktadır.'
                 },
                 featured: {
                     heading: 'Öne Çıkan Rehberler',
                     count: '3 Yayın',
-                    category: 'E-Posta Teslim Edilebilirliği',
-                    read_time: '7 Dk Okuma',
+                    category: 'Kurumsal Mimari & Transaksiyonel Dağıtım',
+                    read_time: '9 Dk Okuma',
                     date: '12 Ekim 2026',
-                    title: 'E-Postalar Neden Spama Düşer? %90+ Inbox Başarısı İçin 2026 Rehberi',
-                    desc: 'Google ve Yahoo’nun getirdiği katı zorunluluklar, Apple MPP’nin yanıltıcı açılma pikselleri ve yapay zeka spam filtreleri çağında gelen kutusunda kalmanın teknik matematiği. 50.000 kişilik B2B test listesindeki vaka analizi ve adım adım eylem planı.',
+                    title: 'Transaksiyonel E-Posta Mimarisi: Kurumsal Sistemlerde 10M+ Dağıtım',
+                    desc: 'Normsoft ERP ve SaaS altyapılarında ayda 10 milyondan fazla e-fatura, OTP ve kritik bildirimi gecikmesiz, kuyruk kilitlenmesi olmadan ve spama düşmeden iletme rehberi. Akın Terzi\'den vaka analizi ve mimari ilkeler.',
                     read_btn: 'Rehberi Oku'
                 },
                 guides: {
                     g1: {
                         category: 'E-Posta Teslim Edilebilirliği',
                         read_time: '7 Dk Okuma',
-                        date: '12 Ekim 2026',
+                        date: '24 Ağustos 2026',
                         title: 'E-Postalar Neden Spama Düşer? %90+ Inbox Başarısı İçin 2026 Rehberi',
                         desc: 'Google ve Yahoo’nun getirdiği katı zorunluluklar, Apple MPP’nin yanıltıcı açılma pikselleri ve yapay zeka spam filtreleri çağında gelen kutusunda kalmanın teknik matematiği. 50.000 kişilik B2B test listesindeki vaka analizi ve adım adım eylem planı.',
                         read_btn: 'Rehberi Oku',
@@ -1606,7 +1609,7 @@
                     g2: {
                         category: 'E-Posta Güvenliği & Kimlik Doğrulama',
                         read_time: '8 Dk Okuma',
-                        date: '12 Ekim 2026',
+                        date: '18 Eylül 2026',
                         title: 'DMARC, DKIM ve BIMI Rehberi: E-Postada Doğrulanmış Marka Logosu',
                         desc: 'Google ve Yahoo’nun 2026 zorunlu gönderici kuralları, SPF/DKIM hizalaması ve Gmail ile Apple Mail kutularında doğrulanmış mavi tikli marka logosu gösterme rehberi. Phishing engelleme ve %22 açılma artışı vaka analizi.',
                         read_btn: 'Rehberi Oku',
@@ -1655,8 +1658,8 @@
                 meta_info: {
                     category: 'E-Posta Teslim Edilebilirliği',
                     read_time: '7 Dk Okuma',
-                    date: '12 Ekim 2026',
-                    updated: 'Güncelleme: Ekim 2026'
+                    date: '24 Ağustos 2026',
+                    updated: 'Güncelleme: Ağustos 2026'
                 },
                 toc: {
                     heading: 'İçindekiler',
@@ -1793,8 +1796,8 @@
                 "meta_info": {
                                 "category": "E-Posta Güvenliği & Kimlik Doğrulama",
                                 "read_time": "8 Dk Okuma",
-                                "date": "12 Ekim 2026",
-                                "updated": "Güncelleme: Ekim 2026"
+                                "date": "18 Eylül 2026",
+                                "updated": "Güncelleme: Eylül 2026"
                 },
                 "toc": {
                                 "heading": "İçindekiler",
@@ -2096,7 +2099,7 @@
                 },
                 "author_bio": {
                                 "name": "Akın TERZİ",
-                                "role": "Normsoft Bilgi Teknolojileri Anonim Şirketi Genel Müdürü & Kurucu",
+                                "role": "Normsoft Bilgi Teknolojileri A.Ş. Genel Müdürü & Kurucu",
                                 "desc": "Akın Terzi; DİJİTAL PLATFORM Organizasyonu ve NORMSOFT A.Ş. şirketlerinin kurucusu ve Genel Müdürüdür. CAD çözümleri, üretim sektörü, BIM, AR&VR ve kurumsal dijitalleşme stratejileri üzerine uzmanlaşmış olup, TraceParts'ın Türkiye ve bölge ülkelerdeki etkinliğini yönetmektedir. 15 yılı aşkın teknoloji liderliği deneyimiyle; büyük ölçekli kurumsal ERP, yüksek erişilebilirlikli mesaj kuyrukları ve 10M+ transaksiyonel bildirim mimarilerinde operasyonel mükemmellik sağlamaktadır."
                 },
                 "related": {
@@ -3657,34 +3660,37 @@
                     mustafa: {
                         name: 'Mustafa BİÇER',
                         role: 'Digital Solutions Specialist',
+                        desc: 'High-volume email delivery, SMTP server tuning, and telemetry analytics.',
                         bio: 'High-volume email delivery, SMTP server tuning, and telemetry analytics.'
                     },
                     akin: {
                         name: 'Akın TERZİ',
-                        role: 'General Manager, Normsoft Inc. & Founder',
-                        bio: 'Leader in digital transformation, CAD, BIM, AR&VR, TraceParts Türkiye, and enterprise transactional architectures.'
+                        role: 'Normsoft Bilgi Teknolojileri A.Ş. Genel Müdürü & Kurucu',
+                        desc: 'Digital transformation, CAD, BIM, AR&VR, TraceParts Türkiye, and enterprise transactional architectures leader.',
+                        bio: 'Digital transformation, CAD, BIM, AR&VR, TraceParts Türkiye, and enterprise transactional architectures leader.'
                     }
                 },
                 author: {
                     name: 'Mustafa BİÇER',
                     role: 'Digital Solutions Specialist',
+                    desc: 'Author of case studies and technical guides on high-volume email distribution, SMTP server tuning, IP reputation defense, and email telemetry.',
                     bio: 'Author of case studies and technical guides on high-volume email distribution, SMTP server tuning, IP reputation defense, and email telemetry.'
                 },
                 featured: {
                     heading: 'Featured Guides',
                     count: '3 Articles',
-                    category: 'Email Deliverability',
-                    read_time: '7 Min Read',
+                    category: 'Enterprise Architecture & Transactional Delivery',
+                    read_time: '9 Min Read',
                     date: 'October 12, 2026',
-                    title: 'Why Do Emails Go to Spam? 2026 Guide for 90%+ Inbox Placement',
-                    desc: 'The technical mechanics of staying in the primary inbox amidst strict Google & Yahoo requirements, Apple MPP pixel masking, and AI spam filters. A 50k B2B case study and step-by-step action plan.',
+                    title: 'Transactional Email Architecture: Scaling 10M+ Enterprise Mail',
+                    desc: 'A practical engineering guide to delivering 10M+ monthly invoices, OTPs, and mission-critical alerts without latency, queue blockages, or spam filtering by Normsoft GM Akin Terzi.',
                     read_btn: 'Read Guide'
                 },
                 guides: {
                     g1: {
                         category: 'Email Deliverability',
                         read_time: '7 Min Read',
-                        date: 'October 12, 2026',
+                        date: 'August 24, 2026',
                         title: 'Why Do Emails Go to Spam? 2026 Guide for 90%+ Inbox Placement',
                         desc: 'The technical mechanics of staying in the primary inbox amidst strict Google & Yahoo requirements, Apple MPP pixel masking, and AI spam filters. A 50k B2B case study and step-by-step action plan.',
                         read_btn: 'Read Guide',
@@ -3693,7 +3699,7 @@
                     g2: {
                         category: 'Email Security & Authentication',
                         read_time: '8 Min Read',
-                        date: 'October 12, 2026',
+                        date: 'September 18, 2026',
                         title: 'DMARC, DKIM & BIMI Guide: Verified Brand Logos & Email Security',
                         desc: 'Master Google & Yahoo bulk sender authentication rules, eliminate phishing spoofing, and display verified brand checkmark logos in Gmail and Apple Mail. A fintech case study with +22% open rate lift.',
                         read_btn: 'Read Guide',
@@ -3742,8 +3748,8 @@
                 meta_info: {
                     category: 'Email Deliverability',
                     read_time: '7 Min Read',
-                    date: 'October 12, 2026',
-                    updated: 'Updated: October 2026'
+                    date: 'August 24, 2026',
+                    updated: 'Updated: August 2026'
                 },
                 toc: {
                     heading: 'Table of Contents',
@@ -3880,8 +3886,8 @@
                 "meta_info": {
                                 "category": "Email Security & Authentication",
                                 "read_time": "8 Min Read",
-                                "date": "October 12, 2026",
-                                "updated": "Updated: October 2026"
+                                "date": "September 18, 2026",
+                                "updated": "Updated: September 2026"
                 },
                 "toc": {
                                 "heading": "Table of Contents",
@@ -4083,7 +4089,7 @@
                 "subtitle": "A practical engineering guide to delivering 10M+ monthly invoices, OTPs, and mission-critical alerts without latency, queue blockages, or spam filtering.",
                 "author": {
                                 "name": "Akın TERZİ",
-                                "role": "General Manager, Normsoft Inc. & Founder",
+                                "role": "Normsoft Bilgi Teknolojileri A.Ş. Genel Müdürü & Kurucu",
                                 "badge": "10M+ Enterprise Case Study"
                 },
                 "tldr": {
@@ -4183,7 +4189,7 @@
                 },
                 "author_bio": {
                                 "name": "Akın TERZİ",
-                                "role": "General Manager, Normsoft Information Technologies Inc. & Founder",
+                                "role": "Normsoft Bilgi Teknolojileri A.Ş. Genel Müdürü & Kurucu",
                                 "desc": "Akin Terzi is the founder and General Manager of DIJITAL PLATFORM and NORMSOFT Inc. With over 15 years of executive engineering experience spanning CAD solutions, manufacturing, BIM, AR&VR, and digital transformation, he directs TraceParts operations in Türkiye and engineers resilient high-volume ERP transactional messaging ecosystems at scale."
                 },
                 "related": {
