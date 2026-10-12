@@ -1593,7 +1593,7 @@
                     count: '4 Yayın',
                     category: 'Kurumsal Mimari & Transaksiyonel Dağıtım',
                     read_time: '9 Dk Okuma',
-                    date: '12 Ekim 2026',
+                    date: '2 Ekim 2026',
                     title: 'Transaksiyonel E-Posta Mimarisi: Kurumsal Sistemlerde 10M+ Dağıtım',
                     desc: 'Normsoft ERP ve SaaS altyapılarında ayda 10 milyondan fazla e-fatura, OTP ve kritik bildirimi gecikmesiz, kuyruk kilitlenmesi olmadan ve spama düşmeden iletme rehberi. Akın Terzi\'den vaka analizi ve mimari ilkeler.',
                     read_btn: 'Rehberi Oku'
@@ -1620,7 +1620,7 @@
                     g3: {
                         category: "Kurumsal Mimari & Transaksiyonel Dağıtım",
                         read_time: "9 Dk Okuma",
-                        date: "12 Ekim 2026",
+                        date: "2 Ekim 2026",
                         title: "Transaksiyonel E-Posta Mimarisi: Kurumsal Sistemlerde 10M+ Dağıtım",
                         desc: "Normsoft ERP ve SaaS altyapılarında ayda 10 milyondan fazla e-fatura, OTP ve kritik bildirimi gecikmesiz, kuyruk kilitlenmesi olmadan ve spama düşmeden iletme rehberi. Akın Terzi'den vaka analizi ve mimari ilkeler.",
                         read_btn: "Rehberi Oku",
@@ -1629,9 +1629,9 @@
                     g4: {
                         category: "Sektör Benchmark Raporu // 2026",
                         read_time: "12 Dk Okuma",
-                        date: "12 Ekim 2026",
-                        title: "2026 Kurumsal E-Posta Teslimat ve Güvenlik Raporu: 124M Gönderim Analizi",
-                        desc: "TraceMailer Telemetri Laboratuvarı’ndan 124.6 milyon e-posta ve 4.850 alan adı üzerinde gerçekleştirilen kapsamlı araştırma. Apple MPP’nin %51.4’lük sahte piksel gerçeği, DMARC p=reject’in %94.6 inbox başarısı ve STO etkileşim kazanımları.",
+                        date: "6 Ekim 2026",
+                        title: "2026 Kurumsal E-Posta Teslimat ve Güvenlik Raporu: 3.200+ Domain Analizi",
+                        desc: "TraceMailer Telemetri Laboratuvarı’ndan 4.862 e-posta ve 3.240 alan adı üzerinde 1 aylık canlı veriyle gerçekleştirilen kapsamlı araştırma. Apple MPP’nin %51.4’lük sahte piksel gerçeği, DMARC p=reject’in %94.6 inbox başarısı ve STO etkileşim kazanımları.",
                         read_btn: "Raporu İncele",
                         url: "/blog/2026-eposta-teslimat-ve-guvenlik-istatistikleri/"
                     }
@@ -1652,6 +1652,7 @@
                     how: 'Nasıl Çalışır?',
                     blog: 'Rehber & Blog',
                     faq: 'SSS',
+                    contact: 'İletişim',
                     login: 'Müşteri Girişi',
                     copyright: '© 2026 TraceMailer. Tüm hakları saklıdır.'
                 }
@@ -1989,7 +1990,7 @@
                 "meta_info": {
                                 "category": "Kurumsal Mimari & Transaksiyonel Dağıtım",
                                 "read_time": "9 Dk Okuma",
-                                "date": "12 Ekim 2026",
+                                "date": "2 Ekim 2026",
                                 "updated": "Güncelleme: Ekim 2026"
                 },
                 "toc": {
@@ -2136,7 +2137,7 @@
           "meta_info": {
                 "category": "Sektör Benchmark Raporu // 2026",
                 "read_time": "12 Dk Okuma",
-                "date": "12 Ekim 2026",
+                "date": "6 Ekim 2026",
                 "updated": "Yayın: Ekim 2026"
           },
           "toc": {
@@ -2215,7 +2216,7 @@
           "sec4": {
                 "title": "4. DMARC ve BIMI'nin Inbox Placement Üzerindeki Doğrudan Etkisi",
                 "lead": "Kimlik doğrulama artık opsiyonel bir güvenlik katmanı değil, gelen kutusuna kabul edilmenin temel giriş biletidir.",
-                "stat_lead": "İncelenen 4.850 alan adı arasında DMARC politika seviyelerine göre gelen kutusu (Inbox Placement) oranları:",
+                "stat_lead": "İncelenen 3.240 alan adı arasında DMARC politika seviyelerine göre gelen kutusu (Inbox Placement) oranları:",
                 "dmarc_reject": "DMARC p=reject (Katı Koruma): %94.6 Inbox Placement",
                 "dmarc_quarantine": "DMARC p=quarantine (Karantina): %88.2 Inbox Placement",
                 "dmarc_none": "DMARC p=none (Yalnızca İzleme): %79.4 Inbox Placement",
@@ -4330,7 +4331,7 @@
                     count: '4 Articles',
                     category: 'Enterprise Architecture & Transactional Delivery',
                     read_time: '9 Min Read',
-                    date: 'October 12, 2026',
+                    date: 'October 2, 2026',
                     title: 'Transactional Email Architecture: Scaling 10M+ Enterprise Mail',
                     desc: 'A practical engineering guide to delivering 10M+ monthly invoices, OTPs, and mission-critical alerts without latency, queue blockages, or spam filtering by Normsoft GM Akin Terzi.',
                     read_btn: 'Read Guide'
@@ -4357,7 +4358,7 @@
                     g3: {
                         category: "Enterprise Architecture & Transactional Delivery",
                         read_time: "9 Min Read",
-                        date: "October 12, 2026",
+                        date: "October 2, 2026",
                         title: "Transactional Email Architecture: Scaling 10M+ Enterprise Mail",
                         desc: "A practical engineering guide to delivering 10M+ monthly invoices, OTPs, and mission-critical alerts without latency, queue blockages, or spam filtering by Normsoft GM Akin Terzi.",
                         read_btn: "Read Guide",
@@ -4366,9 +4367,9 @@
                     g4: {
                         category: "Industry Benchmark Report // 2026",
                         read_time: "12 Min Read",
-                        date: "October 12, 2026",
-                        title: "2026 Enterprise Email Deliverability and Security Report: 124M Benchmark",
-                        desc: "Comprehensive research by TraceMailer Telemetry Lab analyzing 124.6M emails across 4,850 enterprise domains. Apple MPP 51.4% bot open reality, DMARC p=reject 94.6% inbox placement, and STO lift.",
+                        date: "October 6, 2026",
+                        title: "2026 Enterprise Email Deliverability and Security Report: 3.2K Domains",
+                        desc: "Comprehensive research by TraceMailer Telemetry Lab analyzing 4,862 emails across 3,240 enterprise domains over 1 month. Apple MPP 51.4% bot open reality, DMARC p=reject 94.6% inbox placement, and STO lift.",
                         read_btn: "Read Report",
                         url: "/blog/2026-eposta-teslimat-ve-guvenlik-istatistikleri/"
                     }
@@ -4389,6 +4390,7 @@
                     how: 'How It Works',
                     blog: 'Guides & Blog',
                     faq: 'FAQ',
+                    contact: 'Contact',
                     login: 'Customer Login',
                     copyright: '© 2026 TraceMailer. All rights reserved.'
                 }
@@ -4726,7 +4728,7 @@
                 "meta_info": {
                                 "category": "Enterprise Architecture & Transactional Delivery",
                                 "read_time": "9 Min Read",
-                                "date": "October 12, 2026",
+                                "date": "October 2, 2026",
                                 "updated": "Updated: October 2026"
                 },
                 "toc": {
@@ -4862,8 +4864,8 @@
                 }
             },            blog_report: {
           "meta": {
-                "title": "2026 Email Deliverability Report: 124M Benchmark Study",
-                "desc": "TraceMailer 2026 Deliverability Benchmark: Primary study of 124.6M emails revealing Apple MPP cache rates, DMARC impact, and STO lift."
+                "title": "2026 Email Deliverability Report: 3,200+ Domains & Security",
+                "desc": "TraceMailer 2026 Deliverability Report: Primary study of 4,862 emails revealing Apple MPP cache rates, DMARC impact, and STO lift."
           },
           "breadcrumbs": {
                 "home": "Home",
@@ -4873,7 +4875,7 @@
           "meta_info": {
                 "category": "Industry Benchmark Report // 2026",
                 "read_time": "12 Min Read",
-                "date": "October 12, 2026",
+                "date": "October 6, 2026",
                 "updated": "Published: October 2026"
           },
           "toc": {
@@ -4894,10 +4896,10 @@
           "hero": {
                 "badge": "TRACEMAILER TELEMETRY LAB // PRIMARY INDUSTRY RESEARCH",
                 "title": "2026 Enterprise Email Deliverability and Security Benchmark Report",
-                "subtitle": "Live telemetry analysis across 124.6 million dispatches and 4,850 enterprise domains: Apple MPP distortions, real-world DMARC p=reject inbox gains, and AI recipient timing."
+                "subtitle": "Live telemetry analysis across 4,862 dispatches and 3,240 enterprise domains: Apple MPP distortions, real-world DMARC p=reject inbox gains, and AI recipient timing."
           },
           "stat_cards": {
-                "c1_val": "124.6M+",
+                "c1_val": "4,862",
                 "c1_label": "Analyzed Production Emails",
                 "c2_val": "51.4%",
                 "c2_label": "Apple MPP Synthetic Open Rate",
@@ -4920,10 +4922,10 @@
           },
           "sec2": {
                 "title": "2. Research Methodology and Dataset Scope",
-                "lead": "This benchmark study is based on live telemetry processed through the TraceMailer Distributed Telemetry Engine between January 1, 2026 and September 30, 2026.",
+                "lead": "This benchmark study is based on live telemetry processed through the TraceMailer Distributed Telemetry Engine between September 1, 2026 and September 30, 2026.",
                 "data_points_title": "Dataset Characteristics and Sample Size:",
-                "d1": "Total Processed Volume: 124,621,840 distinct production SMTP transmissions.",
-                "d2": "Enterprise Domains Examined: 4,850 active sending domains across B2B SaaS, E-Commerce, Fintech, and Manufacturing.",
+                "d1": "Total Processed Volume: 4,862 distinct production SMTP transmissions.",
+                "d2": "Enterprise Domains Examined: 3,240 active sending domains across B2B SaaS, E-Commerce, Fintech, and Manufacturing.",
                 "d3": "Mailbox Provider Breakdown: Microsoft 365 (44.2%), Google Workspace & Gmail (39.8%), On-Premise Exchange & Private MX (16.0%).",
                 "d4": "Privacy Compliance: All recipient addresses and domain names were hashed using one-way SHA-256 in strict accordance with GDPR and KVKK."
           },
@@ -4952,7 +4954,7 @@
           "sec4": {
                 "title": "4. Impact of DMARC & BIMI on Primary Inbox Placement",
                 "lead": "Authentication is no longer an optional security best-practice; it is the fundamental admission ticket to the primary inbox.",
-                "stat_lead": "Inbox placement across 4,850 monitored domains grouped by DMARC enforcement level:",
+                "stat_lead": "Inbox placement across 3,240 monitored domains grouped by DMARC enforcement level:",
                 "dmarc_reject": "DMARC p=reject (Strict Enforcement): 94.6% Primary Inbox Placement",
                 "dmarc_quarantine": "DMARC p=quarantine: 88.2% Primary Inbox Placement",
                 "dmarc_none": "DMARC p=none (Monitoring Only): 79.4% Primary Inbox Placement",
@@ -5580,6 +5582,9 @@
         }
 
         if (typeof val !== 'string') {
+            if (val !== null && typeof val === 'object') {
+                return val;
+            }
             if (key === 'landing.nav.blog' || key === 'landing.footer.blog') {
                 return (currentLanguage === 'en') ? 'Guides & Blog' : 'Rehber & Blog';
             }
@@ -5792,6 +5797,7 @@
 
     window.t = translate;
     window.setLanguage = setLanguage;
+    window.i18nData = dictionaries;
 
     // Alpine.js integration
     document.addEventListener('alpine:init', function () {

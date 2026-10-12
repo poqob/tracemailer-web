@@ -461,12 +461,6 @@
 
         <!-- Hero Section -->
         <section class="text-center max-w-4xl mx-auto mb-14">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/70 text-blue-700 text-xs font-semibold mb-6 shadow-2xs">
-                <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
-                <span x-text="t('glossary.hero.badge')">A'dan Z'ye E-Posta Mühendisliği & Teslim Edilebilirlik</span>
-                <span class="text-blue-400">•</span>
-                <span class="font-mono text-[11px]" x-text="t('glossary.hero.terms_count')">28 Teknik Terim</span>
-            </div>
             <h1 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-6" x-text="t('glossary.hero.title')">
                 E-Posta Terimleri Sözlüğü
             </h1>
@@ -826,9 +820,15 @@
                 },
 
                 get terms() {
-                    var tObj = window.t('glossary.terms');
-                    if (!tObj || typeof tObj !== 'object') return [];
-                    return Object.values(tObj);
+                    var lang = this.currentLang || (window.i18n ? window.i18n.currentLang : 'tr');
+                    if (window.i18nData && window.i18nData[lang] && window.i18nData[lang].glossary && window.i18nData[lang].glossary.terms) {
+                        return Object.values(window.i18nData[lang].glossary.terms);
+                    }
+                    var tObj = (typeof window.t === 'function') ? window.t('glossary.terms') : null;
+                    if (tObj && typeof tObj === 'object') {
+                        return Object.values(tObj);
+                    }
+                    return [];
                 },
 
                 get filteredTerms() {

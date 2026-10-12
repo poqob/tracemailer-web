@@ -11,7 +11,7 @@ TraceMailer provides high-volume transactional and marketing email delivery infr
 - [Real-Time Telemetry & Apple MPP Neutralization](https://tracemailer.com/#how-it-works): Sub-second webhooks, geographical open intelligence, and synthetic Apple MPP cache pre-fetch filtering.
 
 ## Technical Guides & Architecture
-- [2026 Enterprise Email Deliverability and Security Benchmark Report](https://tracemailer.com/blog/2026-eposta-teslimat-ve-guvenlik-istatistikleri/): Primary research study across 124.6M emails and 4,850 enterprise domains analyzing Apple MPP 51.4% bot open rates, DMARC p=reject 94.6% inbox placement, and STO engagement lift.
+- [2026 Enterprise Email Deliverability and Security Benchmark Report](https://tracemailer.com/blog/2026-eposta-teslimat-ve-guvenlik-istatistikleri/): Primary research study across 4,862 emails and 3,240 enterprise domains over 1 month analyzing Apple MPP 51.4% bot open rates, DMARC p=reject 94.6% inbox placement, and STO engagement lift.
 - [Why Emails Go to Spam (2026 Deliverability Guide)](https://tracemailer.com/blog/eposta-spama-dusmeden-inbox-rehberi/): Step-by-step 90%+ inbox placement action plan, SPF/DKIM alignment, and 50,000 B2B test list case study by Mustafa Bicer.
 - [DMARC, DKIM & BIMI Guide (2026 Authentication)](https://tracemailer.com/blog/dmarc-dkim-bimi-rehberi/): Google & Yahoo sender mandates, strict DMARC policy enforcement, and verified brand checkmark logos.
 - [Enterprise Transactional Email Architecture (10M+ Scale)](https://tracemailer.com/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/): High-throughput queue isolation, RabbitMQ/Kafka patterns, and 12M e-invoice case study by Akin Terzi (Normsoft GM).
