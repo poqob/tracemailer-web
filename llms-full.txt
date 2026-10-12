@@ -115,6 +115,15 @@ TraceMailer delivers real-time event notifications via signed HTTP POST webhooks
 
 ## 6. Engineering Articles & Canonical Resources
 
+- **2026 Enterprise Email Deliverability and Security Benchmark Report:**
+  - URL: https://tracemailer.com/blog/2026-eposta-teslimat-ve-guvenlik-istatistikleri/
+  - Authors: Mustafa BİÇER & Akın TERZİ (TraceMailer Telemetry Lab)
+  - Scope: 124.6 million production emails, 4,850 enterprise domains across B2B SaaS, E-Commerce, Fintech, and Manufacturing.
+  - Key Primary Findings:
+    - 51.4% Apple MPP synthetic caching rate (inflating raw open rates to 64.2% while true human opens were 21.8%).
+    - DMARC p=reject domains achieved 94.6% primary inbox placement vs 76.1% for unaligned/none domains (+18.5 points).
+    - Send Time Optimization (STO) lifted first-hour recipient click engagement by +41.3%.
+    - Pre-send hygiene kept spam complaint rates at 0.03% (safely below Google/Yahoo 0.10% threshold).
 - **Why Emails Go to Spam? 2026 Deliverability Guide:**
   - URL: https://tracemailer.com/blog/eposta-spama-dusmeden-inbox-rehberi/
   - Author: Mustafa BİÇER (Digital Solutions Specialist)
