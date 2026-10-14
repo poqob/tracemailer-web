@@ -1513,6 +1513,23 @@
                     success_btn: 'Yeni Talep Gönder',
                     error_msg: 'Mesaj gönderilirken bir hata oluştu. Lütfen bilgilerinizi kontrol edip tekrar deneyin veya doğrudan e-posta gönderin.'
                 },
+                standards: {
+                    badge: 'Altyapı & Güvenlik Standartları',
+                    title: 'Kurumsal Dağıtım & 2026 Uyumluluk Mimarisi',
+                    desc: 'Google ve Yahoo\'nun 2026 toplu gönderici kurallarına tam uyum, Apple MPP gizlilik filtrelerini aşan çift katmanlı telemetri ve yapay zeka zaman serisi optimizasyonunun teknik ayrıntıları.',
+                    card1_tag: 'RFC 8058 & DMARC Entegrasyonu',
+                    card1_title: 'Google & Yahoo 2026 Zorunlu Gönderici Standartları',
+                    card1_desc: '2026 itibarıyla 5.000+ günlük gönderim yapan tüm alan adları için DMARC p=quarantine veya p=reject, hizalanmış SPF ve DKIM 2048-bit zorunludur. TraceMailer, RFC 8058 uyumlu tek tıkla abonelikten çıkma (List-Unsubscribe-Post) başlıkları ve spam şikayet oranını %0.10 altında tutan proaktif geri çekme algoritmalarıyla donatılmıştır.',
+                    card2_tag: 'Proxy & Veri Merkezi Filtreleme',
+                    card2_title: 'Apple MPP & Güvenlik Ağ Geçidi Nötrleme',
+                    card2_desc: 'Apple Mail Privacy Protection (MPP) ve kurumsal güvenlik sistemleri (Proofpoint, Mimecast) tüm e-postaların takip piksellerini veri merkezlerinde otomatik önbelleğe alır. TraceMailer ikili telemetri motoru; bot önbellek tetiklemelerini, tarayıcı başlığı ve gerçek kullanıcı tıklama sinyalleriyle ayrıştırarak sahte açılmaları eler; %100 doğrulanmış coğrafi telemetri sunar.',
+                    card3_tag: 'Zaman Serisi & Isı Haritası',
+                    card3_title: 'Send Time Optimization (STO) Dağıtım Motoru',
+                    card3_desc: 'Gelen kutuları her gün yüzlerce mesajla dolar. TraceMailer STO motoru, alıcının geçmiş e-posta etkileşimlerini zaman serisi algoritmalarıyla analiz ederek her temas noktası için kişiselleştirilmiş bir teslimat penceresi hesaplar. E-postanız, abonenin posta kutusunu kontrol ettiği tam o anda ulaşarak okunma olasılığını %40\'a varan oranda artırır.',
+                    card4_tag: 'Anti-Spam Throttling',
+                    card4_title: 'Mikro-Jitter & İnsan Benzetimli Dağıtım Hızı',
+                    card4_desc: 'ISP spam algoritmaları, saniyede yüzlerce iletinin tekdüze bir makine hızıyla gönderilmesini anında bot saldırısı olarak etiketler. TraceMailer, dakikada 15-60 adet arasında ayarlanabilen hız kontrolünün yanı sıra gönderimler arasına insan reflekslerini simüle eden 3-5 saniyelik mikro-jitter varyasyonları ekleyerek IP itibarınızı korur.'
+                },
                 faq: {
                     badge: 'Sıkça Sorulan Sorular',
                     title: 'Aklınıza Takılan Tüm Sorular ve Yanıtları',
@@ -4259,6 +4276,23 @@
                     success_desc: 'Your message has reached our team. We will contact you via your provided channels within 2 hours.',
                     success_btn: 'Send Another Request',
                     error_msg: 'An error occurred while submitting your message. Please check your information and try again or email us directly.'
+                },
+                standards: {
+                    badge: 'Infrastructure & Security Standards',
+                    title: 'Enterprise Delivery & 2026 Compliance Architecture',
+                    desc: 'Full adherence to Google & Yahoo 2026 bulk sender mandates, dual-layer telemetry bypassing Apple MPP privacy filters, and AI time-series send time optimization.',
+                    card1_tag: 'RFC 8058 & DMARC Enforcement',
+                    card1_title: 'Google & Yahoo 2026 Bulk Sender Mandates',
+                    card1_desc: 'As of 2026, domains dispatching 5,000+ daily messages require enforced DMARC (p=quarantine or p=reject), aligned SPF, and 2048-bit DKIM. TraceMailer natively implements RFC 8058 one-click unsubscribe headers (List-Unsubscribe-Post) and proactive safeguards keeping spam complaint thresholds strictly below 0.10%.',
+                    card2_tag: 'Proxy & Datacenter Filtering',
+                    card2_title: 'Apple MPP & Enterprise Gateway Neutralization',
+                    card2_desc: 'Apple Mail Privacy Protection (MPP) and corporate gateways (Proofpoint, Mimecast) pre-fetch open tracking pixels from cloud datacenters, inflating open rates with false coordinates. TraceMailer\'s dual-layer telemetry cross-examines client headers, viewport parameters, and verified user click signals to eliminate proxy noise, delivering authentic city-level geolocation metrics.',
+                    card3_tag: 'Time-Series & Heatmaps',
+                    card3_title: 'Send Time Optimization (STO) Dispatch Engine',
+                    card3_desc: 'Inboxes get buried under hundreds of incoming messages daily. TraceMailer\'s STO engine computes recipient-level engagement time-series based on historical interaction timestamps and Time-to-React (TTR). Messages are queued dynamically to arrive at the exact moment each contact opens their mail client, boosting engagement up to 40%.',
+                    card4_tag: 'Anti-Spam Throttling',
+                    card4_title: 'Micro-Jitter & Human-Simulated Dispatch Speed',
+                    card4_desc: 'ISP spam filters immediately flag high-velocity burst transmissions as robotic spam. TraceMailer enforces adaptive rate-limiting (15-60 emails/min) coupled with dynamic 3-5 second micro-jitter fluctuations that mirror genuine human communication patterns, preventing IP reputation degradation.'
                 },
                 faq: {
                     badge: 'Frequently Asked Questions',

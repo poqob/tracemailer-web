@@ -723,6 +723,88 @@
         </div>
     </section>
 
+    <!-- Technical Standards & Delivery Architecture Section -->
+    <section id="standards" class="py-20 md:py-28 px-6 bg-slate-50/50 border-b border-slate-100 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-wider text-blue-600 mb-2 block" x-text="t('landing.standards.badge')">Altyapı & Güvenlik Standartları</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4" x-text="t('landing.standards.title')">
+                    Kurumsal Dağıtım & 2026 Uyumluluk Mimarisi
+                </h2>
+                <p class="text-base sm:text-lg text-slate-600 leading-relaxed" x-text="t('landing.standards.desc')">
+                    Google ve Yahoo'nun 2026 toplu gönderici kurallarına tam uyum, Apple MPP gizlilik filtrelerini aşan çift katmanlı telemetri ve yapay zeka zaman serisi optimizasyonunun teknik ayrıntıları.
+                </p>
+            </div>
+
+            <!-- Standards 4-Grid Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Card 1: Google & Yahoo 2026 Mandates -->
+                <div class="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                            </div>
+                            <span class="text-xs font-semibold px-3 py-1 bg-blue-50 text-blue-700 rounded-full border border-blue-100" x-text="t('landing.standards.card1_tag')">RFC 8058 & DMARC Entegrasyonu</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3" x-text="t('landing.standards.card1_title')">Google & Yahoo 2026 Zorunlu Gönderici Standartları</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed" x-text="t('landing.standards.card1_desc')">
+                            2026 itibarıyla 5.000+ günlük gönderim yapan tüm alan adları için DMARC p=quarantine veya p=reject, hizalanmış SPF ve DKIM 2048-bit zorunludur. TraceMailer, RFC 8058 uyumlu tek tıkla abonelikten çıkma (List-Unsubscribe-Post) başlıkları ve spam şikayet oranını %0.10 altında tutan proaktif geri çekme algoritmalarıyla donatılmıştır.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Apple MPP Neutralization -->
+                <div class="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                            </div>
+                            <span class="text-xs font-semibold px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full border border-indigo-100" x-text="t('landing.standards.card2_tag')">Proxy & Veri Merkezi Filtreleme</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3" x-text="t('landing.standards.card2_title')">Apple MPP & Güvenlik Ağ Geçidi Nötrleme</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed" x-text="t('landing.standards.card2_desc')">
+                            Apple Mail Privacy Protection (MPP) ve kurumsal güvenlik sistemleri (Proofpoint, Mimecast) tüm e-postaların takip piksellerini veri merkezlerinde otomatik önbelleğe alır. TraceMailer ikili telemetri motoru; bot önbellek tetiklemelerini, tarayıcı başlığı ve gerçek kullanıcı tıklama sinyalleriyle ayrıştırarak sahte açılmaları eler; %100 doğrulanmış coğrafi telemetri sunar.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Send Time Optimization (STO) -->
+                <div class="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <span class="text-xs font-semibold px-3 py-1 bg-amber-50 text-amber-700 rounded-full border border-amber-100" x-text="t('landing.standards.card3_tag')">Zaman Serisi & Isı Haritası</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3" x-text="t('landing.standards.card3_title')">Send Time Optimization (STO) Dağıtım Motoru</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed" x-text="t('landing.standards.card3_desc')">
+                            Gelen kutuları her gün yüzlerce mesajla dolar. TraceMailer STO motoru, alıcının geçmiş e-posta etkileşimlerini zaman serisi algoritmalarıyla analiz ederek her temas noktası için kişiselleştirilmiş bir teslimat penceresi hesaplar. E-postanız, abonenin posta kutusunu kontrol ettiği tam o anda ulaşarak okunma olasılığını %40'a varan oranda artırır.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 4: Micro-Jitter Throttling -->
+                <div class="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            </div>
+                            <span class="text-xs font-semibold px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full border border-emerald-100" x-text="t('landing.standards.card4_tag')">Anti-Spam Throttling</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3" x-text="t('landing.standards.card4_title')">Mikro-Jitter & İnsan Benzetimli Dağıtım Hızı</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed" x-text="t('landing.standards.card4_desc')">
+                            ISP spam algoritmaları, saniyede yüzlerce iletinin tekdüze bir makine hızıyla gönderilmesini anında bot saldırısı olarak etiketler. TraceMailer, dakikada 15-60 adet arasında ayarlanabilen hız kontrolünün yanı sıra gönderimler arasına insan reflekslerini simüle eden 3-5 saniyelik mikro-jitter varyasyonları ekleyerek IP itibarınızı korur.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 8. FAQ / SSS (Sıkça Sorulan Sorular) Section -->
     <section id="faq" class="py-20 md:py-28 px-6 bg-white border-b border-slate-100 relative">
         <div class="max-w-7xl mx-auto">
@@ -746,13 +828,13 @@
                         <summary class="flex justify-between items-center p-5 sm:p-6 text-left cursor-pointer list-none select-none text-slate-900 font-bold text-sm sm:text-base gap-4">
                             <span class="flex items-center gap-3.5">
                                 <span class="w-7 h-7 rounded-xl bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center text-xs font-black shrink-0 group-open:bg-blue-600 group-open:text-white transition-colors">1</span>
-                                <span x-text="t('landing.faq.q1')"></span>
+                                <span x-text="t('landing.faq.q1')">TraceMailer geleneksel toplu e-posta araçlarından nasıl ayrışır?</span>
                             </span>
                             <svg class="w-5 h-5 text-slate-400 group-open:text-blue-600 group-open:rotate-180 transition-transform duration-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </summary>
-                        <div class="px-5 sm:px-6 pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-4" x-text="t('landing.faq.a1')"></div>
+                        <div class="px-5 sm:px-6 pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-4" x-text="t('landing.faq.a1')">Geleneksel araçlar tüm listenize aynı anda körlemesine gönderim yapar ve spam filtrelerine yakalanır. TraceMailer ise yapay zeka destekli alıcı hijyeni ile inaktif adresleri önceden eler, insan reflekslerini taklit eden dinamik jitter dağıtımı uygular ve her alıcının en aktif olduğu saatte (STO) teslimat yaparak inbox oranını %90 üzerine taşır.</div>
                     </details>
 
                     <!-- Question 2 -->
@@ -760,13 +842,13 @@
                         <summary class="flex justify-between items-center p-5 sm:p-6 text-left cursor-pointer list-none select-none text-slate-900 font-bold text-sm sm:text-base gap-4">
                             <span class="flex items-center gap-3.5">
                                 <span class="w-7 h-7 rounded-xl bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center text-xs font-black shrink-0 group-open:bg-blue-600 group-open:text-white transition-colors">2</span>
-                                <span x-text="t('landing.faq.q2')"></span>
+                                <span x-text="t('landing.faq.q2')">Kesin konum (Şehir / Ülke) tespiti nasıl çalışır, proxy ve gizlilik filtrelerini nasıl aşar?</span>
                             </span>
                             <svg class="w-5 h-5 text-slate-400 group-open:text-blue-600 group-open:rotate-180 transition-transform duration-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </summary>
-                        <div class="px-5 sm:px-6 pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-4" x-text="t('landing.faq.a2')"></div>
+                        <div class="px-5 sm:px-6 pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-4" x-text="t('landing.faq.a2')">Apple Mail Privacy Protection (MPP) ve kurumsal e-posta güvenlik duvarları piksel açılmalarını veri merkezlerinden tetikleyerek sahte lokasyon üretir. TraceMailer, çift katmanlı telemetrisi sayesinde gerçek kullanıcı tıklamaları ve tarayıcı etkileşimlerini filtreleyerek sahte veri merkezi IP'lerini eler; size %100 doğrulanmış gerçek coğrafi dağılım sunar.</div>
                     </details>
 
                     <!-- Question 3 -->
@@ -774,13 +856,13 @@
                         <summary class="flex justify-between items-center p-5 sm:p-6 text-left cursor-pointer list-none select-none text-slate-900 font-bold text-sm sm:text-base gap-4">
                             <span class="flex items-center gap-3.5">
                                 <span class="w-7 h-7 rounded-xl bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center text-xs font-black shrink-0 group-open:bg-blue-600 group-open:text-white transition-colors">3</span>
-                                <span x-text="t('landing.faq.q3')"></span>
+                                <span x-text="t('landing.faq.q3')">Send Time Optimization (STO) nedir ve açılma oranlarını nasıl artırır?</span>
                             </span>
                             <svg class="w-5 h-5 text-slate-400 group-open:text-blue-600 group-open:rotate-180 transition-transform duration-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </summary>
-                        <div class="px-5 sm:px-6 pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-4" x-text="t('landing.faq.a3')"></div>
+                        <div class="px-5 sm:px-6 pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-4" x-text="t('landing.faq.a3')">STO (Kişiselleştirilmiş Gönderim Zamanı), her bir abonenizin geçmiş e-posta açılma ve tıklama alışkanlıklarını zaman serisi algoritmalarıyla modeller. Örneğin Alıcı A e-postalarını sabah 08:30'da, Alıcı B ise akşam 21:15'te okuyorsa; iletileriniz her iki aboneye de tam o saatte teslim edilir ve gelen kutusunun en üstünde yer alır.</div>
                     </details>
 
                     <!-- Question 4 -->
@@ -788,13 +870,13 @@
                         <summary class="flex justify-between items-center p-5 sm:p-6 text-left cursor-pointer list-none select-none text-slate-900 font-bold text-sm sm:text-base gap-4">
                             <span class="flex items-center gap-3.5">
                                 <span class="w-7 h-7 rounded-xl bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center text-xs font-black shrink-0 group-open:bg-blue-600 group-open:text-white transition-colors">4</span>
-                                <span x-text="t('landing.faq.q4')"></span>
+                                <span x-text="t('landing.faq.q4')">Kendi özel SMTP sunucumu veya Amazon SES altyapımı bağlayabilir miyim?</span>
                             </span>
                             <svg class="w-5 h-5 text-slate-400 group-open:text-blue-600 group-open:rotate-180 transition-transform duration-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </summary>
-                        <div class="px-5 sm:px-6 pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-4" x-text="t('landing.faq.a4')"></div>
+                        <div class="px-5 sm:px-6 pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-4" x-text="t('landing.faq.a4')">Evet. TraceMailer esnek altyapısı sayesinde kendi özel kurumsal SMTP sunucularınızı, Amazon SES, Postmark, Mailgun veya Google/Zoho Workspace hesaplarınızı saniyeler içinde bağlayabilirsiniz. Birden fazla SMTP profili tanımlayabilir, kampanya bazlı geçiş yapabilirsiniz.</div>
                     </details>
                 </div>
 
@@ -805,13 +887,13 @@
                         <summary class="flex justify-between items-center p-5 sm:p-6 text-left cursor-pointer list-none select-none text-slate-900 font-bold text-sm sm:text-base gap-4">
                             <span class="flex items-center gap-3.5">
                                 <span class="w-7 h-7 rounded-xl bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center text-xs font-black shrink-0 group-open:bg-blue-600 group-open:text-white transition-colors">5</span>
-                                <span x-text="t('landing.faq.q5')"></span>
+                                <span x-text="t('landing.faq.q5')">Alıcı listemi nasıl yüklerim? Excel veya CSV formatları destekleniyor mu?</span>
                             </span>
                             <svg class="w-5 h-5 text-slate-400 group-open:text-blue-600 group-open:rotate-180 transition-transform duration-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </summary>
-                        <div class="px-5 sm:px-6 pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-4" x-text="t('landing.faq.a5')"></div>
+                        <div class="px-5 sm:px-6 pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-4" x-text="t('landing.faq.a5')">Evet, gelişmiş Excel Kampanya Sihirbazı sayesinde .xlsx, .xls ve .csv dosyalarınızı sürükleyip bırakarak yükleyebilirsiniz. Sistem; Ad, Soyad, Şirket, E-Posta ve özel değişken sütunlarını otomatik olarak haritalandırır ve şablonlarınızda dinamik etiketler (örneğin {{name}}) olarak kullanmanıza imkan tanır.</div>
                     </details>
 
                     <!-- Question 6 -->
@@ -819,13 +901,13 @@
                         <summary class="flex justify-between items-center p-5 sm:p-6 text-left cursor-pointer list-none select-none text-slate-900 font-bold text-sm sm:text-base gap-4">
                             <span class="flex items-center gap-3.5">
                                 <span class="w-7 h-7 rounded-xl bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center text-xs font-black shrink-0 group-open:bg-blue-600 group-open:text-white transition-colors">6</span>
-                                <span x-text="t('landing.faq.q6')"></span>
+                                <span x-text="t('landing.faq.q6')">Yapay Zeka Liste Hijyeni ve Risk Taraması nasıl koruma sağlar?</span>
                             </span>
                             <svg class="w-5 h-5 text-slate-400 group-open:text-blue-600 group-open:rotate-180 transition-transform duration-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </summary>
-                        <div class="px-5 sm:px-6 pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-4" x-text="t('landing.faq.a6')"></div>
+                        <div class="px-5 sm:px-6 pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-4" x-text="t('landing.faq.a6')">Gönderim öncesinde alıcı listeniz taranarak sözdizimi hatalı adresler, geçici (disposable) e-postalar, spam tuzakları (spam traps) ve uzun süredir sıfır etkileşim gösteren zombi adresler sınıflandırılır. Tek tıkla bu adresleri karantinaya alabilir, böylece alan adı ve IP itibarınızı kalıcı olarak korursunuz.</div>
                     </details>
 
                     <!-- Question 7 -->
@@ -833,13 +915,13 @@
                         <summary class="flex justify-between items-center p-5 sm:p-6 text-left cursor-pointer list-none select-none text-slate-900 font-bold text-sm sm:text-base gap-4">
                             <span class="flex items-center gap-3.5">
                                 <span class="w-7 h-7 rounded-xl bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center text-xs font-black shrink-0 group-open:bg-blue-600 group-open:text-white transition-colors">7</span>
-                                <span x-text="t('landing.faq.q7')"></span>
+                                <span x-text="t('landing.faq.q7')">Spam korumalı dağıtım hızı ve Jitter nedir?</span>
                             </span>
                             <svg class="w-5 h-5 text-slate-400 group-open:text-blue-600 group-open:rotate-180 transition-transform duration-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </summary>
-                        <div class="px-5 sm:px-6 pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-4" x-text="t('landing.faq.a7')"></div>
+                        <div class="px-5 sm:px-6 pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-4" x-text="t('landing.faq.a7')">Aynı anda binlerce e-posta basmak spam filtrelerinin en büyük tetikleyicisidir. TraceMailer, dakikada 15 ile 60 arasında ayarlanabilir iletim hızı ve gönderimler arasına insan hareketini taklit eden 3-5 saniyelik rastgele bekleme aralıkları (jitter) ekleyerek spam algoritmalarını tamamen atlatır.</div>
                     </details>
 
                     <!-- Question 8 -->
@@ -847,13 +929,13 @@
                         <summary class="flex justify-between items-center p-5 sm:p-6 text-left cursor-pointer list-none select-none text-slate-900 font-bold text-sm sm:text-base gap-4">
                             <span class="flex items-center gap-3.5">
                                 <span class="w-7 h-7 rounded-xl bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center text-xs font-black shrink-0 group-open:bg-blue-600 group-open:text-white transition-colors">8</span>
-                                <span x-text="t('landing.faq.q8')"></span>
+                                <span x-text="t('landing.faq.q8')">Kampanya raporlarını dışa aktarabilir miyim?</span>
                             </span>
                             <svg class="w-5 h-5 text-slate-400 group-open:text-blue-600 group-open:rotate-180 transition-transform duration-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </summary>
-                        <div class="px-5 sm:px-6 pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-4" x-text="t('landing.faq.a8')"></div>
+                        <div class="px-5 sm:px-6 pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-4" x-text="t('landing.faq.a8')">Kesinlikle. Kampanya performansınızı, coğrafi harita verilerini, reaksiyon sürelerini (TTR) ve alıcı bazlı açılma telemetrisini tek tıkla zengin Excel (.xlsx) tablosu veya tüm interaktif filtreleri içeren bağımsız HTML rapor dosyası olarak bilgisayarınıza indirebilirsiniz.</div>
                     </details>
                 </div>
             </div>
@@ -1067,6 +1149,7 @@
             <div class="flex items-center gap-6 text-slate-600 font-medium">
                 <a href="#features" class="hover:text-blue-600 transition-colors" x-text="t('landing.footer.why')">Neden TraceMailer?</a>
                 <a href="#how-it-works" class="hover:text-blue-600 transition-colors" x-text="t('landing.footer.how')">Nasıl Çalışır?</a>
+                <a href="#standards" class="hover:text-blue-600 transition-colors" x-text="currentLang === 'en' ? 'Standards' : 'Standartlar'">Standartlar</a>
                 <a href="/blog/" class="hover:text-blue-600 transition-colors" x-text="currentLang === 'en' ? 'Guides & Blog' : 'Rehber & Blog'">Rehber & Blog</a>
                 <a href="/karsilastirma/" class="hover:text-blue-600 transition-colors" x-text="currentLang === 'en' ? 'Compare' : 'Karşılaştırma'">Karşılaştırma</a>
                 <a href="/sozluk/" class="hover:text-blue-600 transition-colors" x-text="currentLang === 'en' ? 'Glossary' : 'Sözlük'">Sözlük</a>
@@ -1084,391 +1167,7 @@
     </footer>
 
     <!-- Alpine.js Store & Logic -->
-    <script>
-        function landingApp() {
-            return {
-                currentLang: 'tr',
-                langMenuOpen: false,
-                mobileMenuOpen: false,
-                isMobile: false,
-                typewriterText: '',
-                fullHeadline: '',
-                charIndex: 0,
-                typingComplete: false,
-                typingTimeout: null,
-                plans: [],
-                formStatus: 'idle',
-                formData: {
-                    name: '',
-                    email: '',
-                    countryCode: '+90',
-                    phone: '',
-                    message: ''
-                },
-
-                init() {
-                    // Fetch public plans if any are published by admin
-                    this.fetchPlans();
-
-                    // Detect mobile orientation and screen width
-                    this.checkMobile();
-                    window.addEventListener('resize', () => {
-                        this.checkMobile();
-                    });
-
-                    // Resolve initial language
-                    if (window.i18n && window.i18n.getLanguage) {
-                        this.currentLang = window.i18n.getLanguage();
-                    } else {
-                        var stored = null;
-                        try { stored = localStorage.getItem('tracemailer_lang'); } catch(e){}
-                        if (stored === 'tr' || stored === 'en') {
-                            this.currentLang = stored;
-                        } else {
-                            var browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-                            this.currentLang = browserLang.startsWith('tr') ? 'tr' : 'en';
-                        }
-                    }
-
-                    // Sync language with i18n module
-                    if (window.i18n && window.i18n.setLanguage) {
-                        window.i18n.setLanguage(this.currentLang);
-                    }
-
-                    // React to external or system language changes
-                    window.addEventListener('language-changed', (e) => {
-                        if (e.detail && e.detail.language && (e.detail.language === 'tr' || e.detail.language === 'en')) {
-                            this.currentLang = e.detail.language;
-                            this.resetTypewriter();
-                        }
-                    });
-
-                    this.resetTypewriter();
-                    this.initSliderObserver();
-                },
-
-                async fetchPlans() {
-                    try {
-                        const res = await fetch('/api/public/plans');
-                        if (res.ok) {
-                            const data = await res.json();
-                            this.plans = Array.isArray(data) ? data : [];
-                        } else {
-                            this.plans = [];
-                        }
-                    } catch (e) {
-                        // Fallback to direct dashboard URL if needed
-                        try {
-                            const res2 = await fetch('https://dash.tracemailer.com/api/public/plans');
-                            if (res2.ok) {
-                                const data2 = await res2.json();
-                                this.plans = Array.isArray(data2) ? data2 : [];
-                            } else {
-                                this.plans = [];
-                            }
-                        } catch (err) {
-                            this.plans = [];
-                        }
-                    }
-                },
-
-                checkMobile() {
-                    this.isMobile = window.innerWidth < 640;
-                },
-
-                t(key, params) {
-                    // Reactive dependency tracking: accessing currentLang ensures Alpine tracks this call
-                    const _activeLang = this ? this.currentLang : null;
-                    if (window.i18n && window.i18n.t) {
-                        const res = window.i18n.t(key, params);
-                        if (res && res !== key) return res;
-                    }
-                    if (key === 'landing.nav.blog' || key === 'landing.footer.blog') {
-                        return (this && this.currentLang === 'en') ? 'Guides & Blog' : 'Rehber & Blog';
-                    }
-                    return key;
-                },
-
-                setLang(lang) {
-                    if (lang === 'en') {
-                        window.location.href = '/en/';
-                        return;
-                    }
-                    if (lang !== 'tr' && lang !== 'en') return;
-                    if (window.i18n && window.i18n.setLanguage) {
-                        window.i18n.setLanguage(lang);
-                    } else {
-                        try { localStorage.setItem('tracemailer_lang', lang); } catch(e){}
-                    }
-                    this.currentLang = lang;
-                    if (window.Alpine && window.Alpine.store && window.Alpine.store('i18n')) {
-                        try { window.Alpine.store('i18n').lang = lang; } catch(e){}
-                    }
-                    if (document) {
-                        document.documentElement.lang = lang;
-                        document.title = this.t('landing.meta.title');
-                        const metaDesc = document.querySelector('meta[name="description"]');
-                        if (metaDesc) {
-                            metaDesc.setAttribute('content', this.t('landing.meta.desc'));
-                        }
-                    }
-                    this.resetTypewriter();
-                },
-
-                resetTypewriter() {
-                    if (this.typingTimeout) clearTimeout(this.typingTimeout);
-                    this.fullHeadline = this.t('landing.hero.headline');
-                    this.charIndex = 0;
-                    this.typewriterText = '';
-                    this.typingComplete = false;
-                    this.typeOnce();
-                },
-
-                typeOnce() {
-                    if (this.charIndex <= this.fullHeadline.length) {
-                        this.typewriterText = this.fullHeadline.substring(0, this.charIndex);
-                        this.charIndex++;
-                        if (this.charIndex <= this.fullHeadline.length) {
-                            this.typingTimeout = setTimeout(() => this.typeOnce(), 35);
-                        } else {
-                            this.typingComplete = true;
-                        }
-                    }
-                },
-
-                async submitContactForm() {
-                    this.formStatus = 'loading';
-                    try {
-                        const res = await fetch('/api/contact', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(this.formData)
-                        });
-                        if (res.ok) {
-                            this.formStatus = 'success';
-                            this.formData = { name: '', email: '', countryCode: '+90', phone: '', message: '' };
-                        } else {
-                            this.formStatus = 'error';
-                        }
-                    } catch (e) {
-                        this.formStatus = 'error';
-                    }
-                },
-
-                // Hero Interactive Floating Icons (Dynamic Desktop / Mobile Vertical Layout)
-                icons: {
-                    aws: { vx: 0, vy: 0 },
-                    gmail: { vx: 0, vy: 0 },
-                    google: { vx: 0, vy: 0 },
-                    smtp: { vx: 0, vy: 0 },
-                    mail: { vx: 0, vy: 0 },
-                    zoho: { vx: 0, vy: 0 },
-                    icloud: { vx: 0, vy: 0 },
-                    imap: { vx: 0, vy: 0 },
-                    thunderbird: { vx: 0, vy: 0 }
-                },
-
-                getIconPos(name) {
-                    const isM = this.isMobile;
-                    const desktopPos = {
-                        google:      { x: 48, y: 8 },
-                        gmail:       { x: 16, y: 18 },
-                        aws:         { x: 80, y: 16 },
-                        smtp:        { x: 10, y: 46 },
-                        mail:        { x: 48, y: 46 },
-                        zoho:        { x: 84, y: 46 },
-                        icloud:      { x: 16, y: 76 },
-                        imap:        { x: 48, y: 84 },
-                        thunderbird: { x: 80, y: 78 }
-                    };
-                    const mobilePos = {
-                        google:      { x: 50, y: 7 },
-                        gmail:       { x: 24, y: 18 },
-                        aws:         { x: 76, y: 19 },
-                        smtp:        { x: 22, y: 35 },
-                        mail:        { x: 50, y: 50 },
-                        zoho:        { x: 78, y: 64 },
-                        icloud:      { x: 22, y: 72 },
-                        imap:        { x: 76, y: 84 },
-                        thunderbird: { x: 50, y: 93 }
-                    };
-                    return (isM ? mobilePos[name] : desktopPos[name]) || { x: 50, y: 50 };
-                },
-
-                getIconStyle(name) {
-                    const pos = this.getIconPos(name);
-                    const vx = (this.icons[name] && this.icons[name].vx) || 0;
-                    const vy = (this.icons[name] && this.icons[name].vy) || 0;
-                    return `left: ${pos.x}%; top: ${pos.y}%; transform: translate(calc(-50% + ${vx}px), calc(-50% + ${vy}px));`;
-                },
-
-                processPointerMove(mx, my, width, height) {
-                    Object.keys(this.icons).forEach(k => {
-                        const pos = this.getIconPos(k);
-                        const ix = (pos.x / 100) * width;
-                        const iy = (pos.y / 100) * height;
-                        const dist = Math.hypot(mx - ix, my - iy);
-                        const radius = this.isMobile ? 85 : 120;
-
-                        if (dist < radius && dist > 0) {
-                            const force = (1 - dist / radius) * (this.isMobile ? 22 : 35);
-                            const angle = Math.atan2(iy - my, ix - mx);
-                            this.icons[k].vx = Math.cos(angle) * force;
-                            this.icons[k].vy = Math.sin(angle) * force;
-                        } else {
-                            this.icons[k].vx = 0;
-                            this.icons[k].vy = 0;
-                        }
-                    });
-                },
-
-                handleIconAreaMove(e) {
-                    const rect = e.currentTarget.getBoundingClientRect();
-                    this.processPointerMove(e.clientX - rect.left, e.clientY - rect.top, rect.width, rect.height);
-                },
-
-                handleTouchAreaMove(e) {
-                    if (e.touches && e.touches.length > 0) {
-                        const touch = e.touches[0];
-                        const rect = e.currentTarget.getBoundingClientRect();
-                        this.processPointerMove(touch.clientX - rect.left, touch.clientY - rect.top, rect.width, rect.height);
-                    }
-                },
-
-                resetIcons() {
-                    Object.keys(this.icons).forEach(k => {
-                        this.icons[k].vx = 0;
-                        this.icons[k].vy = 0;
-                    });
-                },
-
-                // How It Works Carousel Slider (Slide 0: Process Diagram, Slides 1-5: 2K Screenshots)
-                // Viewport triggered: slider starts 5 seconds AFTER the user reaches the #how-it-works section
-                currentSlide: 0,
-                sliderPaused: false,
-                sliderInterval: null,
-                sliderTriggered: false,
-                sliderTimeout: null,
-                slides: [
-                    {
-                        image: '/static/process-diagram.jpg',
-                        isOverview: true
-                    },
-                    {
-                        image: '/static/screenshots/ai-audience-health.png',
-                        step: 1,
-                        badgeKey: 'landing.how.slide1_badge',
-                        titleKey: 'landing.how.slide1_title',
-                        descKey: 'landing.how.slide1_desc',
-                        highlightKey: 'landing.how.slide1_highlight'
-                    },
-                    {
-                        image: '/static/screenshots/ai-send-time-simulator.png',
-                        step: 2,
-                        badgeKey: 'landing.how.slide2_badge',
-                        titleKey: 'landing.how.slide2_title',
-                        descKey: 'landing.how.slide2_desc',
-                        highlightKey: 'landing.how.slide2_highlight'
-                    },
-                    {
-                        image: '/static/screenshots/report-dispatch-distribution.png',
-                        step: 3,
-                        badgeKey: 'landing.how.slide3_badge',
-                        titleKey: 'landing.how.slide3_title',
-                        descKey: 'landing.how.slide3_desc',
-                        highlightKey: 'landing.how.slide3_highlight'
-                    },
-                    {
-                        image: '/static/screenshots/report-timeline-engagement.png',
-                        step: 4,
-                        badgeKey: 'landing.how.slide4_badge',
-                        titleKey: 'landing.how.slide4_title',
-                        descKey: 'landing.how.slide4_desc',
-                        highlightKey: 'landing.how.slide4_highlight'
-                    },
-                    {
-                        image: '/static/screenshots/report-client-device.png',
-                        step: 5,
-                        badgeKey: 'landing.how.slide5_badge',
-                        titleKey: 'landing.how.slide5_title',
-                        descKey: 'landing.how.slide5_desc',
-                        highlightKey: 'landing.how.slide5_highlight'
-                    }
-                ],
-
-                initSliderObserver() {
-                    const target = document.getElementById('how-it-works');
-                    if (!target) return;
-
-                    if ('IntersectionObserver' in window) {
-                        const observer = new IntersectionObserver((entries) => {
-                            if (entries[0].isIntersecting && !this.sliderTriggered) {
-                                this.startSliderAfterDelay();
-                                observer.disconnect();
-                            }
-                        }, { threshold: 0.2 });
-                        observer.observe(target);
-                    } else {
-                        const onScroll = () => {
-                            const rect = target.getBoundingClientRect();
-                            if (rect.top < window.innerHeight * 0.8 && rect.bottom > 0 && !this.sliderTriggered) {
-                                window.removeEventListener('scroll', onScroll);
-                                this.startSliderAfterDelay();
-                            }
-                        };
-                        window.addEventListener('scroll', onScroll, { passive: true });
-                        onScroll();
-                    }
-                },
-
-                startSliderAfterDelay() {
-                    if (this.sliderTriggered) return;
-                    this.sliderTriggered = true;
-                    if (this.sliderTimeout) clearTimeout(this.sliderTimeout);
-                    // Wait 5 seconds after user arrives at the section before advancing the first slide
-                    this.sliderTimeout = setTimeout(() => {
-                        if (!this.sliderPaused) {
-                            this.nextSlide();
-                        }
-                        this.initSlider();
-                    }, 5000);
-                },
-
-                initSlider() {
-                    if (this.sliderInterval) clearInterval(this.sliderInterval);
-                    this.sliderInterval = setInterval(() => {
-                        if (!this.sliderPaused) {
-                            this.nextSlide();
-                        }
-                    }, 5000);
-                },
-
-                nextSlide() {
-                    if (this.sliderTimeout && !this.sliderInterval) {
-                        clearTimeout(this.sliderTimeout);
-                        this.initSlider();
-                    }
-                    this.currentSlide = (this.currentSlide + 1) % this.slides.length;
-                },
-
-                prevSlide() {
-                    if (this.sliderTimeout && !this.sliderInterval) {
-                        clearTimeout(this.sliderTimeout);
-                        this.initSlider();
-                    }
-                    this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
-                },
-
-                setSlide(idx) {
-                    if (this.sliderTimeout && !this.sliderInterval) {
-                        clearTimeout(this.sliderTimeout);
-                        this.initSlider();
-                    }
-                    this.currentSlide = idx;
-                }
-            };
-        }
-    </script>
+    <script src="/static/landing.js"></script>
 
     <script src="https://agent.dagsolution.com/v1/loader.js" data-bot-id="bot_live_21922676c4f2" defer></script>
 </body>
