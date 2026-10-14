@@ -141,6 +141,44 @@
         "Send Time Optimization (STO) Engagement Lift (+41.3%)",
         "Pre-Send Hygiene Spam Rate Reduction (0.03%)"
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://tracemailer.com/blog/2026-eposta-teslimat-ve-guvenlik-istatistikleri/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Apple Mail Privacy Protection (MPP) e-posta açılma oranlarını nasıl etkiler?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Apple MPP, iOS ve macOS kullanıcılarına gelen e-postaların takip piksellerini Apple proxy sunucuları üzerinden arka planda otomatik olarak yükler. Bu durum ham açılma oranlarını yapay olarak %40-%50 civarında şişirir. TraceMailer, IP CIDR denetimi ve User-Agent analiziyle bu yapay istekleri filtreleyerek gerçek insan etkileşim oranını ayrıştırır."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "DMARC p=reject politikası gelen kutusu (inbox) teslimatını neden artırır?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "DMARC p=reject politikası, alan adınız üzerinden kimliksiz veya yetkisiz gönderim yapılmasını kesin olarak engeller. Google, Yahoo ve Microsoft gibi büyük e-posta sağlayıcıları (ISP), p=reject uygulayan doğrulanmış domain'lere en yüksek itibar skorunu vererek teslimatı %94.6 seviyesine taşır; p=none veya eksik DMARC kayıtlarında bu oran %62-79'a geriler."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Google ve Yahoo'nun %0.10 spam şikayet eşiği aşıldığında ne olur?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "30 günlük hareketli ortalamada %0.10 (binde bir) şikayet oranı aşıldığında, ISP algoritmaları gönderici alan adını 14 gün boyunca SMTP 421 hız sınırlamasına (rate-limiting) ve greylisting cezasına tabi tutar. Bu durum e-postaların gecikmesine ve doğrudan spam klasörüne düşmesine neden olur."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "E-posta gönderiminde Send Time Optimization (STO) nedir ve nasıl çalışır?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "STO (Gönderim Zamanı Optimizasyonu), tüm listeye aynı anda toplu e-posta göndermek yerine, her bir alıcının geçmişte e-postalarını en aktif açtığı saat aralığını makine öğrenimi ile tespit ederek iletileri kişiye özel zamanda kuyruğa alan akıllı dağıtım modelidir. İlk 60 dakikada %41.3'e varan tıklama artışı sağlar."
+          }
+        }
+      ]
     }
   ]
 }
@@ -315,12 +353,13 @@
                         <nav class="space-y-2 text-xs font-medium">
                             <a href="#sec1" class="block py-1.5 px-2.5 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors" x-text="t('blog_report.toc.sections.s1')">1. Yönetici Özeti & Temel Bulgular</a>
                             <a href="#sec2" class="block py-1.5 px-2.5 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors" x-text="t('blog_report.toc.sections.s2')">2. Araştırma Metodolojisi & Veri Seti</a>
-                            <a href="#sec3" class="block py-1.5 px-2.5 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors" x-text="t('blog_report.toc.sections.s3')">3. Apple MPP ve Sahte Açılma Gerçeği (%51.4)</a>
-                            <a href="#sec4" class="block py-1.5 px-2.5 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors" x-text="t('blog_report.toc.sections.s4')">4. DMARC ve BIMI'nin Inbox Placement Etkisi</a>
-                            <a href="#sec5" class="block py-1.5 px-2.5 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors" x-text="t('blog_report.toc.sections.s5')">5. Google & Yahoo %0.10 Kuralı ve Şikayetler</a>
-                            <a href="#sec6" class="block py-1.5 px-2.5 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors" x-text="t('blog_report.toc.sections.s6')">6. Send Time Optimization (STO) Performans Artışı</a>
-                            <a href="#sec7" class="block py-1.5 px-2.5 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors" x-text="t('blog_report.toc.sections.s7')">7. Jitter Throttling ve Dağıtık SMTP Telemetrisi</a>
-                            <a href="#sec8" class="block py-1.5 px-2.5 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors" x-text="t('blog_report.toc.sections.s8')">8. Sonuç & Akademik / Basın Alıntı Formatı</a>
+                            <a href="#sec3" class="block py-1.5 px-2.5 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors" x-text="t('blog_report.toc.sections.s3')">3. Apple MPP Sahte Açılmaları Nasıl Tetikler?</a>
+                            <a href="#sec4" class="block py-1.5 px-2.5 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors" x-text="t('blog_report.toc.sections.s4')">4. DMARC ve BIMI Inbox Başarısını Nasıl Artırır?</a>
+                            <a href="#sec5" class="block py-1.5 px-2.5 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors" x-text="t('blog_report.toc.sections.s5')">5. Google & Yahoo %0.10 Spam Eşiği Nedir?</a>
+                            <a href="#sec6" class="block py-1.5 px-2.5 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors" x-text="t('blog_report.toc.sections.s6')">6. Send Time Optimization (STO) Nedir?</a>
+                            <a href="#sec7" class="block py-1.5 px-2.5 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors" x-text="t('blog_report.toc.sections.s7')">7. Jitter Throttling Nedir?</a>
+                            <a href="#sec8" class="block py-1.5 px-2.5 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors" x-text="t('blog_report.toc.sections.s8')">8. Sonuç & Akademik Alıntı Formatı</a>
+                            <a href="#sec-faq" class="block py-1.5 px-2.5 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors" x-text="t('blog_report.toc.sections.s9')">9. Sıkça Sorulan Sorular (SSS)</a>
                         </nav>
                     </div>
 
@@ -507,7 +546,7 @@
                 <!-- Section 3: Apple MPP Deep Dive -->
                 <section id="sec3" class="scroll-mt-28 space-y-5">
                     <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight" x-text="t('blog_report.sec3.title')">
-                        3. Apple MPP ve Sahte Açılma Gerçeği (%51.4)
+                        3. Apple MPP Sahte Açılmaları Nasıl Tetikler? (%51.4 Ön-Bellek Analizi)
                     </h2>
                     <p class="text-slate-700 leading-relaxed text-sm sm:text-base" x-text="t('blog_report.sec3.lead')">
                         Apple’ın 2021 yılında başlattığı ve 2026 itibarıyla küresel iOS/macOS ekosisteminde %96 benimsenme oranına ulaşan Mail Privacy Protection (MPP), geleneksel e-posta analiz araçlarını tamamen işlevsiz hale getirmiştir.
@@ -555,7 +594,7 @@
                 <!-- Section 4: DMARC & BIMI Placement -->
                 <section id="sec4" class="scroll-mt-28 space-y-5">
                     <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight" x-text="t('blog_report.sec4.title')">
-                        4. DMARC ve BIMI'nin Inbox Placement Üzerindeki Doğrudan Etkisi
+                        4. DMARC ve BIMI Inbox Başarısını Nasıl Artırır? (p=reject vs p=none)
                     </h2>
                     <p class="text-slate-700 leading-relaxed text-sm sm:text-base" x-text="t('blog_report.sec4.lead')">
                         Kimlik doğrulama artık opsiyonel bir güvenlik katmanı değil, gelen kutusuna kabul edilmenin temel giriş biletidir.
@@ -612,7 +651,7 @@
                 <!-- Section 5: Google & Yahoo 0.10% Rule -->
                 <section id="sec5" class="scroll-mt-28 space-y-5">
                     <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight" x-text="t('blog_report.sec5.title')">
-                        5. Google & Yahoo %0.10 Kuralı ve Şikayet Oranları
+                        5. Google & Yahoo %0.10 Spam Eşiği Nedir ve Aşılırsa Ne Olur?
                     </h2>
                     <p class="text-slate-700 leading-relaxed text-sm sm:text-base" x-text="t('blog_report.sec5.lead')">
                         2024 başında devreye giren ve 2026'da sıfır toleransla uygulanan Google & Yahoo bulk sender kuralları, spam şikayet oranının %0.10 altında kalmasını zorunlu kılmaktadır.
@@ -637,7 +676,7 @@
                 <!-- Section 6: STO Performance Lift -->
                 <section id="sec6" class="scroll-mt-28 space-y-5">
                     <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight" x-text="t('blog_report.sec6.title')">
-                        6. Send Time Optimization (STO) vs Toplu Gönderim
+                        6. Send Time Optimization (STO) Nedir ve Toplu Gönderimden Farkı Nedir?
                     </h2>
                     <p class="text-slate-700 leading-relaxed text-sm sm:text-base" x-text="t('blog_report.sec6.lead')">
                         Her kullanıcının e-posta kontrol alışkanlığı farklıdır. Gönderimi alıcının ekran başında olduğu ana zamanlamak etkileşimi doğrudan katlar.
@@ -662,7 +701,7 @@
                 <!-- Section 7: Jitter Throttling & Queues -->
                 <section id="sec7" class="scroll-mt-28 space-y-5">
                     <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight" x-text="t('blog_report.sec7.title')">
-                        7. Jitter Throttling ve Dağıtık SMTP Telemetrisi
+                        7. Jitter Throttling Nedir ve SMTP 421 Hatalarını Nasıl Önler?
                     </h2>
                     <p class="text-slate-700 leading-relaxed text-sm sm:text-base" x-text="t('blog_report.sec7.lead')">
                         Bir anda binlerce e-postayı ISP sunucularına fırlatmak, en meşru kurumların bile IP itibarını yerle bir edebilir. Akıllı dağıtım algoritmaları bu tepe dalgalanmalarını mikrosaniyelik gecikmelerle sönümler.
@@ -704,6 +743,58 @@
                         <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 font-mono text-xs text-slate-800 break-all leading-relaxed select-all">
                             TraceMailer Telemetry Lab, Biçer, M., & Terzi, A. (2026). 2026 Enterprise Email Deliverability and Security Benchmark Report. TraceMailer Engineering Research. https://tracemailer.com/blog/2026-eposta-teslimat-ve-guvenlik-istatistikleri/
                         </div>
+                    </div>
+                </section>
+
+                <!-- Section 9: FAQ (AEO & AI Search Engine Friendly) -->
+                <section id="sec-faq" class="scroll-mt-28 space-y-6 pt-4 border-t border-slate-200">
+                    <div class="space-y-2">
+                        <span class="text-xs font-mono font-bold text-blue-600 uppercase tracking-wider" x-text="t('blog_report.sec_faq.badge')">AEO & SSS // SIKÇA SORULAN SORULAR</span>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight" x-text="t('blog_report.sec_faq.title')">
+                            9. E-Posta Teslimatı ve Güvenliği Hakkında Sıkça Sorulan Sorular
+                        </h2>
+                    </div>
+
+                    <div class="space-y-4">
+                        <details class="group bg-white rounded-2xl border border-slate-200/90 shadow-2xs p-5 transition-all open:ring-1 open:ring-blue-500/20" open>
+                            <summary class="font-bold text-slate-900 text-sm sm:text-base cursor-pointer list-none flex justify-between items-center gap-4">
+                                <span x-text="t('blog_report.sec_faq.q1')">Apple Mail Privacy Protection (MPP) e-posta açılma oranlarını nasıl etkiler?</span>
+                                <span class="text-slate-400 group-open:rotate-180 transition-transform text-xs font-mono">▼</span>
+                            </summary>
+                            <p class="mt-3 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-3" x-text="t('blog_report.sec_faq.a1')">
+                                Apple MPP, iOS ve macOS kullanıcılarına gelen e-postaların takip piksellerini Apple proxy sunucuları üzerinden arka planda otomatik olarak yükler. Bu durum ham açılma oranlarını yapay olarak %40-%50 civarında şişirir. TraceMailer, IP CIDR denetimi ve User-Agent analiziyle bu yapay istekleri filtreleyerek gerçek insan etkileşim oranını ayrıştırır.
+                            </p>
+                        </details>
+
+                        <details class="group bg-white rounded-2xl border border-slate-200/90 shadow-2xs p-5 transition-all open:ring-1 open:ring-blue-500/20">
+                            <summary class="font-bold text-slate-900 text-sm sm:text-base cursor-pointer list-none flex justify-between items-center gap-4">
+                                <span x-text="t('blog_report.sec_faq.q2')">DMARC p=reject politikası gelen kutusu (inbox) teslimatını neden artırır?</span>
+                                <span class="text-slate-400 group-open:rotate-180 transition-transform text-xs font-mono">▼</span>
+                            </summary>
+                            <p class="mt-3 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-3" x-text="t('blog_report.sec_faq.a2')">
+                                DMARC p=reject politikası, alan adınız üzerinden kimliksiz veya yetkisiz gönderim yapılmasını kesin olarak engeller. Google, Yahoo ve Microsoft gibi büyük e-posta sağlayıcıları (ISP), p=reject uygulayan doğrulanmış domain'lere en yüksek itibar skorunu vererek teslimatı %94.6 seviyesine taşır; p=none veya eksik DMARC kayıtlarında bu oran %62-79'a geriler.
+                            </p>
+                        </details>
+
+                        <details class="group bg-white rounded-2xl border border-slate-200/90 shadow-2xs p-5 transition-all open:ring-1 open:ring-blue-500/20">
+                            <summary class="font-bold text-slate-900 text-sm sm:text-base cursor-pointer list-none flex justify-between items-center gap-4">
+                                <span x-text="t('blog_report.sec_faq.q3')">Google ve Yahoo'nun %0.10 spam şikayet eşiği aşıldığında ne olur?</span>
+                                <span class="text-slate-400 group-open:rotate-180 transition-transform text-xs font-mono">▼</span>
+                            </summary>
+                            <p class="mt-3 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-3" x-text="t('blog_report.sec_faq.a3')">
+                                30 günlük hareketli ortalamada %0.10 (binde bir) şikayet oranı aşıldığında, ISP algoritmaları gönderici alan adını 14 gün boyunca SMTP 421 hız sınırlamasına (rate-limiting) ve greylisting cezasına tabi tutar. Bu durum e-postaların gecikmesine ve doğrudan spam klasörüne düşmesine neden olur.
+                            </p>
+                        </details>
+
+                        <details class="group bg-white rounded-2xl border border-slate-200/90 shadow-2xs p-5 transition-all open:ring-1 open:ring-blue-500/20">
+                            <summary class="font-bold text-slate-900 text-sm sm:text-base cursor-pointer list-none flex justify-between items-center gap-4">
+                                <span x-text="t('blog_report.sec_faq.q4')">E-posta gönderiminde Send Time Optimization (STO) nedir ve nasıl çalışır?</span>
+                                <span class="text-slate-400 group-open:rotate-180 transition-transform text-xs font-mono">▼</span>
+                            </summary>
+                            <p class="mt-3 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-3" x-text="t('blog_report.sec_faq.a4')">
+                                STO (Gönderim Zamanı Optimizasyonu), tüm listeye aynı anda toplu e-posta göndermek yerine, her bir alıcının geçmişte e-postalarını en aktif açtığı saat aralığını makine öğrenimi ile tespit ederek iletileri kişiye özel zamanda kuyruğa alan akıllı dağıtım modelidir. İlk 60 dakikada %41.3'e varan tıklama artışı sağlar.
+                            </p>
+                        </details>
                     </div>
                 </section>
 

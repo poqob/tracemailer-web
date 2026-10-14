@@ -2164,18 +2164,19 @@
                 "sections": {
                           "s1": "1. Yönetici Özeti & Temel Bulgular",
                           "s2": "2. Araştırma Metodolojisi & Veri Seti",
-                          "s3": "3. Apple MPP ve Sahte Açılma Gerçeği (%51.4)",
-                          "s4": "4. DMARC ve BIMI'nin Inbox Placement Etkisi",
-                          "s5": "5. Google & Yahoo %0.10 Kuralı ve Şikayetler",
-                          "s6": "6. Send Time Optimization (STO) Performans Artışı",
-                          "s7": "7. Jitter Throttling ve Dağıtık SMTP Telemetrisi",
-                          "s8": "8. Sonuç & Akademik / Basın Alıntı Formatı"
+                          "s3": "3. Apple MPP Sahte Açılmaları Nasıl Tetikler?",
+                          "s4": "4. DMARC ve BIMI Inbox Başarısını Nasıl Artırır?",
+                          "s5": "5. Google & Yahoo %0.10 Spam Eşiği Nedir?",
+                          "s6": "6. Send Time Optimization (STO) Nedir?",
+                          "s7": "7. Jitter Throttling Nedir?",
+                          "s8": "8. Sonuç & Akademik Alıntı Formatı",
+                          "s9": "9. Sıkça Sorulan Sorular (SSS)"
                 }
           },
           "hero": {
                 "badge": "TRACE MAILER TELEMETRİ LABORATUVARI // BİRİNCİL SEKTÖR ARAŞTIRMASI",
                 "title": "2026 Kurumsal E-Posta Teslimat ve Güvenlik Raporu",
-                "subtitle": "4.862 e-posta gönderimi ve 3.240 kurumsal alan adının 1 aylık telemetri analizi: Apple MPP yanılsamaları, DMARC p=reject’in gerçek inbox etkisi ve alıcı odaklı STO kazanımları."
+                "subtitle": "4.862 e-posta gönderimi ve 3.240 kurumsal alan adının 1 aylık telemetri analizi: Apple MPP yanılsamaları, DMARC p=reject’in gerçek inbox etkisi ve alıcı odaklı STO kazanımları.",
           },
           "sidebar_dataset": {
                 "badge": "TELEMETRİ VERİ SETİ // 2026",
@@ -2218,7 +2219,7 @@
                 "d4": "Gizlilik ve KVKK/GDPR Uyumu: Tüm alıcı verileri ve alan adı isimleri tek yönlü SHA-256 ile anonimleştirilmiş, yalnızca mimari ve itibar sinyalleri işlenmiştir."
           },
           "sec3": {
-                "title": "3. Apple MPP ve Sahte Açılma Gerçeği (%51.4)",
+                "title": "3. Apple MPP Sahte Açılmaları Nasıl Tetikler? (%51.4 Ön-Bellek Analizi)",
                 "lead": "Apple’ın 2021 yılında başlattığı ve 2026 itibarıyla küresel iOS/macOS ekosisteminde %96 benimsenme oranına ulaşan Mail Privacy Protection (MPP), geleneksel e-posta analiz araçlarını tamamen işlevsiz hale getirmiştir.",
                 "table_title": "Apple MPP Filtrelenmiş vs Filtrelenmemiş Metrik Karşılaştırması:",
                 "th_metric": "Performans Metriği",
@@ -2240,7 +2241,7 @@
                 "takeaway": "Önemli Çıkarım: SendGrid veya standart kütüphaneler kullanan ekipler, pazarlama kararlarını ve müşteri segmentasyonunu tamamen Apple botlarının önbellekleme döngülerine göre almaktadır. TraceMailer, IP CIDR blok analizi (17.0.0.0/8) ve HTTP başlık imzası denetimi ile sahte açılmaları %99.8 hassasiyetle ayıklar."
           },
           "sec4": {
-                "title": "4. DMARC ve BIMI'nin Inbox Placement Üzerindeki Doğrudan Etkisi",
+                "title": "4. DMARC ve BIMI Inbox Başarısını Nasıl Artırır? (p=reject vs p=none)",
                 "lead": "Kimlik doğrulama artık opsiyonel bir güvenlik katmanı değil, gelen kutusuna kabul edilmenin temel giriş biletidir.",
                 "stat_lead": "İncelenen 3.240 alan adı arasında DMARC politika seviyelerine göre gelen kutusu (Inbox Placement) oranları:",
                 "dmarc_reject": "DMARC p=reject (Katı Koruma): %94.6 Inbox Placement",
@@ -2250,13 +2251,13 @@
                 "bimi_impact": "BIMI & VMC Sertifikası Etkisi: Alan adında DMARC reject şartını sağlayarak resmi SVG Tiny logolu BIMI ve VMC sertifikası alan kurumlarda tekil tıklama oranı (CTR) %28.4 artmış, alıcıların \"Spam Olarak Bildir\" tıklama sıklığı ise %61 oranında düşmüştür."
           },
           "sec5": {
-                "title": "5. Google & Yahoo %0.10 Kuralı ve Şikayet Oranları",
+                "title": "5. Google & Yahoo %0.10 Spam Eşiği Nedir ve Aşılırsa Ne Olur?",
                 "lead": "2024 başında devreye giren ve 2026'da sıfır toleransla uygulanan Google & Yahoo bulk sender kuralları, spam şikayet oranının %0.10 (binde bir) altında kalmasını zorunlu kılmaktadır.",
                 "finding1": "Bindelik Oranın Aşılma Sıklığı: Araştırma döneminde izlenen göndericilerin %38.2’si en az bir kez %0.10 eşiğini aşmıştır. Bu aşımın %84’ü, satın alınmış veya 6 aydan uzun süredir etkileşime girmemiş pasif listelere yapılan toplu gönderimlerden kaynaklanmıştır.",
                 "finding2": "Ön-Gönderim Hijyeni (Pre-Send Hygiene) Avantajı: TraceMailer’ın yerleşik tek kullanımlık adres (disposable email), yazım hatası (typo syntax) ve spam trap temizleme filtresini kullanan firmalarda ortalama şikayet oranı %0.03 seviyesinde kalmış, hiçbir alan adı ISP hız sınırlamasına maruz kalmamıştır."
           },
           "sec6": {
-                "title": "6. Send Time Optimization (STO) vs Toplu Gönderim",
+                "title": "6. Send Time Optimization (STO) Nedir ve Toplu Gönderimden Farkı Nedir?",
                 "lead": "Her kullanıcının e-posta kontrol alışkanlığı farklıdır. Bir CEO sabah 06:30’da iletilerini tararken, bir yazılım mühendisi 11:15’te veya 16:30’da gelen kutusuna odaklanabilir.",
                 "sto_comparison_title": "Zamanlama Stratejisi Kıyaslaması (İlk 4 Saat Etkileşimi):",
                 "sto_sto": "TraceMailer STO (Kişiselleştirilmiş Yapay Zeka Saati): %38.4 Açılma / %8.2 Tıklama",
@@ -2265,7 +2266,7 @@
                 "sto_summary": "Sonuç: STO zamanlaması, e-postayı alıcının ekran başında olduğu anda en üste yerleştirerek açılma olasılığını 1.8 kat artırmaktadır."
           },
           "sec7": {
-                "title": "7. Jitter Throttling ve Dağıtık SMTP Telemetrisi",
+                "title": "7. Jitter Throttling Nedir ve SMTP 421 Hatalarını Nasıl Önler?",
                 "lead": "Bir anda 100.000 e-postayı ISP sunucularına fırlatmak, en meşru kurumların bile IP itibarını yerle bir edebilir. Akıllı dağıtım algoritmaları bu tepe dalgalanmalarını mikrosaniyelik gecikmelerle sönümler.",
                 "jitter_box_title": "Jitter Throttling Başarısı:",
                 "j1": "Kontrolsüz Eşzamanlı Kuyruklar: %8.7 SMTP 421 Rate-Limit Hata Oranı, Ortalama 48 Dakika Teslimat Gecikmesi.",
@@ -2281,6 +2282,18 @@
                 "cite_bib_label": "BibTeX Formatı:",
                 "cite_copy_btn": "Alıntıyı Kopyala",
                 "cite_copied": "Kopyalandı!"
+          },
+          "sec_faq": {
+                "badge": "AEO & SSS // SIKÇA SORULAN SORULAR",
+                "title": "9. E-Posta Teslimatı ve Güvenliği Hakkında Sıkça Sorulan Sorular",
+                "q1": "Apple Mail Privacy Protection (MPP) e-posta açılma oranlarını nasıl etkiler?",
+                "a1": "Apple MPP, iOS ve macOS kullanıcılarına gelen e-postaların takip piksellerini Apple proxy sunucuları üzerinden arka planda otomatik olarak yükler. Bu durum ham açılma oranlarını yapay olarak %40-%50 civarında şişirir. TraceMailer, IP CIDR denetimi ve User-Agent analiziyle bu yapay istekleri filtreleyerek gerçek insan etkileşim oranını ayrıştırır.",
+                "q2": "DMARC p=reject politikası gelen kutusu (inbox) teslimatını neden artırır?",
+                "a2": "DMARC p=reject politikası, alan adınız üzerinden kimliksiz veya yetkisiz gönderim yapılmasını kesin olarak engeller. Google, Yahoo ve Microsoft gibi büyük e-posta sağlayıcıları (ISP), p=reject uygulayan doğrulanmış domain'lere en yüksek itibar skorunu vererek teslimatı %94.6 seviyesine taşır; p=none veya eksik DMARC kayıtlarında bu oran %62-79'a geriler.",
+                "q3": "Google ve Yahoo'nun %0.10 spam şikayet eşiği aşıldığında ne olur?",
+                "a3": "30 günlük hareketli ortalamada %0.10 (binde bir) şikayet oranı aşıldığında, ISP algoritmaları gönderici alan adını 14 gün boyunca SMTP 421 hız sınırlamasına (rate-limiting) ve greylisting cezasına tabi tutar. Bu durum e-postaların gecikmesine ve doğrudan spam klasörüne düşmesine neden olur.",
+                "q4": "E-posta gönderiminde Send Time Optimization (STO) nedir ve nasıl çalışır?",
+                "a4": "STO (Gönderim Zamanı Optimizasyonu), tüm listeye aynı anda toplu e-posta göndermek yerine, her bir alıcının geçmişte e-postalarını en aktif açtığı saat aralığını makine öğrenimi ile tespit ederek iletileri kişiye özel zamanda kuyruğa alan akıllı dağıtım modelidir. İlk 60 dakikada %41.3'e varan tıklama artışı sağlar."
           },
           "authors_box": {
                 "heading": "Araştırma Ekibi & Katkıda Bulunanlar",
@@ -4928,12 +4941,13 @@
                 "sections": {
                           "s1": "1. Executive Summary & Key Findings",
                           "s2": "2. Research Methodology & Dataset Scope",
-                          "s3": "3. Apple MPP & Synthetic Bot Opens (51.4%)",
-                          "s4": "4. Impact of DMARC & BIMI on Inbox Placement",
-                          "s5": "5. Google & Yahoo 0.10% Rule & Spam Complains",
-                          "s6": "6. Send Time Optimization (STO) Performance Lift",
-                          "s7": "7. Jitter Throttling & Distributed SMTP Telemetry",
-                          "s8": "8. Conclusion & Press / Academic Citation Format"
+                          "s3": "3. How Does Apple MPP Trigger Synthetic Opens?",
+                          "s4": "4. How Do DMARC & BIMI Maximize Inbox Placement?",
+                          "s5": "5. What Is the Google & Yahoo 0.10% Spam Rule?",
+                          "s6": "6. What Is Send Time Optimization (STO)?",
+                          "s7": "7. What Is Jitter Throttling?",
+                          "s8": "8. Conclusion & Press / Citation Format",
+                          "s9": "9. Research & Benchmark FAQ"
                 }
           },
           "hero": {
@@ -4982,7 +4996,7 @@
                 "d4": "Privacy Compliance: All recipient addresses and domain names were hashed using one-way SHA-256 in strict accordance with GDPR and KVKK."
           },
           "sec3": {
-                "title": "3. Apple MPP & Synthetic Bot Opens (51.4%)",
+                "title": "3. How Does Apple MPP Trigger Synthetic Opens? (51.4% Bot Caching)",
                 "lead": "With Apple Mail Privacy Protection reaching 96% adoption among iOS and macOS users in 2026, legacy email reporting tools deliver fundamentally corrupted statistics.",
                 "table_title": "Apple MPP Filtered vs Unfiltered Telemetry Comparison:",
                 "th_metric": "Telemetry Metric",
@@ -5004,7 +5018,7 @@
                 "takeaway": "Key Takeaway: Teams relying on legacy SMTP services make roadmap decisions based on bot caching routines. TraceMailer neutralizes Apple MPP caching via CIDR subnet inspection (17.0.0.0/8) and HTTP header heuristics with 99.8% precision."
           },
           "sec4": {
-                "title": "4. Impact of DMARC & BIMI on Primary Inbox Placement",
+                "title": "4. How Do DMARC & BIMI Maximize Primary Inbox Placement?",
                 "lead": "Authentication is no longer an optional security best-practice; it is the fundamental admission ticket to the primary inbox.",
                 "stat_lead": "Inbox placement across 3,240 monitored domains grouped by DMARC enforcement level:",
                 "dmarc_reject": "DMARC p=reject (Strict Enforcement): 94.6% Primary Inbox Placement",
@@ -5014,13 +5028,13 @@
                 "bimi_impact": "BIMI & VMC Impact: Organizations deploying BIMI with verified VMC checkmarks enjoyed a 28.4% increase in unique click-through rates and a 61% reduction in recipient spam complaints."
           },
           "sec5": {
-                "title": "5. Google & Yahoo 0.10% Rule & Spam Complaint Thresholds",
+                "title": "5. What Is the Google & Yahoo 0.10% Spam Rule and What Happens When Exceeded?",
                 "lead": "Enforced with zero tolerance in 2026, Google and Yahoo require commercial bulk senders to keep user-reported spam rates strictly below 0.10%.",
                 "finding1": "Threshold Breaches: 38.2% of monitored domains crossed the 0.10% threshold at least once, primarily due to unscrubbed or aged mailing lists.",
                 "finding2": "Pre-Send List Hygiene Advantage: Organizations utilizing TraceMailer pre-send disposable address scrubbing and syntax verification maintained an average spam rate of 0.03%, experiencing zero throttling events."
           },
           "sec6": {
-                "title": "6. Send Time Optimization (STO) Performance Lift",
+                "title": "6. What Is Send Time Optimization (STO) and How Does It Outperform Batch Blasts?",
                 "lead": "Every subscriber exhibits distinct email management behavior. Sending emails when recipients are actively checking their inbox is the single largest determinant of engagement.",
                 "sto_comparison_title": "Dispatch Timing Strategy Comparison (First 4 Hours):",
                 "sto_sto": "TraceMailer STO (AI Personalized Timing): 38.4% Open / 8.2% CTR",
@@ -5029,7 +5043,7 @@
                 "sto_summary": "Conclusion: STO delivers messages to the top of the mailbox right as the subscriber opens their client, boosting immediate engagement by 1.8x."
           },
           "sec7": {
-                "title": "7. Jitter Throttling & Distributed SMTP Telemetry",
+                "title": "7. What Is Jitter Throttling and How Does It Prevent SMTP 421 Rate Limits?",
                 "lead": "Blasting 100,000 emails concurrently triggers immediate heuristic rate limits across major providers, leading to 421 deferrals.",
                 "jitter_box_title": "Jitter Throttling Telemetry Results:",
                 "j1": "Unpaced FIFO Queues: 8.7% SMTP 421 Rate-Limit Deferrals, 48-minute median queue delay.",
@@ -5045,6 +5059,18 @@
                 "cite_bib_label": "BibTeX Format:",
                 "cite_copy_btn": "Copy Citation",
                 "cite_copied": "Copied!"
+          },
+          "sec_faq": {
+                "badge": "AEO & FAQ // FREQUENTLY ASKED QUESTIONS",
+                "title": "9. Frequently Asked Questions on Email Deliverability & Security",
+                "q1": "How does Apple Mail Privacy Protection (MPP) distort email open rates?",
+                "a1": "Apple MPP automatically pre-fetches and caches email tracking pixels via Apple proxy servers for iOS and macOS recipients. This inflates raw open rates by 40-50% with synthetic bot opens. TraceMailer filters proxy CIDR blocks (17.0.0.0/8) and HTTP telemetry to isolate true human reader engagement.",
+                "q2": "Why does enforcing DMARC p=reject increase primary inbox placement?",
+                "a2": "A DMARC p=reject policy instructs receiving mail servers to discard unauthenticated or spoofed messages originating from your domain. Mailbox providers like Google, Yahoo, and Microsoft award highest domain reputation to authenticated p=reject domains, yielding a 94.6% primary inbox rate compared to 62-79% for unaligned or p=none domains.",
+                "q3": "What happens when sending domains exceed the Google & Yahoo 0.10% spam threshold?",
+                "a3": "Crossing the 0.10% (1 per 1,000) spam complaint threshold on a rolling 30-day window triggers ISP penalties, including SMTP 421 rate-limiting deferrals and aggressive greylisting for approximately 14 days, pushing future emails directly into the spam folder.",
+                "q4": "What is Send Time Optimization (STO) and how does it work?",
+                "a4": "Send Time Optimization (STO) is a machine-learning dispatch strategy that analyzes each subscriber's historical interaction patterns to schedule delivery when they are actively browsing their mailbox, delivering a 41.3% boost in first-hour engagement compared to standard batch blasts."
           },
           "authors_box": {
                 "heading": "Research Authors & Contributors",
