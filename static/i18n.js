@@ -5558,6 +5558,18 @@
      * Resolve effective language code based on preference
      */
     function resolveEffectiveLanguage(preference) {
+        try {
+            if (typeof window !== 'undefined' && window.location && window.location.pathname) {
+                var p = window.location.pathname;
+                if (p === '/en' || p.indexOf('/en/') === 0) {
+                    return 'en';
+                }
+            }
+            if (typeof document !== 'undefined' && document.documentElement && document.documentElement.lang === 'en') {
+                return 'en';
+            }
+        } catch (e) {}
+
         if (preference === 'tr' || preference === 'en') {
             return preference;
         }

@@ -9,7 +9,10 @@
     <meta name="author" content="Mustafa BİÇER">
     <meta name="publisher" content="TraceMailer">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <link rel="canonical" href="https://tracemailer.com/blog/eposta-spama-dusmeden-inbox-rehberi/">
+        <link rel="canonical" href="https://tracemailer.com/blog/eposta-spama-dusmeden-inbox-rehberi/">
+    <link rel="alternate" hreflang="tr" href="https://tracemailer.com/blog/eposta-spama-dusmeden-inbox-rehberi/">
+    <link rel="alternate" hreflang="en" href="https://tracemailer.com/en/blog/why-emails-go-to-spam-guide/">
+    <link rel="alternate" hreflang="x-default" href="https://tracemailer.com/blog/eposta-spama-dusmeden-inbox-rehberi/">
     <meta name="theme-color" content="#2563EB">
 
     <!-- Open Graph -->
@@ -855,6 +858,10 @@
                 },
 
                 setLang(lang) {
+                    if (lang === 'en') {
+                        window.location.href = '/en/blog/why-emails-go-to-spam-guide/';
+                        return;
+                    }
                     if (lang !== 'tr' && lang !== 'en') return;
                     if (window.i18n && window.i18n.setLanguage) {
                         window.i18n.setLanguage(lang);

@@ -1,75 +1,148 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://tracemailer.com/</loc>
-    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tracemailer.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracemailer.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracemailer.com/"/>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://tracemailer.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tracemailer.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracemailer.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracemailer.com/"/>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://tracemailer.com/blog/</loc>
-    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tracemailer.com/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracemailer.com/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracemailer.com/blog/"/>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tracemailer.com/en/blog/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tracemailer.com/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracemailer.com/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracemailer.com/blog/"/>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tracemailer.com/blog/eposta-spama-dusmeden-inbox-rehberi/</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tracemailer.com/blog/eposta-spama-dusmeden-inbox-rehberi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracemailer.com/en/blog/why-emails-go-to-spam-guide/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracemailer.com/blog/eposta-spama-dusmeden-inbox-rehberi/"/>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tracemailer.com/en/blog/why-emails-go-to-spam-guide/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tracemailer.com/blog/eposta-spama-dusmeden-inbox-rehberi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracemailer.com/en/blog/why-emails-go-to-spam-guide/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracemailer.com/blog/eposta-spama-dusmeden-inbox-rehberi/"/>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tracemailer.com/blog/dmarc-dkim-bimi-rehberi/</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tracemailer.com/blog/dmarc-dkim-bimi-rehberi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracemailer.com/en/blog/dmarc-dkim-bimi-guide/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracemailer.com/blog/dmarc-dkim-bimi-rehberi/"/>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tracemailer.com/en/blog/dmarc-dkim-bimi-guide/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tracemailer.com/blog/dmarc-dkim-bimi-rehberi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracemailer.com/en/blog/dmarc-dkim-bimi-guide/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracemailer.com/blog/dmarc-dkim-bimi-rehberi/"/>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tracemailer.com/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tracemailer.com/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracemailer.com/en/blog/transactional-email-architecture/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracemailer.com/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/"/>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tracemailer.com/en/blog/transactional-email-architecture/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tracemailer.com/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracemailer.com/en/blog/transactional-email-architecture/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracemailer.com/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/"/>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tracemailer.com/blog/2026-eposta-teslimat-ve-guvenlik-istatistikleri/</loc>
-    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tracemailer.com/blog/2026-eposta-teslimat-ve-guvenlik-istatistikleri/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracemailer.com/en/blog/2026-email-deliverability-benchmark-report/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracemailer.com/blog/2026-eposta-teslimat-ve-guvenlik-istatistikleri/"/>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tracemailer.com/en/blog/2026-email-deliverability-benchmark-report/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tracemailer.com/blog/2026-eposta-teslimat-ve-guvenlik-istatistikleri/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracemailer.com/en/blog/2026-email-deliverability-benchmark-report/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracemailer.com/blog/2026-eposta-teslimat-ve-guvenlik-istatistikleri/"/>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tracemailer.com/karsilastirma/</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tracemailer.com/karsilastirma/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracemailer.com/en/compare/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracemailer.com/karsilastirma/"/>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tracemailer.com/en/compare/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tracemailer.com/karsilastirma/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracemailer.com/en/compare/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracemailer.com/karsilastirma/"/>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tracemailer.com/sozluk/</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tracemailer.com/sozluk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracemailer.com/en/glossary/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracemailer.com/sozluk/"/>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://tracemailer.com/#features</loc>
-    <lastmod>2026-10-12</lastmod>
+    <loc>https://tracemailer.com/en/glossary/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tracemailer.com/sozluk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracemailer.com/en/glossary/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracemailer.com/sozluk/"/>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://tracemailer.com/#how-it-works</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://tracemailer.com/#pricing</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://tracemailer.com/#contact</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
   </url>
 </urlset>

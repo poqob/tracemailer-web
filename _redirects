@@ -3,3 +3,12 @@
 /login https://dash.tracemailer.com/login 302
 /register https://dash.tracemailer.com/login 302
 /dashboard https://dash.tracemailer.com/dashboard 302
+
+# Localized English 301 Redirects
+/en/blog/eposta-spama-dusmeden-inbox-rehberi/* /en/blog/why-emails-go-to-spam-guide/ 301
+/en/blog/dmarc-dkim-bimi-rehberi/* /en/blog/dmarc-dkim-bimi-guide/ 301
+/en/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/* /en/blog/transactional-email-architecture/ 301
+/en/blog/2026-eposta-teslimat-ve-guvenlik-istatistikleri/* /en/blog/2026-email-deliverability-benchmark-report/ 301
+/en/karsilastirma/* /en/compare/ 301
+/en/sozluk/* /en/glossary/ 301
+

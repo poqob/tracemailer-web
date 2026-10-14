@@ -9,9 +9,9 @@
     <meta name="author" content="TraceMailer">
     <meta name="publisher" content="TraceMailer">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <link rel="canonical" href="https://tracemailer.com/">
+        <link rel="canonical" href="https://tracemailer.com/">
     <link rel="alternate" hreflang="tr" href="https://tracemailer.com/">
-    <link rel="alternate" hreflang="en" href="https://tracemailer.com/">
+    <link rel="alternate" hreflang="en" href="https://tracemailer.com/en/">
     <link rel="alternate" hreflang="x-default" href="https://tracemailer.com/">
     <meta name="theme-color" content="#2563EB">
 
@@ -1190,6 +1190,10 @@
                 },
 
                 setLang(lang) {
+                    if (lang === 'en') {
+                        window.location.href = '/en/';
+                        return;
+                    }
                     if (lang !== 'tr' && lang !== 'en') return;
                     if (window.i18n && window.i18n.setLanguage) {
                         window.i18n.setLanguage(lang);

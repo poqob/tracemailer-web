@@ -6,7 +6,12 @@
     <title>E-Posta Terimleri Sözlüğü | TraceMailer Teknik Kılavuz</title>
     <meta name="description" content="SPF, DKIM, DMARC, BIMI, Apple MPP, STO ve bounce terimlerini içeren kapsamlı e-posta teslim edilebilirliği ve mühendislik terimleri sözlüğü.">
     <meta name="keywords" content="e-posta terimleri sözlüğü, apple mpp nedir, dmarc p reject, send time optimization sto, hard bounce soft bounce farkı, spf dkim bimi, rfc 8058, spam trap, deliverability">
-    <link rel="canonical" href="https://tracemailer.com/sozluk/">
+
+
+        <link rel="canonical" href="https://tracemailer.com/sozluk/">
+    <link rel="alternate" hreflang="tr" href="https://tracemailer.com/sozluk/">
+    <link rel="alternate" hreflang="en" href="https://tracemailer.com/en/glossary/">
+    <link rel="alternate" hreflang="x-default" href="https://tracemailer.com/sozluk/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
@@ -813,6 +818,10 @@
                 },
 
                 setLang(lang) {
+                    if (lang === 'en') {
+                        window.location.href = '/en/glossary/';
+                        return;
+                    }
                     if (window.setLanguage) {
                         window.setLanguage(lang);
                     }

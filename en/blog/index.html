@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TraceMailer Guides & Blog | Email Delivery & Telemetry</title>
+    <meta name="description" content="Expert engineering guides and case studies on email deliverability, inbox placement, audience hygiene, and STO by Mustafa Bicer.">
+    <meta name="keywords" content="e-posta pazarlama rehberi, email deliverability blog, inbox optimizasyonu, mustafa biçer, sto gönderim zamanı, spf dkim dmarc kılavuzu">
+    <meta name="author" content="Mustafa BİÇER">
+    <meta name="publisher" content="TraceMailer">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+        <link rel="canonical" href="https://tracemailer.com/en/blog/">
+    <link rel="alternate" hreflang="tr" href="https://tracemailer.com/blog/">
+    <link rel="alternate" hreflang="en" href="https://tracemailer.com/en/blog/">
+    <link rel="alternate" hreflang="x-default" href="https://tracemailer.com/blog/">
+    <meta name="theme-color" content="#2563EB">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tracemailer.com/en/blog/">
+    <meta property="og:title" content="TraceMailer Guides & Blog | Email Delivery & Telemetry">
+    <meta property="og:description" content="Expert engineering guides and case studies on email deliverability, inbox placement, audience hygiene, and STO by Mustafa Bicer.">
+    <meta property="og:image" content="https://tracemailer.com/static/og-image.jpg?v=20260921">
+    <meta property="og:site_name" content="TraceMailer">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="tr_TR">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://tracemailer.com/en/blog/">
+    <meta name="twitter:title" content="TraceMailer Guides & Blog | Email Delivery & Telemetry">
+    <meta name="twitter:description" content="Expert engineering guides and case studies on email deliverability, inbox placement, audience hygiene, and STO by Mustafa Bicer.">
+    <meta name="twitter:image" content="https://tracemailer.com/static/og-image.jpg?v=20260921">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Ana Sayfa",
+              "item": "https://tracemailer.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Rehber & Blog",
+              "item": "https://tracemailer.com/en/blog/"
+            }
+          ]
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://tracemailer.com/en/blog/#webpage",
+          "url": "https://tracemailer.com/en/blog/",
+          "name": "TraceMailer Rehber & Blog",
+          "description": "E-posta teslim edilebilirliği, inbox başarısı, alıcı hijyeni ve telemetri teknolojileri hakkında derinlemesine rehberler.",
+          "hasPart": [
+            {
+              "@type": "BlogPosting",
+              "headline": "Transaksiyonel E-Posta Mimarisi: Kurumsal Sistemlerde 10M+ Dağıtım",
+              "url": "https://tracemailer.com/en/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/"
+            },
+            {
+              "@type": "BlogPosting",
+              "headline": "DMARC, DKIM ve BIMI Rehberi: E-Postada Doğrulanmış Marka Logosu",
+              "url": "https://tracemailer.com/en/blog/dmarc-dkim-bimi-rehberi/"
+            },
+            {
+              "@type": "BlogPosting",
+              "headline": "E-Postalar Neden Spama Düşer? %90+ Inbox Başarısı İçin 2026 Rehberi",
+              "url": "https://tracemailer.com/en/blog/eposta-spama-dusmeden-inbox-rehberi/"
+            }
+          ],
+          "publisher": {
+            "@type": "Organization",
+            "name": "TraceMailer",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://tracemailer.com/static/favicon.svg"
+            }
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://tracemailer.com/#author-mustafa-bicer",
+          "name": "Mustafa BİÇER",
+          "jobTitle": "Dijital Çözüm Uzmanı",
+          "image": "https://www.gravatar.com/avatar/522c480ffa943deea2beecdcf801a4d8?s=400&d=mp",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "TraceMailer"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/in/mustafa-biçer-7164221b4",
+            "https://github.com/poqob",
+            "https://www.dagsolution.com/me"
+          ],
+          "description": "B2B e-posta teslim edilebilirliği, SMTP altyapıları, IP itibarı ve telemetri sistemleri üzerine çalışan Dijital Çözüm Uzmanı."
+        },
+        {
+          "@type": "Person",
+          "@id": "https://tracemailer.com/#author-akin-terzi",
+          "name": "Akın TERZİ",
+          "jobTitle": "Normsoft Bilgi Teknolojileri A.Ş. Genel Müdürü & Kurucu",
+          "image": "https://tracemailer.com/static/akin-terzi.jpg",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Normsoft Bilgi Teknolojileri A.Ş."
+          },
+          "sameAs": [
+            "https://www.linkedin.com/in/akin-terzi/",
+            "https://www.normsoft.com.tr/"
+          ],
+          "description": "DİJİTAL PLATFORM Organizasyonu ve NORMSOFT A.Ş. kurucusu ve Genel Müdürü. CAD, BIM, AR&VR, TraceParts Türkiye ve 10M+ transaksiyonel e-posta mimarileri lideri."
+        }
+      ]
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+    <link rel="alternate icon" href="/static/favicon.ico">
+    <link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#EFF6FF',
+                            100: '#DBEAFE',
+                            200: '#BFDBFE',
+                            500: '#3B82F6',
+                            600: '#2563EB',
+                            700: '#1D4ED8',
+                            800: '#1E40AF',
+                            900: '#1E3A8A',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Internationalization (i18n) -->
+    <script src="/static/i18n.js?v=20261012d"></script>
+
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+        .font-mono-code { font-family: 'JetBrains Mono', monospace; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-blue-600 selection:text-white" x-data="blogHubApp()">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-all duration-200">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="/en/" class="flex items-center gap-3 group">
+                <img src="/static/favicon.svg" alt="TraceMailer Logo" class="w-9 h-9 rounded-xl shadow-xs group-hover:scale-105 transition-transform duration-200">
+                <span class="font-bold text-2xl tracking-tight text-slate-900">Trace<span class="text-blue-600">Mailer</span></span>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                <a href="/en/#features" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.nav.why')">Neden TraceMailer?</a>
+                <a href="/en/#how-it-works" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.nav.how')">Nasıl Çalışır?</a>
+                <a href="/en/blog/" class="text-blue-600 font-semibold transition-colors" x-text="t('blog_hub.nav.blog')">Rehber & Blog</a>
+                <a href="/en/compare/" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.nav.compare')">Karşılaştırma</a>
+                <a href="/en/glossary/" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.nav.glossary')">Sözlük</a>
+                <a href="/en/#faq" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.nav.faq')">SSS</a>
+                <a href="/en/#contact" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.nav.contact')">İletişim</a>
+            </nav>
+
+            <!-- Action Buttons & Language Switcher -->
+            <div class="flex items-center gap-3">
+                <a href="https://dash.tracemailer.com/login" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-sm shadow-blue-600/25 transition-all hover:shadow-md hover:shadow-blue-600/30 hover:-translate-y-0.5 cursor-pointer" x-text="t('blog_hub.nav.login')">
+                    Giriş Yap
+                </a>
+
+                <!-- Globe Language Switcher -->
+                <div class="relative">
+                    <button type="button" @click="langMenuOpen = !langMenuOpen" 
+                            class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-slate-700 hover:text-blue-600 hover:bg-slate-100 transition-all font-semibold text-xs border border-slate-200/80 cursor-pointer shadow-2xs group"
+                            :title="currentLang === 'tr' ? 'Dili Değiştir' : 'Switch Language'"
+                            aria-label="Language selector">
+                        <svg class="w-4 h-4 text-slate-500 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" stroke-width="1.8"/>
+                            <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" stroke-width="1.8"/>
+                        </svg>
+                        <span class="uppercase font-bold tracking-wider text-xs" x-text="currentLang"></span>
+                        <svg class="w-3 h-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+
+                    <div x-show="langMenuOpen" x-cloak @click.away="langMenuOpen = false" 
+                         x-transition:enter="transition ease-out duration-150"
+                         x-transition:enter-start="opacity-0 scale-95"
+                         x-transition:enter-end="opacity-100 scale-100"
+                         x-transition:leave="transition ease-in duration-100"
+                         x-transition:leave-start="opacity-100 scale-100"
+                         x-transition:leave-end="opacity-0 scale-95"
+                         class="absolute right-0 mt-2 w-36 bg-white rounded-2xl shadow-xl border border-slate-100 py-1.5 z-50 overflow-hidden">
+                        <button type="button" @click="setLang('tr'); langMenuOpen = false" 
+                                class="w-full flex items-center justify-between px-3.5 py-2 text-xs font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer"
+                                :class="currentLang === 'tr' ? 'bg-blue-50/70 text-blue-600 font-bold' : ''">
+                            <span class="flex items-center gap-2"><span>🇹🇷</span><span>Türkçe</span></span>
+                            <span x-show="currentLang === 'tr'" class="text-blue-600 font-bold">✓</span>
+                        </button>
+                        <button type="button" @click="setLang('en'); langMenuOpen = false" 
+                                class="w-full flex items-center justify-between px-3.5 py-2 text-xs font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer"
+                                :class="currentLang === 'en' ? 'bg-blue-50/70 text-blue-600 font-bold' : ''">
+                            <span class="flex items-center gap-2"><span>🇬🇧</span><span>English</span></span>
+                            <span x-show="currentLang === 'en'" class="text-blue-600 font-bold">✓</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Header -->
+    <section class="bg-white border-b border-slate-200/80 py-14 px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4" x-text="t('blog_hub.hero.title')">
+                TraceMailer Rehber & Blog
+            </h1>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed" x-text="t('blog_hub.hero.desc')">
+                Spam filtrelerini aşma teknikleri, Google & Yahoo kuralları, STO zamanlaması ve e-posta telemetrisi üzerine derinlemesine mühendislik analizleri.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-6 py-12">
+
+        <!-- Authors Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+            <!-- Author 1: Mustafa BİÇER -->
+            <div class="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-xs flex items-center gap-4">
+                <img src="https://www.gravatar.com/avatar/522c480ffa943deea2beecdcf801a4d8?s=400&d=mp" 
+                     alt="Mustafa BİÇER" 
+                     class="w-14 h-14 rounded-2xl object-cover shadow-xs ring-1 ring-slate-200 flex-shrink-0">
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-0.5">
+                        <h2 class="text-base font-bold text-slate-900 truncate" x-text="t('blog_hub.authors.mustafa.name')">Mustafa BİÇER</h2>
+                    </div>
+                    <span class="text-xs text-slate-600 font-medium block mb-1 truncate" x-text="t('blog_hub.authors.mustafa.role')">Dijital Çözüm Uzmanı</span>
+                    <p class="text-2xs text-slate-500 leading-relaxed line-clamp-2 mb-2" x-text="t('blog_hub.authors.mustafa.desc')">
+                        Yüksek hacimli e-posta dağıtımı, SMTP optimizasyonu ve telemetri analizleri.
+                    </p>
+                    <div class="flex items-center gap-2 pt-2 border-t border-slate-100">
+                        <a href="https://www.linkedin.com/in/mustafa-biçer-7164221b4" target="_blank" rel="noopener noreferrer" 
+                           class="inline-flex items-center gap-1 text-2xs text-slate-500 hover:text-blue-600 transition-colors font-medium">
+                            <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            <span>LinkedIn</span>
+                        </a>
+                        <span class="text-slate-300">&bull;</span>
+                        <a href="https://github.com/poqob" target="_blank" rel="noopener noreferrer" 
+                           class="inline-flex items-center gap-1 text-2xs text-slate-500 hover:text-slate-900 transition-colors font-medium">
+                            <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            <span>GitHub</span>
+                        </a>
+                        <span class="text-slate-300">&bull;</span>
+                        <a href="https://www.dagsolution.com/me" target="_blank" rel="noopener noreferrer" 
+                           class="inline-flex items-center gap-1 text-2xs text-slate-500 hover:text-blue-600 transition-colors font-medium">
+                            <span>DAG Solution</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Author 2: Akın TERZİ -->
+            <div class="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-xs flex items-center gap-4">
+                <img src="/static/akin-terzi.jpg" 
+                     alt="Akın TERZİ" 
+                     class="w-14 h-14 rounded-2xl object-cover shadow-xs ring-1 ring-slate-200 flex-shrink-0 bg-slate-100">
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-0.5">
+                        <h2 class="text-base font-bold text-slate-900 truncate" x-text="t('blog_hub.authors.akin.name')">Akın TERZİ</h2>
+                    </div>
+                    <span class="text-xs text-slate-600 font-medium block mb-1 truncate" x-text="t('blog_hub.authors.akin.role')">Normsoft Bilgi Teknolojileri A.Ş. Genel Müdürü & Kurucu</span>
+                    <p class="text-2xs text-slate-500 leading-relaxed line-clamp-2 mb-2" x-text="t('blog_hub.authors.akin.desc')">
+                        Dijital dönüşüm, CAD, BIM, AR&VR, TraceParts Türkiye ve kurumsal transaksiyonel mesaj mimarileri lideri.
+                    </p>
+                    <div class="flex items-center gap-2 pt-2 border-t border-slate-100">
+                        <a href="https://www.linkedin.com/in/akin-terzi/" target="_blank" rel="noopener noreferrer" 
+                           class="inline-flex items-center gap-1 text-2xs text-slate-500 hover:text-blue-600 transition-colors font-medium">
+                            <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            <span>LinkedIn</span>
+                        </a>
+                        <span class="text-slate-300">&bull;</span>
+                        <a href="https://www.normsoft.com.tr/" target="_blank" rel="noopener noreferrer" 
+                           class="inline-flex items-center gap-1 text-2xs text-slate-500 hover:text-blue-600 transition-colors font-medium">
+                            <span>Normsoft A.Ş.</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Title -->
+        <div class="flex items-center justify-between mb-8">
+            <h2 class="text-2xl font-bold text-slate-900 tracking-tight" x-text="t('blog_hub.featured.heading')">Öne Çıkan Rehberler</h2>
+            <span class="text-xs text-slate-400 font-mono-code" x-text="t('blog_hub.featured.count')">4 Yayın</span>
+        </div>
+
+        <div class="space-y-8">
+            <!-- Guide Card 4: 2026 Benchmark Raporu (Featured Benchmark) -->
+            <article class="bg-gradient-to-br from-white to-blue-50/30 rounded-3xl border-2 border-blue-500/30 shadow-xs overflow-hidden hover:shadow-lg hover:border-blue-500 transition-all duration-200 group">
+                <div class="p-6 sm:p-10">
+                    <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500 mb-3 font-medium">
+                        <span class="px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800 font-bold text-[11px]" x-text="t('blog_hub.guides.g4.category')">Sektör Benchmark Raporu // 2026</span>
+                        <span class="text-slate-300">&bull;</span>
+                        <span x-text="t('blog_hub.guides.g4.read_time')">12 Dk Okuma</span>
+                        <span class="text-slate-300">&bull;</span>
+                        <time datetime="2026-10-06" x-text="t('blog_hub.guides.g4.date')">6 Ekim 2026</time>
+                    </div>
+
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors mb-4 leading-tight">
+                        <a href="/en/blog/2026-email-deliverability-benchmark-report/" x-text="t('blog_hub.guides.g4.title')">
+                            2026 Kurumsal E-Posta Teslimat ve Güvenlik Raporu: 3.200+ Domain Analizi
+                        </a>
+                    </h3>
+
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6" x-text="t('blog_hub.guides.g4.desc')">
+                        TraceMailer Telemetri Laboratuvarı’ndan 4.862 e-posta ve 3.240 alan adı üzerinde 1 aylık veri setiyle gerçekleştirilen kapsamlı araştırma. Apple MPP’nin %51.4’lük sahte piksel gerçeği, DMARC p=reject’in %94.6 inbox başarısı ve STO etkileşim kazanımları.
+                    </p>
+
+                    <div class="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-slate-100">
+                        <div class="flex items-center gap-2">
+                            <div class="flex -space-x-2">
+                                <img src="https://www.gravatar.com/avatar/522c480ffa943deea2beecdcf801a4d8?s=400&d=mp" alt="Mustafa BİÇER" class="w-9 h-9 rounded-xl object-cover ring-2 ring-white">
+                                <img src="/static/akin-terzi.jpg" alt="Akın TERZİ" class="w-9 h-9 rounded-xl object-cover ring-2 ring-white">
+                            </div>
+                            <div class="text-xs">
+                                <span class="font-bold text-slate-900 block">TraceMailer Araştırma Ekibi</span>
+                                <span class="text-slate-500 font-medium text-[11px]">Mustafa BİÇER & Akın TERZİ</span>
+                            </div>
+                        </div>
+
+                        <a href="/en/blog/2026-email-deliverability-benchmark-report/" 
+                           class="inline-flex items-center gap-2 font-semibold text-sm text-blue-600 group-hover:text-blue-700 group-hover:translate-x-1 transition-all">
+                            <span x-text="t('blog_hub.guides.g4.read_btn')">Raporu İncele</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Guide Card 3: Transaksiyonel E-Posta Mimarisi (Newest) -->
+            <article class="bg-white rounded-3xl border border-slate-200/80 shadow-xs overflow-hidden hover:shadow-md hover:border-slate-300 transition-all duration-200 group">
+                <div class="p-6 sm:p-10">
+                    <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500 mb-3 font-medium">
+                        <span class="text-blue-600 font-semibold" x-text="t('blog_hub.guides.g3.category')">Kurumsal Mimari & Transaksiyonel Dağıtım</span>
+                        <span class="text-slate-300">&bull;</span>
+                        <span x-text="t('blog_hub.guides.g3.read_time')">9 Dk Okuma</span>
+                        <span class="text-slate-300">&bull;</span>
+                        <time datetime="2026-10-02" x-text="t('blog_hub.guides.g3.date')">2 Ekim 2026</time>
+                    </div>
+
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors mb-4 leading-tight">
+                        <a href="/en/blog/transactional-email-architecture/" x-text="t('blog_hub.guides.g3.title')">
+                            Transaksiyonel E-Posta Mimarisi: Kurumsal Sistemlerde 10M+ Dağıtım
+                        </a>
+                    </h3>
+
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6" x-text="t('blog_hub.guides.g3.desc')">
+                        Normsoft ERP ve SaaS altyapılarında ayda 10 milyondan fazla e-fatura, OTP ve kritik bildirimi gecikmesiz, kuyruk kilitlenmesi olmadan ve spama düşmeden iletme rehberi. Akın Terzi’den vaka analizi ve mimari ilkeler.
+                    </p>
+
+                    <div class="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-slate-100">
+                        <div class="flex items-center gap-3">
+                            <img src="/static/akin-terzi.jpg" 
+                                 alt="Akın TERZİ" 
+                                 class="w-10 h-10 rounded-xl object-cover ring-1 ring-slate-200 bg-slate-100">
+                            <div>
+                                <span class="font-bold text-slate-900 text-sm block" x-text="t('blog_hub.authors.akin.name')">Akın TERZİ</span>
+                                <span class="text-xs text-slate-500 font-medium" x-text="t('blog_hub.authors.akin.role')">Normsoft Bilgi Teknolojileri A.Ş. Genel Müdürü & Kurucu</span>
+                            </div>
+                        </div>
+
+                        <a href="/en/blog/transactional-email-architecture/" 
+                           class="inline-flex items-center gap-2 font-semibold text-sm text-blue-600 group-hover:text-blue-700 group-hover:translate-x-1 transition-all">
+                            <span x-text="t('blog_hub.guides.g3.read_btn')">Rehberi Oku</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Guide Card 2: DMARC, DKIM & BIMI -->
+            <article class="bg-white rounded-3xl border border-slate-200/80 shadow-xs overflow-hidden hover:shadow-md hover:border-slate-300 transition-all duration-200 group">
+                <div class="p-6 sm:p-10">
+                    <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500 mb-3 font-medium">
+                        <span class="text-blue-600 font-semibold" x-text="t('blog_hub.guides.g2.category')">E-Posta Güvenliği & Kimlik Doğrulama</span>
+                        <span class="text-slate-300">&bull;</span>
+                        <span x-text="t('blog_hub.guides.g2.read_time')">8 Dk Okuma</span>
+                        <span class="text-slate-300">&bull;</span>
+                        <time datetime="2026-09-18" x-text="t('blog_hub.guides.g2.date')">18 Eylül 2026</time>
+                    </div>
+
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors mb-4 leading-tight">
+                        <a href="/en/blog/dmarc-dkim-bimi-guide/" x-text="t('blog_hub.guides.g2.title')">
+                            DMARC, DKIM ve BIMI Rehberi: E-Postada Doğrulanmış Marka Logosu
+                        </a>
+                    </h3>
+
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6" x-text="t('blog_hub.guides.g2.desc')">
+                        Google ve Yahoo’nun 2026 zorunlu gönderici kuralları, SPF/DKIM hizalaması ve Gmail ile Apple Mail kutularında doğrulanmış mavi tikli marka logosu gösterme rehberi. Phishing engelleme ve %22 açılma artışı vaka analizi.
+                    </p>
+
+                    <div class="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-slate-100">
+                        <div class="flex items-center gap-3">
+                            <img src="https://www.gravatar.com/avatar/522c480ffa943deea2beecdcf801a4d8?s=400&d=mp" 
+                                 alt="Mustafa BİÇER" 
+                                 class="w-10 h-10 rounded-xl object-cover ring-1 ring-slate-200">
+                            <div>
+                                <span class="font-bold text-slate-900 text-sm block" x-text="t('blog_hub.authors.mustafa.name')">Mustafa BİÇER</span>
+                                <span class="text-xs text-slate-500 font-medium" x-text="t('blog_hub.authors.mustafa.role')">Dijital Çözüm Uzmanı</span>
+                            </div>
+                        </div>
+
+                        <a href="/en/blog/dmarc-dkim-bimi-guide/" 
+                           class="inline-flex items-center gap-2 font-semibold text-sm text-blue-600 group-hover:text-blue-700 group-hover:translate-x-1 transition-all">
+                            <span x-text="t('blog_hub.guides.g2.read_btn')">Rehberi Oku</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Guide Card 1: E-Postalar Neden Spama Düşer? -->
+            <article class="bg-white rounded-3xl border border-slate-200/80 shadow-xs overflow-hidden hover:shadow-md hover:border-slate-300 transition-all duration-200 group">
+                <div class="p-6 sm:p-10">
+                    <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500 mb-3 font-medium">
+                        <span class="text-blue-600 font-semibold" x-text="t('blog_hub.guides.g1.category')">E-Posta Teslim Edilebilirliği</span>
+                        <span class="text-slate-300">&bull;</span>
+                        <span x-text="t('blog_hub.guides.g1.read_time')">7 Dk Okuma</span>
+                        <span class="text-slate-300">&bull;</span>
+                        <time datetime="2026-08-24" x-text="t('blog_hub.guides.g1.date')">24 Ağustos 2026</time>
+                    </div>
+
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors mb-4 leading-tight">
+                        <a href="/en/blog/why-emails-go-to-spam-guide/" x-text="t('blog_hub.guides.g1.title')">
+                            E-Postalar Neden Spama Düşer? %90+ Inbox Başarısı İçin 2026 Rehberi
+                        </a>
+                    </h3>
+
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6" x-text="t('blog_hub.guides.g1.desc')">
+                        Google ve Yahoo’nun getirdiği katı zorunluluklar, Apple MPP’nin yanıltıcı açılma pikselleri ve yapay zeka spam filtreleri çağında gelen kutusunda kalmanın teknik matematiği. 50.000 kişilik B2B test listesindeki vaka analizi ve adım adım eylem planı.
+                    </p>
+
+                    <div class="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-slate-100">
+                        <div class="flex items-center gap-3">
+                            <img src="https://www.gravatar.com/avatar/522c480ffa943deea2beecdcf801a4d8?s=400&d=mp" 
+                                 alt="Mustafa BİÇER" 
+                                 class="w-10 h-10 rounded-xl object-cover ring-1 ring-slate-200">
+                            <div>
+                                <span class="font-bold text-slate-900 text-sm block" x-text="t('blog_hub.authors.mustafa.name')">Mustafa BİÇER</span>
+                                <span class="text-xs text-slate-500 font-medium" x-text="t('blog_hub.authors.mustafa.role')">Dijital Çözüm Uzmanı</span>
+                            </div>
+                        </div>
+
+                        <a href="/en/blog/why-emails-go-to-spam-guide/" 
+                           class="inline-flex items-center gap-2 font-semibold text-sm text-blue-600 group-hover:text-blue-700 group-hover:translate-x-1 transition-all">
+                            <span x-text="t('blog_hub.guides.g1.read_btn')">Rehberi Oku</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- Topic Tags -->
+        <div class="mt-12 p-8 rounded-3xl bg-white border border-slate-200/80">
+            <h3 class="text-sm font-bold text-slate-700 mb-4" x-text="t('blog_hub.topics.heading')">Rehber Konuları</h3>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1.5 rounded-lg bg-slate-50 text-slate-700 text-xs font-medium border border-slate-200/80" x-text="t('blog_hub.topics.t1')">E-Posta Teslim Edilebilirliği</span>
+                <span class="px-3 py-1.5 rounded-lg bg-slate-50 text-slate-700 text-xs font-medium border border-slate-200/80" x-text="t('blog_hub.topics.t2')">SPF / DKIM / DMARC Kurulumu</span>
+                <span class="px-3 py-1.5 rounded-lg bg-slate-50 text-slate-700 text-xs font-medium border border-slate-200/80" x-text="t('blog_hub.topics.t3')">Send Time Optimization (STO)</span>
+                <span class="px-3 py-1.5 rounded-lg bg-slate-50 text-slate-700 text-xs font-medium border border-slate-200/80" x-text="t('blog_hub.topics.t4')">Apple Mail Privacy Protection (MPP)</span>
+                <span class="px-3 py-1.5 rounded-lg bg-slate-50 text-slate-700 text-xs font-medium border border-slate-200/80" x-text="t('blog_hub.topics.t5')">Alıcı Listesi Hijyeni</span>
+                <span class="px-3 py-1.5 rounded-lg bg-slate-50 text-slate-700 text-xs font-medium border border-slate-200/80" x-text="t('blog_hub.topics.t6')">Google Postmaster Tools</span>
+                <span class="px-3 py-1.5 rounded-lg bg-slate-50 text-slate-700 text-xs font-medium border border-slate-200/80" x-text="t('blog_hub.topics.t7')">Jitter Dağıtım</span>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200/80 py-12 px-6 mt-16">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-slate-500">
+            <div class="flex items-center gap-3">
+                <img src="/static/favicon.svg" alt="TraceMailer" class="w-6 h-6 rounded-lg">
+                <span class="font-bold text-slate-900 text-sm">Trace<span class="text-blue-600">Mailer</span></span>
+                <span class="text-slate-300">&bull;</span>
+                <span x-text="t('blog_hub.footer.tagline')">Yapay Zeka Destekli E-Posta Dağıtım & Telemetri Platformu</span>
+            </div>
+
+            <div class="flex items-center gap-6 text-slate-600 font-medium">
+                <a href="/en/#features" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.footer.why')">Neden TraceMailer?</a>
+                <a href="/en/#how-it-works" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.footer.how')">Nasıl Çalışır?</a>
+                <a href="/en/blog/" class="hover:text-blue-600 transition-colors font-semibold text-blue-600" x-text="t('blog_hub.footer.blog')">Rehber & Blog</a>
+                <a href="/en/compare/" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.nav.compare')">Karşılaştırma</a>
+                <a href="/en/glossary/" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.nav.glossary')">Sözlük</a>
+                <a href="/en/#faq" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.footer.faq')">SSS</a>
+                <a href="https://dash.tracemailer.com/login" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.footer.login')">Müşteri Girişi</a>
+            </div>
+
+            <div class="text-slate-400 font-mono-code" x-text="t('blog_hub.footer.copyright')">
+                &copy; 2026 TraceMailer. Tüm hakları saklıdır.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Alpine.js Application -->
+    <script>
+        function blogHubApp() {
+            return {
+                currentLang: 'en',
+                langMenuOpen: false,
+
+                init() {
+                    if (window.i18n && window.i18n.getLanguage) {
+                        this.currentLang = window.i18n.getLanguage();
+                    } else {
+                        var stored = null;
+                        try { stored = localStorage.getItem('tracemailer_lang'); } catch(e){}
+                        if (stored === 'tr' || stored === 'en') {
+                            this.currentLang = stored;
+                        } else {
+                            var browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+                            this.currentLang = browserLang.startsWith('tr') ? 'tr' : 'en';
+                        }
+                    }
+
+                    if (window.i18n && window.i18n.setLanguage) {
+                        window.i18n.setLanguage(this.currentLang);
+                    }
+                    this.updateMeta();
+
+                    window.addEventListener('language-changed', (e) => {
+                        if (e.detail && e.detail.language && (e.detail.language === 'tr' || e.detail.language === 'en')) {
+                            this.currentLang = e.detail.language;
+                            this.updateMeta();
+                        }
+                    });
+                },
+
+                setLang(lang) {
+                    if (lang === 'tr') {
+                        window.location.href = '/blog/';
+                        return;
+                    }
+                    if (lang === 'en') {
+                        window.location.href = '/en/blog/';
+                        return;
+                    }
+                    if (lang !== 'tr' && lang !== 'en') return;
+                    if (window.i18n && window.i18n.setLanguage) {
+                        window.i18n.setLanguage(lang);
+                    } else {
+                        try { localStorage.setItem('tracemailer_lang', lang); } catch(e){}
+                    }
+                    this.currentLang = lang;
+                    this.updateMeta();
+                },
+
+                updateMeta() {
+                    if (document) {
+                        document.documentElement.lang = this.currentLang;
+                        document.title = this.t('blog_hub.meta.title');
+                        const metaDesc = document.querySelector('meta[name="description"]');
+                        if (metaDesc) {
+                            metaDesc.setAttribute('content', this.t('blog_hub.meta.desc'));
+                        }
+                    }
+                },
+
+                t(key, params) {
+                    const _active = this ? this.currentLang : null;
+                    if (window.i18n && window.i18n.t) {
+                        return window.i18n.t(key, params);
+                    }
+                    return key;
+                }
+            };
+        }
+    </script>
+
+</body>
+</html>

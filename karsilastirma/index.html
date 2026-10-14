@@ -6,7 +6,12 @@
     <title>TraceMailer vs SendGrid & Resend | 2026 E-Posta Karşılaştırması</title>
     <meta name="description" content="SendGrid, Resend ve Mailgun yerine TraceMailer: %92+ inbox başarısı, Apple MPP filtreleme ve STO zamanlaması ile 2026 teknik karşılaştırma tablosu.">
     <meta name="keywords" content="sendgrid alternatifi, resend alternatifi, mailgun alternatifi, e-posta teslim edilebilirliği, send time optimization, apple mpp filtreleme, kurumsal smtp">
-    <link rel="canonical" href="https://tracemailer.com/karsilastirma/">
+
+
+        <link rel="canonical" href="https://tracemailer.com/karsilastirma/">
+    <link rel="alternate" hreflang="tr" href="https://tracemailer.com/karsilastirma/">
+    <link rel="alternate" hreflang="en" href="https://tracemailer.com/en/compare/">
+    <link rel="alternate" hreflang="x-default" href="https://tracemailer.com/karsilastirma/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -594,6 +599,10 @@ response = client.send(
                     });
                 },
                 setLang(lang) {
+                    if (lang === 'en') {
+                        window.location.href = '/en/compare/';
+                        return;
+                    }
                     if (window.i18n && window.i18n.setLanguage) {
                         window.i18n.setLanguage(lang);
                     }

@@ -9,7 +9,10 @@
     <meta name="author" content="Akın TERZİ">
     <meta name="publisher" content="TraceMailer">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <link rel="canonical" href="https://tracemailer.com/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/">
+        <link rel="canonical" href="https://tracemailer.com/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/">
+    <link rel="alternate" hreflang="tr" href="https://tracemailer.com/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/">
+    <link rel="alternate" hreflang="en" href="https://tracemailer.com/en/blog/transactional-email-architecture/">
+    <link rel="alternate" hreflang="x-default" href="https://tracemailer.com/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/">
     <meta name="theme-color" content="#2563EB">
 
     <!-- Open Graph -->
@@ -875,6 +878,10 @@
                 },
 
                 setLang(lang) {
+                    if (lang === 'en') {
+                        window.location.href = '/en/blog/transactional-email-architecture/';
+                        return;
+                    }
                     if (lang !== 'tr' && lang !== 'en') return;
                     if (window.i18n && window.i18n.setLanguage) {
                         window.i18n.setLanguage(lang);

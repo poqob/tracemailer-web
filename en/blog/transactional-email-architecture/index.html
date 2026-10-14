@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Transactional Email Architecture: 10M+ Monthly Distribution</title>
+    <meta name="description" content="Enterprise transactional email architecture by Normsoft GM Akin Terzi. Scale 10M+ notifications with zero lag, queue resilience, and 99.9% inbox delivery.">
+    <meta name="keywords" content="transaksiyonel e-posta, transactional email mimarisi, e-fatura mail dağıtımı, otp e-posta gecikmesi, kurumsal smtp, rabbitmq eposta kuyruğu, akın terzi normsoft, tracemailer telemetri">
+    <meta name="author" content="Akın TERZİ">
+    <meta name="publisher" content="TraceMailer">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+        <link rel="canonical" href="https://tracemailer.com/en/blog/transactional-email-architecture/">
+    <link rel="alternate" hreflang="tr" href="https://tracemailer.com/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/">
+    <link rel="alternate" hreflang="en" href="https://tracemailer.com/en/blog/transactional-email-architecture/">
+    <link rel="alternate" hreflang="x-default" href="https://tracemailer.com/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/">
+    <meta name="theme-color" content="#2563EB">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://tracemailer.com/en/blog/transactional-email-architecture/">
+    <meta property="og:title" content="Enterprise Transactional Email Architecture: 10M+ Monthly Distribution">
+    <meta property="og:description" content="Enterprise transactional email architecture by Normsoft GM Akin Terzi. Scale 10M+ notifications with zero lag, queue resilience, and 99.9% inbox delivery.">
+    <meta property="og:image" content="https://tracemailer.com/static/og-image.jpg?v=20260921">
+    <meta property="og:site_name" content="TraceMailer">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="tr_TR">
+    <meta property="article:published_time" content="2026-10-02T10:00:00+03:00">
+    <meta property="article:modified_time" content="2026-10-02T20:00:00+03:00">
+    <meta property="article:author" content="Akın TERZİ">
+    <meta property="article:section" content="Kurumsal Mimari & Transaksiyonel Dağıtım">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://tracemailer.com/en/blog/transactional-email-architecture/">
+    <meta name="twitter:title" content="Enterprise Transactional Email Architecture: 10M+ Monthly Distribution">
+    <meta name="twitter:description" content="Enterprise transactional email architecture by Normsoft GM Akin Terzi. Scale 10M+ notifications with zero lag, queue resilience, and 99.9% inbox delivery.">
+    <meta name="twitter:image" content="https://tracemailer.com/static/og-image.jpg?v=20260921">
+
+    <!-- Structured Data (JSON-LD) for E-E-A-T & Google AI Overview -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Ana Sayfa",
+              "item": "https://tracemailer.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Rehber & Blog",
+              "item": "https://tracemailer.com/blog/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Transaksiyonel E-Posta Mimarisi",
+              "item": "https://tracemailer.com/en/blog/transactional-email-architecture/"
+            }
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://tracemailer.com/#author-akin-terzi",
+          "name": "Akın TERZİ",
+          "jobTitle": "Normsoft Bilgi Teknolojileri A.Ş. Genel Müdürü & Kurucu",
+          "image": "https://tracemailer.com/static/akin-terzi.jpg",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Normsoft Bilgi Teknolojileri A.Ş."
+          },
+          "sameAs": [
+            "https://www.linkedin.com/in/akin-terzi/",
+            "https://www.normsoft.com.tr/"
+          ],
+          "description": "DİJİTAL PLATFORM Organizasyonu ve NORMSOFT A.Ş. kurucusu ve Genel Müdürü. CAD, BIM, AR&VR, TraceParts Türkiye ve 10M+ transaksiyonel e-posta mimarileri lideri."
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://tracemailer.com/en/blog/transactional-email-architecture/#article",
+          "headline": "Transaksiyonel E-Posta Mimarisi: Kurumsal Sistemlerde 10M+ Dağıtım",
+          "description": "Normsoft Genel Müdürü Akın Terzi'den ERP ve SaaS sistemlerinde ayda 10M+ kritik transaksiyonel e-postayı gecikmesiz ve güvenle dağıtma mimarisi ve rehberi.",
+          "inLanguage": "en-US",
+          "datePublished": "2026-10-02T10:00:00+03:00",
+          "dateModified": "2026-10-02T20:00:00+03:00",
+          "mainEntityOfPage": "https://tracemailer.com/en/blog/transactional-email-architecture/",
+          "author": {
+            "@id": "https://tracemailer.com/#author-akin-terzi"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "TraceMailer",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://tracemailer.com/static/favicon.svg"
+            }
+          },
+          "image": "https://tracemailer.com/static/og-image.jpg?v=20260921"
+        },
+        {
+          "@type": "HowTo",
+          "name": "Büyük Ölçekli Transaksiyonel E-Posta Mimarisi Kurulumu",
+          "description": "Ayda 10 milyondan fazla transaksiyonel bildirimi gecikmesiz ve güvenle iletmek için 4 katmanlı kurumsal mimari tasarım adımları.",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "position": 1,
+              "name": "Alt Alan Adı ve IP Havuzu İzolasyonu",
+              "text": "Transaksiyonel iletileri (notify.alanadiniz.com) pazarlama bültenlerinden tamamen izole edilmiş adanmış IP ve alt alan adı üzerine konumlandırın."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 2,
+              "name": "Öncelikli Mesaj Kuyrukları (Priority Queue) Yapılandırması",
+              "text": "OTP ve şifre sıfırlama maillerini P1, e-fatura bildirimlerini P2 önceliğiyle kuyruğa alarak kritik iletilerin toplu işlemler arkasında beklemesini önleyin."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 3,
+              "name": "Dinamik ISP Hız Denetimi ve Bağlantı Havuzlaması",
+              "text": "Gmail ve Microsoft 365 için kalıcı Keep-Alive soket havuzları ve ISP hız limitlerine uyumlu akıllı dağıtıcı motorunu devreye alın."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 4,
+              "name": "250ms Altı Telemetri ve Webhook Geri Beslemesi",
+              "text": "Hard bounce olan geçersiz e-posta adreslerini 250ms içinde ayrıştırıp ERP veritabanına webhook ile bildirerek cari kaydını otomatik pasife alın."
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Transaksiyonel e-postalara abonelikten çıkma (unsubscribe) bağlantısı konulmalı mıdır?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Hayır. KVKK ve uluslararası mevzuat gereğince kullanıcının sözleşmesel veya yasal ilişkisinden doğan zorunlu bildirimlerde (e-fatura, şifre yenileme, güvenlik alarmı) abonelikten çıkma bağlantısı konulması zorunlu değildir; aksine konulması kullanıcının kritik güvenlik bildirimlerini kaçırmasına yol açar."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Pazarlama ve transaksiyonel postaları neden aynı IP üzerinden gönderemeyiz?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pazarlama kampanyalarında yaşanacak ufak bir spam şikayeti artışı IP itibarını düşürür. Aynı IP üzerinden giden fatura veya aktivasyon kodlarınız da anında spam kutusuna düşer. Bu riski sıfırlamak için IP ve alt alan adı kesinlikle ayrılmalıdır."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Ayda 10 milyondan fazla gönderimde iletim maliyeti nasıl optimize edilir?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "TraceMailer gibi telemetri araçlarıyla geçersiz e-posta adreslerini anında tespit edip kuyruktan eleyerek gereksiz sunucu kaynak tüketimini önleyebilir, hibrit SMTP havuzuyla maliyetleri %60'a varan oranda düşürebilirsiniz."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Internationalization (i18n) -->
+    <script src="/static/i18n.js?v=20261012d"></script>
+
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+        .font-mono-code { font-family: 'JetBrains Mono', monospace; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-blue-600 selection:text-white" x-data="blogArticleTransactionalApp()">
+
+    <!-- Reading Progress Bar (Top Fixed) -->
+    <div class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150" :style="'width: ' + readingProgress + '%'"></div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-all duration-200">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="/en/" class="flex items-center gap-3 group">
+                <img src="/static/favicon.svg" alt="TraceMailer Logo" class="w-9 h-9 rounded-xl shadow-xs group-hover:scale-105 transition-transform duration-200">
+                <span class="font-bold text-2xl tracking-tight text-slate-900">Trace<span class="text-blue-600">Mailer</span></span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                <a href="/en/#features" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.nav.why')">Neden TraceMailer?</a>
+                <a href="/en/#how-it-works" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.nav.how')">Nasıl Çalışır?</a>
+                <a href="/en/blog/" class="text-blue-600 font-semibold transition-colors" x-text="t('blog_hub.nav.blog')">Rehber & Blog</a>
+                <a href="/en/#faq" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.nav.faq')">SSS</a>
+                <a href="/en/#contact" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.nav.contact')">İletişim</a>
+            </nav>
+
+            <!-- Actions & Language Switcher -->
+            <div class="flex items-center gap-3">
+                <a href="https://dash.tracemailer.com/login" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-sm shadow-blue-600/25 transition-all hover:shadow-md hover:shadow-blue-600/30 hover:-translate-y-0.5 cursor-pointer" x-text="t('blog_hub.nav.login')">
+                    Giriş Yap
+                </a>
+
+                <!-- Globe Language Switcher -->
+                <div class="relative">
+                    <button type="button" @click="langMenuOpen = !langMenuOpen" 
+                            class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-slate-700 hover:text-blue-600 hover:bg-slate-100 transition-all font-semibold text-xs border border-slate-200/80 cursor-pointer shadow-2xs group"
+                            :title="currentLang === 'tr' ? 'Dili Değiştir' : 'Switch Language'"
+                            aria-label="Language selector">
+                        <svg class="w-4 h-4 text-slate-500 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" stroke-width="1.8"/>
+                            <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" stroke-width="1.8"/>
+                        </svg>
+                        <span class="uppercase font-bold tracking-wider text-xs" x-text="currentLang"></span>
+                        <svg class="w-3 h-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+
+                    <div x-show="langMenuOpen" x-cloak @click.away="langMenuOpen = false" 
+                         x-transition:enter="transition ease-out duration-150"
+                         x-transition:enter-start="opacity-0 scale-95"
+                         x-transition:enter-end="opacity-100 scale-100"
+                         x-transition:leave="transition ease-in duration-100"
+                         x-transition:leave-start="opacity-100 scale-100"
+                         x-transition:leave-end="opacity-0 scale-95"
+                         class="absolute right-0 mt-2 w-36 bg-white rounded-2xl shadow-xl border border-slate-100 py-1.5 z-50 overflow-hidden">
+                        <button type="button" @click="setLang('tr'); langMenuOpen = false" 
+                                class="w-full flex items-center justify-between px-3.5 py-2 text-xs font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer"
+                                :class="currentLang === 'tr' ? 'bg-blue-50/70 text-blue-600 font-bold' : ''">
+                            <span class="flex items-center gap-2"><span>🇹🇷</span><span>Türkçe</span></span>
+                            <span x-show="currentLang === 'tr'" class="text-blue-600 font-bold">✓</span>
+                        </button>
+                        <button type="button" @click="setLang('en'); langMenuOpen = false" 
+                                class="w-full flex items-center justify-between px-3.5 py-2 text-xs font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer"
+                                :class="currentLang === 'en' ? 'bg-blue-50/70 text-blue-600 font-bold' : ''">
+                            <span class="flex items-center gap-2"><span>🇬🇧</span><span>English</span></span>
+                            <span x-show="currentLang === 'en'" class="text-blue-600 font-bold">✓</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Quick Table of Contents Bar -->
+    <div class="lg:hidden sticky top-20 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 px-4 py-2.5 shadow-2xs">
+        <div class="max-w-7xl mx-auto flex items-center justify-between text-xs">
+            <div class="flex items-center gap-2 text-slate-700 font-medium truncate max-w-[70%]">
+                <span class="w-2 h-2 rounded-full bg-blue-600 flex-shrink-0 animate-pulse"></span>
+                <span class="truncate font-semibold text-slate-800" x-text="getActiveSectionTitle()"></span>
+            </div>
+            <button type="button" @click="mobileTocOpen = !mobileTocOpen" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold flex items-center gap-1 cursor-pointer">
+                <span x-text="t('blog_article_transactional.toc.heading')">İçindekiler</span>
+                <svg class="w-3.5 h-3.5 transition-transform duration-150" :class="mobileTocOpen ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+        </div>
+        <div x-show="mobileTocOpen" x-cloak @click.away="mobileTocOpen = false" class="max-w-7xl mx-auto mt-2 pt-2 border-t border-slate-100 space-y-1 max-h-60 overflow-y-auto">
+            <template x-for="item in sections" :key="item.id">
+                <a :href="'#' + item.id" 
+                   @click="scrollTo(item.id); mobileTocOpen = false"
+                   class="block px-3 py-2 rounded-lg text-xs transition-colors"
+                   :class="activeSection === item.id ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-600 hover:bg-slate-50'"
+                   x-text="t('blog_article_transactional.toc.sections.' + item.key)"></a>
+            </template>
+        </div>
+    </div>
+
+    <!-- Main Article Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+
+        <!-- Breadcrumb Navigation -->
+        <nav class="flex items-center gap-2 text-xs text-slate-500 mb-8 max-w-4xl lg:max-w-none" aria-label="Breadcrumb">
+            <a href="/" class="hover:text-blue-600 transition-colors" x-text="t('blog_article_transactional.breadcrumbs.home')">Ana Sayfa</a>
+            <span>/</span>
+            <a href="/en/blog/" class="hover:text-blue-600 transition-colors" x-text="t('blog_article_transactional.breadcrumbs.blog')">Rehber & Blog</a>
+            <span>/</span>
+            <span class="text-slate-800 font-medium truncate max-w-xs sm:max-w-md" x-text="t('blog_article_transactional.breadcrumbs.current')">Transaksiyonel E-Posta Mimarisi</span>
+        </nav>
+
+        <!-- Two-column Layout: Left TOC Sidebar + Article Content -->
+        <div class="lg:grid lg:grid-cols-12 lg:gap-8 xl:gap-12 items-start">
+
+            <!-- Sticky Table of Contents (Left Sidebar on Desktop) -->
+            <aside class="hidden lg:block lg:col-span-4 xl:col-span-3 sticky top-28 self-start space-y-5">
+                <div class="p-5 rounded-3xl bg-white border border-slate-200/80 shadow-xs">
+                    <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/>
+                            </svg>
+                            <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider font-mono-code" x-text="t('blog_article_transactional.toc.heading')">
+                                İçindekiler
+                            </h3>
+                        </div>
+                        <span class="text-2xs font-bold text-blue-600 font-mono-code" x-text="readingProgress + '%'"></span>
+                    </div>
+
+                    <!-- Progress bar line -->
+                    <div class="w-full bg-slate-100 h-1.5 rounded-full mb-4 overflow-hidden">
+                        <div class="bg-blue-600 h-full transition-all duration-150" :style="'width: ' + readingProgress + '%'"></div>
+                    </div>
+
+                    <!-- Section Navigation Links -->
+                    <nav class="space-y-1 relative" aria-label="Table of Contents">
+                        <template x-for="item in sections" :key="item.id">
+                            <a :href="'#' + item.id" 
+                               @click.prevent="scrollTo(item.id)"
+                               class="group flex items-start gap-2.5 px-3 py-2 rounded-xl text-xs transition-all cursor-pointer border-l-2"
+                               :class="activeSection === item.id 
+                                    ? 'border-blue-600 bg-blue-50/80 text-blue-700 font-bold' 
+                                    : 'border-transparent text-slate-500 hover:text-slate-900 hover:bg-slate-50 hover:border-slate-300 font-medium'">
+                                <span class="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 transition-colors"
+                                      :class="activeSection === item.id ? 'bg-blue-600 ring-4 ring-blue-100' : 'bg-slate-300 group-hover:bg-slate-400'"></span>
+                                <span class="leading-snug" x-text="t('blog_article_transactional.toc.sections.' + item.key)"></span>
+                            </a>
+                        </template>
+                    </nav>
+                </div>
+
+                <!-- Author Mini Card in Sidebar -->
+                <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex items-center gap-3">
+                    <img src="/static/akin-terzi.jpg" alt="Akın TERZİ" class="w-11 h-11 rounded-xl object-cover ring-1 ring-slate-200 bg-slate-100">
+                    <div class="min-w-0">
+                        <span class="font-bold text-slate-900 text-xs block truncate" x-text="t('blog_article_transactional.author.name')">Akın TERZİ</span>
+                        <span class="text-2xs text-slate-500 block truncate" x-text="t('blog_article_transactional.author.role')">Normsoft Bilgi Teknolojileri A.Ş. Genel Müdürü & Kurucu</span>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Article Content -->
+            <div class="lg:col-span-8 xl:col-span-9 min-w-0 max-w-3xl xl:max-w-4xl">
+
+                <!-- Article Header -->
+                <header class="mb-12">
+                    <div class="flex flex-wrap items-center gap-3 text-xs text-slate-500 mb-4 font-medium">
+                        <span class="px-3 py-1 rounded-md bg-blue-50 text-blue-700 font-semibold border border-blue-100" x-text="t('blog_article_transactional.meta_info.category')">
+                            Kurumsal Mimari & Transaksiyonel Dağıtım
+                        </span>
+                        <span class="text-slate-300">&bull;</span>
+                        <span x-text="t('blog_article_transactional.meta_info.read_time')">9 Dk Okuma</span>
+                        <span class="text-slate-300">&bull;</span>
+                        <time datetime="2026-10-02" x-text="t('blog_article_transactional.meta_info.date')">2 Ekim 2026</time>
+                        <span class="text-slate-300">&bull;</span>
+                        <span class="text-slate-400 font-mono-code" x-text="t('blog_article_transactional.meta_info.updated')">Güncelleme: Ekim 2026</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6" x-text="t('blog_article_transactional.title')">
+                        Transaksiyonel E-Posta Mimarisi: Kurumsal Sistemlerde 10M+ Dağıtım
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-slate-600 leading-relaxed font-normal mb-8" x-text="t('blog_article_transactional.subtitle')">
+                        Normsoft ERP ve SaaS altyapılarında ayda 10 milyondan fazla e-fatura, OTP ve kritik bildirimi gecikmesiz, kuyruk kilitlenmesi olmadan ve spama düşmeden iletme rehberi.
+                    </p>
+
+                    <!-- Author Card (Akın TERZİ - Normsoft Bilgi Teknolojileri A.Ş. Genel Müdürü & Kurucu) -->
+                    <div class="flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs">
+                        <img src="/static/akin-terzi.jpg" 
+                             alt="Akın TERZİ" 
+                             class="w-14 h-14 rounded-xl object-cover ring-1 ring-slate-200 bg-slate-100">
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-2">
+                                <span class="font-bold text-slate-900 text-base" x-text="t('blog_article_transactional.author.name')">Akın TERZİ</span>
+                                <span class="text-xs px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 font-mono-code" x-text="t('blog_article_transactional.author.badge')">10M+ Kurumsal Vaka Analizi</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-0.5 truncate" x-text="t('blog_article_transactional.author.role')">
+                                Normsoft Bilgi Teknolojileri A.Ş. Genel Müdürü & Kurucu
+                            </p>
+                        </div>
+                    </div>
+                </header>
+
+        <!-- TL;DR Executive Summary Box (GEO / AI Overview Optimization) -->
+        <aside class="mb-12 p-6 sm:p-8 rounded-3xl bg-slate-900 text-slate-100 shadow-md border border-slate-800">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-8 h-8 rounded-xl bg-blue-600/30 flex items-center justify-center text-blue-400 font-bold text-sm">
+                    ⚡
+                </div>
+                <h2 class="text-lg font-bold text-white tracking-tight" x-text="t('blog_article_transactional.tldr.heading')">
+                    Özet — Kurumsal Transaksiyonel Dağıtımın 4 Altın İlkesi
+                </h2>
+            </div>
+            <ul class="space-y-3 text-sm text-slate-300 leading-relaxed">
+                <li class="flex items-start gap-3">
+                    <span class="text-blue-400 font-bold mt-0.5">✓</span>
+                    <span><strong class="text-white" x-text="t('blog_article_transactional.tldr.i1_bold')">Pazarlama Trafiğinden Tam İzolasyon:</strong> <span x-text="t('blog_article_transactional.tldr.i1_text')">Fatura, OTP şifresi ve parola sıfırlama gibi kritik iletiler pazarlama bültenleriyle asla aynı IP veya alt alan adından gönderilmemeli, bağımsız alt alan adında (notify.sirketiniz.com) tutulmalıdır.</span></span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-blue-400 font-bold mt-0.5">✓</span>
+                    <span><strong class="text-white" x-text="t('blog_article_transactional.tldr.i2_bold')">3 Saniye SLA Hedefi:</strong> <span x-text="t('blog_article_transactional.tldr.i2_text')">Transaksiyonel iletilerin %95’i alıcı gelen kutusuna ilk 3 saniyede ulaşmalıdır. Geciken bir iki faktörlü doğrulama (OTP) şifresi doğrudan kullanıcı ve ciro kaybına yol açar.</span></span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-blue-400 font-bold mt-0.5">✓</span>
+                    <span><strong class="text-white" x-text="t('blog_article_transactional.tldr.i3_bold')">Asenkron Kuyruk & Dinamik Throttling:</strong> <span x-text="t('blog_article_transactional.tldr.i3_text')">Ay sonu toplu e-fatura kesimi gibi ani trafik patlamalarında SMTP havuzunun kilitlenmemesi için RabbitMQ/Kafka destekli öncelikli kuyruk (Priority Queue) ve ISP hız sınırları uygulanmalıdır.</span></span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-blue-400 font-bold mt-0.5">✓</span>
+                    <span><strong class="text-white" x-text="t('blog_article_transactional.tldr.i4_bold')">Milisaniyelik Telemetri Geri Beslemesi:</strong> <span x-text="t('blog_article_transactional.tldr.i4_text')">Hatalı (hard bounce) e-posta adresleri 250 milisaniye içinde webhook ile ERP/CRM veritabanına bildirilip anında pasife alınmalı, alan adı itibarı korunmalıdır.</span></span>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Article Body -->
+        <article class="prose prose-slate max-w-none space-y-12">
+
+            <!-- Section 1 -->
+            <section id="transaksiyonel-nedir" class="space-y-4 scroll-mt-28">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight" x-text="t('blog_article_transactional.s1.h2')">
+                    1. Transaksiyonel E-Posta Nedir? Neden Ayrı Bir Altyapı Gerektirir?
+                </h2>
+                
+                <!-- Definition Box (40-60 Words Direct Definition for AI Overviews) -->
+                <div class="p-5 rounded-2xl bg-blue-50/60 border border-blue-100 text-slate-800 text-sm leading-relaxed">
+                    <strong class="font-semibold text-slate-900" x-text="t('blog_article_transactional.s1.def_bold')">Transaksiyonel e-posta (Transactional Email);</strong>
+                    <span x-text="t('blog_article_transactional.s1.def_text')">bir kullanıcının sistem üzerinde gerçekleştirdiği eylemin doğrudan sonucu olarak tetiklenen tekil ve kritik iletidir (parola sıfırlama, e-fatura, sipariş teyidi, iki faktörlü doğrulama / OTP). Toplu pazarlama bültenlerinden farklı olarak yasal izin şartı aramaz ve milisaniyeler seviyesinde gecikmesiz teslim edilmek zorundadır.</span>
+                </div>
+
+                <p class="text-slate-700 leading-relaxed" x-text="t('blog_article_transactional.s1.p1')">
+                    Pek çok kurumsal yazılım şirketi, pazarlama bültenleri ile kurumsal faturaları aynı SMTP sunucusundan veya tek bir sağlayıcı hesabından gönderme hatasına düşer. Oysa pazarlama kampanyasında yaşanacak %0.4’lük tek bir spam şikayeti dalgası, sisteminizin tüm e-faturalarını ve parola yenileme postalarını da alıcıların spam kutusuna hapseder.
+                </p>
+
+                <p class="text-slate-700 leading-relaxed" x-text="t('blog_article_transactional.s1.p2')">
+                    Transaksiyonel gönderimlerin başarısı yalnızca sunucunun "250 OK" yanıtı vermesiyle ölçülemez. Asıl başarı; ayın ilk günü sisteme binen 1 milyon faturanın ortalama 2 saniye gecikme ile doğrudan birincil gelen kutusuna (Primary Inbox) inebilmesidir.
+                </p>
+            </section>
+
+            <!-- Section 2 -->
+            <section id="darbogazlar" class="space-y-4 scroll-mt-28">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight" x-text="t('blog_article_transactional.s2.h2')">
+                    2. Ayda 10 Milyon+ İletide Karşılaşılan 3 Kritik Kurumsal Darboğaz
+                </h2>
+                <p class="text-slate-700 leading-relaxed" x-text="t('blog_article_transactional.s2.p1')">
+                    Kurumsal ERP ve B2B SaaS mimarilerinde hacim arttıkça klasik SMTP kütüphaneleri yetersiz kalır. Karşılaşılan başlıca sistemik tıkanıklıklar şunlardır:
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                    <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs">
+                        <div class="w-8 h-8 rounded-xl bg-slate-100 flex items-center justify-center font-bold text-xs text-slate-700 mb-2">01</div>
+                        <h3 class="font-bold text-slate-900 text-sm mb-1" x-text="t('blog_article_transactional.s2.c1_title')">1. ISP Throttling (Bağlantı ve Hız Sınırları)</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed" x-text="t('blog_article_transactional.s2.c1_desc')">Gmail veya Microsoft 365, dakikada aniden 50.000 bağlantı açmaya çalışan sunucuları bot saldırısı varsayarak "421 4.7.0 Try again later" hata kodu ile geçici olarak engeller.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs">
+                        <div class="w-8 h-8 rounded-xl bg-slate-100 flex items-center justify-center font-bold text-xs text-slate-700 mb-2">02</div>
+                        <h3 class="font-bold text-slate-900 text-sm mb-1" x-text="t('blog_article_transactional.s2.c2_title')">2. SMTP Connection Pooling (Bağlantı Havuzlaması)</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed" x-text="t('blog_article_transactional.s2.c2_desc')">Her posta için sıfırdan TCP ve TLS el sıkışması yapmak devasa CPU ve gecikme üretir. Kalıcı (Keep-Alive) soket havuzları ile bağlantılar yeniden kullanılmalıdır.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs">
+                        <div class="w-8 h-8 rounded-xl bg-slate-100 flex items-center justify-center font-bold text-xs text-slate-700 mb-2">03</div>
+                        <h3 class="font-bold text-slate-900 text-sm mb-1" x-text="t('blog_article_transactional.s2.c3_title')">3. Hata Yönetimi ve Exponential Backoff</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed" x-text="t('blog_article_transactional.s2.c3_desc')">Geçici hatalarda (soft bounce) postayı hemen ardı ardına tekrar göndermek IP itibarını yerle bir eder; 1 dk, 5 dk, 30 dk gibi kademeli gecikmeli yeniden deneme algoritmaları zorunludur.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Normsoft Case Study (Akın TERZİ - E-E-A-T) -->
+            <section id="vaka-analizi" class="space-y-4 p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-xs scroll-mt-28">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-500 font-mono-code" x-text="t('blog_article_transactional.s3.badge')">Kurumsal Vaka İncelemesi</span>
+                    <span class="text-xs text-slate-400 font-medium" x-text="t('blog_article_transactional.s3.author')">Yazar: Akın TERZİ, Genel Müdür</span>
+                </div>
+
+                <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight" x-text="t('blog_article_transactional.s3.h2')">
+                    3. Vaka Analizi: Normsoft ERP Sisteminde Ayda 12 Milyon E-Faturanın Dağıtım Dönüşümü
+                </h2>
+
+                <p class="text-slate-700 text-sm leading-relaxed" x-text="t('blog_article_transactional.s3.p1')">
+                    Normsoft Bilgi Teknolojileri olarak geliştirdiğimiz bulut tabanlı ERP platformumuzda, her ayın ilk ve son günlerinde 48 saatlik dar bir zaman diliminde 12 milyondan fazla e-fatura ve dekont üretilmektedir. Eski monolitik SMTP yapımızda kuyruklar kilitleniyor, e-faturaların alıcılara ulaşması saatler sürüyordu. TraceMailer telemetrisi ve hibrit mesaj kuyruğu mimarisine geçişimiz sonrası elde ettiğimiz metrikler:
+                </p>
+
+                <!-- Data Table -->
+                <div class="overflow-x-auto my-4">
+                    <table class="w-full text-left text-xs border-collapse">
+                        <thead>
+                            <tr class="border-b border-slate-200 text-slate-700 font-semibold bg-slate-50/50">
+                                <th class="py-3 px-3" x-text="t('blog_article_transactional.s3.th_metric')">Performans Metriği</th>
+                                <th class="py-3 px-3" x-text="t('blog_article_transactional.s3.th_old')">Eski Monolitik SMTP</th>
+                                <th class="py-3 px-3" x-text="t('blog_article_transactional.s3.th_new')">TraceMailer Hibrit Mimarisi</th>
+                                <th class="py-3 px-3 text-right" x-text="t('blog_article_transactional.s3.th_diff')">Ölçülen İyileşme</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-600">
+                            <tr>
+                                <td class="py-3 px-3 font-semibold text-slate-900" x-text="t('blog_article_transactional.s3.row1_metric')">Ortalama Teslimat Süresi (SLA)</td>
+                                <td class="py-3 px-3 text-slate-500" x-text="t('blog_article_transactional.s3.row1_old')">48 Dakika (Kuyruk Gecikmesi)</td>
+                                <td class="py-3 px-3 font-semibold text-blue-600 font-mono-code" x-text="t('blog_article_transactional.s3.row1_new')">1.8 Saniye (Anlık Akış)</td>
+                                <td class="py-3 px-3 text-right font-mono-code font-bold text-blue-600" x-text="t('blog_article_transactional.s3.row1_diff')">%96 Hız Artışı</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-3 font-semibold text-slate-900" x-text="t('blog_article_transactional.s3.row2_metric')">Zirve Trafik Kapasitesi</td>
+                                <td class="py-3 px-3 text-slate-500 font-mono-code" x-text="t('blog_article_transactional.s3.row2_old')">250 mail / saniye (Tıkanma)</td>
+                                <td class="py-3 px-3 font-semibold text-blue-600 font-mono-code" x-text="t('blog_article_transactional.s3.row2_new')">4.800 mail / saniye (Stabil)</td>
+                                <td class="py-3 px-3 text-right font-mono-code font-bold text-blue-600" x-text="t('blog_article_transactional.s3.row2_diff')">19 Kat Kapasite</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-3 font-semibold text-slate-900" x-text="t('blog_article_transactional.s3.row3_metric')">Inbox Teslimat Başarısı</td>
+                                <td class="py-3 px-3 text-slate-500 font-mono-code" x-text="t('blog_article_transactional.s3.row3_old')">%88.3 (Spama Kayma)</td>
+                                <td class="py-3 px-3 font-semibold text-blue-600 font-mono-code" x-text="t('blog_article_transactional.s3.row3_new')">%99.4 (Kesintisiz Inbox)</td>
+                                <td class="py-3 px-3 text-right font-mono-code font-bold text-blue-600" x-text="t('blog_article_transactional.s3.row3_diff')">+%11.1 Net Artış</td>
+                            </tr>
+                            <tr class="bg-blue-50/40">
+                                <td class="py-3 px-3 font-semibold text-blue-900" x-text="t('blog_article_transactional.s3.row4_metric')">Bounce & Hata İzolasyonu</td>
+                                <td class="py-3 px-3 text-slate-500" x-text="t('blog_article_transactional.s3.row4_old')">Manuel Gün Sonu Raporu</td>
+                                <td class="py-3 px-3 font-semibold text-blue-800" x-text="t('blog_article_transactional.s3.row4_new')">250 ms İçinde Otomatik Webhook</td>
+                                <td class="py-3 px-3 text-right font-mono-code font-bold text-blue-600" x-text="t('blog_article_transactional.s3.row4_diff')">Sıfır İtibar Kaybı</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 text-xs text-slate-700 leading-relaxed">
+                    <strong class="text-slate-900 font-semibold" x-text="t('blog_article_transactional.s3.conclusion_bold')">Yönetici Özeti:</strong>
+                    <span x-text="t('blog_article_transactional.s3.conclusion_text')">Kritik kurumsal bildirimlerde teslimat süresini 1.8 saniyeye indirirken, gelen kutusu teslimat oranını %99.4 seviyesine kilitledik. Müşteri destek merkezimize gelen "Faturam veya aktivasyon kodum ulaşmadı" çağrıları %92 oranında azaldı.</span>
+                </div>
+            </section>
+
+            <!-- Section 4 -->
+            <section id="mimari-katmanlar" class="space-y-4 scroll-mt-28">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight" x-text="t('blog_article_transactional.s4.h2')">
+                    4. 4 Katmanlı Kurumsal Transaksiyonel E-Posta Mimarisi
+                </h2>
+                
+                <!-- Definition Box (40-60 Words Direct Definition for AI Overviews) -->
+                <div class="p-5 rounded-2xl bg-blue-50/60 border border-blue-100 text-slate-800 text-sm leading-relaxed">
+                    <strong class="font-semibold text-slate-900" x-text="t('blog_article_transactional.s4.def_bold')">Dayanıklı E-Posta Dağıtım Mimarisi;</strong>
+                    <span x-text="t('blog_article_transactional.s4.def_text')">yüksek hacimli transaksiyonel iş yüklerinin tek bir sunucuya bağımlı kalmadan; asenkron kuyruklar, dinamik ISP hız dengeleyiciler ve çift yönlü telemetri kütüphaneleri üzerinden dağıtılmasını sağlayan yüksek erişilebilirlikli kurumsal yazılım desenidir.</span>
+                </div>
+
+                <p class="text-slate-700 leading-relaxed" x-text="t('blog_article_transactional.s4.p1')">
+                    Normsoft altyapısında TraceMailer ile birlikte hayata geçirdiğimiz 4 katmanlı mimari akışı şu şekildedir:
+                </p>
+
+                <div class="space-y-3 pt-2">
+                    <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex items-start gap-3">
+                        <div class="w-6 h-6 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">1</div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-sm mb-0.5" x-text="t('blog_article_transactional.s4.l1_title')">Katman 1: Olay Üretici (Event Producer & Idempotency)</h3>
+                            <p class="text-xs text-slate-600 leading-relaxed" x-text="t('blog_article_transactional.s4.l1_desc')">ERP veya CRM iş motoru faturayı ürettiğinde her mesaja benzersiz bir Idempotency-Key atar. Aynı bildirim sistemde iki kez tetiklense dahi alıcıya çift e-posta gitmesi engellenir.</p>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex items-start gap-3">
+                        <div class="w-6 h-6 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">2</div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-sm mb-0.5" x-text="t('blog_article_transactional.s4.l2_title')">Katman 2: Öncelikli Mesaj Kuyruğu (Priority Queue)</h3>
+                            <p class="text-xs text-slate-600 leading-relaxed" x-text="t('blog_article_transactional.s4.l2_desc')">Tüm kuyruk tek havuzda toplanmaz. İki faktörlü doğrulama (OTP) en yüksek önceliğe (P1), e-fatura P2, günlük özet raporları ise P3 önceliğine atanır. OTP mailleri asla fatura kuyruğunun arkasında beklemez.</p>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex items-start gap-3">
+                        <div class="w-6 h-6 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">3</div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-sm mb-0.5" x-text="t('blog_article_transactional.s4.l3_title')">Katman 3: Akıllı ISP Dağıtıcısı & Bağlantı Havuzu (Smart Throttler)</h3>
+                            <p class="text-xs text-slate-600 leading-relaxed" x-text="t('blog_article_transactional.s4.l3_desc')">TraceMailer motoru, alıcı alan adını (gmail.com, hotmail.com, kurumsal domain) tespit ederek her ISP'nin anlık kabul limitlerine göre bağlantı açar ve hız sınırını dinamik ayarlar.</p>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex items-start gap-3">
+                        <div class="w-6 h-6 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">4</div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-sm mb-0.5" x-text="t('blog_article_transactional.s4.l4_title')">Katman 4: Gerçek Zamanlı Telemetri & Webhook Geri Beslemesi</h3>
+                            <p class="text-xs text-slate-600 leading-relaxed" x-text="t('blog_article_transactional.s4.l4_desc')">Alıcı sunucudan dönen DSN ve SMTP yanıt kodları milisaniyeler içinde ayrıştırılır. Hard bounce olan alıcılar ERP sistemine webhook ile dönülerek muhasebe carisinde anında kırmızı bayrakla işaretlenir.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Integration & JSON Payload -->
+            <section id="entegrasyon-kod" class="space-y-4 scroll-mt-28">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight" x-text="t('blog_article_transactional.s5.h2')">
+                    5. Üretim Seviyesinde Yapılandırma ve Entegrasyon Örneği
+                </h2>
+                <p class="text-slate-700 leading-relaxed" x-text="t('blog_article_transactional.s5.p1')">
+                    Kurumsal ERP ve mikroservis sistemlerinizde TraceMailer transaksiyonel telemetri motorunu bağlamak için önerilen webhook ve olay modeli:
+                </p>
+
+                <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs">
+                    <h3 class="font-bold text-slate-900 text-sm mb-2" x-text="t('blog_article_transactional.s5.c_title')">
+                        Örnek: Öncelikli Transaksiyonel Gönderim Yükü (JSON)
+                    </h3>
+                    <pre class="bg-slate-900 text-slate-100 p-4 rounded-xl text-xs font-mono-code overflow-x-auto leading-relaxed"><code>{
+  "recipient": "ahmet.yilmaz@kurumsal.com",
+  "template_id": "erp_invoice_monthly_v3",
+  "idempotency_key": "inv_202610_88492019",
+  "priority": "P1_URGENT",
+  "routing": {
+    "pool": "transactional_dedicated",
+    "subdomain": "notify.normsoft.com.tr",
+    "require_tls": "TLSv1.3_STRICT"
+  },
+  "telemetry": {
+    "webhook_url": "https://erp.normsoft.com.tr/api/v1/mail-events",
+    "track_opens": true,
+    "track_clicks": true,
+    "pii_redaction": true
+  }
+}</code></pre>
+                    <p class="text-xs text-slate-500 mt-2" x-text="t('blog_article_transactional.s5.c_note')">
+                        Not: X-Priority-Class ve Idempotency-Key başlıkları, kritik şifre yenileme postalarının toplu fatura gönderimleri sırasında kuyrukta beklemesini tamamen engeller.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 6: Security & KVKK -->
+            <section id="guvenlik-kvkk" class="space-y-4 scroll-mt-28">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight" x-text="t('blog_article_transactional.s6.h2')">
+                    6. Kurumsal Güvenlik, KVKK ve Gizlilik Standartları
+                </h2>
+                <p class="text-slate-700 leading-relaxed" x-text="t('blog_article_transactional.s6.p1')">
+                    Transaksiyonel e-postalar doğrudan kişisel veri, finansal bilgi ve parola sıfırlama bağlantıları içerir. Bu nedenle kurumsal altyapılarda şu 3 güvenlik kuralı ödünsüz uygulanmalıdır:
+                </p>
+
+                <div class="space-y-3 pt-2">
+                    <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex items-start gap-3">
+                        <span class="text-blue-600 font-bold text-xs mt-0.5">🔒</span>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-sm" x-text="t('blog_article_transactional.s6.sec1_title')">Zorunlu TLS 1.3 Şifreleme (Strict In-Transit Encryption)</h3>
+                            <p class="text-xs text-slate-600 mt-1 leading-relaxed" x-text="t('blog_article_transactional.s6.sec1_desc')">Alıcı sunucu TLS desteklemediğinde düz metin (plaintext) gönderilmesine izin verilmemeli; STARTTLS protokolü zorunlu kılınmalıdır.</p>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex items-start gap-3">
+                        <span class="text-blue-600 font-bold text-xs mt-0.5">🛡️</span>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-sm" x-text="t('blog_article_transactional.s6.sec2_title')">Kişisel Verilerin Maskelenmesi (PII Redaction)</h3>
+                            <p class="text-xs text-slate-600 mt-1 leading-relaxed" x-text="t('blog_article_transactional.s6.sec2_desc')">Telemetri loglarında T.C. kimlik numarası, kredi kartı veya fatura içeriği saklanmamalı; yalnızca anonim mesaj tanımlayıcıları ve durum kodları loglanmalıdır.</p>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex items-start gap-3">
+                        <span class="text-blue-600 font-bold text-xs mt-0.5">📋</span>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-sm" x-text="t('blog_article_transactional.s6.sec3_title')">Transaksiyonel Saflık (Transactional Purity)</h3>
+                            <p class="text-xs text-slate-600 mt-1 leading-relaxed" x-text="t('blog_article_transactional.s6.sec3_desc')">Fatura veya hesap özeti e-postalarının altına pazarlama ve reklam banner'ları eklenmemelidir. Bu durum e-postanın hukuki niteliğini pazarlama sınıfına düşürür ve regülasyon cezalarına yol açar.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 7: FAQ -->
+            <section id="sikca-sorulan-sorular" class="space-y-4 scroll-mt-28">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight" x-text="t('blog_article_transactional.s7.h2')">
+                    7. Sıkça Sorulan Sorular
+                </h2>
+
+                <div class="space-y-3 pt-2">
+                    <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs">
+                        <h3 class="font-bold text-slate-900 text-sm mb-2" x-text="t('blog_article_transactional.s7.q1')">
+                            Transaksiyonel e-postalara abonelikten çıkma (unsubscribe) bağlantısı konulmalı mıdır?
+                        </h3>
+                        <p class="text-xs text-slate-600 leading-relaxed" x-text="t('blog_article_transactional.s7.a1')">
+                            Hayır. KVKK ve uluslararası mevzuat gereğince kullanıcının sözleşmesel veya yasal ilişkisinden doğan zorunlu bildirimlerde (e-fatura, şifre yenileme, güvenlik alarmı) abonelikten çıkma bağlantısı konulması zorunlu değildir; aksine konulması kullanıcının kritik güvenlik bildirimlerini kaçırmasına yol açar.
+                        </p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs">
+                        <h3 class="font-bold text-slate-900 text-sm mb-2" x-text="t('blog_article_transactional.s7.q2')">
+                            Pazarlama ve transaksiyonel postaları neden aynı IP üzerinden gönderemeyiz?
+                        </h3>
+                        <p class="text-xs text-slate-600 leading-relaxed" x-text="t('blog_article_transactional.s7.a2')">
+                            Pazarlama kampanyalarında yaşanacak ufak bir spam şikayeti artışı IP itibarını düşürür. Aynı IP üzerinden giden fatura veya aktivasyon kodlarınız da anında spam kutusuna düşer. Bu riski sıfırlamak için IP ve alt alan adı kesinlikle ayrılmalıdır.
+                        </p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs">
+                        <h3 class="font-bold text-slate-900 text-sm mb-2" x-text="t('blog_article_transactional.s7.q3')">
+                            Ayda 10 milyondan fazla gönderimde iletim maliyeti nasıl optimize edilir?
+                        </h3>
+                        <p class="text-xs text-slate-600 leading-relaxed" x-text="t('blog_article_transactional.s7.a3')">
+                            TraceMailer gibi telemetri araçlarıyla geçersiz e-posta adreslerini anında tespit edip kuyruktan eleyerek gereksiz sunucu kaynak tüketimini önleyebilir, hibrit SMTP havuzuyla maliyetleri %60'a varan oranda düşürebilirsiniz.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        </article>
+
+        <!-- Author Bio Box (Akın TERZİ - Normsoft Bilgi Teknolojileri A.Ş. Genel Müdürü & Kurucu) -->
+        <div class="my-14 p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-xs flex flex-col sm:flex-row items-center gap-6">
+            <img src="/static/akin-terzi.jpg" 
+                 alt="Akın TERZİ" 
+                 class="w-20 h-20 rounded-2xl object-cover ring-1 ring-slate-200 bg-slate-100 flex-shrink-0">
+            <div>
+                <h3 class="text-base font-bold text-slate-900" x-text="t('blog_article_transactional.author_bio.name')">Akın TERZİ</h3>
+                <p class="text-xs text-slate-500 font-medium mb-2" x-text="t('blog_article_transactional.author_bio.role')">Normsoft Bilgi Teknolojileri A.Ş. Genel Müdürü & Kurucu</p>
+                <p class="text-xs text-slate-600 leading-relaxed mb-3" x-text="t('blog_article_transactional.author_bio.desc')">
+                    Akın Terzi; DİJİTAL PLATFORM Organizasyonu ve NORMSOFT A.Ş. şirketlerinin kurucusu ve Genel Müdürüdür. CAD çözümleri, üretim sektörü, BIM, AR&VR ve kurumsal dijitalleşme stratejileri üzerine uzmanlaşmış olup, TraceParts'ın Türkiye ve bölge ülkelerdeki etkinliğini yönetmektedir. 15 yılı aşkın teknoloji liderliği deneyimiyle; büyük ölçekli kurumsal ERP, yüksek erişilebilirlikli mesaj kuyrukları ve 10M+ transaksiyonel bildirim mimarilerinde operasyonel mükemmellik sağlamaktadır.
+                </p>
+                <div class="flex flex-wrap items-center gap-3 pt-3 border-t border-slate-100">
+                    <a href="https://www.linkedin.com/in/akin-terzi/" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-white border border-slate-200/80 text-xs text-slate-700 hover:text-blue-600 hover:border-blue-200 transition-all font-semibold shadow-2xs">
+                        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://www.normsoft.com.tr/" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-white border border-slate-200/80 text-xs text-slate-700 hover:text-blue-600 hover:border-blue-200 transition-all font-semibold shadow-2xs">
+                        <span>Normsoft A.Ş.</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Guides Crosslink Box -->
+        <div class="my-10 p-6 sm:p-8 rounded-3xl bg-slate-100/70 border border-slate-200/80">
+            <div class="flex items-center gap-2 mb-4">
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider font-mono-code" x-text="t('blog_article_transactional.related.heading')">İlgili Rehberler</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <a href="/en/blog/why-emails-go-to-spam-guide/" class="p-4 rounded-2xl bg-white border border-slate-200/80 hover:border-blue-500 transition-colors group">
+                    <span class="text-2xs text-blue-600 font-bold block mb-1">Rehber 1</span>
+                    <h4 class="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug" x-text="t('blog_article_transactional.related.g1_title')">
+                        E-Postalar Neden Spama Düşer? %90+ Inbox Başarısı İçin 2026 Rehberi
+                    </h4>
+                </a>
+                <a href="/en/blog/dmarc-dkim-bimi-guide/" class="p-4 rounded-2xl bg-white border border-slate-200/80 hover:border-blue-500 transition-colors group">
+                    <span class="text-2xs text-blue-600 font-bold block mb-1">Rehber 2</span>
+                    <h4 class="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug" x-text="t('blog_article_transactional.related.g2_title')">
+                        DMARC, DKIM ve BIMI Rehberi: E-Postada Doğrulanmış Marka Logosu
+                    </h4>
+                </a>
+            </div>
+        </div>
+
+        <!-- CTA Box -->
+        <div class="my-12 p-8 sm:p-10 rounded-3xl bg-blue-600 text-white text-center shadow-lg shadow-blue-600/20">
+            <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-3" x-text="t('blog_article_transactional.cta.title')">
+                Kurumsal Transaksiyonel E-Posta Mimarinizi Güçlendirin
+            </h2>
+            <p class="text-blue-100 text-sm max-w-xl mx-auto mb-6 leading-relaxed" x-text="t('blog_article_transactional.cta.desc')">
+                TraceMailer ile gecikmesiz mesaj kuyrukları kurun, 10M+ gönderim kapasitesine ulaşın ve teslimat telemetrinizi canlı izleyin.
+            </p>
+            <a href="https://dash.tracemailer.com/register" 
+               class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white text-blue-600 font-bold text-sm shadow-sm hover:bg-blue-50 transition-all hover:scale-105 cursor-pointer"
+               x-text="t('blog_article_transactional.cta.button')">
+                Ücretsiz Entegrasyona Başlayın
+            </a>
+        </div>
+
+            </div><!-- Close Right Column -->
+        </div><!-- Close Two-column Layout -->
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200/80 py-12 px-6 mt-16">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-slate-500">
+            <div class="flex items-center gap-3">
+                <img src="/static/favicon.svg" alt="TraceMailer" class="w-6 h-6 rounded-lg">
+                <span class="font-bold text-slate-900 text-sm">Trace<span class="text-blue-600">Mailer</span></span>
+                <span class="text-slate-300">&bull;</span>
+                <span x-text="t('blog_hub.footer.tagline')">Yapay Zeka Destekli E-Posta Dağıtım & Telemetri Platformu</span>
+            </div>
+
+            <div class="flex items-center gap-6 text-slate-600 font-medium">
+                <a href="/en/#features" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.footer.why')">Neden TraceMailer?</a>
+                <a href="/en/#how-it-works" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.footer.how')">Nasıl Çalışır?</a>
+                <a href="/en/blog/" class="hover:text-blue-600 transition-colors font-semibold text-blue-600" x-text="t('blog_hub.footer.blog')">Rehber & Blog</a>
+                <a href="/en/#faq" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.footer.faq')">SSS</a>
+                <a href="https://dash.tracemailer.com/login" class="hover:text-blue-600 transition-colors" x-text="t('blog_hub.footer.login')">Müşteri Girişi</a>
+            </div>
+
+            <div class="text-slate-400 font-mono-code" x-text="t('blog_hub.footer.copyright')">
+                &copy; 2026 TraceMailer. Tüm hakları saklıdır.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Alpine.js App -->
+    <script>
+        function blogArticleTransactionalApp() {
+            return {
+                currentLang: 'en',
+                langMenuOpen: false,
+                mobileTocOpen: false,
+                activeSection: 'transaksiyonel-nedir',
+                readingProgress: 0,
+                sections: [
+                    { id: 'transaksiyonel-nedir', key: 's1' },
+                    { id: 'darbogazlar', key: 's2' },
+                    { id: 'vaka-analizi', key: 's3' },
+                    { id: 'mimari-katmanlar', key: 's4' },
+                    { id: 'entegrasyon-kod', key: 's5' },
+                    { id: 'guvenlik-kvkk', key: 's6' },
+                    { id: 'sikca-sorulan-sorular', key: 's7' }
+                ],
+
+                init() {
+                    if (window.i18n && window.i18n.getLanguage) {
+                        this.currentLang = window.i18n.getLanguage();
+                    } else {
+                        var stored = null;
+                        try { stored = localStorage.getItem('tracemailer_lang'); } catch(e){}
+                        if (stored === 'tr' || stored === 'en') {
+                            this.currentLang = stored;
+                        } else {
+                            var browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+                            this.currentLang = browserLang.startsWith('tr') ? 'tr' : 'en';
+                        }
+                    }
+
+                    if (window.i18n && window.i18n.setLanguage) {
+                        window.i18n.setLanguage(this.currentLang);
+                    }
+                    this.updateMeta();
+                    this.initScrollSpy();
+
+                    window.addEventListener('language-changed', (e) => {
+                        if (e.detail && e.detail.language && (e.detail.language === 'tr' || e.detail.language === 'en')) {
+                            this.currentLang = e.detail.language;
+                            this.updateMeta();
+                        }
+                    });
+                },
+
+                initScrollSpy() {
+                    const updateProgress = () => {
+                        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                        if (docHeight > 0) {
+                            const scrolled = window.scrollY || window.pageYOffset;
+                            this.readingProgress = Math.min(100, Math.max(0, Math.round((scrolled / docHeight) * 100)));
+                        }
+                    };
+                    window.addEventListener('scroll', updateProgress, { passive: true });
+                    updateProgress();
+
+                    if ('IntersectionObserver' in window) {
+                        const observer = new IntersectionObserver((entries) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    this.activeSection = entry.target.id;
+                                }
+                            });
+                        }, {
+                            rootMargin: '-10% 0px -65% 0px',
+                            threshold: 0
+                        });
+
+                        this.$nextTick(() => {
+                            this.sections.forEach(sec => {
+                                const el = document.getElementById(sec.id);
+                                if (el) observer.observe(el);
+                            });
+                        });
+                    }
+                },
+
+                scrollTo(id) {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        el.scrollIntoView({ behavior: 'smooth' });
+                        this.activeSection = id;
+                    }
+                },
+
+                getActiveSectionTitle() {
+                    const current = this.sections.find(s => s.id === this.activeSection);
+                    if (current) {
+                        return this.t('blog_article_transactional.toc.sections.' + current.key);
+                    }
+                    return this.t('blog_article_transactional.toc.heading');
+                },
+
+                setLang(lang) {
+                    if (lang === 'tr') {
+                        window.location.href = '/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/';
+                        return;
+                    }
+                    if (lang === 'en') {
+                        window.location.href = '/en/blog/transactional-email-architecture/';
+                        return;
+                    }
+                    if (lang !== 'tr' && lang !== 'en') return;
+                    if (window.i18n && window.i18n.setLanguage) {
+                        window.i18n.setLanguage(lang);
+                    } else {
+                        try { localStorage.setItem('tracemailer_lang', lang); } catch(e){}
+                    }
+                    this.currentLang = lang;
+                    this.updateMeta();
+                },
+
+                updateMeta() {
+                    if (document) {
+                        document.documentElement.lang = this.currentLang;
+                        document.title = this.t('blog_article_transactional.meta.title');
+                        const metaDesc = document.querySelector('meta[name="description"]');
+                        if (metaDesc) {
+                            metaDesc.setAttribute('content', this.t('blog_article_transactional.meta.desc'));
+                        }
+                    }
+                },
+
+                t(key, params) {
+                    const _active = this ? this.currentLang : null;
+                    if (window.i18n && window.i18n.t) {
+                        return window.i18n.t(key, params);
+                    }
+                    return key;
+                }
+            };
+        }
+    </script>
+
+</body>
+</html>
