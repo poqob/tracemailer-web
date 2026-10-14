@@ -1622,6 +1622,9 @@
                         date: '24 Ağustos 2026',
                         title: 'E-Postalar Neden Spama Düşer? %90+ Inbox Başarısı İçin 2026 Rehberi',
                         desc: 'Google ve Yahoo’nun getirdiği katı zorunluluklar, Apple MPP’nin yanıltıcı açılma pikselleri ve yapay zeka spam filtreleri çağında gelen kutusunda kalmanın teknik matematiği. 50.000 kişilik B2B test listesindeki vaka analizi ve adım adım eylem planı.',
+                        t1: 'ISP yapay zeka algoritmalarının e-postaları spam klasörüne atma nedenleri',
+                        t2: 'Ön-gönderim hijyeni: Geçici (disposable) adresleri ve spam trap\'leri filtreleme',
+                        t3: 'Google %0.10 şikayet eşiğini aşmadan inbox oranını %90 üzerine çıkarma',
                         read_btn: 'Rehberi Oku',
                         url: '/blog/eposta-spama-dusmeden-inbox-rehberi/'
                     },
@@ -1631,6 +1634,9 @@
                         date: '18 Eylül 2026',
                         title: 'DMARC, DKIM ve BIMI Rehberi: E-Postada Doğrulanmış Marka Logosu',
                         desc: 'Google ve Yahoo’nun 2026 zorunlu gönderici kuralları, SPF/DKIM hizalaması ve Gmail ile Apple Mail kutularında doğrulanmış mavi tikli marka logosu gösterme rehberi. Phishing engelleme ve %22 açılma artışı vaka analizi.',
+                        t1: 'Adım adım SPF, DKIM ve DMARC p=reject DNS kurulum rehberi',
+                        t2: 'Gmail ve Apple Mail\'de onaylı SVG Tiny logolu BIMI ve VMC sertifikası alma',
+                        t3: '2026 Google & Yahoo zorunlu toplu gönderici kurallarına tam uyum',
                         read_btn: 'Rehberi Oku',
                         url: '/blog/dmarc-dkim-bimi-rehberi/'
                     },
@@ -1640,6 +1646,9 @@
                         date: "2 Ekim 2026",
                         title: "Transaksiyonel E-Posta Mimarisi: Kurumsal Sistemlerde 10M+ Dağıtım",
                         desc: "Normsoft ERP ve SaaS altyapılarında ayda 10 milyondan fazla e-fatura, OTP ve kritik bildirimi gecikmesiz, kuyruk kilitlenmesi olmadan ve spama düşmeden iletme rehberi. Akın Terzi'den vaka analizi ve mimari ilkeler.",
+                        t1: 'Ayda 10M+ kritik bildirim & OTP için gecikmesiz kuyruk mimarisi',
+                        t2: 'Kuyruk kilitlenmelerini ve SMTP 421 hız kısıtlamalarını önleme yöntemleri',
+                        t3: 'Dağıtık IP havuzları ve ISP bazlı adaptif devre kesici (circuit breaker) yönetimi',
                         read_btn: "Rehberi Oku",
                         url: "/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/"
                     },
@@ -1649,6 +1658,9 @@
                         date: "6 Ekim 2026",
                         title: "2026 Kurumsal E-Posta Teslimat ve Güvenlik Raporu: 3.200+ Domain Analizi",
                         desc: "TraceMailer Telemetri Laboratuvarı’ndan 4.862 e-posta ve 3.240 alan adı üzerinde 1 aylık veri setiyle gerçekleştirilen kapsamlı araştırma. Apple MPP’nin %51.4’lük sahte piksel gerçeği, DMARC p=reject’in %94.6 inbox başarısı ve STO etkileşim kazanımları.",
+                        t1: 'Apple MPP %51.4 sahte bot açılması vs %21.8 gerçek insan açılma oranı',
+                        t2: 'DMARC p=reject uygulayan domain\'lerde %94.6 primary inbox yerleşimi',
+                        t3: 'Kişiselleştirilmiş STO zamanlaması ile ilk 60 dakikada +%41.3 tıklama artışı',
                         read_btn: "Raporu İncele",
                         url: "/blog/2026-eposta-teslimat-ve-guvenlik-istatistikleri/"
                     }
@@ -4399,8 +4411,11 @@
                         date: 'August 24, 2026',
                         title: 'Why Do Emails Go to Spam? 2026 Guide for 90%+ Inbox Placement',
                         desc: 'The technical mechanics of staying in the primary inbox amidst strict Google & Yahoo requirements, Apple MPP pixel masking, and AI spam filters. A 50k B2B case study and step-by-step action plan.',
+                        t1: 'How ISP AI heuristics evaluate sending reputation and decide inbox vs spam',
+                        t2: 'Pre-send hygiene: Filtering disposable emails, syntax typos, and spam traps',
+                        t3: 'Keeping complaint rates below the 0.10% threshold to sustain 90%+ inbox reach',
                         read_btn: 'Read Guide',
-                        url: '/blog/eposta-spama-dusmeden-inbox-rehberi/'
+                        url: '/en/blog/why-emails-go-to-spam-guide/'
                     },
                     g2: {
                         category: 'Email Security & Authentication',
@@ -4408,8 +4423,11 @@
                         date: 'September 18, 2026',
                         title: 'DMARC, DKIM & BIMI Guide: Verified Brand Logos & Email Security',
                         desc: 'Master Google & Yahoo bulk sender authentication rules, eliminate phishing spoofing, and display verified brand checkmark logos in Gmail and Apple Mail. A fintech case study with +22% open rate lift.',
+                        t1: 'Step-by-step DNS setup for SPF, DKIM, and strict DMARC p=reject policies',
+                        t2: 'Displaying verified SVG Tiny brand checkmarks in Gmail and Apple Mail via BIMI & VMC',
+                        t3: 'Full compliance with mandatory Google & Yahoo 2026 sender requirements',
                         read_btn: 'Read Guide',
-                        url: '/blog/dmarc-dkim-bimi-rehberi/'
+                        url: '/en/blog/dmarc-dkim-bimi-guide/'
                     },
                     g3: {
                         category: "Enterprise Architecture & Transactional Delivery",
@@ -4417,8 +4435,11 @@
                         date: "October 2, 2026",
                         title: "Transactional Email Architecture: Scaling 10M+ Enterprise Mail",
                         desc: "A practical engineering guide to delivering 10M+ monthly invoices, OTPs, and mission-critical alerts without latency, queue blockages, or spam filtering by Normsoft GM Akin Terzi.",
+                        t1: 'Zero-latency queue pipelines for 10M+ monthly OTP and invoice notifications',
+                        t2: 'Preventing queue starvation and SMTP 421 provider rate-limiting deferrals',
+                        t3: 'Multi-tenant IP pooling and adaptive circuit-breaker routing',
                         read_btn: "Read Guide",
-                        url: "/blog/transaksiyonel-eposta-mimarisi-kurumsal-rehber/"
+                        url: "/en/blog/transactional-email-architecture/"
                     },
                     g4: {
                         category: "Industry Benchmark Report // 2026",
@@ -4426,8 +4447,11 @@
                         date: "October 6, 2026",
                         title: "2026 Enterprise Email Deliverability and Security Report: 3.2K Domains",
                         desc: "Comprehensive research by TraceMailer Telemetry Lab analyzing 4,862 emails across 3,240 enterprise domains over 1 month. Apple MPP 51.4% bot open reality, DMARC p=reject 94.6% inbox placement, and STO lift.",
+                        t1: '51.4% Apple MPP synthetic bot caching vs 21.8% verified human open rate',
+                        t2: '94.6% primary inbox placement for domains enforcing DMARC p=reject',
+                        t3: '+41.3% click-through engagement lift via AI Send Time Optimization (STO)',
                         read_btn: "Read Report",
-                        url: "/blog/2026-eposta-teslimat-ve-guvenlik-istatistikleri/"
+                        url: "/en/blog/2026-email-deliverability-benchmark-report/"
                     }
                 },
                 topics: {
