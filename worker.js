@@ -1,5 +1,6 @@
 import { onRequestPost as handleContact } from './functions/api/contact.js';
 import { onRequestGet as handlePlans } from './functions/api/public/plans.js';
+import { onRequestGet as handleStats } from './functions/api/public/stats.js';
 
 export default {
   async fetch(request, env, ctx) {
@@ -22,6 +23,11 @@ export default {
     // Route: /api/plans or /api/public/plans
     if ((url.pathname === '/api/plans' || url.pathname === '/api/public/plans') && request.method === 'GET') {
       return handlePlans(context);
+    }
+
+    // Route: /api/stats or /api/public/stats
+    if ((url.pathname === '/api/stats' || url.pathname === '/api/public/stats') && request.method === 'GET') {
+      return handleStats(context);
     }
 
     // Static assets fallback

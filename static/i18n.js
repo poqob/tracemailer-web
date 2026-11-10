@@ -1409,7 +1409,11 @@
                     cta_secondary: 'Nasıl Çalışır?',
                     trust_1: 'Gelişmiş Tıklama & Görüntüleme Telemetrisi',
                     trust_2: 'Akıllı Liste Hijyeni & Karantina',
-                    trust_3: 'Spam Korumalı Dağıtım Motoru'
+                    trust_3: 'Spam Korumalı Dağıtım Motoru',
+                    live_telemetry_badge: 'CANLI TELEMETRİ',
+                    live_network_sub: 'Doğrulanmış Dağıtım',
+                    total_emails_label: 'Gönderilen E-Posta',
+                    total_campaigns_label: 'Başarılı Kampanya'
                 },
                 stats: {
                     inbox_rate: '%92',
@@ -1419,7 +1423,9 @@
                     geo_count: '40+',
                     geo_label: 'Doğrulanmış Şehir / Ülke',
                     latency: '< 150ms',
-                    latency_label: 'Gerçek Zamanlı Telemetri'
+                    latency_label: 'Gerçek Zamanlı Telemetri',
+                    emails_sent_label: 'Toplam Dağıtılan E-Posta',
+                    campaigns_label: 'Tamamlanan Kampanya'
                 },
                 features: {
                     badge: 'Gelişmiş Teknoloji',
@@ -4210,7 +4216,11 @@
                     cta_secondary: 'How It Works',
                     trust_1: 'Advanced Click & Open Telemetry',
                     trust_2: 'Smart List Hygiene & Quarantine',
-                    trust_3: 'Spam-Resistant Dispatch Engine'
+                    trust_3: 'Spam-Resistant Dispatch Engine',
+                    live_telemetry_badge: 'LIVE TELEMETRY',
+                    live_network_sub: 'Verified Delivery',
+                    total_emails_label: 'Delivered Emails',
+                    total_campaigns_label: 'Active Campaigns'
                 },
                 stats: {
                     inbox_rate: '92%',
@@ -4220,7 +4230,9 @@
                     geo_count: '40+',
                     geo_label: 'Verified Cities / Countries',
                     latency: '< 150ms',
-                    latency_label: 'Real-Time Telemetry'
+                    latency_label: 'Real-Time Telemetry',
+                    emails_sent_label: 'Total Delivered Emails',
+                    campaigns_label: 'Active Campaigns'
                 },
                 features: {
                     badge: 'Advanced Technology',

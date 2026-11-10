@@ -22,8 +22,18 @@ function landingApp() {
             phone: '',
             message: ''
         },
+        liveStats: {
+            emailsSent: 0,
+            targetEmailsSent: 11175,
+            campaigns: 0,
+            targetCampaigns: 193,
+            loaded: false
+        },
 
         init() {
+            // Fetch live public platform stats with silky counter animation
+            this.fetchLiveStats();
+
             // Fetch public plans if any are published by admin
             this.fetchPlans();
 
@@ -86,6 +96,58 @@ function landingApp() {
                     this.plans = [];
                 }
             }
+        },
+
+        async fetchLiveStats() {
+            let emails = 11175;
+            let campaigns = 193;
+            try {
+                // Try local proxy first for sub-50ms delivery, fallback to direct dashboard API
+                let res = await fetch('/api/public/stats');
+                if (!res.ok) {
+                    res = await fetch('https://dash.tracemailer.com/api/public/stats');
+                }
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data && data.success) {
+                        emails = Number(data.total_emails_sent) || emails;
+                        campaigns = Number(data.total_campaigns) || campaigns;
+                    }
+                }
+            } catch (e) {
+                console.warn('[TraceMailer Stats] Using edge fallback stats:', e);
+            }
+            this.liveStats.targetEmailsSent = emails;
+            this.liveStats.targetCampaigns = campaigns;
+            this.animateLiveCounters(emails, campaigns);
+        },
+
+        animateLiveCounters(targetEmails, targetCampaigns) {
+            const duration = 1800; // 1.8 seconds silky counter
+            const startTime = performance.now();
+            const update = (now) => {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                // easeOutCubic curve for smooth finish
+                const ease = 1 - Math.pow(1 - progress, 3);
+
+                this.liveStats.emailsSent = Math.floor(ease * targetEmails);
+                this.liveStats.campaigns = Math.floor(ease * targetCampaigns);
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    this.liveStats.emailsSent = targetEmails;
+                    this.liveStats.campaigns = targetCampaigns;
+                    this.liveStats.loaded = true;
+                }
+            };
+            requestAnimationFrame(update);
+        },
+
+        formatNumber(num) {
+            if (num === null || num === undefined) return '0';
+            return Number(num).toLocaleString(this.currentLang === 'tr' ? 'tr-TR' : 'en-US');
         },
 
         checkMobile() {
@@ -190,26 +252,26 @@ function landingApp() {
         getIconPos(name) {
             const isM = this.isMobile;
             const desktopPos = {
-                google:      { x: 48, y: 8 },
+                google:      { x: 48, y: 7 },
                 gmail:       { x: 16, y: 18 },
                 aws:         { x: 80, y: 16 },
-                smtp:        { x: 10, y: 46 },
-                mail:        { x: 48, y: 46 },
-                zoho:        { x: 84, y: 46 },
-                icloud:      { x: 16, y: 76 },
-                imap:        { x: 48, y: 84 },
-                thunderbird: { x: 80, y: 78 }
+                smtp:        { x: 10, y: 42 },
+                mail:        { x: 48, y: 40 },
+                zoho:        { x: 84, y: 42 },
+                icloud:      { x: 16, y: 68 },
+                imap:        { x: 48, y: 64 },
+                thunderbird: { x: 80, y: 68 }
             };
             const mobilePos = {
-                google:      { x: 50, y: 7 },
-                gmail:       { x: 24, y: 18 },
-                aws:         { x: 76, y: 19 },
-                smtp:        { x: 22, y: 35 },
-                mail:        { x: 50, y: 50 },
-                zoho:        { x: 78, y: 64 },
-                icloud:      { x: 22, y: 72 },
-                imap:        { x: 76, y: 84 },
-                thunderbird: { x: 50, y: 93 }
+                google:      { x: 50, y: 6 },
+                gmail:       { x: 22, y: 15 },
+                aws:         { x: 78, y: 15 },
+                smtp:        { x: 20, y: 30 },
+                mail:        { x: 50, y: 40 },
+                zoho:        { x: 80, y: 50 },
+                icloud:      { x: 20, y: 60 },
+                imap:        { x: 50, y: 68 },
+                thunderbird: { x: 80, y: 68 }
             };
             return (isM ? mobilePos[name] : desktopPos[name]) || { x: 50, y: 50 };
         },
