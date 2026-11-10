@@ -496,40 +496,26 @@
                     </div>
 
                     <!-- 11. Live Network Telemetry Stats HUD -->
-                    <div class="absolute bottom-1 sm:bottom-2 left-1/2 -translate-x-1/2 z-20 pointer-events-auto w-[92%] sm:w-auto">
-                        <div class="px-4 py-3 sm:px-6 sm:py-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-xl shadow-blue-600/10 hover:shadow-2xl hover:border-blue-300 transition-all">
-                            <div class="flex items-center justify-between gap-3 sm:gap-6">
-                                <!-- Live Beacon -->
-                                <div class="flex items-center gap-2">
-                                    <span class="relative flex h-2.5 w-2.5">
-                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-                                    </span>
-                                    <div class="text-left">
-                                        <span class="text-[10px] uppercase tracking-wider font-bold text-emerald-700 block whitespace-nowrap" x-text="t('landing.hero.live_telemetry_badge')">LIVE TELEMETRY</span>
-                                        <span class="text-[9px] text-slate-500 font-medium block whitespace-nowrap" x-text="t('landing.hero.live_network_sub')">Verified Delivery</span>
-                                    </div>
-                                </div>
-
-                                <div class="h-7 w-px bg-slate-200/80"></div>
-
+                    <div class="absolute -bottom-4 sm:-bottom-6 lg:-bottom-7 left-1/2 -translate-x-1/2 z-20 pointer-events-auto w-[90%] sm:w-auto">
+                        <div class="px-5 py-3 sm:px-7 sm:py-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-xl shadow-blue-600/10 hover:shadow-2xl hover:border-blue-300 transition-all">
+                            <div class="flex items-center justify-center gap-6 sm:gap-10">
                                 <!-- Metric 1: Emails Sent -->
-                                <div class="text-center sm:text-left">
-                                    <div class="text-base sm:text-lg font-black text-slate-900 font-mono-code tracking-tight flex items-center justify-center sm:justify-start">
+                                <div class="text-center">
+                                    <div class="text-base sm:text-xl font-black text-slate-900 font-mono-code tracking-tight flex items-center justify-center">
                                         <span x-text="formatNumber(liveStats.emailsSent)">0</span>
-                                        <span class="text-blue-600 text-xs font-bold ml-0.5">+</span>
+                                        <span class="text-blue-600 text-xs sm:text-sm font-bold ml-0.5">+</span>
                                     </div>
-                                    <div class="text-[10px] font-semibold text-slate-500 tracking-tight whitespace-nowrap" x-text="t('landing.hero.total_emails_label')">Delivered Emails</div>
+                                    <div class="text-[10px] sm:text-xs font-semibold text-slate-500 tracking-tight whitespace-nowrap mt-0.5" x-text="t('landing.hero.total_emails_label')">Delivered Emails</div>
                                 </div>
 
-                                <div class="h-7 w-px bg-slate-200/80"></div>
+                                <div class="h-8 w-px bg-slate-200/80"></div>
 
                                 <!-- Metric 2: Campaigns -->
-                                <div class="text-center sm:text-left">
-                                    <div class="text-base sm:text-lg font-black text-blue-600 font-mono-code tracking-tight flex items-center justify-center sm:justify-start">
+                                <div class="text-center">
+                                    <div class="text-base sm:text-xl font-black text-blue-600 font-mono-code tracking-tight flex items-center justify-center">
                                         <span x-text="formatNumber(liveStats.campaigns)">0</span>
                                     </div>
-                                    <div class="text-[10px] font-semibold text-slate-500 tracking-tight whitespace-nowrap" x-text="t('landing.hero.total_campaigns_label')">Active Campaigns</div>
+                                    <div class="text-[10px] sm:text-xs font-semibold text-slate-500 tracking-tight whitespace-nowrap mt-0.5" x-text="t('landing.hero.total_campaigns_label')">Active Campaigns</div>
                                 </div>
                             </div>
                         </div>
