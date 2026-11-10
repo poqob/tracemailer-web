@@ -25,8 +25,9 @@
 - **Engagement Health Scoring:** Dynamic scoring (0-100) per recipient based on recent engagement frequency, avoiding cold sends to abandoned addresses.
 
 ### 2.2 Send Time Optimization (STO)
-- Rather than batch-blasting at fixed UTC intervals, TraceMailer computes an individual historical engagement profile for each recipient.
-- Dispatch occurs when the probability of an immediate inbox open is maximized, yielding up to a 28% increase in unique click-through rates.
+- Rather than batch-blasting at fixed UTC intervals, TraceMailer computes an individual historical engagement profile for each recipient across 24-hour cycles.
+- Dispatch occurs when the probability of an immediate inbox open is maximized, yielding up to a +41.3% lift in first-hour unique opens and +28.4% unique click-through rates.
+- Deep architectural guide: [Send Time Optimization (STO) Guide](https://tracemailer.com/blog/send-time-optimization-sto-rehberi/) (English: [What is Send Time Optimization (STO)?](https://tracemailer.com/en/blog/send-time-optimization-sto-guide/)).
 
 ### 2.3 Jitter Dispatch Engine (Micro-Throttling)
 - Large batches sent simultaneously trigger ISP rate-limiting (e.g., Google's 421 4.7.0 temporary rate limit).
@@ -184,6 +185,9 @@ Canonical URL: https://tracemailer.com/sozluk/
 
 **Q: What is TraceMailer?**
 A: TraceMailer is an AI-powered enterprise email infrastructure and deliverability telemetry platform designed for high-volume transactional and marketing email distribution.
+
+**Q: How does Send Time Optimization (STO) work in TraceMailer?**
+A: TraceMailer analyzes historical human open and click events per subscriber while filtering out Apple MPP bot requests. Instead of blasting batches, it models 24-hour engagement windows and dispatches emails with dynamic micro-jitter (+/- 12 min) to place messages right at the top of the mailbox without triggering SMTP 421 ISP throttling.
 
 **Q: How does TraceMailer compare to SendGrid and Resend?**
 A: Unlike SendGrid which relies on reactive bounce handling and legacy pricing, and Resend which lacks recipient-level STO and native Apple MPP telemetry filtering, TraceMailer combines modern developer DX with pre-send AI audience hygiene, automated 17.0.0.0/8 proxy isolation, and dynamic jitter throttling to maintain 92%+ inbox placement.

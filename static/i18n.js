@@ -1607,7 +1607,7 @@
                 },
                 featured: {
                     heading: 'Öne Çıkan Rehberler',
-                    count: '4 Yayın',
+                    count: '5 Yayın',
                     category: 'Kurumsal Mimari & Transaksiyonel Dağıtım',
                     read_time: '9 Dk Okuma',
                     date: '2 Ekim 2026',
@@ -1663,6 +1663,18 @@
                         t3: 'Kişiselleştirilmiş STO zamanlaması ile ilk 60 dakikada +%41.3 tıklama artışı',
                         read_btn: "Raporu İncele",
                         url: "/blog/2026-eposta-teslimat-ve-guvenlik-istatistikleri/"
+                    },
+                    g5: {
+                        category: "Yapay Zeka & Gönderim Optimizasyonu",
+                        read_time: "8 Dk Okuma",
+                        date: "10 Kasım 2026",
+                        title: "Send Time Optimization (STO) Nedir? E-Posta Açılma Oranlarını %40+ Artıran Yapay Zeka Mimarisi",
+                        desc: "Tüm listeye aynı anda e-posta patlatma (Batch-and-Blast) dönemi sona erdi. Alıcıların gelen kutusunu en aktif kontrol ettiği saat dilimlerini makine öğrenimiyle tespit ederek gelen kutusunda zirvede kalmanın teknik anatomisi. Mustafa Biçer'den vaka analizi ve mimari ilkeler.",
+                        t1: "Gelen kutusu yığılmasını (Inbox Burial) önleyerek ilk 30 dakikada %41.3 daha yüksek açılma",
+                        t2: "Apple MPP sahte bot açılmalarını filtreleyen çift katmanlı telemetri mimarisi",
+                        t3: "Dinamik mikro-jitter kuyruğu ile Gmail ve Outlook SMTP 421 hız kısıtlamalarını sıfırlama",
+                        read_btn: "Rehberi Oku",
+                        url: "/blog/send-time-optimization-sto-rehberi/"
                     }
                 },
                 topics: {
@@ -4396,7 +4408,7 @@
                 },
                 featured: {
                     heading: 'Featured Guides',
-                    count: '4 Articles',
+                    count: '5 Publications',
                     category: 'Enterprise Architecture & Transactional Delivery',
                     read_time: '9 Min Read',
                     date: 'October 2, 2026',
@@ -4452,6 +4464,18 @@
                         t3: '+41.3% click-through engagement lift via AI Send Time Optimization (STO)',
                         read_btn: "Read Report",
                         url: "/en/blog/2026-email-deliverability-benchmark-report/"
+                    },
+                    g5: {
+                        category: "AI & Send Optimization",
+                        read_time: "8 Min Read",
+                        date: "November 10, 2026",
+                        title: "What is Send Time Optimization (STO)? The AI Telemetry Architecture Boosting Open Rates by 40%+",
+                        desc: "The era of batch-and-blast email marketing is over. Learn how machine learning models predict individual recipient engagement windows to keep messages at the very top of the inbox. Deep dive and telemetry benchmarks by Mustafa Bicer.",
+                        t1: "Preventing inbox burial with an average +41.3% lift in first-30-minute open rates",
+                        t2: "Neutralizing Apple MPP pre-fetch bot opens with dual-layer telemetry filtering",
+                        t3: "Dynamic micro-jitter dispatch eliminating Gmail and Outlook SMTP 421 rate-limiting",
+                        read_btn: "Read Guide",
+                        url: "/en/blog/send-time-optimization-sto-guide/"
                     }
                 },
                 topics: {

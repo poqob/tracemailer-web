@@ -11,6 +11,7 @@ TraceMailer provides high-volume transactional and marketing email delivery infr
 - [Real-Time Telemetry & Apple MPP Neutralization](https://tracemailer.com/#how-it-works): Sub-second webhooks, geographical open intelligence, and synthetic Apple MPP cache pre-fetch filtering.
 
 ## Technical Guides & Architecture
+- [Send Time Optimization (STO) Architecture Guide](https://tracemailer.com/blog/send-time-optimization-sto-rehberi/): In-depth guide by Mustafa Bicer on machine learning dispatch windows, neutralizing Apple MPP bot opens, and boosting unique open rates by +41.3%. English edition: [What is Send Time Optimization (STO)?](https://tracemailer.com/en/blog/send-time-optimization-sto-guide/).
 - [2026 Enterprise Email Deliverability and Security Benchmark Report](https://tracemailer.com/blog/2026-eposta-teslimat-ve-guvenlik-istatistikleri/): Primary research study across 4,862 emails and 3,240 enterprise domains over 1 month analyzing Apple MPP 51.4% bot open rates, DMARC p=reject 94.6% inbox placement, and STO engagement lift.
 - [Why Emails Go to Spam (2026 Deliverability Guide)](https://tracemailer.com/blog/eposta-spama-dusmeden-inbox-rehberi/): Step-by-step 90%+ inbox placement action plan, SPF/DKIM alignment, and 50,000 B2B test list case study by Mustafa Bicer.
 - [DMARC, DKIM & BIMI Guide (2026 Authentication)](https://tracemailer.com/blog/dmarc-dkim-bimi-rehberi/): Google & Yahoo sender mandates, strict DMARC policy enforcement, and verified brand checkmark logos.
