@@ -252,26 +252,26 @@ function landingApp() {
         getIconPos(name) {
             const isM = this.isMobile;
             const desktopPos = {
-                google:      { x: 48, y: 7 },
+                google:      { x: 48, y: 8 },
                 gmail:       { x: 16, y: 18 },
                 aws:         { x: 80, y: 16 },
-                smtp:        { x: 10, y: 42 },
-                mail:        { x: 48, y: 40 },
-                zoho:        { x: 84, y: 42 },
-                icloud:      { x: 16, y: 68 },
-                imap:        { x: 48, y: 64 },
-                thunderbird: { x: 80, y: 68 }
+                smtp:        { x: 10, y: 46 },
+                mail:        { x: 48, y: 46 },
+                zoho:        { x: 84, y: 46 },
+                icloud:      { x: 16, y: 76 },
+                imap:        { x: 48, y: 84 },
+                thunderbird: { x: 80, y: 78 }
             };
             const mobilePos = {
-                google:      { x: 50, y: 6 },
-                gmail:       { x: 22, y: 15 },
-                aws:         { x: 78, y: 15 },
-                smtp:        { x: 20, y: 30 },
-                mail:        { x: 50, y: 40 },
-                zoho:        { x: 80, y: 50 },
-                icloud:      { x: 20, y: 60 },
-                imap:        { x: 50, y: 68 },
-                thunderbird: { x: 80, y: 68 }
+                google:      { x: 50, y: 7 },
+                gmail:       { x: 24, y: 18 },
+                aws:         { x: 76, y: 19 },
+                smtp:        { x: 22, y: 35 },
+                mail:        { x: 50, y: 50 },
+                zoho:        { x: 78, y: 64 },
+                icloud:      { x: 22, y: 72 },
+                imap:        { x: 76, y: 84 },
+                thunderbird: { x: 50, y: 93 }
             };
             return (isM ? mobilePos[name] : desktopPos[name]) || { x: 50, y: 50 };
         },
