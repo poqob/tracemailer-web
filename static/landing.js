@@ -258,20 +258,20 @@ function landingApp() {
                 smtp:        { x: 10, y: 46 },
                 mail:        { x: 48, y: 46 },
                 zoho:        { x: 84, y: 46 },
-                icloud:      { x: 16, y: 76 },
-                imap:        { x: 48, y: 84 },
-                thunderbird: { x: 80, y: 78 }
+                icloud:      { x: 16, y: 74 },
+                thunderbird: { x: 80, y: 76 },
+                imap:        { x: 48, y: 86 }
             };
             const mobilePos = {
-                google:      { x: 50, y: 7 },
-                gmail:       { x: 24, y: 18 },
-                aws:         { x: 76, y: 19 },
-                smtp:        { x: 22, y: 35 },
-                mail:        { x: 50, y: 50 },
-                zoho:        { x: 78, y: 64 },
-                icloud:      { x: 22, y: 72 },
-                imap:        { x: 76, y: 84 },
-                thunderbird: { x: 50, y: 93 }
+                google:      { x: 50, y: 8 },
+                gmail:       { x: 22, y: 18 },
+                aws:         { x: 78, y: 18 },
+                smtp:        { x: 20, y: 34 },
+                mail:        { x: 50, y: 48 },
+                zoho:        { x: 80, y: 58 },
+                icloud:      { x: 20, y: 70 },
+                thunderbird: { x: 78, y: 78 },
+                imap:        { x: 50, y: 88 }
             };
             return (isM ? mobilePos[name] : desktopPos[name]) || { x: 50, y: 50 };
         },
