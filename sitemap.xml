@@ -38,6 +38,14 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://tracemailer.com/blog/veri-merkezi-projelerine-hvac-ihracati-rehberi/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tracemailer.com/blog/veri-merkezi-projelerine-hvac-ihracati-rehberi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracemailer.com/blog/veri-merkezi-projelerine-hvac-ihracati-rehberi/"/>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://tracemailer.com/blog/send-time-optimization-sto-rehberi/</loc>
     <xhtml:link rel="alternate" hreflang="tr" href="https://tracemailer.com/blog/send-time-optimization-sto-rehberi/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://tracemailer.com/en/blog/send-time-optimization-sto-guide/"/>
