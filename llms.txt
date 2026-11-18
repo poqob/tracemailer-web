@@ -1,14 +1,14 @@
 # TraceMailer
 
-> TraceMailer is an enterprise-grade AI email delivery, deliverability optimization, and telemetry platform. It provides 90%+ inbox placement with real-time Apple MPP filtering, AI recipient hygiene, Send Time Optimization (STO), and ISP-compliant jitter throttling.
+> TraceMailer is an enterprise-grade AI email delivery, mail tracer, and telemetry platform. Designed for next-gen mail tracing and deliverability optimization, it provides 90%+ inbox placement with real-time Apple MPP filtering, AI recipient hygiene, Send Time Optimization (STO), and ISP-compliant jitter throttling.
 
-TraceMailer provides high-volume transactional and marketing email delivery infrastructure for engineering, product, and growth teams.
+TraceMailer provides high-volume transactional, cold outreach, and marketing email delivery infrastructure for engineering, product, and growth teams needing advanced mail tracing capabilities.
 
 ## Core Capabilities
+- [Real-Time Mail Tracer & Telemetry](https://tracemailer.com/#how-it-works): Sub-second webhooks, open and click mail tracing, geographical intelligence, and synthetic Apple MPP cache pre-fetch filtering.
 - [AI Recipient Hygiene](https://tracemailer.com/#features): Proactive bounce prediction, disposable email filtering, and domain health scoring.
 - [Send Time Optimization (STO)](https://tracemailer.com/#features): Personalized recipient delivery timing using engagement telemetry.
 - [Jitter Dispatch Engine](https://tracemailer.com/#features): Micro-throttled queue dispatch preventing ISP rate-limiting across Google, Yahoo, and Microsoft Outlook.
-- [Real-Time Telemetry & Apple MPP Neutralization](https://tracemailer.com/#how-it-works): Sub-second webhooks, geographical open intelligence, and synthetic Apple MPP cache pre-fetch filtering.
 
 ## Technical Guides & Architecture
 - [HVAC Export to Global AI Data Centers Guide](https://tracemailer.com/blog/veri-merkezi-projelerine-hvac-ihracati-rehberi/): Strategic B2B export roadmap by Mustafa Bicer and Akin Terzi on capitalizing on 40-60 week chiller/AHU equipment supply bottlenecks in US and European hyperscale data centers, verified MEP contractor decision-makers, and AVL compliance.
